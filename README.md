@@ -3,4 +3,4 @@
 Training project Lorem Food Delivery website
 
 Mentored by : Ashok.
-Team members : Anusha, Rakesh and Chirag.
+Team members : Anusha, Rakesh R and Chirag.
