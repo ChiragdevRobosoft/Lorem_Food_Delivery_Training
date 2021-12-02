@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  .one {
+    background-image: url("./../../assets/homepage/BG\ p1.png");
+    height: 935px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+  }
+  .two {
+    background-image: url("./../../assets/homepage/BG\ p2.png");
+    height: 617px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+  }
+  .three {
+    background-image: url("./../../assets/homepage/BG\ p3.png");
+    height: 823px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+  }
+  .four {
+    background-image: url("./../../assets/homepage/BG\ p4.png");
+    height: 780px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+  }
+  .five {
+    height: 847px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+  }
+}
