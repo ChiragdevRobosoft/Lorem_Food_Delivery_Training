@@ -6,7 +6,15 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.react-responsive-modal-modal {
+  width: 5%;
+	padding: 0;
+	background-colour: transparent;
+	border: none;
+	right: 0px;
+	position: absolute;
+	top: 3%;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal'
 import './App.css';
-import Test from "./components/login/index";
+import Login from "./containers/login/index";
 
-function App() {
+
+const App = () => {
+  const [open, setOpen] = useState(true);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
   return (
-    <div className="App">
-      <Test />
+    <div>
+      <Modal open={open} onClose={onCloseModal} >
+        <Login onCloseModal={onCloseModal} />
+      </Modal>
+
     </div>
   );
 }
 
+
+
 export default App;
+
