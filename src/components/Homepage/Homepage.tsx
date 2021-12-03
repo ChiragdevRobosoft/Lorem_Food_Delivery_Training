@@ -1,10 +1,11 @@
+import Firstpage from "./Firstpage/Firstpage";
 import "./Homepage.scss";
 
 const Homepage = () => {
   return (
     <div className="container">
       <div className="one">
-        <h1> First Page</h1>
+        <Firstpage />
       </div>
       <div className="two">
         <h1> second Page</h1>
