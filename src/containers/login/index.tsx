@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import closeButton from '../../assets/close_button.png';
 import Button1 from '../../components/button/index';
-
+import { useHistory } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 
+
 const Login = ({ onCloseModal }: { onCloseModal: any }) => {
+	const history = useHistory();
 	return (
 		<Wrapper>
 			<WrapperLeft>
@@ -24,7 +26,7 @@ const Login = ({ onCloseModal }: { onCloseModal: any }) => {
 				<Title>Let's get started!</Title>
 				<TextBox name='Email' isPassword={false}></TextBox>
 				<TextBox name='Password' isPassword={true}></TextBox>
-				<Button5 name="Forgot Password?">Forgot Password?</Button5>
+				<Button5 name="Forgot Password?" onClick={() => history.push("/forgot-password")}>Forgot Password?</Button5>
 				<Button1 name="LOGIN"></Button1>
 				<Button3 name="Facebook">Facebook</Button3>
 				<Button4 name="Google+">Google+</Button4>
@@ -51,7 +53,8 @@ height: 19px;
   `;
 const Bottom = styled.div`
   flex-direction: row;
-  margin-bottom: 20px;
+  margin-bottom:20px;
+  margin-top: -10px;
   display: flex ;
   align-self: center;
 	`;
@@ -96,6 +99,7 @@ const Button5 = styled.button`
   line-height: 19px;
   margin-left:300px;
   margin-bottom: 20px;
+  padding-top: 0;
 
   `;
 const Button2 = styled.button`
