@@ -1,41 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import closeButton from '../../assets/close_button.png';
 import Button1 from '../../components/button/index';
 import { useHistory } from 'react-router-dom';
+import { Modal } from 'react-responsive-modal'
 import TextBox from '../../components/textbox';
 
 
-const Login = ({ onCloseModal }: { onCloseModal: any }) => {
+
+const Login = () => {
 	const history = useHistory();
+	const [open, setOpen] = useState(true);
+	const onOpenModal = () => setOpen(true);
+	const onCloseModal = () => setOpen(false);
 	return (
-		<Wrapper>
-			<WrapperLeft>
-				<Lorem>LOREM</Lorem>
-				<Text>Experience the </Text>
-				<Text>easiest a way to get</Text>
-				<Line>
-					<BoldText>great food</BoldText>
-					<Text>Delivered</Text>
-				</Line>
-			</WrapperLeft>
-			<WrapperRight>
-				<Button onClick={onCloseModal}>
-					<img src={closeButton} alt="cut" ></img>
-				</Button>
-				<Title>Let's get started!</Title>
-				<TextBox name='Email' isPassword={false}></TextBox>
-				<TextBox name='Password' isPassword={true}></TextBox>
-				<Button5 name="Forgot Password?" onClick={() => history.push("/forgot-password")}>Forgot Password?</Button5>
-				<Button1 name="LOGIN"></Button1>
-				<Button3 name="Facebook">Facebook</Button3>
-				<Button4 name="Google+">Google+</Button4>
-				<Bottom>
-					<BottomText>Don't have an account?</BottomText>
-					<Button2>Get new one!</Button2>
-				</Bottom>
-			</WrapperRight>
-		</Wrapper>
+
+		<Modal open={open} onClose={onCloseModal} >
+
+
+			<Wrapper>
+				<WrapperLeft>
+					<Lorem>LOREM</Lorem>
+					<Text>Experience the </Text>
+					<Text>easiest a way to get</Text>
+					<Line>
+						<BoldText>great food</BoldText>
+						<Text>Delivered</Text>
+					</Line>
+				</WrapperLeft>
+				<WrapperRight>
+					<Button onClick={onCloseModal}>
+						<img src={closeButton} alt="cut" ></img>
+					</Button>
+					<Title>Let's get started!</Title>
+					<TextBox name='Email' isPassword={false}></TextBox>
+					<TextBox name='Password' isPassword={true}></TextBox>
+					<Button5 name="Forgot Password?" onClick={() => history.push("/forgot-password")}>Forgot Password?</Button5>
+					<Button1 name="LOGIN"></Button1>
+					<Button3 name="Facebook">Facebook</Button3>
+					<Button4 name="Google+">Google+</Button4>
+					<Bottom>
+						<BottomText>Don't have an account?</BottomText>
+						<Button2>Get new one!</Button2>
+					</Bottom>
+				</WrapperRight>
+			</Wrapper>
+		</Modal>
+
 	);
 };
 export default Login;

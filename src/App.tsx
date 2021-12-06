@@ -5,22 +5,26 @@ import { Modal } from 'react-responsive-modal'
 import './App.css';
 import Login from "./containers/login/index";
 import ForgotPassword from './containers/forgot-password';
-
+import Routes from './routes/routes';
+import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
-  const [open, setOpen] = useState(true);
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  // const [open, setOpen] = useState(true);
+  // const onOpenModal = () => setOpen(true);
+  // const onCloseModal = () => setOpen(false);
   return (
-    <div>
-      <Modal open={open} onClose={onCloseModal} >
-        <Login onCloseModal={onCloseModal} />
-        {/* <ForgotPassword onCloseModal={onCloseModal} /> */}
-      </Modal>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+    // <div>
+    //   <Modal open={open} onClose={onCloseModal} >
+    //     <Login onCloseModal={onCloseModal} />
+    //     {/* <ForgotPassword onCloseModal={onCloseModal} /> */}
+    //   </Modal>
 
-    </div>
+    // </div>
   );
-}
+};
 
 
 
