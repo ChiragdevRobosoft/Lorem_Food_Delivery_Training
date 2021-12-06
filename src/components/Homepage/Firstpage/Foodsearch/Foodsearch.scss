@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+.food-searchbox-container {
+  margin: 0px 889px 176px 420px;
+  height: 175px;
+  width: 611px;
+  border: 1px solid grey;
+  input {
+    height: 70px;
+    width: 611px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14);
+    outline: none;
+    border: none;
+    background-image: url("./../../../../assets/homepage/Firstpage/search-icon-home.png");
+    background-repeat: no-repeat;
+    background-position: 25px 22px;
+    padding-left: 61px;
+    ::placeholder {
+      height: 22px;
+      width: 296px;
+      color: #bdbdbd;
+      font-family: "Open Sans", sans-serif;
+      font-size: 16px;
+      letter-spacing: -0.27px;
+      line-height: 22px;
+    }
+  }
+}

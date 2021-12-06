@@ -1,3 +1,4 @@
+import Fifthpage from "./Fifthpage/Fifthpage";
 import Firstpage from "./Firstpage/Firstpage";
 import "./Homepage.scss";
 
@@ -16,9 +17,7 @@ const Homepage = () => {
       <div className="four">
         <h1> fourth Page</h1>
       </div>
-      <div className="five">
-        <h1> Fifth Page</h1>
-      </div>
+      <div className="five">Fifth page</div>
     </div>
   );
 };

@@ -1,0 +1,16 @@
+.page-container {
+  border: 1px solid red;
+  flex-direction: row;
+  background: linear-gradient(206.72deg, #f3f6ff 0%, #ffffff 100%);
+
+  .left-bottom {
+    height: 473px;
+    width: 873px;
+    margin: 373px 541px 0px 0px; /* right 1372px */
+  }
+  .center-phone {
+    height: 662px;
+    width: 327px;
+    margin: 93px 504px 92px 0px;
+  }
+}

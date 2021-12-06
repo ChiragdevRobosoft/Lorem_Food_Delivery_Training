@@ -1,20 +1,21 @@
 import "./Firstpage.scss";
+import Foodsearch from "./Foodsearch/Foodsearch";
+import Header from "./Header/Header";
+import mouseScroll from "./../../../assets/homepage/Firstpage/mouse-scroll.png";
 
 const Firstpage = () => {
   return (
     <div className="page-container">
-      <header className="header-container">
-        <p className="header-title">LOREM</p>
-        <select name="languages" id="pageLang">
-          <option value="English">English</option>
-          <option value="Arabic">Arabic</option>
-        </select>
-        <p className="login">LOGIN</p>
-        <p className="create-account">CREATE AN ACCOUNT</p>
-        <div className="cart-holder">
-          <p className="cart">CART</p>
-        </div>
-      </header>
+      <Header />
+      <p>
+        <span>Order your food</span>
+        <span>from the best restaurants</span>
+      </p>
+      <Foodsearch />
+      <div className="scroll-holder">
+        <img src={mouseScroll} alt="mouse-scroll" />
+        <p>Scroll</p>
+      </div>
     </div>
   );
 };

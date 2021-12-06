@@ -1,84 +1,42 @@
-.header-container {
-  height: 89px;
-  width: 1825px;
+.page-container {
   display: flex;
-  flex-direction: row;
-  border: 1px solid black;
-  margin: 19px 62px 827px 33px;
-
-  .header-title {
-    font-family: "Bebas Neue";
-    color: linear-gradient(rgb(192, 75, 12), rgb(226, 120, 70));
-    background-image: linear-gradient(45deg, #af4261, #f3ec78);
-    height: 60px;
-    width: 103px;
-    text-align: center;
-    line-height: 60px;
-    font-size: 50px;
+  flex-direction: column;
+  p {
+    margin: 0px 788px 63px 413px;
+    height: 166px;
+    width: 719px;
+    color: #4c4c4c;
+    font-family: "Open Sans", sans-serif;
+    font-size: 60px;
     letter-spacing: 0;
-    margin: 15px 1226px 14px 7px;
+    line-height: 83px;
+    text-shadow: 0 0 9px 0 #fff;
+    align-items: left;
+
+    span {
+      display: block;
+    }
   }
-
-  select {
-    margin: 36px 35px 36px 0px;
-    height: 17px;
-    width: 44px;
-    color: #3e3e3e;
-    font-family: "Open Sans";
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    line-height: 17px;
-    text-align: right;
-    background-color: inherit;
-    border: none;
-  }
-
-  .login {
-    margin: 30px 51px 40px 0px;
-    height: 19px;
-    width: 47px;
-    color: #303134;
-    font-family: "Open Sans";
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    text-align: right;
-  }
-
-  /* dobut in create account width  adustments in margins made from here*/
-  .create-account {
-    margin: 30px 41px 40px 0px;
-    height: 19px;
-    width: 163px;
-    color: #303134;
-    font-family: "Open Sans Semibold";
-    font-size: 13px; /* font size given 14 adjusted to fit-in */
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    text-align: left;
-    /*border: 1px solid red;*/
-  }
-
-  .cart-holder {
-    /*border: 1px solid red;*/
-    margin: 12px 0px 23px 0px;
-    border-left: 1px solid rgba(black, 0.1);
-    height: 54px;
-    width: 108px;
-
-    .cart {
-      margin: 17px 0px 18px 0px;
-      height: 19px;
-      width: 37px;
-      color: #fff;
-      font-family: "Open Sans";
-      font-size: 14px; /* font size given 14 adjusted to fit-in */
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      line-height: 19px;
-      text-align: right;
+  .scroll-holder {
+    margin: 0px 900px 38px 901px;
+    height: 77px;
+    width: 119px;
+    display: block;
+    img {
+      margin: 0px 43.82px 10px 43.18px;
+      height: 49px;
+      width: 32px;
+    }
+    p {
+      margin: 0px 0.45px 0px 0px;
+      height: 18px;
+      width: 118.55px;
+      font-size: 13px;
+      opacity: 0.66;
+      font-family: "Open Sans", sans-serif;
+      letter-spacing: 3.66px;
+      line-height: 18px;
+      text-align: center;
     }
   }
 }
