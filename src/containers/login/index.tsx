@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import closeButton from '../../assets/close_button.png';
 import Button1 from '../../components/button/index';
+
 import TextBox from '../../components/textbox';
 
 const Login = ({ onCloseModal }: { onCloseModal: any }) => {
@@ -21,11 +22,16 @@ const Login = ({ onCloseModal }: { onCloseModal: any }) => {
 					<img src={closeButton} alt="cut" ></img>
 				</Button>
 				<Title>Let's get started!</Title>
-				<TextBox name='Email'></TextBox>
+				<TextBox name='Email' isPassword={false}></TextBox>
 				<TextBox name='Password' isPassword={true}></TextBox>
+				<Button5 name="Forgot Password?">Forgot Password?</Button5>
 				<Button1 name="LOGIN"></Button1>
-				<BottomText>Don't have an account</BottomText>
-				<Button2>Get new one!</Button2>
+				<Button3 name="Facebook">Facebook</Button3>
+				<Button4 name="Google+">Google+</Button4>
+				<Bottom>
+					<BottomText>Don't have an account?</BottomText>
+					<Button2>Get new one!</Button2>
+				</Bottom>
 			</WrapperRight>
 		</Wrapper>
 	);
@@ -34,25 +40,77 @@ export default Login;
 const BottomText = styled.p`
 height: 19px;
   width: 237px;
-  color: black;
-  font-family: "Open Sans";
+  color: #282525f6;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.24px;
   line-height: 19px;
   text-align: center;
+  margin-bottom: 20px;
+  margin-left: 70px;
+  margin-top: 40px;
   `;
+const Bottom = styled.div`
+  flex-direction: row;
+  margin-bottom: 20px;
+  display: flex ;
+  align-self: center;
+	`;
+const Button3 = styled.button`
+	box-sizing: border-box;
+  height: 50px;
+  width: 180px;
+  background-color: transparent;
+  border: 1px solid #02A7FD;
+  border-radius: 6px;
+  margin-left:10%;
+  margin-top: 30px;
+  color:#02A7FD;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.56px;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);	
+  `;
+const Button4 = styled.button`
+box-sizing: border-box;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.56px;
+  background-color: transparent;
+  width: 178.91px;
+  border: 1px solid #FF8C7D;
+  border-radius: 6px;
+  margin-left: 20px;
+  color:#FF8C7D;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+`;
+const Button5 = styled.button`
+  color: #4A4A4A;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19px;
+  margin-left:300px;
+  margin-bottom: 20px;
 
+  `;
 const Button2 = styled.button`
 height: 19px;
   width: 237px;
   color: #F67E03;
-  font-family: "Open Sans";
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
+  background-color: transparent;
   font-weight: 600;
-  letter-spacing: -0.24px;
   line-height: 19px;
-  text-align: center;
+  border: none;
+  margin-bottom: 25px;
+  margin-top: 40px;
+  margin-left:-24%;
   `;
 
 const Wrapper = styled.div`

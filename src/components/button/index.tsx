@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 const Button1 = ({ name }: { name: any }) => {
-    return <Button>{name}</Button>;
+	return <Button>{name}</Button>;
 };
 export default Button1;
 const Button = styled.button`

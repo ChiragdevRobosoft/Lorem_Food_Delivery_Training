@@ -3,42 +3,42 @@ import React, { useState } from 'react';
 import view_active from '../../assets/view_active.png';
 import view_inactive from '../../assets/view_inactive.png';
 const InputField = ({ name, isPassword }: { name: any, isPassword: boolean }) => {
-    const [viewState, changeViewState] = useState(false);
-    const [focusState, changeFocusState] = useState(false);
-    const handleViewIconClick = () => {
-        changeViewState(!viewState);
-    };
-    const handleFocusChange = (e: React.FormEvent<HTMLInputElement>) => {
-        if (e.target.value === '') changeFocusState(false);
-    };
-    return (
-        <FormContainer>
-            <Textbox
-                type={!viewState && isPassword ? 'password' : 'text'}
-                onFocus={() => {
-                    changeFocusState(true);
-                }}
-                onBlur={(e) => {
-                    handleFocusChange(e);
-                }}
-                className={focusState ? 'moveUp' : null}
-            />
-            {isPassword ? (
-                <>
-                    <Label className="form-label">{name} </Label>
-                    <ViewIcon
-                        onClick={(e) => {
-                            handleViewIconClick();
-                        }}
-                        src={viewState ? view_active : view_inactive}
-                        alt="icn"
-                    ></ViewIcon>
-                </>
-            ) : (
-                <Label className="form-label">{name}</Label>
-            )}
-        </FormContainer>
-    );
+	const [viewState, changeViewState] = useState(false);
+	const [focusState, changeFocusState] = useState(false);
+	const handleViewIconClick = () => {
+		changeViewState(!viewState);
+	};
+	const handleFocusChange = (e: any) => {
+		if (e.target.value === '') changeFocusState(false);
+	};
+	return (
+		<FormContainer>
+			<Textbox
+				type={!viewState && isPassword ? 'password' : 'text'}
+				onFocus={() => {
+					changeFocusState(true);
+				}}
+				onBlur={(e) => {
+					handleFocusChange(e);
+				}}
+				className={focusState ? 'moveUp' : ''}
+			/>
+			{isPassword ? (
+				<>
+					<Label className="form-label">{name} </Label>
+					<ViewIcon
+						onClick={(e) => {
+							handleViewIconClick();
+						}}
+						src={viewState ? view_active : view_inactive}
+						alt="icn"
+					></ViewIcon>
+				</>
+			) : (
+				<Label className="form-label">{name}</Label>
+			)}
+		</FormContainer>
+	);
 };
 export default InputField;
 const FormContainer = styled.div`
