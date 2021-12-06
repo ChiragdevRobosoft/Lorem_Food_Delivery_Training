@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400&display=swap");
+
+.footer-container {
+  box-sizing: border-box;
+  height: 227px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+
+  .first-flex {
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.19);
+    border-width: 2px;
+
+    .lorem-text {
+      height: 60px;
+      width: 103px;
+      color: #0275d8;
+      font-family: "Bebas Neue";
+      font-size: 50px;
+      letter-spacing: 0;
+      line-height: 60px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .right-border {
+      box-sizing: border-box;
+      border-width: 2px;
+      padding-right: 37px;
+      border-right: 1px solid rgba(151, 151, 151, 0.19);
+    }
+
+    .city-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 19.4px;
+
+      .city-number {
+        color: #636364;
+        font-family: "Open Sans";
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 33px;
+        text-align: center;
+        margin-right: 9px;
+      }
+
+      .city-text {
+        color: #636364;
+        font-family: "Open Sans";
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 19px;
+      }
+    }
+
+    .outer-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 40%;
+      height: 19.4px;
+
+      .circle-flag {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .flag {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .second-flex {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    height: 19px;
+    color: #636364;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 28px;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      color: #636364;
+    }
+  }
+}
