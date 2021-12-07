@@ -19,10 +19,10 @@ const Footer = () => {
             <div className="city-text">COUNTRIES</div>
           </div>
           <div className="circle-flag">
-            <CircleFlag className="flag" countryCode="us" height="30" />
-            <CircleFlag className="flag" countryCode="in" height="30" />
-            <CircleFlag className="flag" countryCode="es" height="30" />
-            <CircleFlag className="flag" countryCode="sl" height="30" />
+            <CircleFlag className="flag" countryCode="ae" height="30" />
+            <CircleFlag className="flag" countryCode="kw" height="30" />
+            <CircleFlag className="flag" countryCode="qa" height="30" />
+            <CircleFlag className="flag" countryCode="sa" height="30" />
           </div>
         </div>
         <div className="social-icons">
