@@ -11,6 +11,9 @@
 
   .header-title {
     font-family: "Bebas Neue", cursive;
+    background-image: linear-gradient(60deg, #af4261, #e9a459);
+    background-clip: text;
+    color: transparent;
     height: 60px;
     width: 103px;
     text-align: center;

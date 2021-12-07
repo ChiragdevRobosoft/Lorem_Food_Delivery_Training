@@ -1,3 +1,5 @@
+import Secondpage from "../../assets/homepage/Secondpage/Secondpage";
+import Thirdpage from "../../assets/homepage/Thirdpage/Thirdpage";
 import Fifthpage from "./Fifthpage/Fifthpage";
 import Firstpage from "./Firstpage/Firstpage";
 import "./Homepage.scss";
@@ -9,10 +11,10 @@ const Homepage = () => {
         <Firstpage />
       </div>
       <div className="two">
-        <h1> second Page</h1>
+        <Secondpage />
       </div>
       <div className="three">
-        <h1> third Page</h1>
+        <Thirdpage />
       </div>
       <div className="four">
         <h1> fourth Page</h1>

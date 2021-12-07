@@ -9,24 +9,28 @@
 .container {
   .one {
     background-image: url("./../../assets/homepage/Firstpage/BG\ p1.png");
+    background-repeat: no-repeat;
     height: 935px;
     display: flex;
     justify-content: center;
   }
   .two {
     background-image: url("./../../assets/homepage/Secondpage/BG\ p2.png");
+    background-repeat: no-repeat;
     height: 617px;
     display: flex;
     justify-content: center;
   }
   .three {
     background-image: url("./../../assets/homepage/Thirdpage/BG\ p3.png");
+    background-repeat: no-repeat;
     height: 823px;
     display: flex;
     justify-content: center;
   }
   .four {
     background-image: url("./../../assets/homepage/Fourthpage/BG\ p4.png");
+    background-repeat: no-repeat;
     height: 780px;
     display: flex;
     justify-content: center;
@@ -35,5 +39,6 @@
     height: 847px;
     display: flex;
     justify-content: center;
+    background-repeat: no-repeat;
   }
 }

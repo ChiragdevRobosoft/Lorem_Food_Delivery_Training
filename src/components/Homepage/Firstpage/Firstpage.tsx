@@ -5,7 +5,7 @@ import mouseScroll from "./../../../assets/homepage/Firstpage/mouse-scroll.png";
 
 const Firstpage = () => {
   return (
-    <div className="page-container">
+    <div className="first-page-container">
       <Header />
       <p>
         <span>Order your food</span>
