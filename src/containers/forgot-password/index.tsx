@@ -1,39 +1,54 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
 import icon_forgot from '../../assets/icn_forgot.png';
 import Button1 from '../../components/button/index';
+import { useHistory } from 'react-router-dom';
+import InputField from '../../components/textbox';
 
 const ForgotPassword = ({ onCloseModal }: { onCloseModal: any }) => {
-    return (
-        <Wrapper>
-            <WrapperLeft>
-                <Lorem>LOREM</Lorem>
-                <Text>Experience the </Text>
-                <Text>easiest a way to get</Text>
-                <Line>
-                    <BoldText>great food</BoldText>
-                    <Text>Delivered</Text>
-                </Line>
-            </WrapperLeft>
-            <WrapperRight>
-                <Button onClick={onCloseModal}>
-                    <img src={backButton} alt="cut" ></img>
-                </Button>
-                <ForgotImage>
-                    <img src={icon_forgot} className="icon_forgot"></img>
-                </ForgotImage>
-                <Text1>Forgot Password!</Text1>
-                <Text2>Share your registered either email address or mobile number to send you the OTP to reset your password</Text2>
+  const history = useHistory();
+  const [InputType, setInputType] = useState('email');
+  return (
+    <Wrapper>
+      <WrapperLeft>
+        <Lorem>LOREM</Lorem>
+        <Text>Experience the </Text>
+        <Text>easiest a way to get</Text>
+        <Line>
+          <BoldText>great food</BoldText>
+          <Text>Delivered</Text>
+        </Line>
+      </WrapperLeft>
+      <WrapperRight>
+        <Button onClick={() => history.push("/login")}>
+          <img src={backButton} alt="cut" ></img>
+        </Button>
+        <ForgotImage>
+          <img src={icon_forgot} className="icon_forgot"></img>
+        </ForgotImage>
+        <Text1>Forgot Password!</Text1>
+        <Text2>Share your registered either email address or mobile number to send you the OTP to reset your password</Text2>
 
-                <Button2>Email</Button2>
-                <Button3>Mobile No.</Button3>
+        <Navbar>
+          <InputTypeButton onClick={() => setInputType('email')}>
+            Email
+          </InputTypeButton>
+          <InputTypeButton onClick={() => setInputType('mobile')}>
+            Mobile No.
+          </InputTypeButton>
+        </Navbar>
+        {InputType === 'email' ? (
+          <InputField name="Email" />
+        ) : (
+          <InputField name="Mobile No." />
+        )}
 
-                <Button1 name="SEND OTP"></Button1>
-            </WrapperRight>
-        </Wrapper>
-    );
+        <Button1 name="SEND OTP"></Button1>
+      </WrapperRight>
+    </Wrapper>
+  );
 };
 export default ForgotPassword;
 const Button3 = styled.button`
@@ -94,6 +109,26 @@ const WrapperLeft = styled.div`
 	text-align: left;
 	padding-left: 4%;
 	margin-right: -4%;
+`;
+const Navbar = styled.div`
+	display: flex;
+	flex-direction: row;
+	margin-right: auto;
+	margin-left: 10.5%;
+	width: 40%;
+	justify-content: space-between;
+`;
+const InputTypeButton = styled.button`
+	height: 24px;
+	opacity: 0.66;
+	color: #4a4a4a;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	letter-spacing: -0.43px;
+	line-height: 24px;
+	background-color: transparent;
+	border: none;
+	padding: 0;
 `;
 const WrapperRight = styled.div`
 	background-color: white;
