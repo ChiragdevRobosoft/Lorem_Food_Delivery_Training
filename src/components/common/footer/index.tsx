@@ -9,24 +9,26 @@ const Footer = () => {
     <div className="footer-container">
       <div className="first-flex">
         <div className="lorem-text">LOREM</div>
-        <div className="city-container right-border">
-          <span className="city-number">24</span>
-          <span className="city-text">CITIES</span>
+        <hr className="invisible" />
+        <div className="city-countries-container">
+          <span className="city-countries-number">24</span>
+          <span className="city-countries-text">CITIES</span>
         </div>
-        <div className="outer-container right-border">
-          <div className="city-container">
-            <div className="city-number">4</div>
-            <div className="city-text">COUNTRIES</div>
+        <hr />
+        <div className="outer-container">
+          <div className="city-countries-container">
+            <div className="city-countries-number">4</div>
+            <div className="city-countries-text">COUNTRIES</div>
           </div>
-          <div className="circle-flag">
-            <CircleFlag className="flag" countryCode="ae" height="30" />
-            <CircleFlag className="flag" countryCode="kw" height="30" />
-            <CircleFlag className="flag" countryCode="qa" height="30" />
-            <CircleFlag className="flag" countryCode="sa" height="30" />
-          </div>
+          <CircleFlag className="flag" countryCode="ae" height="30" />
+          <CircleFlag className="flag" countryCode="kw" height="30" />
+          <CircleFlag className="flag" countryCode="qa" height="30" />
+          <CircleFlag className="flag" countryCode="sa" height="30" />
         </div>
+        <hr />
         <div className="social-icons">
           <SocialIcon
+            className="sicons"
             network="google"
             fgColor="rgba(128,128,128,0.5)"
             bgColor="white"
