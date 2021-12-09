@@ -20,7 +20,9 @@ const Homepage = () => {
       <div className="four">
         <Fourthpage />
       </div>
-      <div className="five">Fifth page</div>
+      <div className="five">
+        <Fifthpage />
+      </div>
     </div>
   );
 };
