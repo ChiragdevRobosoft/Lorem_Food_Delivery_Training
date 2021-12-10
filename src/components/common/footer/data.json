@@ -1,0 +1,14 @@
+{
+  "countryCodes": ["ae", "kw", "qa", "sa"],
+  "socialIcons": ["google", "facebook", "linkedin", "twitter"],
+  "links": [
+    "About",
+    "careers",
+    "Privacy policy",
+    "Terms & condition",
+    "Mobile app",
+    "Blog",
+    "Contact",
+    "Sitemap"
+  ]
+}
