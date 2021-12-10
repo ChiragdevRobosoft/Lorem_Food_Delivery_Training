@@ -1,29 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import "../../../../public/variables.scss";
 
 .footer-container {
+  @include flex(column, center, center);
   box-sizing: border-box;
   height: 227px;
   width: 100%;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: $white-color;
   margin-right: auto;
   margin-left: auto;
 
   .first-flex {
-    display: flex;
-    flex-direction: row;
+    @include flex(row, space-between, center);
     top: 0;
     width: 50%;
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 17px;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(151, 151, 151, 0.19);
+    border-bottom: 1px solid $footer-border-bottom;
     border-width: 2px;
     box-sizing: border-box;
 
@@ -32,11 +25,11 @@
       width: 103px;
       background-image: linear-gradient(
         60deg,
-        rgba(226, 17, 67, 0.9),
-        rgba(255, 176, 58, 0.9)
+        $lorem-first-color,
+        $lorem-second-color
       );
       background-clip: text;
-      color: transparent;
+      color: $transparent-color;
       font-family: "Bebas Neue";
       font-size: 50px;
       letter-spacing: 0;
@@ -51,14 +44,11 @@
     }
 
     .city-countries-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+      @include flex(row, space-between, center);
       height: 19.4px;
 
       .city-countries-number {
-        font-family: "Open Sans", sans-serif;
+        font-family: "Open Sans";
         font-size: 24px;
         font-weight: 600;
         letter-spacing: 0;
@@ -67,16 +57,16 @@
         margin-right: 9px;
         background-image: linear-gradient(
           60deg,
-          rgba(255, 51, 102, 0.8),
-          rgba(255, 176, 58, 0.8)
+          $city-count-first-color,
+          $city-count-second-color
         );
         background-clip: text;
-        color: transparent;
+        color: $transparent-color;
       }
 
       .city-countries-text {
-        color: rgba(99, 99, 100, 0.7);
-        font-family: "Open Sans", sans-serif;
+        color: $city-count-text-color;
+        font-family: "Open Sans";
         font-size: 14px;
         letter-spacing: 0;
         line-height: 19px;
@@ -91,15 +81,12 @@
       box-sizing: border-box;
       height: 19.4px;
       width: 2px;
-      border: 1px solid #979797;
+      border: 1px solid $vertical-separator-color;
       opacity: 0.19;
     }
 
     .outer-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+      @include flex(row, space-between, center);
       width: 35%;
       height: 19.4px;
 
@@ -110,9 +97,7 @@
     }
 
     .social-icons {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
+      @include flex(row, normal, flex-start);
 
       .img {
         vertical-align: middle;
@@ -123,23 +108,20 @@
   }
 
   .second-flex {
+    @include flex(row, space-between, normal);
     width: 50%;
-    display: flex;
-    flex-direction: row;
     height: 19px;
-    color: #636364;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans";
     font-size: 14px;
     letter-spacing: 0;
     line-height: 19px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 28px;
-    justify-content: space-between;
 
     a {
       text-decoration: none;
-      color: rgba(99, 99, 100, 0.7);
+      color: $footer-links-color;
       font-weight: 600;
     }
   }

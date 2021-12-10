@@ -1,1 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700;800&display=swap");
+
+$white-color: #ffffff;
+$footer-border-bottom: rgba(151, 151, 151, 0.19);
+$lorem-first-color: rgba(226, 17, 67, 0.9);
+$lorem-second-color: rgba(255, 176, 58, 0.9);
+$transparent-color: transparent;
+$city-count-first-color: rgba(255, 51, 102, 0.8);
+$city-count-second-color: rgba(255, 176, 58, 0.8);
+$city-count-text-color: rgba(99, 99, 100, 0.7);
+$vertical-separator-color: rgba(151, 151, 151, 1);
+$footer-links-color: rgba(99, 99, 100, 0.7);
+
+@mixin flex($flex-direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
