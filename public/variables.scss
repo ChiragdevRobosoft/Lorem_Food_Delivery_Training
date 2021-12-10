@@ -10,10 +10,41 @@ $city-count-second-color: rgba(255, 176, 58, 0.8);
 $city-count-text-color: rgba(99, 99, 100, 0.7);
 $vertical-separator-color: rgba(151, 151, 151, 1);
 $footer-links-color: rgba(99, 99, 100, 0.7);
+$full-width: 100%;
+$half-width: 50%;
+$width-35p: 35%;
+$size-0: 0;
+$size-1: 1px;
+$size-227: 227px;
+$size-19-4: 19.4px;
+$size-19: 19px;
+$size-2: 2px;
+$size-14: 14px;
+$size-50: 50px;
+$size-60: 60px;
+$size-17: 17px;
+$size-103: 103px;
+$size-24: 24px;
+$size-9: 9px;
+$size-10: 10px;
+$size-24: 24px;
+$size-22-41: 22.41px;
+$size-24-95: 24.95px;
+$size-28: 28px;
+$weight-600: 600;
+$opacity-0-19: 0.19;
+$font-bn: "Bebas Neue";
+$font-os: "Open Sans";
+$gradient-angle: 60deg;
 
 @mixin flex($flex-direction, $justify-content, $align-items) {
   display: flex;
   flex-direction: $flex-direction;
   justify-content: $justify-content;
   align-items: $align-items;
+}
+
+@mixin autoSides {
+  margin-right: auto;
+  margin-left: auto;
 }
