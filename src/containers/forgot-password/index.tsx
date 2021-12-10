@@ -5,7 +5,8 @@ import backButton from '../../assets/back_button.png';
 import icon_forgot from '../../assets/icn_forgot.png';
 import Button1 from '../../components/button/index';
 import { useHistory } from 'react-router-dom';
-import InputField from '../../components/textbox';
+import TextBox from '../../components/textbox';
+import Rectangle from '../../assets/Rectangle.png';
 
 const ForgotPassword = ({ onCloseModal }: { onCloseModal: any }) => {
   const history = useHistory();
@@ -39,10 +40,11 @@ const ForgotPassword = ({ onCloseModal }: { onCloseModal: any }) => {
             Mobile No.
           </InputTypeButton>
         </Navbar>
+
         {InputType === 'email' ? (
-          <InputField name="Email" />
+          <TextBox name="Email" isPassword={false} />
         ) : (
-          <InputField name="Mobile No." />
+          <TextBox name="Mobile No." isPassword={false} />
         )}
 
         <Button1 name="SEND OTP"></Button1>
@@ -116,6 +118,7 @@ const Navbar = styled.div`
 	margin-right: auto;
 	margin-left: 10.5%;
 	width: 40%;
+  margin-bottom: 65px;
 	justify-content: space-between;
 `;
 const InputTypeButton = styled.button`

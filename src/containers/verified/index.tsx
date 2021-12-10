@@ -2,46 +2,47 @@
 import React from 'react';
 import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
-import icon_verify from '../../assets/icn_verify.png';
+import icon_verified from '../../assets/icn_verified.png';
 import { useHistory } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Button1 from '../../components/button/index';
 
 
-const Verification = ({ onCloseModal }: { onCloseModal: any }) => {
-  const history = useHistory();
-  return (
-    <Wrapper>
-      <WrapperLeft>
-        <Lorem>LOREM</Lorem>
-        <Text>Experience the </Text>
-        <Text>easiest a way to get</Text>
-        <Line>
-          <BoldText>great food</BoldText>
-          <Text>Delivered</Text>
-        </Line>
-      </WrapperLeft>
-      <WrapperRight>
-        <Button onClick={() => history.push("/forgot-password")}>
-          <img src={backButton} className="arrow" alt="cut" ></img>
-        </Button>
-        <VerifyImage>
-          <img src={icon_verify} className="icon_forgot"></img>
-        </VerifyImage>
-        <Text1>Verification</Text1>
-        <Text2>We just sent you the OTP via SMS to your email address/mobile no. You should get it soon!</Text2>
-        <TextBox name='Enter OTP' isPassword={false}></TextBox>
-        <VerifyButton>
-          <Button1 name="VERIFY"></Button1>
-        </VerifyButton>
-      </WrapperRight>
-    </Wrapper>
-  );
+const Verified = ({ onCloseModal }: { onCloseModal: any }) => {
+    const history = useHistory();
+    return (
+        <Wrapper>
+            <WrapperLeft>
+                <Lorem>LOREM</Lorem>
+                <Text>Experience the </Text>
+                <Text>easiest a way to get</Text>
+                <Line>
+                    <BoldText>great food</BoldText>
+                    <Text>Delivered</Text>
+                </Line>
+            </WrapperLeft>
+            <WrapperRight>
+                <Button onClick={() => history.push("/forgot-password")}>
+                    <img src={backButton} className="arrow" alt="cut" ></img>
+                </Button>
+                <VerifyImage>
+                    <img src={icon_verified} className="icon_forgot"></img>
+                </VerifyImage>
+                <Text1>Verified!</Text1>
+                <Text2>Your mobile no. is verifeid.</Text2>
+                <Text3>Enter the new password to reset your account.</Text3>
+                <TextBox name='Password' isPassword={true}></TextBox>
+                <VerifyButton>
+                    <Button1 name="VERIFY"></Button1>
+                </VerifyButton>
+            </WrapperRight>
+        </Wrapper>
+    );
 };
-export default Verification;
+export default Verified;
 
 const VerifyButton = styled.div`
-margin-top: 30px;
+margin-top: 70px;
 `;
 const Wrapper = styled.div`
 	height: 588px;
@@ -87,7 +88,6 @@ const Button = styled.button`
 	outline:none;
 	position: absolute;
 	top: 3%;
-
 `;
 const Lorem = styled.p`
 	height: 60px;
@@ -113,7 +113,6 @@ const Text = styled.p`
 `;
 const Text1 = styled.p`
 	font-family: 'Open Sans', sans-serif;
-	height: 30px;
   width: 183px;
   color: #2A2C30;
   font-size: 22px;
@@ -127,15 +126,21 @@ const Text1 = styled.p`
 `;
 const Text2 = styled.p`
 	font-family: 'Open Sans', sans-serif;
-    height: 60px;
   	width: 220px;
   	color: #4A4A4A;
   	font-size: 14px;
   	letter-spacing: -0.24px;
-  	line-height: 20px;
   	text-align: center;
   	margin-left: 130px;
-  	margin-bottom: 80px;
+`;
+const Text3 = styled.p`
+	font-family: 'Open Sans', sans-serif;
+  	color: #4A4A4A;
+  	font-size: 14px;
+  	letter-spacing: -0.24px;
+  	text-align: center;
+  	margin-left: 5px;
+    margin-bottom: 60px;
 `;
 const BoldText = styled.p`
 	width: 40%;

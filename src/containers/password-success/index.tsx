@@ -2,46 +2,43 @@
 import React from 'react';
 import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
-import icon_verify from '../../assets/icn_verify.png';
+import passwordsuccess from '../../assets/password_success.png';
 import { useHistory } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Button1 from '../../components/button/index';
 
 
-const Verification = ({ onCloseModal }: { onCloseModal: any }) => {
-  const history = useHistory();
-  return (
-    <Wrapper>
-      <WrapperLeft>
-        <Lorem>LOREM</Lorem>
-        <Text>Experience the </Text>
-        <Text>easiest a way to get</Text>
-        <Line>
-          <BoldText>great food</BoldText>
-          <Text>Delivered</Text>
-        </Line>
-      </WrapperLeft>
-      <WrapperRight>
-        <Button onClick={() => history.push("/forgot-password")}>
-          <img src={backButton} className="arrow" alt="cut" ></img>
-        </Button>
-        <VerifyImage>
-          <img src={icon_verify} className="icon_forgot"></img>
-        </VerifyImage>
-        <Text1>Verification</Text1>
-        <Text2>We just sent you the OTP via SMS to your email address/mobile no. You should get it soon!</Text2>
-        <TextBox name='Enter OTP' isPassword={false}></TextBox>
-        <VerifyButton>
-          <Button1 name="VERIFY"></Button1>
-        </VerifyButton>
-      </WrapperRight>
-    </Wrapper>
-  );
-};
-export default Verification;
+const PasswordSuccess = ({ onCloseModal }: { onCloseModal: any }) => {
+    const history = useHistory();
+    return (
+        <Wrapper>
+            <WrapperLeft>
+                <Lorem>LOREM</Lorem>
+                <Text>Experience the </Text>
+                <Text>easiest a way to get</Text>
+                <Line>
+                    <BoldText>great food</BoldText>
+                    <Text>Delivered</Text>
+                </Line>
+            </WrapperLeft>
+            <WrapperRight>
+                <SuccessImage>
+                    <img src={passwordsuccess} className="passwordsuccess"></img>
+                </SuccessImage>
+                <Text1>Great!</Text1>
+                <Text2>Your password has been successfully reset</Text2>
 
-const VerifyButton = styled.div`
-margin-top: 30px;
+                <LoginButton>
+                    <Button1 name="LOGIN NOW"></Button1>
+                </LoginButton>
+            </WrapperRight>
+        </Wrapper>
+    );
+};
+export default PasswordSuccess;
+
+const LoginButton = styled.div`
+margin-top: 80px;
 `;
 const Wrapper = styled.div`
 	height: 588px;
@@ -58,11 +55,11 @@ const Wrapper = styled.div`
 	right: 0;
 	margin: auto;
 `;
-const VerifyImage = styled.div`
+const SuccessImage = styled.div`
 height: 5px;
   width: 25px;
-  margin-left:200px;
-  margin-top: 60px;
+  margin-left:150px;
+  margin-top: 120px;
 `;
 const WrapperLeft = styled.div`
 	background-image: url('../assets/image.png');
@@ -87,7 +84,6 @@ const Button = styled.button`
 	outline:none;
 	position: absolute;
 	top: 3%;
-
 `;
 const Lorem = styled.p`
 	height: 60px;
@@ -113,7 +109,6 @@ const Text = styled.p`
 `;
 const Text1 = styled.p`
 	font-family: 'Open Sans', sans-serif;
-	height: 30px;
   width: 183px;
   color: #2A2C30;
   font-size: 22px;
@@ -122,21 +117,21 @@ const Text1 = styled.p`
   line-height: 30px;
   text-align: center;
   text-shadow: 0 0 9px 0 #FFFFFF;
-  margin-top:116px ;
+  margin-top:230px ;
   margin-left: 150px;
 `;
 const Text2 = styled.p`
 	font-family: 'Open Sans', sans-serif;
-    height: 60px;
-  	width: 220px;
+  	width: 270px;
   	color: #4A4A4A;
   	font-size: 14px;
   	letter-spacing: -0.24px;
-  	line-height: 20px;
   	text-align: center;
-  	margin-left: 130px;
-  	margin-bottom: 80px;
+  	margin-left: 110px;
+      margin-top: -10px;
+      margin-bottom: 50px;
 `;
+
 const BoldText = styled.p`
 	width: 40%;
 	color: #ffffff;
