@@ -7,6 +7,7 @@ import Verified from "../containers/verified";
 import PasswordSuccess from "../containers/password-success";
 import RegisterSuccess from "../containers/welcome";
 import CreateAccount from "../containers/create-account";
+import AccountDetails from "../containers/account-details";
 
 
 const Routes = () => {
@@ -20,6 +21,7 @@ const Routes = () => {
             <Route path="/password-success" component={PasswordSuccess} />
             <Route path="/welcome" component={RegisterSuccess} />
             <Route path="/create-account" component={CreateAccount} />
+            <Route path="/account-details" component={AccountDetails} />
         </Switch>
 
     );

@@ -119,6 +119,7 @@ const Navbar = styled.div`
 	margin-left: 10.5%;
 	width: 40%;
   margin-bottom: 65px;
+  margin-top: 30px;
 	justify-content: space-between;
 `;
 const InputTypeButton = styled.button`

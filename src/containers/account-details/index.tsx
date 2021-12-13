@@ -2,48 +2,46 @@
 import React from 'react';
 import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
-import icon_verified from '../../assets/icn_verified.png';
 import { useHistory } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Button1 from '../../components/button/index';
 
 
-const Verified = ({ onCloseModal }: { onCloseModal: any }) => {
-	const history = useHistory();
-	return (
-		<Wrapper>
-			<WrapperLeft>
-				<Lorem>LOREM</Lorem>
-				<Text>Experience the </Text>
-				<Text>easiest a way to get</Text>
-				<Line>
-					<BoldText>great food</BoldText>
-					<Text>Delivered</Text>
-				</Line>
-			</WrapperLeft>
-			<WrapperRight>
-				<Button onClick={() => history.push("/forgot-password")}>
-					<img src={backButton} className="arrow" alt="cut" ></img>
-				</Button>
-				<VerifyImage>
-					<img src={icon_verified} className="icon_forgot"></img>
-				</VerifyImage>
-				<Text1>Verified!</Text1>
-				<Text2>Your mobile no. is verifeid.</Text2>
-				<Text3>Enter the new password to reset your account.</Text3>
-				<TextBox name='Password' isPassword={true}></TextBox>
-				<VerifyButton>
-					<Button1 name="VERIFY"></Button1>
-				</VerifyButton>
-			</WrapperRight>
-		</Wrapper>
-	);
+const AccountDetails = ({ onCloseModal }: { onCloseModal: any }) => {
+    const history = useHistory();
+    return (
+        <Wrapper>
+            <WrapperLeft>
+                <Lorem>LOREM</Lorem>
+                <Text>Experience the </Text>
+                <Text>easiest a way to get</Text>
+                <Line>
+                    <BoldText>great food</BoldText>
+                    <Text>Delivered</Text>
+                </Line>
+            </WrapperLeft>
+            <WrapperRight>
+                <Button onClick={() => history.push("/forgot-password")}>
+                    <img src={backButton} className="arrow" alt="cut" ></img>
+                </Button>
+                <Text1>Verified!</Text1>
+                <Text2>Your Email is verifeid.</Text2>
+                <Text3>Finally enter details below to create account.</Text3>
+                <TextBox name='First Name' isPassword={false}></TextBox>
+                <TextBox name='Last Name' isPassword={false}></TextBox>
+                <TextBox name='Create Password' isPassword={true}></TextBox>
+                <VerifyButton>
+                    <Button1 name="DONE"></Button1>
+                </VerifyButton>
+            </WrapperRight>
+        </Wrapper>
+    );
 };
-export default Verified;
-
+export default AccountDetails;
 const VerifyButton = styled.div`
-margin-top: 80px;
+margin-top: 40px;
 `;
+
 const Wrapper = styled.div`
 	height: 588px;
 	width: 960px;
@@ -58,12 +56,6 @@ const Wrapper = styled.div`
 	bottom: 0;
 	right: 0;
 	margin: auto;
-`;
-const VerifyImage = styled.div`
-height: 5px;
-  width: 25px;
-  margin-left:200px;
-  margin-top: 60px;
 `;
 const WrapperLeft = styled.div`
 	background-image: url('../assets/image.png');
@@ -86,6 +78,7 @@ const Button = styled.button`
 	border: none;
 	right: 430px;
 	outline:none;
+    block-size:10px;
 	position: absolute;
 	top: 3%;
 `;
@@ -121,7 +114,7 @@ const Text1 = styled.p`
   line-height: 30px;
   text-align: center;
   text-shadow: 0 0 9px 0 #FFFFFF;
-  margin-top:116px ;
+  margin-top:60px ;
   margin-left: 150px;
 `;
 const Text2 = styled.p`
@@ -140,8 +133,8 @@ const Text3 = styled.p`
   	letter-spacing: -0.24px;
   	text-align: center;
   	margin-left: 5px;
-    margin-bottom: 60px;
-	margin-top: -10px;
+    margin-bottom: 50px;
+    margin-top: -12px;
 `;
 const BoldText = styled.p`
 	width: 40%;

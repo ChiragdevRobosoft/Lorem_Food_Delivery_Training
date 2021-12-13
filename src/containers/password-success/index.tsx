@@ -6,34 +6,37 @@ import passwordsuccess from '../../assets/password_success.png';
 import { useHistory } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Button1 from '../../components/button/index';
-
+import closeButton from '../../assets/close_button.png';
 
 const PasswordSuccess = ({ onCloseModal }: { onCloseModal: any }) => {
-    const history = useHistory();
-    return (
-        <Wrapper>
-            <WrapperLeft>
-                <Lorem>LOREM</Lorem>
-                <Text>Experience the </Text>
-                <Text>easiest a way to get</Text>
-                <Line>
-                    <BoldText>great food</BoldText>
-                    <Text>Delivered</Text>
-                </Line>
-            </WrapperLeft>
-            <WrapperRight>
-                <SuccessImage>
-                    <img src={passwordsuccess} className="passwordsuccess"></img>
-                </SuccessImage>
-                <Text1>Great!</Text1>
-                <Text2>Your password has been successfully reset</Text2>
+	const history = useHistory();
+	return (
+		<Wrapper>
+			<WrapperLeft>
+				<Lorem>LOREM</Lorem>
+				<Text>Experience the </Text>
+				<Text>easiest a way to get</Text>
+				<Line>
+					<BoldText>great food</BoldText>
+					<Text>Delivered</Text>
+				</Line>
+			</WrapperLeft>
+			<WrapperRight>
+				<Button onClick={onCloseModal}>
+					<img src={closeButton} alt="cut" ></img>
+				</Button>
+				<SuccessImage>
+					<img src={passwordsuccess} className="passwordsuccess"></img>
+				</SuccessImage>
+				<Text1>Great!</Text1>
+				<Text2>Your password has been successfully reset</Text2>
 
-                <LoginButton>
-                    <Button1 name="LOGIN NOW"></Button1>
-                </LoginButton>
-            </WrapperRight>
-        </Wrapper>
-    );
+				<LoginButton>
+					<Button1 name="LOGIN NOW"></Button1>
+				</LoginButton>
+			</WrapperRight>
+		</Wrapper>
+	);
 };
 export default PasswordSuccess;
 
@@ -69,21 +72,22 @@ const WrapperLeft = styled.div`
 	padding-left: 4%;
 	margin-right: -4%;
 `;
+const Button = styled.button`
+	width: 5%;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	right: 0px;
+	outline:none;
+	position: absolute;
+	top: 3%;
+`;
 
 const WrapperRight = styled.div`
 	background-color: white;
 	height: 588px;
 	width: 480px;
     
-`;
-const Button = styled.button`
-	padding: 0;
-	background-color: transparent;
-	border: none;
-	right: 430px;
-	outline:none;
-	position: absolute;
-	top: 3%;
 `;
 const Lorem = styled.p`
 	height: 60px;
