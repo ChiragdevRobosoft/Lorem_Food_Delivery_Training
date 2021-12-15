@@ -1,0 +1,42 @@
+[
+  {
+    "icon": "../../../../assets/restaurantList/Pizzahut.png",
+    "name": "Pizzahut",
+    "outlets": "2"
+  },
+  {
+    "icon": "../../../../assets/restaurantList/Kfc.png",
+    "name": "KFC",
+    "outlets": "5"
+  },
+  {
+    "icon": "../../../../assets/restaurantList/ChickenTikka.png",
+    "name": "Chicken Tikka",
+    "outlets": "5"
+  },
+  {
+    "icon": "../../../../assets/restaurantList/Pizzahut.png",
+    "name": "Pizzahut",
+    "outlets": "3"
+  },
+  {
+    "icon": "../../../../assets/restaurantList/ChickenTikka.png",
+    "name": "Chicken Tikka",
+    "outlets": "5"
+  },
+  {
+    "icon": "../../../../assets/restaurantList/Pizzahut.png",
+    "name": "Pizzahut",
+    "outlets": "2"
+  },
+  {
+    "icon": "../../../../assets/restaurantList/Pizzahut.png",
+    "name": "Pizzahut",
+    "outlets": "2"
+  },
+  {
+    "icon": "../../../../assets/restaurantList/Kfc.png",
+    "name": "KFC",
+    "outlets": "5"
+  }
+]
