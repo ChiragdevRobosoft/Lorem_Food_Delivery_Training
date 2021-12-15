@@ -1,69 +1,217 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./index.scss";
 import { CircleFlag } from "react-circle-flags";
 import { SocialIcon } from "react-social-icons";
+import data from "../constants.json";
+import styled from "styled-components";
+import {
+  sizes,
+  colors,
+  angles,
+  fontFamilies,
+  fontWeight,
+  opacity,
+} from "../../../variables";
 
 const Footer = () => {
   return (
-    <div className="footer-container">
+    <Wrapper>
       <div className="first-flex">
         <div className="lorem-text">LOREM</div>
-        <div className="city-container right-border">
-          <span className="city-number">24</span>
-          <span className="city-text">CITIES</span>
+        <hr className="invisible" />
+        <div className="city-countries-container">
+          <span className="city-countries-number">24</span>
+          <span className="city-countries-text">CITIES</span>
         </div>
-        <div className="outer-container right-border">
-          <div className="city-container">
-            <div className="city-number">4</div>
-            <div className="city-text">COUNTRIES</div>
+        <hr />
+        <div className="outer-container">
+          <div className="city-countries-container">
+            <div className="city-countries-number">4</div>
+            <div className="city-countries-text">COUNTRIES</div>
           </div>
-          <div className="circle-flag">
-            <CircleFlag className="flag" countryCode="ae" height="30" />
-            <CircleFlag className="flag" countryCode="kw" height="30" />
-            <CircleFlag className="flag" countryCode="qa" height="30" />
-            <CircleFlag className="flag" countryCode="sa" height="30" />
-          </div>
+          {data.countryCodes.map((countryCode, index) => {
+            return (
+              <CircleFlag
+                key={index}
+                className="flag"
+                countryCode={countryCode}
+                height="30"
+              />
+            );
+          })}
         </div>
+        <hr />
         <div className="social-icons">
-          <SocialIcon
-            network="google"
-            fgColor="rgba(128,128,128,0.5)"
-            bgColor="white"
-            url="https://google.com/jaketrent"
-          />
-          <SocialIcon
-            network="facebook"
-            fgColor="rgba(128,128,128,0.5)"
-            bgColor="white"
-            url="https://facebook.com/jaketrent"
-          />
-          <SocialIcon
-            network="linkedin"
-            fgColor="rgba(128,128,128,0.5)"
-            bgColor="white"
-            url="https://linkedin.com/jaketrent"
-          />
-          <SocialIcon
-            network="twitter"
-            fgColor="rgba(128,128,128,0.5)"
-            bgColor="white"
-            url="https://twitter.com/jaketrent"
-          />
+          {data.socialIcons.map((socialIcon, index) => {
+            return (
+              <SocialIcon
+                key={index}
+                className="social-icon"
+                network={socialIcon}
+                fgColor="rgba(128,128,128,0.5)"
+                bgColor="white"
+                url={`https://${socialIcon}.com/jaketrent`}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="second-flex">
-        <Link to="/about">About</Link>
-        <Link to="/careers">Careers</Link>
-        <Link to="/privacy policy">Privacy policy</Link>
-        <Link to="terms & condition">Terms &amp; condition</Link>
-        <Link to="mobile app">Mobile app</Link>
-        <Link to="blog">Blog</Link>
-        <Link to="contact">Contact</Link>
-        <Link to="sitemap">Sitemap</Link>
+        {data.links.map((link, index) => {
+          return (
+            <Link to={`/${link.toLowerCase()}`} key={index}>
+              {link}
+            </Link>
+          );
+        })}
       </div>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  height: ${sizes.size227};
+  width: ${sizes.fullWidth};
+  background-color: ${colors.white};
+
+  .first-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    top: ${sizes.size0};
+    width: ${sizes.halfWidth};
+    padding-bottom: ${sizes.size17};
+    border-bottom: ${sizes.size1} solid ${colors.grey1};
+    border-width: ${sizes.size2};
+    box-sizing: border-box;
+
+    .lorem-text {
+      height: ${sizes.size60};
+      width: ${sizes.size103};
+      background-image: linear-gradient(
+        ${angles.angle60},
+        ${colors.pink1},
+        ${colors.yellow1}
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: ${colors.transparentColor};
+      font-family: ${fontFamilies.fontFamilyBn};
+      font-size: ${sizes.size50};
+      letter-spacing: ${sizes.size0};
+      line-height: ${sizes.size60};
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .invisible {
+      height: ${sizes.size0};
+      width: ${sizes.size0};
+    }
+
+    .city-countries-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: ${sizes.size19_4};
+
+      .city-countries-number {
+        font-family: ${fontFamilies.fontFamilyOsSemiBold};
+        font-size: ${sizes.size24};
+        letter-spacing: ${sizes.size0};
+        line-height: ${sizes.size19_4};
+        text-align: center;
+        margin-right: ${sizes.size9};
+        background-image: linear-gradient(
+          ${angles.angle60},
+          ${colors.pink2},
+          ${colors.yellow2}
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: ${colors.transparentColor};
+      }
+
+      .city-countries-text {
+        color: ${colors.grey2};
+        font-family: ${fontFamilies.fontFamilyOs};
+        font-size: ${sizes.size14};
+        letter-spacing: ${sizes.size0};
+        line-height: ${sizes.size19};
+        vertical-align: bottom;
+        font-weight: ${fontWeight.weight600};
+      }
+    }
+
+    hr {
+      width: ${sizes.size2};
+      margin: ${sizes.size0};
+      box-sizing: border-box;
+      height: ${sizes.size19_4};
+      border: ${sizes.size1} solid ${colors.grey3};
+      opacity: ${opacity.opacity0_19};
+    }
+
+    .outer-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: ${sizes.width35p};
+      height: ${sizes.size19_4};
+
+      .flag {
+        vertical-align: middle;
+        padding-right: ${sizes.size10};
+      }
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: row;
+      justify-content: normal;
+      align-items: flex-start;
+
+      .img {
+        vertical-align: middle;
+        height: ${sizes.size22_41};
+        width: ${sizes.size24_95};
+      }
+    }
+  }
+
+  .second-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: normal;
+    margin-right: auto;
+    margin-left: auto;
+    width: ${sizes.halfWidth};
+    height: ${sizes.size19};
+    font-family: ${fontFamilies.fontFamilyOs};
+    font-size: ${sizes.size14};
+    letter-spacing: ${sizes.size0};
+    line-height: ${sizes.size19};
+    margin-top: ${sizes.size28};
+
+    a {
+      text-decoration: none;
+      color: ${colors.grey4};
+      font-weight: ${fontWeight.weight600};
+    }
+  }
+`;
 
 export default Footer;
