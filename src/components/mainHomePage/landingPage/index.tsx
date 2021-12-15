@@ -1,9 +1,9 @@
-import "./Firstpage.scss";
-import Foodsearch from "./Foodsearch/Foodsearch";
-import Header from "./Header/Header";
-import mouseScroll from "./../../../assets/homepage/Firstpage/mouse-scroll.png";
+import Foodsearch from "./foodSearch";
+import Header from "../../common/header/header";
+import mouseScroll from "./../../../assets/homepage/landingPage/mouse-scroll.png";
+import "./index.scss";
 
-const Firstpage = () => {
+const LandingPage = () => {
   return (
     <div className="first-page-container">
       <Header />
@@ -19,4 +19,4 @@ const Firstpage = () => {
     </div>
   );
 };
-export default Firstpage;
+export default LandingPage;

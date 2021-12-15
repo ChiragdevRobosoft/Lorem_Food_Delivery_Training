@@ -1,4 +1,4 @@
-import "./Foodsearch.scss";
+import "./index.scss";
 
 const Foodsearch = () => {
   return (

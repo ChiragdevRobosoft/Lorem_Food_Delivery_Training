@@ -1,7 +1,7 @@
-import leftBottom from "./../../../assets/homepage/Fifthpage/page5-left-bottom.png";
-import centerPhone from "./../../../assets/homepage/Fifthpage/page5-center-phone.png";
-import topRight from "./../../../assets/homepage/Fifthpage/page5-top-right.png";
-import "./Fifthpage.scss";
+import leftBottom from "./../../../assets/homepage/loremStoreApp/page5-left-bottom.png";
+import centerPhone from "./../../../assets/homepage/loremStoreApp/page5-center-phone.png";
+import topRight from "./../../../assets/homepage/loremStoreApp/page5-top-right.png";
+import "./index.scss";
 
 const Fifthpage = () => {
   return (

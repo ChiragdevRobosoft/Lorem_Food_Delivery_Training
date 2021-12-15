@@ -1,4 +1,4 @@
-import "./Thirdpage.scss";
+import "./index.scss";
 
 const Thirdpage = () => {
   return (

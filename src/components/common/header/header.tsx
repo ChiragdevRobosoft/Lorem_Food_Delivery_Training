@@ -1,5 +1,6 @@
-import cartIcon from "./../../../../assets/homepage/Firstpage/cart-icon-homepage.png";
-import "./Header.scss";
+import cartIcon from "./../../../assets/homepage/landingPage/cart-icon-homepage.png";
+
+import "./header.scss";
 
 const Header = () => {
   return (

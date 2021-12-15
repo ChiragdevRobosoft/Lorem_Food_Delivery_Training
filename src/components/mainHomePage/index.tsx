@@ -1,15 +1,15 @@
-import Secondpage from "./Secondpage/Secondpage";
-import Thirdpage from "./Thirdpage/Thirdpage";
-import Fifthpage from "./Fifthpage/Fifthpage";
-import Firstpage from "./Firstpage/Firstpage";
-import "./Homepage.scss";
-import Fourthpage from "./Fourthpage/Fourthpage";
+import Secondpage from "./popularBrands";
+import Thirdpage from "./bestDealsOffers";
+import Fifthpage from "./loremStoreApp";
+import LandingPage from "./landingPage";
+import "./index.scss";
+import Fourthpage from "./howToOrder";
 
-const Homepage = () => {
+const MainHomePage = () => {
   return (
     <div className="container">
       <div className="one">
-        <Firstpage />
+        <LandingPage />
       </div>
       <div className="two">
         <Secondpage />
@@ -26,7 +26,7 @@ const Homepage = () => {
     </div>
   );
 };
-export default Homepage;
+export default MainHomePage;
 
 /*
 <div className="container">

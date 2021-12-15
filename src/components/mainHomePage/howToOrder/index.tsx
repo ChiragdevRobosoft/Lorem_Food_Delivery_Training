@@ -1,9 +1,9 @@
-import "./Fourthpage.scss";
-import firstStep from "./../../../assets/homepage/Fourthpage/page4-left.png";
-import secondStep from "./../../../assets/homepage/Fourthpage/page4-center.png";
-import thirdStep from "./../../../assets/homepage/Fourthpage/page4-right.png";
-import pathOne from "./../../../assets/homepage/Fourthpage/Path1.png";
-import pathTwo from "./../../../assets/homepage/Fourthpage/Path2.png";
+import "./index.scss";
+import firstStep from "./../../../assets/homepage/howToOrder/page4-left.png";
+import secondStep from "./../../../assets/homepage/howToOrder/page4-center.png";
+import thirdStep from "./../../../assets/homepage/howToOrder/page4-right.png";
+import pathOne from "./../../../assets/homepage/howToOrder/Path1.png";
+import pathTwo from "./../../../assets/homepage/howToOrder/Path2.png";
 
 const Fourthpage = () => {
   return (
