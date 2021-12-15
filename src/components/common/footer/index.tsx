@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import { SocialIcon } from "react-social-icons";
-import data from "./data.json";
+import data from "../constants.json";
 import styled from "styled-components";
 import {
   sizes,
