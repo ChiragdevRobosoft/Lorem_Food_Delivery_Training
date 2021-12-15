@@ -1,32 +1,71 @@
-import Secondpage from "./popularBrands";
-import Thirdpage from "./bestDealsOffers";
-import Fifthpage from "./loremStoreApp";
 import LandingPage from "./landingPage";
+import PopularBrands from "./popularBrands";
+import BestDealsOffers from "./bestDealsOffers";
+import HowToOrder from "./howToOrder";
+import LoremStoreApp from "./loremStoreApp";
+import styled from "styled-components";
 import "./index.scss";
-import Fourthpage from "./howToOrder";
 
 const MainHomePage = () => {
   return (
-    <div className="container">
+    <Wrapper>
       <div className="one">
         <LandingPage />
       </div>
       <div className="two">
-        <Secondpage />
+        <PopularBrands />
       </div>
       <div className="three">
-        <Thirdpage />
+        <BestDealsOffers />
       </div>
       <div className="four">
-        <Fourthpage />
+        <HowToOrder />
       </div>
       <div className="five">
-        <Fifthpage />
+        <LoremStoreApp />
       </div>
-    </div>
+    </Wrapper>
   );
 };
 export default MainHomePage;
+
+const Wrapper = styled.div`
+  width: 100%;
+  .one {
+    background-image: url("./../../assets/homepage/landingPage/BGimage.png");
+    background-repeat: no-repeat;
+    height: 935px;
+    display: flex;
+    justify-content: center;
+  }
+  .two {
+    background-image: url("./../../assets/homepage/popularBrands/BGimage.png");
+    background-repeat: no-repeat;
+    height: 617px;
+    display: flex;
+    justify-content: center;
+  }
+  .three {
+    background-image: url("./../../assets/homepage/bestDealsOffers/BGimage.png");
+    background-repeat: no-repeat;
+    height: 823px;
+    display: flex;
+    justify-content: center;
+  }
+  .four {
+    background-image: url("./../../assets/homepage/howToOrder/BGimage.png");
+    background-repeat: no-repeat;
+    height: 780px;
+    display: flex;
+    justify-content: center;
+  }
+  .five {
+    height: 847px;
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+  }
+`;
 
 /*
 <div className="container">

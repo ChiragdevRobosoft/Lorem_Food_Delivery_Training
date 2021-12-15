@@ -1,6 +1,6 @@
 import "./index.scss";
 
-const Secondpage = () => {
+const PopularBrands = () => {
   return (
     <div className="second-page-container">
       <div className="content-container">
@@ -13,4 +13,4 @@ const Secondpage = () => {
     </div>
   );
 };
-export default Secondpage;
+export default PopularBrands;

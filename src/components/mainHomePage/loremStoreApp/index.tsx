@@ -3,7 +3,7 @@ import centerPhone from "./../../../assets/homepage/loremStoreApp/page5-center-p
 import topRight from "./../../../assets/homepage/loremStoreApp/page5-top-right.png";
 import "./index.scss";
 
-const Fifthpage = () => {
+const LoremStoreApp = () => {
   return (
     <div className="fifth-page-container">
       <img className="left-bottom" src={leftBottom} alt="left-bottom" />
@@ -24,4 +24,4 @@ const Fifthpage = () => {
     </div>
   );
 };
-export default Fifthpage;
+export default LoremStoreApp;

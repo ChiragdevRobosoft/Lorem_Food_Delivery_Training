@@ -5,7 +5,7 @@ import thirdStep from "./../../../assets/homepage/howToOrder/page4-right.png";
 import pathOne from "./../../../assets/homepage/howToOrder/Path1.png";
 import pathTwo from "./../../../assets/homepage/howToOrder/Path2.png";
 
-const Fourthpage = () => {
+const HowToOrder = () => {
   return (
     <div className="fourth-page-container">
       <div className="title-discrp-container">
@@ -34,4 +34,4 @@ const Fourthpage = () => {
     </div>
   );
 };
-export default Fourthpage;
+export default HowToOrder;

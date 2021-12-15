@@ -1,6 +1,6 @@
 import "./index.scss";
 
-const Thirdpage = () => {
+const BestDealsOffers = () => {
   return (
     <div className="third-page-container">
       <div className="content-container">
@@ -12,4 +12,4 @@ const Thirdpage = () => {
     </div>
   );
 };
-export default Thirdpage;
+export default BestDealsOffers;
