@@ -1,9 +1,9 @@
 import "./index.scss";
-import firstStep from "./../../../assets/homepage/howToOrder/page4-left.png";
-import secondStep from "./../../../assets/homepage/howToOrder/page4-center.png";
-import thirdStep from "./../../../assets/homepage/howToOrder/page4-right.png";
-import pathOne from "./../../../assets/homepage/howToOrder/Path1.png";
-import pathTwo from "./../../../assets/homepage/howToOrder/Path2.png";
+import firstStep from "./../../../assets/home/howToOrder/icn_house.png";
+import secondStep from "./../../../assets/home/howToOrder/icn_burger.png";
+import thirdStep from "./../../../assets/home/howToOrder/icn_cart.png";
+import pathOne from "./../../../assets/home/howToOrder/wave1.png";
+import pathTwo from "./../../../assets/home/howToOrder/wave2.png";
 
 const HowToOrder = () => {
   return (

@@ -1,6 +1,6 @@
-import leftBottom from "./../../../assets/homepage/loremStoreApp/page5-left-bottom.png";
-import centerPhone from "./../../../assets/homepage/loremStoreApp/page5-center-phone.png";
-import topRight from "./../../../assets/homepage/loremStoreApp/page5-top-right.png";
+import leftBottom from "./../../../assets/home/loremStoreApp/img_vegetables.png";
+import centerPhone from "./../../../assets/home/loremStoreApp/img_phone.png";
+import topRight from "./../../../assets/home/loremStoreApp/img_gradient_u.png";
 import "./index.scss";
 
 const LoremStoreApp = () => {

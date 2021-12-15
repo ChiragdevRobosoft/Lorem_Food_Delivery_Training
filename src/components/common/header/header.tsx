@@ -1,4 +1,4 @@
-import cartIcon from "./../../../assets/homepage/landingPage/cart-icon-homepage.png";
+import cartIcon from "./../../../assets/home/landingPage/cart-icon-homepage.png";
 
 import "./header.scss";
 

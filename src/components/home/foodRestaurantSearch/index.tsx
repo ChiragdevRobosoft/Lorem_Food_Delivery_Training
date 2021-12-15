@@ -1,6 +1,6 @@
 import Foodsearch from "./foodSearch";
 import Header from "../../common/header/header";
-import mouseScroll from "./../../../assets/homepage/landingPage/mouse-scroll.png";
+import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import "./index.scss";
 
 const LandingPage = () => {
