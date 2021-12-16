@@ -1,8 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700;800&display=swap");
+import styled from "styled-components";
 
-.third-page-container {
-  /*border: 1px solid darkgray;*/
-  display: flex;
+const BestDealsOffers = () => {
+  return (
+    <Wrapper>
+      <div className="content-container">
+        <p className="content-title">Best Deals & Offers</p>
+        <p className="content-discription">
+          Endless deals near you! Grab the best deals and offers
+        </p>
+      </div>
+    </Wrapper>
+  );
+};
+export default BestDealsOffers;
+
+const Wrapper = styled.div`
+display: flex;
   .content-container {
     display: flex;
     flex-direction: column;
@@ -31,3 +44,5 @@
     }
   }
 }
+
+`;

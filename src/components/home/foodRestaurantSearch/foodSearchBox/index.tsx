@@ -1,6 +1,42 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+import styled from "styled-components";
+import searchIcon from "./../../../../assets/home/foodRestaurantSearch/foodSearchBox/search-icon-home.png";
+import pinIcon from "./../../../../assets/home/foodRestaurantSearch/foodSearchBox/icn_pin.png";
+import gpsIcon from "./../../../../assets/home/foodRestaurantSearch/foodSearchBox/icn_gps_indicator.png";
+import timeDateIcon from "./../../../../assets/home/foodRestaurantSearch/foodSearchBox/present-t&d-firstpage.png";
 
-.food-searchbox-container {
+const Foodsearch = () => {
+  return (
+    <Wrapper>
+      <input
+        type="text"
+        name="food-search"
+        placeholder="Search your restaurant or cuisines"
+      />
+      <div className="loc-date-container">
+        <div className="location-input">
+          <input
+            type="text"
+            name="location"
+            placeholder="Downtown Burj Khalifa, Dubai"
+          />
+          <button />
+        </div>
+        <div className="date-input">
+          <input
+            type="text"
+            name="date"
+            placeholder="Search your restaurant or cuisines"
+            value="Today, 28 April, 2018"
+          />
+          <button />
+        </div>
+      </div>
+    </Wrapper>
+  );
+};
+export default Foodsearch;
+
+const Wrapper = styled.div`
   margin: 0px 889px 176px 420px;
   height: 175px;
   width: 611px;
@@ -12,7 +48,7 @@
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14);
     outline: none;
     border: none;
-    background-image: url("./../../../../assets/homepage/Firstpage/search-icon-home.png");
+    background-image: url(${searchIcon});
     background-repeat: no-repeat;
     background-position: 25px 22px;
     padding-left: 61px;
@@ -43,14 +79,14 @@
         border-radius: 10px;
         background-color: #ffff;
         box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-        background-image: url("./../../../../assets/homepage/Firstpage/icn_pin.png");
+        background-image: url(${pinIcon});
         background-repeat: no-repeat;
         background-position: 19px 25px;
         padding-left: 46px;
       }
       button {
         background-color: #ffff;
-        background-image: url("./../../../../assets/homepage/Firstpage/icn_gps_indicator.png");
+        background-image: url(${gpsIcon});
         background-repeat: no-repeat;
         background-position: center;
         height: 20px;
@@ -79,7 +115,7 @@
         height: 54px;
         width: 54px;
         background-color: #ffff;
-        background-image: url("./../../../../assets/homepage/Firstpage/present-t&d-firstpage.png");
+        background-image: url(${timeDateIcon});
         background-repeat: no-repeat;
         background-position: center;
         margin: auto -10px auto -64px;
@@ -88,4 +124,4 @@
       }
     }
   }
-}
+`;
