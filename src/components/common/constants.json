@@ -10,5 +10,39 @@
     "Blog",
     "Contact",
     "Sitemap"
+  ],
+  "RestaurantList": [
+    {
+      "name": "Pizzahut",
+      "outlets": "2"
+    },
+    {
+      "name": "KFC",
+      "outlets": "5"
+    },
+    {
+      "name": "Chicken Tikka",
+      "outlets": "5"
+    },
+    {
+      "name": "McDonalds",
+      "outlets": "3"
+    },
+    {
+      "name": "Chicken Tikka",
+      "outlets": "5"
+    },
+    {
+      "name": "Pizzahut",
+      "outlets": "2"
+    },
+    {
+      "name": "McDonalds",
+      "outlets": "2"
+    },
+    {
+      "name": "KFC",
+      "outlets": "5"
+    }
   ]
 }
