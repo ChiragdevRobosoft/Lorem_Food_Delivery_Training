@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import data from "./../../common/constants.json";
 import leftBottom from "./../../../assets/home/loremStoreApp/img_vegetables.png";
 import centerPhone from "./../../../assets/home/loremStoreApp/img_phone.png";
 import topRight from "./../../../assets/home/loremStoreApp/img_gradient_u.png";
@@ -10,11 +11,12 @@ const LoremStoreApp = () => {
     <Wrapper>
       <img className="left-bottom" src={leftBottom} alt="left-bottom" />
       <div className="marketing-info-holder">
-        <p className="app-name">Lorem App</p>
-        <p className="download-text">Download the Food App</p>
+        <p className="app-name">{data.homeTexts.loremStoreApp.heading}</p>
+        <p className="download-text">
+          {data.homeTexts.loremStoreApp.subHeading}
+        </p>
         <p className="app-description">
-          Get real-time order updates, live chat support, and exclusive app-only
-          offers.
+          {data.homeTexts.loremStoreApp.description}
         </p>
         <div className="store-app-container">
           <a className="app-store" href="" />

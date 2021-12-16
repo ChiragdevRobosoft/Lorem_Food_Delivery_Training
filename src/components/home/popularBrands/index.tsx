@@ -1,13 +1,12 @@
 import styled from "styled-components";
-
+import data from "./../../common/constants.json";
 const PopularBrands = () => {
   return (
     <Wrapper>
       <div className="content-container">
-        <p className="content-title">Popular Brands</p>
+        <p className="content-title">{data.homeTexts.popularBrands.heading}</p>
         <p className="content-discription">
-          Find out more about the world's top food that brands are available all
-          over the world today
+          {data.homeTexts.popularBrands.description}
         </p>
       </div>
     </Wrapper>

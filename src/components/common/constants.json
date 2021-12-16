@@ -10,5 +10,31 @@
     "Blog",
     "Contact",
     "Sitemap"
-  ]
+  ],
+  "homeTexts": {
+    "foodRestaurantSearch": {
+      "heading": "Order your food",
+      "description": "from the best restaurants"
+    },
+    "popularBrands": {
+      "heading": "Popular Brands",
+      "description": "Find out more about the world's top food that brands are available all over the world today"
+    },
+    "bestDealsOffers": {
+      "heading": "Best Deals & Offers",
+      "description": "Endless deals near you! Grab the best deals and offers"
+    },
+    "howToOrder": {
+      "heading": "How to Order",
+      "description": "Giving you an easiest way to look for the best food that can be ordered.",
+      "step1": "Explore restaurants that deliver to your doorstep.",
+      "step2": "Browse menus and build your order in seconds.",
+      "step3": "Follow the status of your order with real-time alerts."
+    },
+    "loremStoreApp": {
+      "heading": "Lorem App",
+      "subHeading": "Download the Food App",
+      "description": "Get real-time order updates, live chat support, and exclusive app-only offers."
+    }
+  }
 }

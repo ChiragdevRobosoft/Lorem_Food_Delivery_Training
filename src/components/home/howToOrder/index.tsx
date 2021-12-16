@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import data from "./../../common/constants.json";
 import firstStep from "./../../../assets/home/howToOrder/icn_house.png";
 import secondStep from "./../../../assets/home/howToOrder/icn_burger.png";
 import thirdStep from "./../../../assets/home/howToOrder/icn_cart.png";
@@ -9,26 +10,25 @@ const HowToOrder = () => {
   return (
     <Wrapper>
       <div className="title-discrp-container">
-        <p className="content-title">How to Order</p>
+        <p className="content-title">{data.homeTexts.howToOrder.heading}</p>
         <p className="content-discription">
-          Giving you an easiest way to look for the best food that can be
-          ordered.
+          {data.homeTexts.howToOrder.description}
         </p>
       </div>
       <div className="steps-container">
         <div className="first-step">
           <img className="first-step-img" src={firstStep} alt="first-step" />
-          <p>Explore restaurants that deliver to your doorstep.</p>
+          <p>{data.homeTexts.howToOrder.step1}</p>
         </div>
         <img className="path-wave" src={pathOne} alt="pathOne" />
         <div className="second-step">
           <img src={secondStep} alt="second-step" />
-          <p>Browse menus and build your order in seconds.</p>
+          <p>{data.homeTexts.howToOrder.step2}</p>
         </div>
         <img className="path-wave" src={pathTwo} alt="pathTwo" />
         <div className="third-step">
           <img src={thirdStep} alt="third-step" />
-          <p>Follow the status of your order with real-time alerts.</p>
+          <p>{data.homeTexts.howToOrder.step3}</p>
         </div>
       </div>
     </Wrapper>

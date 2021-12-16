@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import data from "./../../common/constants.json";
 
 const BestDealsOffers = () => {
   return (
     <Wrapper>
       <div className="content-container">
-        <p className="content-title">Best Deals & Offers</p>
+        <p className="content-title">
+          {data.homeTexts.bestDealsOffers.heading}
+        </p>
         <p className="content-discription">
-          Endless deals near you! Grab the best deals and offers
+          {data.homeTexts.bestDealsOffers.description}
         </p>
       </div>
     </Wrapper>

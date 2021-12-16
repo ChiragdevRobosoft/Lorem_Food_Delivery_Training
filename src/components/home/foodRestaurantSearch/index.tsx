@@ -2,14 +2,15 @@ import Foodsearch from "./foodSearchBox";
 import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import styled from "styled-components";
+import data from "./../../common/constants.json";
 
 const LandingPage = () => {
   return (
     <Wrapper>
       <Header />
       <p>
-        <span>Order your food</span>
-        <span>from the best restaurants</span>
+        <span>{data.homeTexts.foodRestaurantSearch.heading}</span>
+        <span>{data.homeTexts.foodRestaurantSearch.description}</span>
       </p>
       <Foodsearch />
       <div className="scroll-holder">
