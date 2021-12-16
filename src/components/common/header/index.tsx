@@ -1,8 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+import styled from "styled-components";
+import cartIcon from "./../../../assets/common/header/cart-icon.png";
+import {
+  sizes,
+  colors,
+  angles,
+  fontFamilies,
+  fontWeight,
+  opacity,
+} from "../../../variables";
 
-.header-container {
+const Header = () => {
+  return (
+    <WrapperHeader>
+      <p className="header-title">LOREM</p>
+      <select name="languages" id="pageLang">
+        <option value="English">English</option>
+        <option value="Arabic">Arabic</option>
+      </select>
+      <p className="login">LOGIN</p>
+      <p className="create-account">CREATE AN ACCOUNT</p>
+      <div className="cart-holder">
+        <img src={cartIcon} alt="cart-icon" />
+        <p className="cart">CART</p>
+      </div>
+    </WrapperHeader>
+  );
+};
+export default Header;
+
+const WrapperHeader = styled.header`
   height: 89px;
   width: 1825px;
   display: flex;
@@ -10,10 +36,19 @@
   margin: 19px 62px 119px 33px;
 
   .header-title {
-    font-family: "Bebas Neue", cursive;
-    background-image: linear-gradient(60deg, #af4261, #e9a459);
+    // font-family: "Bebas Neue", cursive;
+    // background-image: linear-gradient(60deg, #af4261, #e9a459);
+    // background-clip: text;
+    // color: transparent;
+    background-image: linear-gradient(
+      ${angles.angle60},
+      ${colors.pink1},
+      ${colors.yellow1}
+    );
     background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text;
+    color: ${colors.transparentColor};
+    font-family: ${fontFamilies.fontFamilyBn};
     height: 60px;
     width: 103px;
     text-align: center;
@@ -68,7 +103,7 @@
   .cart-holder {
     display: flex;
     margin: 12px 0px 23px 0px;
-    border-left: 1px solid rgba(black, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
     height: 54px;
     width: 108px;
 
@@ -91,4 +126,4 @@
       text-align: right;
     }
   }
-}
+`;

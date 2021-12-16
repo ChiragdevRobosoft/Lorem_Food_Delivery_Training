@@ -8,8 +8,16 @@ import BGimage1 from "./../../assets/home/foodRestaurantSearch/BGimage.png";
 import BGimage2 from "./../../assets/home/popularBrands/BGimage.png";
 import BGimage3 from "./../../assets/home/bestDealsOffers/BGimage.png";
 import BGimage4 from "./../../assets/home/howToOrder/BGimage.png";
-
+import {
+  sizes,
+  colors,
+  angles,
+  fontFamilies,
+  fontWeight,
+  opacity,
+} from "./../../variables";
 import "./index.scss";
+import Footer from "../common/footer";
 
 const Home = () => {
   return (
@@ -60,14 +68,15 @@ const Wrapper = styled.div`
   .four {
     background-image: url(${BGimage4});
     background-repeat: no-repeat;
+    background-position: right;
     height: 780px;
     display: flex;
-    justify-content: center;
   }
   .five {
     height: 847px;
     display: flex;
     justify-content: center;
+    background: linear-gradient(206.72deg, #f3f6ff 0%, #ffffff 100%);
     background-repeat: no-repeat;
   }
 `;
