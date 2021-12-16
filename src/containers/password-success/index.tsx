@@ -1,15 +1,17 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
 import passwordsuccess from '../../assets/password_success.png';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Button1 from '../../components/button/index';
 import closeButton from '../../assets/close_button.png';
 
-const PasswordSuccess = ({ onCloseModal }: { onCloseModal: any }) => {
-	const history = useHistory();
+const PasswordSuccess = () => {
+	const [open, setOpen] = useState(true);
+	const onOpenModal = () => setOpen(true);
+	const onCloseModal = () => setOpen(false);
 	return (
 		<Wrapper>
 			<WrapperLeft>

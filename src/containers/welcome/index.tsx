@@ -2,47 +2,47 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import registerSuccess from '../../assets/register_success.png';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button1 from '../../components/button/index';
 import closeButton from '../../assets/close_button.png';
 import { Modal } from 'react-responsive-modal';
 
 
 const RegisterSuccess = () => {
-    const history = useHistory();
-    const [open, setOpen] = useState(true);
-    const onOpenModal = () => setOpen(true);
-    const onCloseModal = () => setOpen(false);
-    return (
-        <Modal open={open} onClose={onCloseModal} >
-            <Wrapper>
-                <WrapperLeft>
-                    <Lorem>LOREM</Lorem>
-                    <Text>Experience the </Text>
-                    <Text>easiest a way to get</Text>
-                    <Line>
-                        <BoldText>great food</BoldText>
-                        <Text>Delivered</Text>
-                    </Line>
-                </WrapperLeft>
-                <WrapperRight>
-                    <Button onClick={onCloseModal}>
-                        <img src={closeButton} alt="cut" ></img>
-                    </Button>
-                    <SuccessImage>
-                        <img src={registerSuccess} className="registersuccess"></img>
-                    </SuccessImage>
-                    <Text1>Hi Abdulla,</Text1>
-                    <Text3>Welcome to Zadoh</Text3>
-                    <Text2>We've sent you an email on</Text2>
+	const history = useNavigate();
+	const [open, setOpen] = useState(true);
+	const onOpenModal = () => setOpen(true);
+	const onCloseModal = () => setOpen(false);
+	return (
+		<Modal open={open} onClose={onCloseModal} >
+			<Wrapper>
+				<WrapperLeft>
+					<Lorem>LOREM</Lorem>
+					<Text>Experience the </Text>
+					<Text>easiest a way to get</Text>
+					<Line>
+						<BoldText>great food</BoldText>
+						<Text>Delivered</Text>
+					</Line>
+				</WrapperLeft>
+				<WrapperRight>
+					<Button onClick={onCloseModal}>
+						<img src={closeButton} alt="cut" ></img>
+					</Button>
+					<SuccessImage>
+						<img src={registerSuccess} className="registersuccess"></img>
+					</SuccessImage>
+					<Text1>Hi Abdulla,</Text1>
+					<Text3>Welcome to Zadoh</Text3>
+					<Text2>We've sent you an email on</Text2>
 
-                    <BrowseButton>
-                        <Button1 name="BROWSE TO START ORDERING"></Button1>
-                    </BrowseButton>
-                </WrapperRight>
-            </Wrapper>
-        </Modal >
-    );
+					<BrowseButton>
+						<Button1 name="BROWSE TO START ORDERING"></Button1>
+					</BrowseButton>
+				</WrapperRight>
+			</Wrapper>
+		</Modal >
+	);
 };
 export default RegisterSuccess;
 

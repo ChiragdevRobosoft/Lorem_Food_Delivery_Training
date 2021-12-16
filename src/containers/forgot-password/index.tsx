@@ -4,52 +4,58 @@ import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
 import icon_forgot from '../../assets/icn_forgot.png';
 import Button1 from '../../components/button/index';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Rectangle from '../../assets/Rectangle.png';
+import { Modal } from 'react-responsive-modal'
 
-const ForgotPassword = ({ onCloseModal }: { onCloseModal: any }) => {
-  const history = useHistory();
+const ForgotPassword = () => {
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(true);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
   const [InputType, setInputType] = useState('email');
   return (
-    <Wrapper>
-      <WrapperLeft>
-        <Lorem>LOREM</Lorem>
-        <Text>Experience the </Text>
-        <Text>easiest a way to get</Text>
-        <Line>
-          <BoldText>great food</BoldText>
-          <Text>Delivered</Text>
-        </Line>
-      </WrapperLeft>
-      <WrapperRight>
-        <Button onClick={() => history.push("/login")}>
-          <img src={backButton} alt="cut" ></img>
-        </Button>
-        <ForgotImage>
-          <img src={icon_forgot} className="icon_forgot"></img>
-        </ForgotImage>
-        <Text1>Forgot Password!</Text1>
-        <Text2>Share your registered either email address or mobile number to send you the OTP to reset your password</Text2>
+    <Modal open={open} onClose={onCloseModal} >
+      <Wrapper>
+        <WrapperLeft>
+          <Lorem>LOREM</Lorem>
+          <Text>Experience the </Text>
+          <Text>easiest a way to get</Text>
+          <Line>
+            <BoldText>great food</BoldText>
+            <Text>Delivered</Text>
+          </Line>
+        </WrapperLeft>
+        <WrapperRight>
+          <Button onClick={() => navigate("/login")}>
+            <img src={backButton} alt="cut" ></img>
+          </Button>
+          <ForgotImage>
+            <img src={icon_forgot} className="icon_forgot"></img>
+          </ForgotImage>
+          <Text1>Forgot Password!</Text1>
+          <Text2>Share your registered either email address or mobile number to send you the OTP to reset your password</Text2>
 
-        <Navbar>
-          <InputTypeButton onClick={() => setInputType('email')}>
-            Email
-          </InputTypeButton>
-          <InputTypeButton onClick={() => setInputType('mobile')}>
-            Mobile No.
-          </InputTypeButton>
-        </Navbar>
+          <Navbar>
+            <InputTypeButton onClick={() => setInputType('email')}>
+              Email
+            </InputTypeButton>
+            <InputTypeButton onClick={() => setInputType('mobile')}>
+              Mobile No.
+            </InputTypeButton>
+          </Navbar>
 
-        {InputType === 'email' ? (
-          <TextBox name="Email" isPassword={false} />
-        ) : (
-          <TextBox name="Mobile No." isPassword={false} />
-        )}
+          {InputType === 'email' ? (
+            <TextBox name="Email" isPassword={false} />
+          ) : (
+            <TextBox name="Mobile No." isPassword={false} />
+          )}
 
-        <Button1 name="SEND OTP"></Button1>
-      </WrapperRight>
-    </Wrapper>
+          <Button1 name="SEND OTP"></Button1>
+        </WrapperRight>
+      </Wrapper>
+    </Modal>
   );
 };
 export default ForgotPassword;

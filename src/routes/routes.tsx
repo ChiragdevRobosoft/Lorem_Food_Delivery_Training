@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router";
+import { Route, Routes } from "react-router";
 import ForgotPassword from "../containers/forgot-password/index";
 import Login from "../containers/login";
 import Verification from "../containers/verification";
@@ -10,21 +10,21 @@ import CreateAccount from "../containers/create-account";
 import AccountDetails from "../containers/account-details";
 
 
-const Routes = () => {
+const Routing = () => {
     return (
 
-        <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/forgot-password" component={ForgotPassword} />
-            <Route path="/verification" component={Verification} />
-            <Route path="/verified" component={Verified} />
-            <Route path="/password-success" component={PasswordSuccess} />
-            <Route path="/welcome" component={RegisterSuccess} />
-            <Route path="/create-account" component={CreateAccount} />
-            <Route path="/account-details" component={AccountDetails} />
-        </Switch>
+        <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/verification" element={<Verification />} />
+            <Route path="/verified" element={<Verified />} />
+            <Route path="/password-success" element={<PasswordSuccess />} />
+            <Route path="/welcome" element={<RegisterSuccess />} />
+            <Route path="/create-account" element={<CreateAccount />} />
+            <Route path="/account-details" element={<AccountDetails />} />
+        </Routes>
 
     );
 };
 
-export default Routes;
+export default Routing;

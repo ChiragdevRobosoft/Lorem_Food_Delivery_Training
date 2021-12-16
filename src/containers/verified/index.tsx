@@ -3,13 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
 import icon_verified from '../../assets/icn_verified.png';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Button1 from '../../components/button/index';
 
 
-const Verified = ({ onCloseModal }: { onCloseModal: any }) => {
-	const history = useHistory();
+const Verified = () => {
+	const navigate = useNavigate();
 	return (
 		<Wrapper>
 			<WrapperLeft>
@@ -22,7 +22,7 @@ const Verified = ({ onCloseModal }: { onCloseModal: any }) => {
 				</Line>
 			</WrapperLeft>
 			<WrapperRight>
-				<Button onClick={() => history.push("/forgot-password")}>
+				<Button onClick={() => navigate("/forgot-password")}>
 					<img src={backButton} className="arrow" alt="cut" ></img>
 				</Button>
 				<VerifyImage>

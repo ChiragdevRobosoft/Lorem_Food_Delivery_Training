@@ -1,12 +1,14 @@
 import React from "react";
-import Routes from "./routes/routes";
+import Routing from "./routes/routes";
 import Homepage from "./components/Homepage/Homepage";
 
 const App = () => {
 
   return (
     <div className="App">
-      <Routes />
+
+      <Routing />
+
     </div>
   );
 };

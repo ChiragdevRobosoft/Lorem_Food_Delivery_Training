@@ -2,55 +2,55 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import closeButton from '../../assets/close_button.png';
 import Button1 from '../../components/button/index';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Modal } from 'react-responsive-modal'
 import TextBox from '../../components/textbox';
 
 
 
 const Login = () => {
-    const history = useHistory();
-    const [open, setOpen] = useState(true);
-    const onOpenModal = () => setOpen(true);
-    const onCloseModal = () => setOpen(false);
-    return (
+  const history = useNavigate();
+  const [open, setOpen] = useState(true);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+  return (
 
-        <Modal open={open} onClose={onCloseModal} >
+    <Modal open={open} onClose={onCloseModal} >
 
 
-            <Wrapper>
-                <WrapperLeft>
-                    <Lorem>LOREM</Lorem>
-                    <Text>Experience the </Text>
-                    <Text>easiest a way to get</Text>
-                    <Line>
-                        <BoldText>great food</BoldText>
-                        <Text>Delivered</Text>
-                    </Line>
-                </WrapperLeft>
-                <WrapperRight>
-                    <Button onClick={onCloseModal}>
-                        <img src={closeButton} alt="cut" ></img>
-                    </Button>
-                    <Title>Create your account</Title>
-                    <Text2>Share your email address to send you the OTP to get yourself register!</Text2>
-                    <TextBox name='Email' isPassword={false}></TextBox>
-                    <Button1 name="CREATE ACCOUNT"></Button1>
-                    <Top>
-                        <TopText>By registering you agree to the</TopText>
-                        <Button5>Terms & Conditions</Button5>
-                    </Top>
-                    <Button3 name="Facebook">Facebook</Button3>
-                    <Button4 name="Google+">Google+</Button4>
-                    <Bottom>
-                        <BottomText>Already have an account?</BottomText>
-                        <Button2>Login</Button2>
-                    </Bottom>
-                </WrapperRight>
-            </Wrapper>
-        </Modal>
+      <Wrapper>
+        <WrapperLeft>
+          <Lorem>LOREM</Lorem>
+          <Text>Experience the </Text>
+          <Text>easiest a way to get</Text>
+          <Line>
+            <BoldText>great food</BoldText>
+            <Text>Delivered</Text>
+          </Line>
+        </WrapperLeft>
+        <WrapperRight>
+          <Button onClick={onCloseModal}>
+            <img src={closeButton} alt="cut" ></img>
+          </Button>
+          <Title>Create your account</Title>
+          <Text2>Share your email address to send you the OTP to get yourself register!</Text2>
+          <TextBox name='Email' isPassword={false}></TextBox>
+          <Button1 name="CREATE ACCOUNT"></Button1>
+          <Top>
+            <TopText>By registering you agree to the</TopText>
+            <Button5>Terms & Conditions</Button5>
+          </Top>
+          <Button3 name="Facebook">Facebook</Button3>
+          <Button4 name="Google+">Google+</Button4>
+          <Bottom>
+            <BottomText>Already have an account?</BottomText>
+            <Button2>Login</Button2>
+          </Bottom>
+        </WrapperRight>
+      </Wrapper>
+    </Modal>
 
-    );
+  );
 };
 export default Login;
 const BottomText = styled.p`

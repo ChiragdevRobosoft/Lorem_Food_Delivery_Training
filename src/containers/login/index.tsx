@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import closeButton from '../../assets/close_button.png';
 import Button1 from '../../components/button/index';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Modal } from 'react-responsive-modal'
 import TextBox from '../../components/textbox';
+import { sizes, colors } from '../../variables';
+
 
 
 
 const Login = () => {
-	const history = useHistory();
+	const navigate = useNavigate();
 	const [open, setOpen] = useState(true);
 	const onOpenModal = () => setOpen(true);
 	const onCloseModal = () => setOpen(false);
@@ -35,7 +37,7 @@ const Login = () => {
 					<Title>Let's get started!</Title>
 					<TextBox name='Email' isPassword={false}></TextBox>
 					<TextBox name='Password' isPassword={true}></TextBox>
-					<Button5 name="Forgot Password?" onClick={() => history.push("/forgot-password")}>Forgot Password?</Button5>
+					<Button5 name="Forgot Password?" onClick={() => navigate("/forgot-password")}>Forgot Password?</Button5>
 					<Button1 name="LOGIN"></Button1>
 					<Button3 name="Facebook">Facebook</Button3>
 					<Button4 name="Google+">Google+</Button4>
@@ -51,9 +53,9 @@ const Login = () => {
 };
 export default Login;
 const BottomText = styled.p`
-height: 19px;
+height: ${sizes.size19};
   width: 237px;
-  color: #282525f6;
+  color: rgba(74,74,74,1);
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 19px;

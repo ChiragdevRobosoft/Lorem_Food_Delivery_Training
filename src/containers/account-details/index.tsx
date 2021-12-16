@@ -2,40 +2,40 @@
 import React from 'react';
 import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Button1 from '../../components/button/index';
 
 
-const AccountDetails = ({ onCloseModal }: { onCloseModal: any }) => {
-    const history = useHistory();
-    return (
-        <Wrapper>
-            <WrapperLeft>
-                <Lorem>LOREM</Lorem>
-                <Text>Experience the </Text>
-                <Text>easiest a way to get</Text>
-                <Line>
-                    <BoldText>great food</BoldText>
-                    <Text>Delivered</Text>
-                </Line>
-            </WrapperLeft>
-            <WrapperRight>
-                <Button onClick={() => history.push("/forgot-password")}>
-                    <img src={backButton} className="arrow" alt="cut" ></img>
-                </Button>
-                <Text1>Verified!</Text1>
-                <Text2>Your Email is verifeid.</Text2>
-                <Text3>Finally enter details below to create account.</Text3>
-                <TextBox name='First Name' isPassword={false}></TextBox>
-                <TextBox name='Last Name' isPassword={false}></TextBox>
-                <TextBox name='Create Password' isPassword={true}></TextBox>
-                <VerifyButton>
-                    <Button1 name="DONE"></Button1>
-                </VerifyButton>
-            </WrapperRight>
-        </Wrapper>
-    );
+const AccountDetails = () => {
+	let navigate = useNavigate();
+	return (
+		<Wrapper>
+			<WrapperLeft>
+				<Lorem>LOREM</Lorem>
+				<Text>Experience the </Text>
+				<Text>easiest a way to get</Text>
+				<Line>
+					<BoldText>great food</BoldText>
+					<Text>Delivered</Text>
+				</Line>
+			</WrapperLeft>
+			<WrapperRight>
+				<Button onClick={() => navigate("/forgot-password")}>
+					<img src={backButton} className="arrow" alt="cut" ></img>
+				</Button>
+				<Text1>Verified!</Text1>
+				<Text2>Your Email is verifeid.</Text2>
+				<Text3>Finally enter details below to create account.</Text3>
+				<TextBox name='First Name' isPassword={false}></TextBox>
+				<TextBox name='Last Name' isPassword={false}></TextBox>
+				<TextBox name='Create Password' isPassword={true}></TextBox>
+				<VerifyButton>
+					<Button1 name="DONE"></Button1>
+				</VerifyButton>
+			</WrapperRight>
+		</Wrapper>
+	);
 };
 export default AccountDetails;
 const VerifyButton = styled.div`

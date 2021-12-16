@@ -3,40 +3,40 @@ import React from 'react';
 import styled from 'styled-components';
 import backButton from '../../assets/back_button.png';
 import icon_verify from '../../assets/icn_verify.png';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import TextBox from '../../components/textbox';
 import Button1 from '../../components/button/index';
 
 
-const Verification = ({ onCloseModal }: { onCloseModal: any }) => {
-  const history = useHistory();
-  return (
-    <Wrapper>
-      <WrapperLeft>
-        <Lorem>LOREM</Lorem>
-        <Text>Experience the </Text>
-        <Text>easiest a way to get</Text>
-        <Line>
-          <BoldText>great food</BoldText>
-          <Text>Delivered</Text>
-        </Line>
-      </WrapperLeft>
-      <WrapperRight>
-        <Button onClick={() => history.push("/forgot-password")}>
-          <img src={backButton} className="arrow" alt="cut" ></img>
-        </Button>
-        <VerifyImage>
-          <img src={icon_verify} className="icon_forgot"></img>
-        </VerifyImage>
-        <Text1>Verification</Text1>
-        <Text2>We just sent you the OTP via SMS to your email address/mobile no. You should get it soon!</Text2>
-        <TextBox name='Enter OTP' isPassword={false}></TextBox>
-        <VerifyButton>
-          <Button1 name="VERIFY"></Button1>
-        </VerifyButton>
-      </WrapperRight>
-    </Wrapper>
-  );
+const Verification = () => {
+	const navigate = useNavigate();
+	return (
+		<Wrapper>
+			<WrapperLeft>
+				<Lorem>LOREM</Lorem>
+				<Text>Experience the </Text>
+				<Text>easiest a way to get</Text>
+				<Line>
+					<BoldText>great food</BoldText>
+					<Text>Delivered</Text>
+				</Line>
+			</WrapperLeft>
+			<WrapperRight>
+				<Button onClick={() => navigate("/forgot-password")}>
+					<img src={backButton} className="arrow" alt="cut" ></img>
+				</Button>
+				<VerifyImage>
+					<img src={icon_verify} className="icon_forgot"></img>
+				</VerifyImage>
+				<Text1>Verification</Text1>
+				<Text2>We just sent you the OTP via SMS to your email address/mobile no. You should get it soon!</Text2>
+				<TextBox name='Enter OTP' isPassword={false}></TextBox>
+				<VerifyButton>
+					<Button1 name="VERIFY"></Button1>
+				</VerifyButton>
+			</WrapperRight>
+		</Wrapper>
+	);
 };
 export default Verification;
 
