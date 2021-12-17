@@ -1,4 +1,27 @@
-.first-page-container {
+import Foodsearch from "./foodSearchBox";
+import Header from "../../common/header/index";
+import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
+import styled from "styled-components";
+
+const LandingPage = () => {
+  return (
+    <Wrapper>
+      <Header />
+      <p>
+        <span>Order your food</span>
+        <span>from the best restaurants</span>
+      </p>
+      <Foodsearch />
+      <div className="scroll-holder">
+        <img src={mouseScroll} alt="mouse-scroll" />
+        <p>Scroll</p>
+      </div>
+    </Wrapper>
+  );
+};
+export default LandingPage;
+
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   p {
@@ -39,4 +62,4 @@
       text-align: center;
     }
   }
-}
+`;

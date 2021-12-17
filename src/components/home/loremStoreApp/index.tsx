@@ -1,10 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700;800&display=swap");
+import styled from "styled-components";
+import leftBottom from "./../../../assets/home/loremStoreApp/img_vegetables.png";
+import centerPhone from "./../../../assets/home/loremStoreApp/img_phone.png";
+import topRight from "./../../../assets/home/loremStoreApp/img_gradient_u.png";
+import appStoreButton from "./../../../assets/home/loremStoreApp/Button - App Store.png";
+import playStoreButton from "./../../../assets/home/loremStoreApp/Button - Play Store.png";
 
-.fifth-page-container {
+const LoremStoreApp = () => {
+  return (
+    <Wrapper>
+      <img className="left-bottom" src={leftBottom} alt="left-bottom" />
+      <div className="marketing-info-holder">
+        <p className="app-name">Lorem App</p>
+        <p className="download-text">Download the Food App</p>
+        <p className="app-description">
+          Get real-time order updates, live chat support, and exclusive app-only
+          offers.
+        </p>
+        <div className="store-app-container">
+          <a className="app-store" href="" />
+          <a className="play-store" href="" />
+        </div>
+      </div>
+      <img className="center-phone" src={centerPhone} alt="center-phone" />
+      <img className="top-right" src={topRight} alt="top-right" />
+    </Wrapper>
+  );
+};
+export default LoremStoreApp;
+
+const Wrapper = styled.div`
   position: relative;
   top: 0px;
   left: 0px;
-  border: 1px solid darkgray;
   flex-direction: row;
   background: linear-gradient(206.72deg, #f3f6ff 0%, #ffffff 100%);
 
@@ -89,7 +116,7 @@
       .app-store {
         width: 195px;
         height: 55px;
-        background: url("./../../../assets/homepage/Fifthpage/Button\ -\ App\ Store.png");
+        background: url(${appStoreButton});
         background-repeat: no-repeat;
         background-position: center;
         margin-right: 20px;
@@ -97,10 +124,10 @@
       .play-store {
         width: 195px;
         height: 55px;
-        background: url("./../../../assets/homepage/Fifthpage/Button\ -\ Play\ Store.png");
+        background: url(${playStoreButton});
         background-repeat: no-repeat;
         background-position: center;
       }
     }
   }
-}
+`;

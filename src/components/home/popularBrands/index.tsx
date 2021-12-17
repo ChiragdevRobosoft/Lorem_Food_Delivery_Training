@@ -1,7 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700;800&display=swap");
+import styled from "styled-components";
 
-.second-page-container {
-  border: 1px solid darkgray;
+const PopularBrands = () => {
+  return (
+    <Wrapper>
+      <div className="content-container">
+        <p className="content-title">Popular Brands</p>
+        <p className="content-discription">
+          Find out more about the world's top food that brands are available all
+          over the world today
+        </p>
+      </div>
+    </Wrapper>
+  );
+};
+export default PopularBrands;
+
+const Wrapper = styled.div`
   display: flex;
   .content-container {
     display: flex;
@@ -30,4 +44,4 @@
       line-height: 34px;
     }
   }
-}
+`;
