@@ -1,10 +1,15 @@
-import Foodsearch from "./foodSearchBox";
+import Foodsearch from "../../common/foodSearchBox";
 import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import styled from "styled-components";
 import data from "./../../common/constants.json";
 
+interface FoodSearchProps {
+  pageTpe: string;
+}
+
 const LandingPage = () => {
+  let ptype = "home";
   return (
     <Wrapper>
       <Header />
@@ -12,7 +17,7 @@ const LandingPage = () => {
         <span>{data.homeTexts.foodRestaurantSearch.heading}</span>
         <span>{data.homeTexts.foodRestaurantSearch.description}</span>
       </p>
-      <Foodsearch />
+      <Foodsearch pageType={ptype} />
       <div className="scroll-holder">
         <img src={mouseScroll} alt="mouse-scroll" />
         <p>Scroll</p>
