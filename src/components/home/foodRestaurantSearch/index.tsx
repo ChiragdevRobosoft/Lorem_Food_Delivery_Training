@@ -1,15 +1,11 @@
-import Foodsearch from "../../common/foodSearchBox";
+import Foodsearch from "./../../common/foodSearchBox/index";
 import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import styled from "styled-components";
 import data from "./../../common/constants.json";
-
-interface FoodSearchProps {
-  pageTpe: string;
-}
+import { sizes } from "../../../variables";
 
 const LandingPage = () => {
-  let ptype = "home";
   return (
     <Wrapper>
       <Header />
@@ -17,7 +13,7 @@ const LandingPage = () => {
         <span>{data.homeTexts.foodRestaurantSearch.heading}</span>
         <span>{data.homeTexts.foodRestaurantSearch.description}</span>
       </p>
-      <Foodsearch pageType={ptype} />
+      <Foodsearch pageType="home" />
       <div className="scroll-holder">
         <img src={mouseScroll} alt="mouse-scroll" />
         <p>Scroll</p>
@@ -32,13 +28,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   p {
     margin: 0px 788px 63px 413px;
-    height: 166px;
+    height: ${sizes.size166};
     width: 719px;
     color: #4c4c4c;
     font-family: "Open Sans", sans-serif;
-    font-size: 60px;
+    font-size: ${sizes.size60};
     letter-spacing: 0;
-    line-height: 83px;
+    line-height: ${sizes.size83};
     text-shadow: 0 0 9px 0 #fff;
     align-items: left;
 
@@ -48,17 +44,17 @@ const Wrapper = styled.div`
   }
   .scroll-holder {
     margin: 0px 900px 38px 901px;
-    height: 77px;
+    height: ${sizes.size77};
     width: 119px;
     display: block;
     img {
       margin: 0px 43.82px 10px 43.18px;
-      height: 49px;
+      height: ${sizes.size49};
       width: 32px;
     }
     p {
       margin: 0px 0.45px 0px 0px;
-      height: 18px;
+      height: ${sizes.size18};
       width: 118.55px;
       font-size: 13px;
       opacity: 0.66;

@@ -8,20 +8,13 @@ import BGimage1 from "./../../assets/home/foodRestaurantSearch/BGimage.png";
 import BGimage2 from "./../../assets/home/popularBrands/BGimage.png";
 import BGimage3 from "./../../assets/home/bestDealsOffers/BGimage.png";
 import BGimage4 from "./../../assets/home/howToOrder/BGimage.png";
-import {
-  sizes,
-  colors,
-  angles,
-  fontFamilies,
-  fontWeight,
-  opacity,
-} from "./../../variables";
+import { sizes } from "./../../variables";
+import { homeScreenDivs } from "../../mixins";
 import "./index.scss";
-import Footer from "../common/footer";
 
 const Home = () => {
   return (
-    <Wrapper>
+    <HomeContainer>
       <div className="one">
         <FoodRestaurantSearch />
       </div>
@@ -37,50 +30,32 @@ const Home = () => {
       <div className="five">
         <LoremStoreApp />
       </div>
-    </Wrapper>
+    </HomeContainer>
   );
 };
 export default Home;
 
-const Wrapper = styled.div`
+const HomeContainer = styled.div`
   width: 100%;
   overflow: hidden;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   .one {
-    background-image: url(${BGimage1});
-    background-repeat: no-repeat;
-    height: 935px;
-    display: flex;
-    justify-content: center;
+    ${homeScreenDivs({ imageUrl: BGimage1, height: `${sizes.size935}` })}
   }
   .two {
-    background-image: url(${BGimage2});
-    background-repeat: no-repeat;
-    height: 617px;
-    display: flex;
-    justify-content: center;
+    ${homeScreenDivs({ imageUrl: BGimage2, height: `${sizes.size617}` })}
   }
   .three {
-    background-image: url(${BGimage3});
-    background-repeat: no-repeat;
-    height: 823px;
-    display: flex;
-    justify-content: center;
+    ${homeScreenDivs({ imageUrl: BGimage3, height: `${sizes.size823}` })}
   }
   .four {
-    background-image: url(${BGimage4});
-    background-repeat: no-repeat;
+    ${homeScreenDivs({ imageUrl: BGimage4, height: `${sizes.size780}` })}
     background-position: right;
-    height: 780px;
-    display: flex;
   }
   .five {
-    height: 847px;
-    display: flex;
-    justify-content: center;
+    ${homeScreenDivs({ height: `${sizes.size847}` })}
     background: linear-gradient(206.72deg, #f3f6ff 0%, #ffffff 100%);
-    background-repeat: no-repeat;
   }
 `;

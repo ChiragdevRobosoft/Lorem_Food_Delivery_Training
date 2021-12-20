@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import CarouselPB from "../../common/carousels/popularBrands";
 import data from "./../../common/constants.json";
 const PopularBrands = () => {
   return (
@@ -8,6 +9,7 @@ const PopularBrands = () => {
         <p className="content-discription">
           {data.homeTexts.popularBrands.description}
         </p>
+        <CarouselPB />
       </div>
     </Wrapper>
   );

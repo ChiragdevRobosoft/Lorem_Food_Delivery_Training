@@ -17,21 +17,31 @@ export const sizes = {
   width35p: "35%",
   size0: "0",
   size1: "1px",
-  size227: "227px",
-  size19_4: "19.4px",
-  size19: "19px",
   size2: "2px",
-  size14: "14px",
-  size50: "50px",
-  size60: "60px",
-  size17: "17px",
-  size103: "103px",
   size9: "9px",
   size10: "10px",
-  size24: "24px",
+  size14: "14px",
+  size17: "17px",
+  size18: "18px",
+  size19: "19px",
+  size19_4: "19.4px",
   size22_41: "22.41px",
+  size24: "24px",
   size24_95: "24.95px",
   size28: "28px",
+  size49: "49px",
+  size50: "50px",
+  size60: "60px",
+  size77: "77px",
+  size83: "83px",
+  size103: "103px",
+  size166: "166px",
+  size227: "227px",
+  size617: "617px",
+  size780: "780px",
+  size823: "823px",
+  size847: "847px",
+  size935: "935px",
 };
 
 export const angles = {
@@ -51,3 +61,19 @@ export const fontWeight = {
 export const opacity = {
   opacity0_19: 0.19,
 };
+
+// export const divHeights = {
+//   dHeight1: "935px",
+//   dHeight2: "617px",
+//   dHeight3: "823px",
+//   dHeight4: "780px",
+//   dHeight5: "847px",
+//   dHeight6: "166px",
+//   dHeight7: "77px",
+//   dHeight8: "49px",
+//   dHeight9: "18px",
+// };
+
+// export const lineHeights = {
+//   lHeight1: "83px",
+// }
