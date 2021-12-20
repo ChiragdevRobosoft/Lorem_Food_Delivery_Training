@@ -1,22 +1,23 @@
-
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import backButton from '../../assets/back_button.png';
-import icon_forgot from '../../assets/icn_forgot.png';
-import Button1 from '../../components/button/index';
-import { useNavigate } from 'react-router-dom';
-import TextBox from '../../components/textbox';
-import Rectangle from '../../assets/Rectangle.png';
-import { Modal } from 'react-responsive-modal'
+import React, { useState } from "react";
+import styled from "styled-components";
+import backButton from "../../assets/back_button.png";
+import icon_forgot from "../../assets/icn_forgot.png";
+import Button1 from "../../components/button/index";
+import { useNavigate } from "react-router-dom";
+import TextBox from "../../components/textbox";
+import Rectangle from "../../assets/Rectangle.png";
+import { Modal } from "react-responsive-modal";
+import CountryCode from "../../components/country-code";
+import { sizes, colors, fontFamilies } from "../../variables";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(true);
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-  const [InputType, setInputType] = useState('email');
+  const [InputType, setInputType] = useState("email");
   return (
-    <Modal open={open} onClose={onCloseModal} >
+    <Modal open={open} onClose={onCloseModal}>
       <Wrapper>
         <WrapperLeft>
           <Lorem>LOREM</Lorem>
@@ -29,27 +30,30 @@ const ForgotPassword = () => {
         </WrapperLeft>
         <WrapperRight>
           <Button onClick={() => navigate("/login")}>
-            <img src={backButton} alt="cut" ></img>
+            <img src={backButton} alt="cut"></img>
           </Button>
           <ForgotImage>
             <img src={icon_forgot} className="icon_forgot"></img>
           </ForgotImage>
           <Text1>Forgot Password!</Text1>
-          <Text2>Share your registered either email address or mobile number to send you the OTP to reset your password</Text2>
+          <Text2>
+            Share your registered either email address or mobile number to send
+            you the OTP to reset your password
+          </Text2>
 
           <Navbar>
-            <InputTypeButton onClick={() => setInputType('email')}>
+            <InputTypeButton onClick={() => setInputType("email")}>
               Email
             </InputTypeButton>
-            <InputTypeButton onClick={() => setInputType('mobile')}>
+            <InputTypeButton onClick={() => setInputType("mobile")}>
               Mobile No.
             </InputTypeButton>
           </Navbar>
 
-          {InputType === 'email' ? (
+          {InputType === "email" ? (
             <TextBox name="Email" isPassword={false} />
           ) : (
-            <TextBox name="Mobile No." isPassword={false} />
+            <CountryCode isOptional={true} />
           )}
 
           <Button1 name="SEND OTP"></Button1>
@@ -60,163 +64,157 @@ const ForgotPassword = () => {
 };
 export default ForgotPassword;
 const Button3 = styled.button`
-height: 24px;
+  height: 24px;
 
   opacity: 0.66;
-  color: #4A4A4A;
-  font-family: 'Open Sans', sans-serif;
+  color: #4a4a4a;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   letter-spacing: -0.43px;
   line-height: 24px;
   background-color: transparent;
-  border:none;
+  border: none;
   margin-left: 60px;
-  `;
-
+`;
 
 const Button2 = styled.button`
-height: 24px;
-background-color: transparent;
-  border:none;
+  height: 24px;
+  background-color: transparent;
+  border: none;
   margin-left: 40px;
   width: 46px;
-  color: #4A4A4A;
-  font-family: 'Open Sans', sans-serif;
+  color: #4a4a4a;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.43px;
   line-height: 24px;
-
-  `;
+`;
 
 const Wrapper = styled.div`
-	height: 588px;
-	width: 960px;
-	border-radius: 8px;
-	background-color: #ffffff;
-	box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
-	display: flex;
-	flex-direction: row;
-	position: fixed;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	margin: auto;
+  height: 588px;
+  width: 960px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 `;
 const ForgotImage = styled.div`
-height: 5px;
+  height: 5px;
   width: 25px;
-  margin-left:200px;
+  margin-left: 200px;
   margin-top: 60px;
 `;
 const WrapperLeft = styled.div`
-	background-image: url('../assets/image.png');
-	height: 588px;
-	width: 480px;
-	text-align: left;
-	padding-left: 4%;
-	margin-right: -4%;
+  background-image: url("../assets/image.png");
+  height: 588px;
+  width: 480px;
+  text-align: left;
+  padding-left: 4%;
+  margin-right: -4%;
 `;
 const Navbar = styled.div`
-	display: flex;
-	flex-direction: row;
-	margin-right: auto;
-	margin-left: 10.5%;
-	width: 40%;
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+  margin-left: 10.5%;
+  width: 40%;
   margin-bottom: 65px;
   margin-top: 30px;
-	justify-content: space-between;
+  justify-content: space-between;
 `;
 const InputTypeButton = styled.button`
-	height: 24px;
-	opacity: 0.66;
-	color: #4a4a4a;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 18px;
-	letter-spacing: -0.43px;
-	line-height: 24px;
-	background-color: transparent;
-	border: none;
-	padding: 0;
+  height: 24px;
+  opacity: 0.66;
+  color: #4a4a4a;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: -0.43px;
+  line-height: 24px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
 `;
 const WrapperRight = styled.div`
-	background-color: white;
-	height: 588px;
-	width: 480px;
-    
+  background-color: white;
+  height: 588px;
+  width: 480px;
 `;
 const Button = styled.button`
-	padding: 0;
-	background-color: transparent;
-	border: none;
-	right: 430px;
-	outline:none;
-	position: absolute;
-	top: 3%;
-
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  right: 430px;
+  outline: none;
+  position: absolute;
+  top: 3%;
 `;
 const Lorem = styled.p`
-	height: 60px;
-	width: 103px;
-	color: #ffffff;
-	font-family: 'Bebas Neue', sans-serif;
-	font-size: 30px;
-	margin-bottom: 10.5%;
-	margin-top: 35%;
-	transform: scaleY(1.4);
-	font-weight: 600;
+  height: 60px;
+  width: 103px;
+  color: #ffffff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 30px;
+  margin-bottom: 10.5%;
+  margin-top: 35%;
+  transform: scaleY(1.4);
+  font-weight: 600;
 `;
 const Text = styled.p`
-	width: 323px;
-	color: #ffffff;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 32px;
-	letter-spacing: -0.57px;
-	text-shadow: 0 0 9px 0 #ffffff;
-	font-weight: 100;
-	margin-bottom: 1%;
-	margin-top: 0;
+  width: 323px;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  letter-spacing: -0.57px;
+  text-shadow: 0 0 9px 0 #ffffff;
+  font-weight: 100;
+  margin-bottom: 1%;
+  margin-top: 0;
 `;
 const Text1 = styled.p`
-	font-family: 'Open Sans', sans-serif;
-	height: 30px;
+  font-family: "Open Sans", sans-serif;
+  height: 30px;
   width: 183px;
-  color: #2A2C30;
+  color: #2a2c30;
   font-size: 22px;
   font-weight: bold;
   letter-spacing: -0.37px;
   line-height: 30px;
   text-align: center;
-  text-shadow: 0 0 9px 0 #FFFFFF;
-  margin-top:116px ;
+  text-shadow: 0 0 9px 0 #ffffff;
+  margin-top: 116px;
   margin-left: 150px;
 `;
 const Text2 = styled.p`
-	font-family: 'Open Sans', sans-serif;
-    height: 60px;
+  font-family: "Open Sans", sans-serif;
+  height: 60px;
   width: 270px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   font-size: 14px;
   letter-spacing: -0.24px;
   line-height: 20px;
   text-align: center;
   margin-left: 90px;
- 
-	
 `;
 const BoldText = styled.p`
-	width: 40%;
-	color: #ffffff;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 34px;
-	letter-spacing: -0.57px;
-	text-shadow: 0 0 9px 0 #ffffff;
-	font-weight: 600;
-	margin-bottom: 1%;
-	margin-top: 0;
+  width: 40%;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 34px;
+  letter-spacing: -0.57px;
+  text-shadow: 0 0 9px 0 #ffffff;
+  font-weight: 600;
+  margin-bottom: 1%;
+  margin-top: 0;
 `;
 const Line = styled.div`
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 `;
