@@ -44,5 +44,16 @@
       "name": "KFC",
       "outlets": "5"
     }
+  ],
+  "radio": [
+    {
+      "name": "Delivery in",
+      "options": ["30 min", "45 min", "60 min"]
+    },
+    {
+      "name": "Average Meal cost",
+      "options": ["Upto 30 AED", "Upto 60 AED", "Upto 100 AED"]
+    },
+    { "name": "Minimum order", "options": ["Upto 60 AED", "Upto 100 AED"] }
   ]
 }

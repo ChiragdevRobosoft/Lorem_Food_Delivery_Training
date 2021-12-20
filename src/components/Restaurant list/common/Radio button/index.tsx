@@ -30,6 +30,8 @@ const Wrapper = styled.div`
   margin-bottom: ${sizes.size12_72};
   height: ${sizes.size16};
   top: ${sizes.size0};
+  margin-left: 21px;
+  margin-top: 10px;
 
   input {
     width: ${sizes.size16};
