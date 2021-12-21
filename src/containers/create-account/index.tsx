@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import closeButton from "../../assets/close_button.png";
-import Button1 from "../../components/button/index";
+import Buttons from "../../components/button/index";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import TextBox from "../../components/textbox";
@@ -25,22 +25,20 @@ const Login = () => {
           </Line>
         </WrapperLeft>
         <WrapperRight>
-          <Button onClick={onCloseModal}>
-            <img src={closeButton} alt="cut"></img>
-          </Button>
+          <img src={closeButton} alt="cut" onClick={onCloseModal}></img>
           <Title>Create your account</Title>
           <Text2>
             Share your email address to send you the OTP to get yourself
             register!
           </Text2>
           <TextBox name="Email" isPassword={false}></TextBox>
-          <Button1 name="CREATE ACCOUNT"></Button1>
+          <Buttons className="colouredBgButton" name="CREATE ACCOUNT"></Buttons>
           <Top>
             <TopText>By registering you agree to the</TopText>
             <Button5>Terms & Conditions</Button5>
           </Top>
-          <Button3 name="Facebook">Facebook</Button3>
-          <Button4 name="Google+">Google+</Button4>
+          <Buttons className="facebook" name="Facebook" />
+          <Buttons className="google" name="Google+" />
           <Bottom>
             <BottomText>Already have an account?</BottomText>
             <Button2>Login</Button2>

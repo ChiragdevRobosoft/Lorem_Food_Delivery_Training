@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import closeButton from "../../assets/close_button.png";
-import Button1 from "../../components/button/index";
-import { useNavigate } from "react-router-dom";
+import Buttons from "../../components/button/index";
+import { useNavigate, Link } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import TextBox from "../../components/textbox";
 import { sizes, colors, fontFamilies, fontWeight } from "../../variables";
+import ForgotPassword from "../forgot-password";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,106 +26,80 @@ const Login = () => {
           </Line>
         </WrapperLeft>
         <WrapperRight>
-          <Button onClick={onCloseModal}>
-            <img src={closeButton} alt="cut"></img>
-          </Button>
+          <CloseImage
+            src={closeButton}
+            alt="cut"
+            onClick={onCloseModal}
+          ></CloseImage>
           <Title>Let's get started!</Title>
           <TextBox name="Email" isPassword={false}></TextBox>
           <TextBox name="Password" isPassword={true}></TextBox>
-          <Button5
-            name="Forgot Password?"
-            onClick={() => navigate("/forgot-password")}
-          >
-            Forgot Password?
-          </Button5>
-          <Button1 name="LOGIN"></Button1>
-          <Button3 name="Facebook">Facebook</Button3>
-          <Button4 name="Google+">Google+</Button4>
-          <Bottom>
-            <BottomText>Don't have an account?</BottomText>
-            <Button2>Get new one!</Button2>
-          </Bottom>
+          <RedirectLink to="/forgot-password">Forgot Password?</RedirectLink>
+          <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
+          <SocialMedia>
+            <Buttons className="facebook" name="Facebook" />
+            <Buttons className="google" name="Google+" />
+          </SocialMedia>
+          <Footer>
+            <ForgotPasswordLink>Don't have an account?</ForgotPasswordLink>
+            <RedirectLink className="getNewLink" to="/forgot-password">
+              Get new one!
+            </RedirectLink>
+          </Footer>
         </WrapperRight>
       </Wrapper>
     </Modal>
   );
 };
 export default Login;
-const BottomText = styled.p`
+const SocialMedia = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+const ForgotPasswordLink = styled.p`
   height: ${sizes.size19};
-  width: ${sizes.size237};
   color: rgba(74, 74, 74, 1);
   font-family: ${fontFamilies.fontFamilyOsSS};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
-  text-align: center;
   margin-bottom: ${sizes.size20};
-  margin-left: ${sizes.size70};
   margin-top: ${sizes.size40};
 `;
-const Bottom = styled.div`
+const CloseImage = styled.img`
+  float: right;
+  margin: 20px;
+`;
+const RedirectLink = styled(Link)`
+  color: ${(props) =>
+    props.className === "getNewLink" ? "#F67E03" : "#4a4a4a"};
+  text-decoration: none;
+  font-family: ${fontFamilies.fontFamilyOsSS};
+  border: none;
+  background-color: transparent;
+  font-size: ${sizes.size14};
+  font-weight: ${fontWeight.weight600};
+  line-height: ${sizes.size19};
+  margin-left: ${(props) =>
+    props.className === "getNewLink" ? "10px" : "300px"};
+  float: right;
+  margin-right: 50px;
+  margin-top: ${(props) =>
+    props.className === "getNewLink" ? "40px" : "none"};
+  margin-bottom: ${sizes.size30};
+  padding-top: 0;
+`;
+const Footer = styled.div`
   flex-direction: row;
   margin-bottom: ${sizes.size20};
   margin-top: ${sizes.sizen10};
   display: flex;
   align-self: center;
-`;
-const Button3 = styled.button`
-  box-sizing: border-box;
-  height: ${sizes.size50};
-  width: ${sizes.size180};
-  background-color: transparent;
-  border: 1px solid #02a7fd;
-  border-radius: ${sizes.size6};
-  margin-left: ${sizes.size50};
-  margin-top: ${sizes.size30};
-  color: #02a7fd;
-  font-family: ${fontFamilies.fontFamilyOsSS};
-  font-size: ${sizes.size16};
-  font-weight: ${fontWeight.weight600};
-  letter-spacing: -0.56px;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-`;
-const Button4 = styled.button`
-  box-sizing: border-box;
-  height: ${sizes.size50};
-  font-family: ${fontFamilies.fontFamilyOsSS};
-  font-size: ${sizes.size16};
-  font-weight: ${fontWeight.weight600};
-  letter-spacing: -0.56px;
-  background-color: transparent;
-  width: 178.91px;
-  border: 1px solid #ff8c7d;
-  border-radius: ${sizes.size6};
-  margin-left: ${sizes.size20};
-  color: #ff8c7d;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-`;
-const Button5 = styled.button`
-  color: #4a4a4a;
-  font-family: ${fontFamilies.fontFamilyOsSS};
-  border: none;
-  background-color: transparent;
-  font-size: ${sizes.size14};
-  font-weight: ${fontWeight.weight600};
-  line-height: ${sizes.size19};
-  margin-left: ${sizes.size300};
-  margin-bottom: ${sizes.size20};
-  padding-top: 0;
-`;
-const Button2 = styled.button`
-  height: ${sizes.size19};
-  width: ${sizes.size237};
-  color: #f67e03;
-  font-family: ${fontFamilies.fontFamilyOsSS};
-  font-size: ${sizes.size14};
-  background-color: transparent;
-  font-weight: ${fontWeight.weight600};
-  line-height: ${sizes.size19};
-  border: none;
-  margin-bottom: ${sizes.size25};
-  margin-top: ${sizes.size40};
-  margin-left: ${sizes.sizen120};
+  margin-left: 125px;
+  margin-right: auto;
 `;
 
 const Wrapper = styled.div`

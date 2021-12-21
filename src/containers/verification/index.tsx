@@ -4,7 +4,7 @@ import backButton from "../../assets/back_button.png";
 import icon_verify from "../../assets/icn_verify.png";
 import { useNavigate } from "react-router-dom";
 import TextBox from "../../components/textbox";
-import Button1 from "../../components/button/index";
+import Buttons from "../../components/button/index";
 import { sizes, colors, fontFamilies } from "../../variables";
 
 const Verification = () => {
@@ -34,7 +34,7 @@ const Verification = () => {
         </Text2>
         <TextBox name="Enter OTP" isPassword={false}></TextBox>
         <VerifyButton>
-          <Button1 name="VERIFY"></Button1>
+          <Buttons className="colouredBgButton" name="VERIFY"></Buttons>
         </VerifyButton>
       </WrapperRight>
     </Wrapper>

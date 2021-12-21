@@ -3,7 +3,7 @@ import styled from "styled-components";
 import backButton from "../../assets/back_button.png";
 import { useNavigate } from "react-router-dom";
 import TextBox from "../../components/textbox";
-import Button1 from "../../components/button/index";
+import Buttons from "../../components/button/index";
 import { sizes, colors, fontFamilies } from "../../variables";
 
 const AccountDetails = () => {
@@ -30,7 +30,7 @@ const AccountDetails = () => {
         <TextBox name="Last Name" isPassword={false}></TextBox>
         <TextBox name="Create Password" isPassword={true}></TextBox>
         <VerifyButton>
-          <Button1 name="DONE"></Button1>
+          <Buttons className="colouredBgButton" name="DONE"></Buttons>
         </VerifyButton>
       </WrapperRight>
     </Wrapper>

@@ -4,7 +4,7 @@ import backButton from "../../assets/back_button.png";
 import passwordsuccess from "../../assets/password_success.png";
 import { useNavigate } from "react-router-dom";
 import TextBox from "../../components/textbox";
-import Button1 from "../../components/button/index";
+import Buttons from "../../components/button/index";
 import closeButton from "../../assets/close_button.png";
 import { sizes, colors, fontFamilies } from "../../variables";
 
@@ -34,7 +34,7 @@ const PasswordSuccess = () => {
         <Text2>Your password has been successfully reset</Text2>
 
         <LoginButton>
-          <Button1 name="LOGIN NOW"></Button1>
+          <Buttons className="colouredBgButton" name="LOGIN NOW"></Buttons>
         </LoginButton>
       </WrapperRight>
     </Wrapper>

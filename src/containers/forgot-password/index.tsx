@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import backButton from "../../assets/back_button.png";
 import icon_forgot from "../../assets/icn_forgot.png";
-import Button1 from "../../components/button/index";
+import Buttons from "../../components/button/index";
 import { useNavigate } from "react-router-dom";
 import TextBox from "../../components/textbox";
 import Rectangle from "../../assets/Rectangle.png";
@@ -56,7 +56,7 @@ const ForgotPassword = () => {
             <CountryCode isOptional={true} />
           )}
 
-          <Button1 name="SEND OTP"></Button1>
+          <Buttons className="colouredBgButton" name="SEND OTP"></Buttons>
         </WrapperRight>
       </Wrapper>
     </Modal>

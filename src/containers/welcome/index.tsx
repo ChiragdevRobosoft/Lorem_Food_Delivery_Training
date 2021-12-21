@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import registerSuccess from "../../assets/register_success.png";
 import { useNavigate } from "react-router-dom";
-import Button1 from "../../components/button/index";
+import Buttons from "../../components/button/index";
 import closeButton from "../../assets/close_button.png";
 import { Modal } from "react-responsive-modal";
 import { sizes, colors, fontFamilies } from "../../variables";
@@ -36,7 +36,10 @@ const RegisterSuccess = () => {
           <Text2>We've sent you an email on</Text2>
 
           <BrowseButton>
-            <Button1 name="BROWSE TO START ORDERING"></Button1>
+            <Buttons
+              className="colouredBgButton"
+              name="BROWSE TO START ORDERING"
+            ></Buttons>
           </BrowseButton>
         </WrapperRight>
       </Wrapper>
