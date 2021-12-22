@@ -53,7 +53,7 @@ const BottomText = styled.p`
   height: 19px;
   width: 237px;
   color: #282525f6;
-  font-family: ${fontFamilies.fontFamilyOsSS};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 14px;
   line-height: 19px;
   text-align: center;

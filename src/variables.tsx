@@ -33,6 +33,8 @@ export const sizes = {
   size70: "70px",
   size40: "40px",
   size50: "50px",
+  size100: "100px",
+  size150: "150px",
   size25: "25px",
   size180: "180px",
   size60: "60px",
@@ -56,6 +58,7 @@ export const sizes = {
   size588: "588px",
   size960: "960px",
   size480: "480px",
+  size125: "125px",
   size9: "9px",
   size10: "10px",
   size24: "24px",
@@ -72,7 +75,8 @@ export const fontFamilies = {
   fontFamilyBn: "BebasNeue-Regular",
   fontFamilyOs: "OpenSans-Light",
   fontFamilyOsSemiBold: "OpenSans-SemiBold",
-  fontFamilyOsSS: "Open Sans",
+  fontFamilyOsBold: "OpenSans-Bold",
+  fontFamilyOsRegular: "OpenSans-Regular",
 };
 
 export const fontWeight = {
@@ -82,8 +86,15 @@ export const fontWeight = {
   weight400: "400",
   weight500: "500",
   weight600: "600",
+  weight800: "800",
 };
 
 export const opacity = {
   opacity0_19: 0.19,
+};
+
+export const links = {
+  login: "/login",
+  forgotPassword: "/forgot-password",
+  createAccount: "/create-account",
 };

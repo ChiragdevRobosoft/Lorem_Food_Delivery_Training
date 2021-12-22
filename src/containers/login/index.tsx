@@ -5,9 +5,13 @@ import Buttons from "../../components/button/index";
 import { useNavigate, Link } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import TextBox from "../../components/textbox";
-import { sizes, colors, fontFamilies, fontWeight } from "../../variables";
-import ForgotPassword from "../forgot-password";
-
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  fontWeight,
+  links,
+} from "../../variables";
 const Login = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(true);
@@ -18,12 +22,10 @@ const Login = () => {
       <Wrapper>
         <WrapperLeft>
           <Lorem>LOREM</Lorem>
-          <Text>Experience the </Text>
-          <Text>easiest a way to get</Text>
-          <Line>
-            <BoldText>great food</BoldText>
-            <Text>Delivered</Text>
-          </Line>
+          <TagLine>
+            Experience the easiest a way to get <BoldText>great food </BoldText>
+            Delivered
+          </TagLine>
         </WrapperLeft>
         <WrapperRight>
           <CloseImage
@@ -34,7 +36,9 @@ const Login = () => {
           <Title>Let's get started!</Title>
           <TextBox name="Email" isPassword={false}></TextBox>
           <TextBox name="Password" isPassword={true}></TextBox>
-          <RedirectLink to="/forgot-password">Forgot Password?</RedirectLink>
+          <RedirectLink to={links.forgotPassword}>
+            Forgot Password?
+          </RedirectLink>
           <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
           <SocialMedia>
             <Buttons className="facebook" name="Facebook" />
@@ -42,7 +46,7 @@ const Login = () => {
           </SocialMedia>
           <Footer>
             <ForgotPasswordLink>Don't have an account?</ForgotPasswordLink>
-            <RedirectLink className="getNewLink" to="/forgot-password">
+            <RedirectLink className="getNewLink" to={links.createAccount}>
               Get new one!
             </RedirectLink>
           </Footer>
@@ -52,6 +56,17 @@ const Login = () => {
   );
 };
 export default Login;
+const TagLine = styled.div`
+  height: 132px;
+  width: 330px;
+  color: #ffffff;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: 34px;
+  letter-spacing: -0.57px;
+  line-height: 44px;
+  text-shadow: 0 0 9px 0 #ffffff;
+  word-wrap: break-word;
+`;
 const SocialMedia = styled.div`
   display: flex;
   flex-direction: row;
@@ -63,7 +78,7 @@ const SocialMedia = styled.div`
 const ForgotPasswordLink = styled.p`
   height: ${sizes.size19};
   color: rgba(74, 74, 74, 1);
-  font-family: ${fontFamilies.fontFamilyOsSS};
+  font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
   margin-bottom: ${sizes.size20};
@@ -77,7 +92,7 @@ const RedirectLink = styled(Link)`
   color: ${(props) =>
     props.className === "getNewLink" ? "#F67E03" : "#4a4a4a"};
   text-decoration: none;
-  font-family: ${fontFamilies.fontFamilyOsSS};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   border: none;
   background-color: transparent;
   font-size: ${sizes.size14};
@@ -98,10 +113,9 @@ const Footer = styled.div`
   margin-top: ${sizes.sizen10};
   display: flex;
   align-self: center;
-  margin-left: 125px;
+  margin-left: ${sizes.size125};
   margin-right: auto;
 `;
-
 const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
@@ -117,7 +131,6 @@ const Wrapper = styled.div`
   right: 0;
   margin: auto;
 `;
-
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
   height: ${sizes.size588};
@@ -145,50 +158,19 @@ const Title = styled.p`
   line-height: ${sizes.size38};
   text-shadow: 0 0 9px 0 #ffffff;
 `;
-const Button = styled.button`
-  width: ${sizes.sizep5};
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  right: 0px;
-  outline: none;
-  position: absolute;
-  top: ${sizes.sizep3}; ;
-`;
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
   color: #ffffff;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: ${sizes.size30};
+  font-family: ${fontFamilies.fontFamilyBn};
+  font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
-  margin-top: ${sizes.size160};
-  transform: scaleY(1.4);
-  font-weight: ${fontWeight.weight600};
+  margin-top: ${sizes.size150};
+  letter-spacing: 0;
+  line-height: 60px;
+  text-align: center;
 `;
-const Text = styled.p`
-  width: ${sizes.size323};
-  color: #ffffff;
-  font-family: ${fontFamilies.fontFamilyOsSS};
-  font-size: ${sizes.size32};
-  letter-spacing: ${sizes.sizenp57};
-  text-shadow: 0 0 9px 0 #ffffff;
-  font-weight: ${fontWeight.weight100};
-  margin-bottom: ${sizes.size3};
-  margin-top: 0;
-`;
-const BoldText = styled.p`
-  width: 160px;
-  color: #ffffff;
-  font-family: ${fontFamilies.fontFamilyOsSS};
-  font-size: ${sizes.size34};
-  letter-spacing: -0.57px;
-  text-shadow: 0 0 9px 0 #ffffff;
-  font-weight: ${fontWeight.weight600};
-  margin-bottom: 1%;
-  margin-top: ${sizes.sizen2};
-`;
-const Line = styled.div`
-  display: flex;
-  flex-direction: row;
+const BoldText = styled.span`
+  font-weight: ${fontWeight.weight800};
+  font-family: ${fontFamilies.fontFamilyOsBold};
 `;
