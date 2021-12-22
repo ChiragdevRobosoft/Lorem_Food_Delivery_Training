@@ -3,7 +3,7 @@ import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import styled from "styled-components";
 import data from "./../../common/constants.json";
-import { sizes } from "../../../variables";
+import { colors, opacity, sizes } from "../../../variables";
 
 const LandingPage = () => {
   return (
@@ -27,15 +27,16 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   p {
-    margin: 0px 788px 63px 413px;
+    margin: ${sizes.size0} ${sizes.size788} ${sizes.size63} ${sizes.size413};
     height: ${sizes.size166};
-    width: 719px;
-    color: #4c4c4c;
+    width: ${sizes.size719};
+    color: ${colors.grey5};
     font-family: "Open Sans", sans-serif;
     font-size: ${sizes.size60};
-    letter-spacing: 0;
+    letter-spacing: ${sizes.size0};
     line-height: ${sizes.size83};
-    text-shadow: 0 0 9px 0 #fff;
+    text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
+      ${colors.white};
     align-items: left;
 
     span {
@@ -43,24 +44,25 @@ const Wrapper = styled.div`
     }
   }
   .scroll-holder {
-    margin: 0px 900px 38px 901px;
+    margin: ${sizes.size0} ${sizes.size900} ${sizes.size38} ${sizes.size901};
     height: ${sizes.size77};
-    width: 119px;
+    width: ${sizes.size119};
     display: block;
     img {
-      margin: 0px 43.82px 10px 43.18px;
+      margin: ${sizes.size0} ${sizes.size43_82} ${sizes.size10}
+        ${sizes.size43_18};
       height: ${sizes.size49};
-      width: 32px;
+      width: ${sizes.size32};
     }
     p {
-      margin: 0px 0.45px 0px 0px;
+      margin: ${sizes.size0} ${sizes.size0_45} ${sizes.size0} ${sizes.size0};
       height: ${sizes.size18};
-      width: 118.55px;
-      font-size: 13px;
-      opacity: 0.66;
+      width: ${sizes.size118_55};
+      font-size: ${sizes.size13};
+      opacity: ${opacity.opacity0_66};
       font-family: "Open Sans", sans-serif;
-      letter-spacing: 3.66px;
-      line-height: 18px;
+      letter-spacing: ${sizes.size3_66};
+      line-height: ${sizes.size18};
       text-align: center;
     }
   }

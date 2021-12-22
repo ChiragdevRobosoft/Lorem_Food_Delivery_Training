@@ -8,7 +8,7 @@ import BGimage1 from "./../../assets/home/foodRestaurantSearch/BGimage.png";
 import BGimage2 from "./../../assets/home/popularBrands/BGimage.png";
 import BGimage3 from "./../../assets/home/bestDealsOffers/BGimage.png";
 import BGimage4 from "./../../assets/home/howToOrder/BGimage.png";
-import { sizes } from "./../../variables";
+import { angles, sizes, colors } from "./../../variables";
 import { homeScreenDivs } from "../../mixins";
 import "./index.scss";
 
@@ -38,8 +38,8 @@ export default Home;
 const HomeContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
+  margin: ${sizes.size0};
+  padding: ${sizes.size0};
   box-sizing: border-box;
   .one {
     ${homeScreenDivs({ imageUrl: BGimage1, height: `${sizes.size935}` })}
@@ -56,6 +56,6 @@ const HomeContainer = styled.div`
   }
   .five {
     ${homeScreenDivs({ height: `${sizes.size847}` })}
-    background: linear-gradient(206.72deg, #f3f6ff 0%, #ffffff 100%);
+    background: linear-gradient(${angles.angle206_72} ${colors.lightblue1} 0%, #ffffff 100%);
   }
 `;
