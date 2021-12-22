@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import backButton from "../../assets/back_button.png";
+import backButton from "../../assets/backButton.png";
 import { useNavigate } from "react-router-dom";
 import TextBox from "../../components/textbox";
 import Buttons from "../../components/button/index";

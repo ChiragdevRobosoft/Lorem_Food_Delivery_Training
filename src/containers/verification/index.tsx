@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import backButton from "../../assets/back_button.png";
+import backButton from "../../assets/backButton.png";
 import icon_verify from "../../assets/icn_verify.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import TextBox from "../../components/textbox";
 import Buttons from "../../components/button/index";
-import { sizes, colors, fontFamilies } from "../../variables";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  fontWeight,
+  links,
+} from "../../variables";
 
 const Verification = () => {
   const navigate = useNavigate();
@@ -13,25 +19,23 @@ const Verification = () => {
     <Wrapper>
       <WrapperLeft>
         <Lorem>LOREM</Lorem>
-        <Text>Experience the </Text>
-        <Text>easiest a way to get</Text>
-        <Line>
-          <BoldText>great food</BoldText>
-          <Text>Delivered</Text>
-        </Line>
+        <TagLine>
+          Experience the easiest a way to get <BoldText>great food </BoldText>
+          Delivered
+        </TagLine>
       </WrapperLeft>
       <WrapperRight>
-        <Button onClick={() => navigate("/forgot-password")}>
-          <img src={backButton} className="arrow" alt="cut"></img>
-        </Button>
+        <RedirectLink to={links.forgotPassword}>
+          <BackImage src={backButton} alt="cut"></BackImage>
+        </RedirectLink>
         <VerifyImage>
           <img src={icon_verify} className="icon_forgot"></img>
         </VerifyImage>
-        <Text1>Verification</Text1>
-        <Text2>
+        <Title>Verification</Title>
+        <Discription>
           We just sent you the OTP via SMS to your email address/mobile no. You
           should get it soon!
-        </Text2>
+        </Discription>
         <TextBox name="Enter OTP" isPassword={false}></TextBox>
         <VerifyButton>
           <Buttons className="colouredBgButton" name="VERIFY"></Buttons>
@@ -41,14 +45,72 @@ const Verification = () => {
   );
 };
 export default Verification;
-
+const Discription = styled.p`
+  margin-left: ${sizes.size130};
+  margin-bottom: ${sizes.size80};
+  word-wrap: break-word;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size14};
+  letter-spacing: -0.24px;
+  line-height: ${sizes.size20};
+  text-align: center;
+  height: ${sizes.size60};
+  width: ${sizes.size220};
+  color: #4a4a4a;
+`;
+const WrapperLeft = styled.div`
+  background-image: url("../assets/image.png");
+  height: ${sizes.size588};
+  width: ${sizes.size480};
+  text-align: left;
+  padding-left: ${sizes.sizep4};
+  margin-right: ${sizes.sizen40};
+`;
+const Lorem = styled.p`
+  height: ${sizes.size60};
+  width: ${sizes.size103};
+  color: #ffffff;
+  font-family: ${fontFamilies.fontFamilyBn};
+  font-size: ${sizes.size50};
+  margin-bottom: ${sizes.size30};
+  margin-top: ${sizes.size150};
+  letter-spacing: 0;
+  line-height: ${sizes.size60};
+  text-align: center;
+`;
+const BoldText = styled.span`
+  font-weight: ${fontWeight.weight800};
+  font-family: ${fontFamilies.fontFamilyOsBold};
+`;
+const TagLine = styled.div`
+  height: ${sizes.size132};
+  width: ${sizes.size330};
+  color: #ffffff;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size34};
+  letter-spacing: -0.57px;
+  line-height: ${sizes.size44};
+  text-shadow: 0 0 9px 0 #ffffff;
+  word-wrap: break-word;
+`;
+const RedirectLink = styled(Link)`
+  text-decoration: none;
+  border: none;
+`;
+const BackImage = styled.img`
+  float: left;
+  margin: ${sizes.size20};
+  border: 0;
+  height: ${sizes.size17};
+  width: ${sizes.size17};
+`;
 const VerifyButton = styled.div`
   margin-top: 30px;
 `;
 const Wrapper = styled.div`
-  height: 588px;
-  width: 960px;
-  border-radius: 8px;
+  height: ${sizes.size588};
+  width: ${sizes.size960};
+  border-radius: ${sizes.size8};
   background-color: #ffffff;
   box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
   display: flex;
@@ -61,94 +123,27 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 const VerifyImage = styled.div`
-  height: 5px;
-  width: 25px;
-  margin-left: 200px;
-  margin-top: 60px;
+  height: ${sizes.size5};
+  width: ${sizes.size25};
+  margin-left: ${sizes.size200};
+  margin-top: ${sizes.size60};
 `;
-const WrapperLeft = styled.div`
-  background-image: url("../assets/image.png");
-  height: 588px;
-  width: 480px;
-  text-align: left;
-  padding-left: 4%;
-  margin-right: -4%;
-`;
-
 const WrapperRight = styled.div`
   background-color: white;
-  height: 588px;
-  width: 480px;
+  height: ${sizes.size588};
+  width: ${sizes.size480};
 `;
-const Button = styled.button`
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  right: 430px;
-  outline: none;
-  position: absolute;
-  top: 3%;
-`;
-const Lorem = styled.p`
-  height: 60px;
-  width: 103px;
-  color: #ffffff;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 30px;
-  margin-bottom: 10.5%;
-  margin-top: 35%;
-  transform: scaleY(1.4);
-  font-weight: 600;
-`;
-const Text = styled.p`
-  width: 323px;
-  color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 32px;
-  letter-spacing: -0.57px;
-  text-shadow: 0 0 9px 0 #ffffff;
-  font-weight: 100;
-  margin-bottom: 1%;
-  margin-top: 0;
-`;
-const Text1 = styled.p`
-  font-family: "Open Sans", sans-serif;
-  height: 30px;
-  width: 183px;
+const Title = styled.p`
   color: #2a2c30;
-  font-size: 22px;
+  font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
-  line-height: 30px;
+  line-height: ${sizes.size30};
   text-align: center;
   text-shadow: 0 0 9px 0 #ffffff;
-  margin-top: 116px;
-  margin-left: 150px;
-`;
-const Text2 = styled.p`
-  font-family: "Open Sans", sans-serif;
-  height: 60px;
-  width: 220px;
-  color: #4a4a4a;
-  font-size: 14px;
-  letter-spacing: -0.24px;
-  line-height: 20px;
-  text-align: center;
-  margin-left: 130px;
-  margin-bottom: 80px;
-`;
-const BoldText = styled.p`
-  width: 40%;
-  color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 34px;
-  letter-spacing: -0.57px;
-  text-shadow: 0 0 9px 0 #ffffff;
-  font-weight: 600;
-  margin-bottom: 1%;
-  margin-top: 0;
-`;
-const Line = styled.div`
-  display: flex;
-  flex-direction: row;
+  margin-top: ${sizes.size116};
+  margin-left: ${sizes.size180};
+  height: ${sizes.size30};
+  width: ${sizes.size124};
+  font-family: ${fontFamilies.fontFamilyOsBold};
 `;

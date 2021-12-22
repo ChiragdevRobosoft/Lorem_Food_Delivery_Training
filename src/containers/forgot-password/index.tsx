@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import backButton from "../../assets/back_button.png";
+import backButton from "../../assets/backButton.png";
 import icon_forgot from "../../assets/icn_forgot.png";
 import Buttons from "../../components/button/index";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import TextBox from "../../components/textbox";
-import Rectangle from "../../assets/Rectangle.png";
+import Underline from "../../assets/underline.png";
 import { Modal } from "react-responsive-modal";
 import CountryCode from "../../components/country-code";
-import { sizes, colors, fontFamilies } from "../../variables";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  fontWeight,
+  links,
+} from "../../variables";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -21,41 +27,52 @@ const ForgotPassword = () => {
       <Wrapper>
         <WrapperLeft>
           <Lorem>LOREM</Lorem>
-          <Text>Experience the </Text>
-          <Text>easiest a way to get</Text>
-          <Line>
-            <BoldText>great food</BoldText>
-            <Text>Delivered</Text>
-          </Line>
+          <TagLine>
+            Experience the easiest a way to get <BoldText>great food </BoldText>
+            Delivered
+          </TagLine>
         </WrapperLeft>
         <WrapperRight>
-          <Button onClick={() => navigate("/login")}>
-            <img src={backButton} alt="cut"></img>
-          </Button>
+          <RedirectLink to={links.login}>
+            <BackImage src={backButton} alt="cut"></BackImage>
+          </RedirectLink>
           <ForgotImage>
             <img src={icon_forgot} className="icon_forgot"></img>
           </ForgotImage>
-          <Text1>Forgot Password!</Text1>
-          <Text2>
+          <Title>Forgot Password!</Title>
+          <Discription>
             Share your registered either email address or mobile number to send
             you the OTP to reset your password
-          </Text2>
-
+          </Discription>
           <Navbar>
-            <InputTypeButton onClick={() => setInputType("email")}>
-              Email
-            </InputTypeButton>
-            <InputTypeButton onClick={() => setInputType("mobile")}>
-              Mobile No.
-            </InputTypeButton>
+            <TypeContainer>
+              <InputTypeButton
+                type="button"
+                onClick={() => setInputType("email")}
+              >
+                Email
+              </InputTypeButton>
+              {InputType === "email" ? (
+                <Border src={Underline} alt="border" />
+              ) : null}
+            </TypeContainer>
+            <TypeContainer>
+              <InputTypeButton
+                type="button"
+                onClick={() => setInputType("mobile")}
+              >
+                Mobile No.
+              </InputTypeButton>
+              {InputType === "mobile" ? (
+                <Border src={Underline} alt="border" />
+              ) : null}
+            </TypeContainer>
           </Navbar>
-
           {InputType === "email" ? (
             <TextBox name="Email" isPassword={false} />
           ) : (
             <CountryCode isOptional={true} />
           )}
-
           <Buttons className="colouredBgButton" name="SEND OTP"></Buttons>
         </WrapperRight>
       </Wrapper>
@@ -63,38 +80,31 @@ const ForgotPassword = () => {
   );
 };
 export default ForgotPassword;
-const Button3 = styled.button`
-  height: 24px;
-
-  opacity: 0.66;
-  color: #4a4a4a;
-  font-family: "Open Sans", sans-serif;
-  font-size: 18px;
-  letter-spacing: -0.43px;
-  line-height: 24px;
-  background-color: transparent;
-  border: none;
-  margin-left: 60px;
+const TypeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
-
-const Button2 = styled.button`
-  height: 24px;
-  background-color: transparent;
-  border: none;
-  margin-left: 40px;
-  width: 46px;
-  color: #4a4a4a;
-  font-family: "Open Sans", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.43px;
-  line-height: 24px;
+const Border = styled.img`
+  height: ${sizes.size4};
+  width: ${sizes.size38};
+  margin-top: ${sizes.size5};
+  padding-left: ${sizes.size1};
 `;
-
+const RedirectLink = styled(Link)`
+  text-decoration: none;
+  border: none;
+`;
+const BackImage = styled.img`
+  float: left;
+  margin: ${sizes.size20};
+  border: 0;
+  height: ${sizes.size17};
+  width: ${sizes.size17};
+`;
 const Wrapper = styled.div`
-  height: 588px;
-  width: 960px;
-  border-radius: 8px;
+  height: ${sizes.size588};
+  width: ${sizes.size960};
+  border-radius: ${sizes.size8};
   background-color: #ffffff;
   box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
   display: flex;
@@ -107,114 +117,96 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 const ForgotImage = styled.div`
-  height: 5px;
-  width: 25px;
-  margin-left: 200px;
-  margin-top: 60px;
-`;
-const WrapperLeft = styled.div`
-  background-image: url("../assets/image.png");
-  height: 588px;
-  width: 480px;
-  text-align: left;
-  padding-left: 4%;
-  margin-right: -4%;
+  height: ${sizes.size5};
+  width: ${sizes.size25};
+  margin-left: ${sizes.size200};
+  margin-top: ${sizes.size60};
 `;
 const Navbar = styled.div`
   display: flex;
   flex-direction: row;
   margin-right: auto;
-  margin-left: 10.5%;
-  width: 40%;
-  margin-bottom: 65px;
-  margin-top: 30px;
+  margin-left: ${sizes.size50};
+  width: ${sizes.sizep40};
+  margin-bottom: ${sizes.size65};
+  margin-top: ${sizes.size30};
   justify-content: space-between;
 `;
 const InputTypeButton = styled.button`
-  height: 24px;
+  height: ${sizes.size24};
   opacity: 0.66;
   color: #4a4a4a;
   font-family: "Open Sans", sans-serif;
-  font-size: 18px;
+  font-size: ${sizes.size18};
   letter-spacing: -0.43px;
-  line-height: 24px;
+  line-height: ${sizes.size24};
   background-color: transparent;
   border: none;
   padding: 0;
 `;
 const WrapperRight = styled.div`
   background-color: white;
-  height: 588px;
-  width: 480px;
+  height: ${sizes.size588};
+  width: ${sizes.size480};
 `;
-const Button = styled.button`
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  right: 430px;
-  outline: none;
-  position: absolute;
-  top: 3%;
-`;
-const Lorem = styled.p`
-  height: 60px;
-  width: 103px;
-  color: #ffffff;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 30px;
-  margin-bottom: 10.5%;
-  margin-top: 35%;
-  transform: scaleY(1.4);
-  font-weight: 600;
-`;
-const Text = styled.p`
-  width: 323px;
-  color: #ffffff;
+const Title = styled.p`
   font-family: "Open Sans", sans-serif;
-  font-size: 32px;
-  letter-spacing: -0.57px;
-  text-shadow: 0 0 9px 0 #ffffff;
-  font-weight: 100;
-  margin-bottom: 1%;
-  margin-top: 0;
-`;
-const Text1 = styled.p`
-  font-family: "Open Sans", sans-serif;
-  height: 30px;
-  width: 183px;
+  height: ${sizes.size30};
+  width: ${sizes.size183};
   color: #2a2c30;
-  font-size: 22px;
+  font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
-  line-height: 30px;
+  line-height: ${sizes.size30};
   text-align: center;
   text-shadow: 0 0 9px 0 #ffffff;
-  margin-top: 116px;
-  margin-left: 150px;
+  margin-top: ${sizes.size116};
+  margin-left: ${sizes.size150};
 `;
-const Text2 = styled.p`
-  font-family: "Open Sans", sans-serif;
-  height: 60px;
-  width: 270px;
+const WrapperLeft = styled.div`
+  background-image: url("../assets/image.png");
+  height: ${sizes.size588};
+  width: ${sizes.size480};
+  text-align: left;
+  padding-left: ${sizes.sizep4};
+  margin-right: ${sizes.sizen40};
+`;
+const Discription = styled.p`
+  margin-left: ${sizes.size90};
+  word-wrap: break-word;
+  height: ${sizes.size60};
+  width: ${sizes.size296};
   color: #4a4a4a;
-  font-size: 14px;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size14};
   letter-spacing: -0.24px;
-  line-height: 20px;
+  line-height: ${sizes.size20};
   text-align: center;
-  margin-left: 90px;
 `;
-const BoldText = styled.p`
-  width: 40%;
+const Lorem = styled.p`
+  height: ${sizes.size60};
+  width: ${sizes.size103};
   color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 34px;
-  letter-spacing: -0.57px;
-  text-shadow: 0 0 9px 0 #ffffff;
-  font-weight: 600;
-  margin-bottom: 1%;
-  margin-top: 0;
+  font-family: ${fontFamilies.fontFamilyBn};
+  font-size: ${sizes.size50};
+  margin-bottom: ${sizes.size30};
+  margin-top: ${sizes.size150};
+  letter-spacing: 0;
+  line-height: ${sizes.size60};
+  text-align: center;
 `;
-const Line = styled.div`
-  display: flex;
-  flex-direction: row;
+const BoldText = styled.span`
+  font-weight: ${fontWeight.weight800};
+  font-family: ${fontFamilies.fontFamilyOsBold};
+`;
+const TagLine = styled.div`
+  height: ${sizes.size132};
+  width: ${sizes.size330};
+  color: #ffffff;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size34};
+  letter-spacing: -0.57px;
+  line-height: ${sizes.size44};
+  text-shadow: 0 0 9px 0 #ffffff;
+  word-wrap: break-word;
 `;
