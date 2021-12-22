@@ -1,18 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import FilterMinus from "../../../../assets/restaurantList/filter_minus.png";
-import FilterCheckbox from "../../../../assets/restaurantList/filter_checkbox.png";
-import Radio from "../Radio button";
-import FilterPlus from "../../../../assets/restaurantList/filter_plus.png";
-import data from "../../../common/constants.json";
-import { fontFamilies, colors, sizes, angles } from "../../../../variables";
+import { useForm, Controller } from "react-hook-form";
+import FilterMinus from "../../../assets/restaurantList/filter_minus.png";
+import FilterCheckbox from "../../../assets/restaurantList/filter_checkbox.png";
+import Radio from "../../common/Radio button";
+import FilterPlus from "../../../assets/restaurantList/filter_plus.png";
+import data from "../../common/constants.json";
+import { fontFamilies, colors, sizes, angles } from "../../../variables";
 
 const Filters = () => {
+  const { register, handleSubmit, control, reset } = useForm();
+  const onSubmit = (data: any) => console.log(data);
   return (
-    <Wrapper>
+    <Wrapper onSubmit={handleSubmit(onSubmit)}>
       <TopFlex>
         <Title>Filters</Title>
-        <Reset>Reset all</Reset>
+        <Reset onClick={() => reset()}>Reset all</Reset>
       </TopFlex>
       <MiddleFlex>
         <AppliedFilter className="time">TIME</AppliedFilter>
@@ -21,14 +24,30 @@ const Filters = () => {
       </MiddleFlex>
       <RadioTitle>Show restaurant with</RadioTitle>
       <CheckboxWrapper>
-        <Input type="checkbox" id="Open" name="Open" value="Open Now" />
+        <Input
+          type="checkbox"
+          id="Open"
+          value="Open Now"
+          {...register("Open")}
+        />
         <Label htmlFor="Open">Open Now</Label>
       </CheckboxWrapper>
-      {data.radio.map((radioInfo, index) => {
+      {data.radio.map((radioInfo: any, index: any) => {
         return (
           <>
             <RadioTitle className="radio">{radioInfo.name}</RadioTitle>
-            <Radio name={radioInfo.name} options={radioInfo.options} />
+            <Controller
+              control={control}
+              name={radioInfo.name}
+              render={({ field: { onChange, value } }) => (
+                <Radio
+                  options={radioInfo.options}
+                  name={radioInfo.name}
+                  value={value}
+                  handleChange={(e: any) => onChange(e.target.value)}
+                />
+              )}
+            />
           </>
         );
       })}
@@ -36,21 +55,20 @@ const Filters = () => {
         <Cuisines className="cuisines">CUISINES</Cuisines>
         <AppliedFilterImage src={FilterPlus} className="plus" />
       </EndFlex>
-      <Button>
+      <Button onClick={handleSubmit(onSubmit)}>
         <span>APPLY</span>
       </Button>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   height: ${sizes.size672};
   width: ${sizes.size304};
   border-radius: ${sizes.size6};
   background-color: ${colors.white};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
     ${colors.black1};
-  margin: ${sizes.size10};
 `;
 
 const TopFlex = styled.div`

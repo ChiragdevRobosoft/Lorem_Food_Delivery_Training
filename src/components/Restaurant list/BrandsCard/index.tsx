@@ -1,14 +1,13 @@
 import React, { CSSProperties } from "react";
-import Pizzahut from "../../../../assets/restaurantList/Pizzahut.png";
+import Pizzahut from "../../../assets/restaurantList/Pizzahut.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import data from "../../../common/constants.json";
+import data from "../../common/constants.json";
 import styled from "styled-components";
-import { sizes, colors, fontFamilies } from "../../../../variables";
+import { sizes, colors, fontFamilies } from "../../../variables";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 const renderArrow =
-  (direction: string) =>
-  (onClickHandler: any, shouldBeEnabled: boolean, label: any) => {
+  (direction: string) => (onClickHandler: any, shouldBeEnabled: boolean) => {
     if (!shouldBeEnabled) {
       return;
     }
@@ -39,12 +38,10 @@ const renderArrow =
   };
 
 let details = data.RestaurantList;
-console.log(details);
 
 const newData = details.reduce((a: any, c: any, i: number) => {
   return i % 4 === 0 ? (a as any).concat([details.slice(i, i + 4)]) : a;
 }, []);
-console.log(newData);
 
 const BrandsCard = () => {
   return (
@@ -61,17 +58,17 @@ const BrandsCard = () => {
       >
         {newData.map((a: any, index: number) => {
           return (
-            <div className="grid-display">
+            <GridDisplay>
               {a.map((b: any, k: number) => {
                 return (
                   <>
-                    <img src={Pizzahut} className="brand-icon" />
-                    <div className="brand-name">{b.name}</div>
-                    <div className="brand-outlets">{b.outlets} outlets</div>
+                    <BrandIcon src={Pizzahut} />
+                    <BrandName>{b.name}</BrandName>
+                    <BrandOutlets>{b.outlets} outlets</BrandOutlets>
                   </>
                 );
               })}
-            </div>
+            </GridDisplay>
           );
         })}
       </Carousel>
@@ -89,52 +86,57 @@ const Wrapper = styled.div`
     background-color: ${colors.white};
     box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
       ${colors.black1};
+    margin-bottom: 17.14px;
+    margin-top: 14px;
   }
   .carousel {
     height: ${sizes.size166_79};
     width: ${sizes.size631_42};
-
-    .slider-wrapper {
-      width: ${sizes.size631_42};
-      height: ${sizes.size166_79};
-
-      .grid-display {
-        padding: ${sizes.size20} ${sizes.size18};
-        display: grid;
-        grid-auto-flow: column;
-        grid-template-rows: 4fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        height: ${sizes.size166_79};
-        position: relative;
-
-        .brand-icon {
-          height: auto;
-          width: auto;
-          margin: auto;
-        }
-
-        .brand-name {
-          height: ${sizes.size19};
-          color: ${colors.grey9};
-          font-family: ${fontFamilies.fontFamilyOsSemiBold};
-          font-size: ${sizes.size14};
-          letter-spacing: ${sizes.size0};
-          line-height: ${sizes.size19};
-          text-align: center;
-        }
-
-        .brand-outlets {
-          height: ${sizes.size19};
-          color: ${colors.grey10};
-          font-family: ${fontFamilies.fontFamilyOsRegular};
-          font-size: ${sizes.size14};
-          letter-spacing: ${sizes.size0};
-          line-height: ${sizes.size19};
-          text-align: center;
-        }
-      }
-    }
   }
+
+  .slider-wrapper {
+    width: ${sizes.size631_42};
+    height: ${sizes.size166_79};
+  }
+`;
+
+const GridDisplay = styled.div`
+  width: ${sizes.size631_42};
+  height: ${sizes.size166_79};
+  padding: ${sizes.size20} ${sizes.size18};
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 4fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: ${sizes.size166_79};
+  position: relative;
+`;
+
+const BrandIcon = styled.img`
+  height: 72px;
+  width: 77px;
+  margin: auto;
+  object-fit: none;
+`;
+
+const BrandName = styled.div`
+  height: ${sizes.size19};
+  color: ${colors.grey9};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
+  text-align: center;
+`;
+
+const BrandOutlets = styled.div`
+  height: ${sizes.size19};
+  color: ${colors.grey10};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
+  text-align: center;
 `;
 
 export default BrandsCard;

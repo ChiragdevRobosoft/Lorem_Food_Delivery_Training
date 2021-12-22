@@ -55,5 +55,71 @@
       "options": ["Upto 30 AED", "Upto 60 AED", "Upto 100 AED"]
     },
     { "name": "Minimum order", "options": ["Upto 60 AED", "Upto 100 AED"] }
+  ],
+  "restaurantCardData": [
+    {
+      "name": "The Boutique Kitchen",
+      "rating": 3.8,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Open now",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "Iran Zamin Restaurant & Cafe",
+      "rating": 4,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Closed",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "PAUL Bakery & Restaurant",
+      "rating": 4.5,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Closing in 30 minutes",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "Shakespeare and Co. - The…",
+      "rating": 3.7,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Open now",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "Leila",
+      "rating": 3.8,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Open now",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "The Boutique Kitchen",
+      "rating": 3.9,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Open now",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "Iran Zamin Restaurant & Cafe",
+      "rating": 3.8,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Closed",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "PAUL Bakery & Restaurant",
+      "rating": 3.6,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Closing in 30 minutes",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    }
   ]
 }
