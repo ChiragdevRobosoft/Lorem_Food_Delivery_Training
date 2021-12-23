@@ -17,7 +17,7 @@ interface RestauarantCardprops {
 }
 
 interface Props {
-  type: boolean;
+  color: string;
 }
 
 const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
@@ -33,12 +33,14 @@ const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
         <RestaurantAddress>{card.address}</RestaurantAddress>
         <HorizontalLine />
         <FoodVariety>{card.variety}</FoodVariety>
-        <OpenClose type={card.availabilityInfo.includes("Open") ? true : false}>
+        <OpenClose
+          color={card.availabilityInfo.includes("Open") ? "green" : "red"}
+        >
           {card.availabilityInfo}
         </OpenClose>
         <DetailsList>
-          {card.detailsList.map((detail) => {
-            return <Detail>{detail}</Detail>;
+          {card.detailsList.map((detail, index) => {
+            return <Detail key={index}>{detail}</Detail>;
           })}
         </DetailsList>
       </ColumnFlex>
@@ -167,7 +169,7 @@ const Detail = styled.li`
 const OpenClose = styled.div<Props>`
   height: ${sizes.size17};
   color: ${(props) =>
-    props.type === true ? `${colors.green1}` : `${colors.red1}`};
+    props.color === "green" ? `${colors.green1}` : `${colors.red1}`};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};

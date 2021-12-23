@@ -56,16 +56,16 @@ const BrandsCard = () => {
         showThumbs={false}
         className="main-slide"
       >
-        {newData.map((a: any, index: number) => {
+        {newData.map((firstArray: any, index: number) => {
           return (
-            <GridDisplay>
-              {a.map((b: any, k: number) => {
+            <GridDisplay key={index}>
+              {firstArray.map((secondArray: any, index: number) => {
                 return (
-                  <>
+                  <React.Fragment key={index}>
                     <BrandIcon src={Pizzahut} />
-                    <BrandName>{b.name}</BrandName>
-                    <BrandOutlets>{b.outlets} outlets</BrandOutlets>
-                  </>
+                    <BrandName>{secondArray.name}</BrandName>
+                    <BrandOutlets>{secondArray.outlets} outlets</BrandOutlets>
+                  </React.Fragment>
                 );
               })}
             </GridDisplay>

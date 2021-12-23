@@ -11,7 +11,7 @@ export const colors = {
   grey1: "rgba(151, 151, 151, 0.19)",
   grey2: "rgba(99, 99, 100, 0.7)",
   grey3: "rgba(151, 151, 151, 1)",
-  grey4: "rgba(99, 99, 100, 0.7)",
+  grey4: "rgba(63, 63, 64, 1)",
   grey5: "rgba(96,96,96,1)",
   grey6: "rgba(133, 132, 132, 0.9)",
   grey7: "rgba(159, 159, 159, 0.9)",

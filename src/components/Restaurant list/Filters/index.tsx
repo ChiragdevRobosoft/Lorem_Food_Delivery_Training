@@ -34,7 +34,7 @@ const Filters = () => {
       </CheckboxWrapper>
       {data.radio.map((radioInfo: any, index: any) => {
         return (
-          <>
+          <React.Fragment key={index}>
             <RadioTitle className="radio">{radioInfo.name}</RadioTitle>
             <Controller
               control={control}
@@ -48,7 +48,7 @@ const Filters = () => {
                 />
               )}
             />
-          </>
+          </React.Fragment>
         );
       })}
       <EndFlex>

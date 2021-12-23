@@ -209,7 +209,7 @@ const RowFlex = styled.div`
 
 const RedirectLink = styled(Link)`
   text-decoration: none;
-  color: ${colors.grey4};
+  color: ${colors.grey2};
   font-weight: ${fontWeight.weight600};
 `;
 

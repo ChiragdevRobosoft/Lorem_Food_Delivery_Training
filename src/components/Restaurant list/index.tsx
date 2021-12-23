@@ -12,6 +12,7 @@ import Footer from "../common/footer";
 import RightArrow from "../../assets/restaurantList/right_arrow.png";
 import { Link } from "react-router-dom";
 import { colors, sizes, fontFamilies } from "../../variables";
+import Searchpath from "../common/Searchpath";
 
 const RestaurantList = () => {
   return (
@@ -19,9 +20,10 @@ const RestaurantList = () => {
       <Header />
       <SearchContainer></SearchContainer>
       <MainContainer>
-        <SearchPath>
-          Home &gt; UAE &gt; Explore &gt; Great breakfasts
-        </SearchPath>
+        <Searchpath
+          path={data.searchPath.greatBreakfasts}
+          className="grey-light"
+        />
         <HeadingSection>
           <Title>Breakfast in Dubai</Title>
           <FilterRow>
@@ -49,7 +51,7 @@ const RestaurantList = () => {
             {data.restaurantCardData.map((cardInfo, index) => {
               if ((index + 1) % 4 === 0 && index !== 0) {
                 return (
-                  <>
+                  <React.Fragment key={index}>
                     <RestaurantCard card={cardInfo} />
                     <Brands>Brands Nearby</Brands>
                     <MoreOption to="/brands">
@@ -57,10 +59,10 @@ const RestaurantList = () => {
                       <RightArrowImg src={RightArrow} />
                     </MoreOption>
                     <BrandsCard />
-                  </>
+                  </React.Fragment>
                 );
               } else {
-                return <RestaurantCard card={cardInfo} />;
+                return <RestaurantCard card={cardInfo} key={index} />;
               }
             })}
           </RightSection>
@@ -85,21 +87,6 @@ const MainContainer = styled.div`
   background: ${colors.violet1};
   margin-left: auto;
   margin-right: auto;
-`;
-
-const SearchPath = styled.div`
-  height: 17px;
-  width: 100wh;
-  color: ${colors.grey15};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
-  line-height: ${sizes.size17};
-  padding-top: 13.6px;
-  padding-bottom: 13.6px;
-  border: ${sizes.size1} ${colors.white2};
-  border-style: solid none;
-  padding-left: 479px;
 `;
 
 const HeadingSection = styled.div`

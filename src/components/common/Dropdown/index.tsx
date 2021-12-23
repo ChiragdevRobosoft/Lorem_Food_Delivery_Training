@@ -8,25 +8,20 @@ interface DropdownProps {
 }
 
 interface CSSstyle {
-  display: boolean;
+  visibility: string;
 }
 
 const Dropdown: FC<DropdownProps> = ({ options, name }) => {
   const [selected, setSelected] = useState(options[0].content);
   const [imageUrl, setImageUrl] = useState(options[0].image);
   const [toggle, setToggle] = useState(false);
-  const toggleClass = (e: any) => {
-    e.preventDefault();
-    document.getElementById(`${name}`)?.classList.toggle("dropdown");
-    document.getElementById(`${name}`)?.classList.toggle("hidden");
+  const toggleClass = () => {
     setToggle(!toggle);
-    console.log(toggle);
-    console.log(document.getElementById(`${name}`)?.classList);
   };
 
   const handleClick = (e: any) => {
     setSelected(e.target.value);
-    toggleClass(e);
+    toggleClass();
   };
 
   const handleChange = (e: any) => {
@@ -39,10 +34,10 @@ const Dropdown: FC<DropdownProps> = ({ options, name }) => {
         {selected}
         {imageUrl !== null ? <DropdownImage src={imageUrl} /> : null}
       </Select>
-      <DropdownList display={toggle} id={name}>
-        {options.map((choice: any) => {
+      <DropdownList visibility={toggle.toString()} id={name}>
+        {options.map((choice: any, index: any) => {
           return (
-            <>
+            <React.Fragment key={index}>
               <RadioInput
                 type="radio"
                 id={choice.content}
@@ -56,7 +51,7 @@ const Dropdown: FC<DropdownProps> = ({ options, name }) => {
                   <DropdownImage src={choice.image} />
                 ) : null}
               </Option>
-            </>
+            </React.Fragment>
           );
         })}
       </DropdownList>
@@ -86,7 +81,7 @@ const DropdownList = styled.div<CSSstyle>`
   box-sizing: border-box;
   position: absolute;
   width: 70px;
-  display: ${(props) => (props.display === true ? "flex" : "none")};
+  display: ${(props) => (props.visibility === "true" ? "flex" : "none")};
   flex-direction: column;
   border: ${sizes.size1} solid ${colors.white};
   border-radius: ${sizes.size6};

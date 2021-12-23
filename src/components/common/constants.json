@@ -121,5 +121,8 @@
       "availabilityInfo": "Closing in 30 minutes",
       "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
     }
-  ]
+  ],
+  "searchPath": {
+    "greatBreakfasts": ["Home", "UAE", "Explore", "Great breakfasts"]
+  }
 }
