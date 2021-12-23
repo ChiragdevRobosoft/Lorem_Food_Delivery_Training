@@ -14,7 +14,8 @@
   "homeTexts": {
     "foodRestaurantSearch": {
       "heading": "Order your food",
-      "description": "from the best restaurants"
+      "description": "from the best restaurants",
+      "scrollText": "Scroll"
     },
     "popularBrands": {
       "heading": "Popular Brands",
@@ -36,5 +37,11 @@
       "subHeading": "Download the Food App",
       "description": "Get real-time order updates, live chat support, and exclusive app-only offers."
     }
+  },
+  "header": {
+    "title": "LOREM",
+    "login": "LOGIN",
+    "createAnAccount": "CREATE AN ACCOUNT",
+    "cart": "CART"
   }
 }

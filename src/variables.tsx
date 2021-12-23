@@ -13,6 +13,9 @@ export const colors = {
   grey6: "#929598",
   grey7: "#7c7c7c",
   grey8: "#303134",
+  grey9: "#848484",
+  grey10: "#303134",
+  grey11: "#3e3e3e",
   lightblue1: "#f3f6ff",
 };
 
@@ -48,6 +51,7 @@ export const sizes = {
   size28: "28px",
   size30: "30px",
   size32: "32px",
+  size33: "33px",
   size34: "34px",
   size37: "37px",
   size38: "38px",
@@ -63,15 +67,18 @@ export const sizes = {
   size55: "55px",
   size59: "59px",
   size60: "60px",
+  size62: "62px",
   size63: "63px",
   size64: "64px",
   size65: "65px",
   size66: "66px",
+  size70: "70px",
   size73: "73px",
   size74: "74px",
   size75: "75px",
   size77: "77px",
   size83: "83px",
+  size89: "89px",
   size92: "92px",
   size93: "93px",
   size96: "96px",
@@ -148,7 +155,9 @@ export const sizes = {
   size967: "967px",
   size1030: "1030px",
   size1154: "1154px",
+  size1825: "1825px",
   size1886: "1886px",
+  size1921: "1921px",
   sizen26: "-26px",
   sizen31_54: "-31.54px",
   sizen37_54: "-37.54px",
@@ -163,7 +172,10 @@ export const angles = {
 export const fontFamilies = {
   fontFamilyBn: "BebasNeue-Regular",
   fontFamilyOs: "OpenSans-Light",
+  fontFamilyOsBold: "OpenSans-Bold",
   fontFamilyOsSemiBold: "OpenSans-SemiBold",
+  fontFamilyOsMedium: "OpenSans-Medium",
+  fontFamilyOsRegular: "OpenSans-Regular",
 };
 
 export const fontWeight = {

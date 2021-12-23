@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React, { FC } from "react";
 import cartIcon from "./../../../assets/common/header/cart-icon.png";
 import {
   sizes,
@@ -8,122 +9,132 @@ import {
   fontWeight,
   opacity,
 } from "../../../variables";
+import data from "./../constants.json";
 
-const Header = () => {
+const languages = ["English", "Arabic", "Spanish"];
+
+interface headerProps {
+  className: string;
+}
+const Header: FC<headerProps> = ({ className }) => {
   return (
-    <WrapperHeader>
-      <p className="header-title">LOREM</p>
-      <select name="languages" id="pageLang">
-        <option value="English">English</option>
-        <option value="Arabic">Arabic</option>
-      </select>
-      <p className="login">LOGIN</p>
-      <p className="create-account">CREATE AN ACCOUNT</p>
-      <div className="cart-holder">
-        <img src={cartIcon} alt="cart-icon" />
-        <p className="cart">CART</p>
-      </div>
-    </WrapperHeader>
+    <HeaderWrapper>
+      <HeaderTitle className={className}>{data.header.title}</HeaderTitle>
+      <LanguageSelector name="languages" id="pageLang">
+        {languages.map((lang) => {
+          return (
+            <option key={lang} value={lang}>
+              {lang}
+            </option>
+          );
+        })}
+      </LanguageSelector>
+      <LoginText>{data.header.login}</LoginText>
+      <CreateAccount>{data.header.createAnAccount}</CreateAccount>
+      <LineDiv />
+      <CartImage src={cartIcon} alt="cart-icon" />
+      <CartText>{data.header.cart}</CartText>
+    </HeaderWrapper>
   );
 };
 export default Header;
 
-const WrapperHeader = styled.header`
-  height: 89px;
-  width: 1825px;
+const HeaderWrapper = styled.header`
+  height: ${({ className }) =>
+    className === "home" ? `${sizes.size89}` : `${sizes.size70}`};
+  width: ${(className) =>
+    className === "home" ? `${sizes.size1825}` : `${sizes.size1921}`};
   display: flex;
   flex-direction: row;
-  margin: 19px 62px 119px 33px;
+  margin: ${(className) =>
+    className === "home"
+      ? `${sizes.size19} ${sizes.size62} ${sizes.size119} ${sizes.size33}`
+      : `${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0}`};
+`;
 
-  .header-title {
-    // font-family: "Bebas Neue", cursive;
-    // background-image: linear-gradient(60deg, #af4261, #e9a459);
-    // background-clip: text;
-    // color: transparent;
-    background-image: linear-gradient(
-      ${angles.angle60},
-      ${colors.pink1},
-      ${colors.yellow1}
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: ${colors.transparentColor};
-    font-family: ${fontFamilies.fontFamilyBn};
-    height: 60px;
-    width: 103px;
-    text-align: center;
-    line-height: 60px;
-    font-size: 50px;
-    letter-spacing: 0;
-    margin: 15px 1195px 14px 7px;
-  }
+const HeaderTitle = styled.p`
+  background-image: linear-gradient(
+    ${angles.angle60},
+    ${colors.pink1},
+    ${colors.yellow1}
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: ${colors.transparentColor};
+  font-family: ${fontFamilies.fontFamilyBn};
+  height: 60px;
+  width: 103px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 50px;
+  letter-spacing: 0;
+  margin: 15px 1226px 14px 7px; //15px 1195px 14px 7px
+`;
 
-  select {
-    margin: 36px 35px 36px 0px;
-    height: 17px;
-    width: 75px;
-    color: #3e3e3e;
-    font-family: "Open Sans", sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    line-height: 17px;
-    text-align: left;
-    background-color: inherit;
-    border: none;
-    outline: none;
-  }
+const LanguageSelector = styled.select`
+  margin: 36px 15px 36px 0px; //36px 35px 36px 0px
+  height: 17px;
+  width: 68px; //75px
+  color: ${colors.grey11};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  line-height: 17px;
+  text-align: right;
+  background-color: inherit;
+  border: none;
+  outline: none;
+`;
 
-  .login {
-    margin: 30px 51px 40px 0px;
-    height: 19px;
-    width: 47px;
-    color: #303134;
-    font-family: "Open Sans", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    text-align: right;
-  }
+const LoginText = styled.p`
+  margin: 30px 51px 40px 0px;
+  height: 19px;
+  width: 47px;
+  color: ${colors.grey10};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: 14px;
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: 0.5px;
+  line-height: 19px;
+  text-align: right;
+`;
 
-  /* dobut in create account width  adustments in margins made from here*/
-  .create-account {
-    margin: 30px 41px 40px 0px;
-    height: 19px;
-    width: 153px;
-    color: #303134;
-    font-family: "Open Sans", sans-serif;
-    font-size: 13px; /* font size given 14 adjusted to fit-in */
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    text-align: left;
-  }
+const CreateAccount = styled.p`
+  margin: 30px 40px 40px 0px;
+  height: 19px;
+  width: 154px;
+  color: ${colors.grey10};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: 14px;
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: 0.5px;
+  line-height: 19px;
+  text-align: right;
+`;
 
-  .cart-holder {
-    display: flex;
-    margin: 12px 0px 23px 0px;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    height: 54px;
-    width: 108px;
+const LineDiv = styled.div`
+  box-sizing: border-box;
+  height: 54px;
+  width: 1px;
+  border: 1px solid #000000;
+  opacity: 0.1;
+  margin: 12px 34px 23px 0px;
+`;
 
-    img {
-      margin: 13px 20px 14px 30px;
-      height: 27px;
-      width: 20px;
-    }
-
-    .cart {
-      margin: 17px 0px 18px -5px;
-      height: 19px;
-      width: 37px;
-      color: #fff;
-      font-family: "Open Sans", sans-serif;
-      font-size: 14px; /* font size given 14 adjusted to fit-in */
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      line-height: 19px;
-      text-align: right;
-    }
-  }
+const CartImage = styled.img`
+  margin: 25px 24px 37px 0px;
+  height: 27px;
+  width: 20px;
+`;
+const CartText = styled.p`
+  margin: 29px 0px 41px 0px;
+  height: 19px;
+  width: 37px;
+  color: #ffffff;
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: 14px;
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: 0.5px;
+  line-height: 19px;
+  text-align: right;
 `;

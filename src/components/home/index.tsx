@@ -56,6 +56,6 @@ const HomeContainer = styled.div`
   }
   .five {
     ${homeScreenDivs({ height: `${sizes.size847}` })}
-    background: linear-gradient(${angles.angle206_72} ${colors.lightblue1} 0%, #ffffff 100%);
+    background: linear-gradient(${angles.angle206_72} ${colors.lightblue1} 0%, ${colors.white} 100%);
   }
 `;
