@@ -5,36 +5,53 @@ import { useNavigate } from "react-router-dom";
 import Buttons from "../../components/button/index";
 import closeButton from "../../assets/close_button.png";
 import { Modal } from "react-responsive-modal";
-import { sizes, colors, fontFamilies } from "../../variables";
-
+import "react-responsive-modal/styles.css";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  fontWeight,
+  links,
+} from "../../variables";
 const RegisterSuccess = () => {
   const history = useNavigate();
   const [open, setOpen] = useState(true);
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
   return (
-    <Modal open={open} onClose={onCloseModal}>
+    <Modal
+      open={open}
+      classNames={{ modal: "modalStyle" }}
+      onClose={onCloseModal}
+      center
+      showCloseIcon={false}
+      styles={{
+        overlay: {
+          background: "transparent",
+        },
+      }}
+    >
       <Wrapper>
         <WrapperLeft>
           <Lorem>LOREM</Lorem>
-          <Text>Experience the </Text>
-          <Text>easiest a way to get</Text>
-          <Line>
-            <BoldText>great food</BoldText>
-            <Text>Delivered</Text>
-          </Line>
+          <TagLine>
+            Experience the easiest a way to get <BoldText>great food </BoldText>
+            Delivered
+          </TagLine>
         </WrapperLeft>
         <WrapperRight>
-          <Button onClick={onCloseModal}>
-            <img src={closeButton} alt="cut"></img>
-          </Button>
+          <CloseImage
+            src={closeButton}
+            alt="cut"
+            onClick={onCloseModal}
+          ></CloseImage>
           <SuccessImage>
             <img src={registerSuccess} className="registersuccess"></img>
           </SuccessImage>
-          <Text1>Hi Abdulla,</Text1>
-          <Text3>Welcome to Zadoh</Text3>
-          <Text2>We've sent you an email on</Text2>
-
+          <Title>Hi Abdulla, Welcome to Zadoh</Title>
+          <Discription>
+            We’ve sent you an email on abdulla.mohammad for verification.
+          </Discription>
           <BrowseButton>
             <Buttons
               className="colouredBgButton"
@@ -47,24 +64,63 @@ const RegisterSuccess = () => {
   );
 };
 export default RegisterSuccess;
-
-const BrowseButton = styled.div`
-  margin-top: 60px;
+const CloseImage = styled.img`
+  float: right;
+  margin: 20px;
 `;
-const Button = styled.button`
-  width: 5%;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  right: 0px;
-  outline: none;
-  position: absolute;
-  top: 3%;
+const Discription = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  margin-left: 130px;
+  height: 38px;
+  width: 227px;
+  color: #4a4a4a;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: 14px;
+  letter-spacing: -0.24px;
+  line-height: 19px;
+  text-align: center;
+`;
+const WrapperLeft = styled.div`
+  background-image: url("../assets/image.png");
+  height: ${sizes.size588};
+  width: ${sizes.size480};
+  text-align: left;
+  padding-left: ${sizes.sizep4};
+  margin-right: ${sizes.sizen40};
+`;
+const Lorem = styled.p`
+  height: ${sizes.size60};
+  width: ${sizes.size103};
+  color: #ffffff;
+  font-family: ${fontFamilies.fontFamilyBn};
+  font-size: ${sizes.size50};
+  margin-bottom: ${sizes.size30};
+  margin-top: ${sizes.size150};
+  letter-spacing: 0;
+  line-height: ${sizes.size60};
+  text-align: center;
+`;
+const BoldText = styled.span`
+  font-weight: ${fontWeight.weight800};
+  font-family: ${fontFamilies.fontFamilyOsBold};
+`;
+const TagLine = styled.div`
+  height: ${sizes.size132};
+  width: ${sizes.size330};
+  color: #ffffff;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size34};
+  letter-spacing: -0.57px;
+  line-height: ${sizes.size44};
+  text-shadow: 0 0 9px 0 #ffffff;
+  word-wrap: break-word;
 `;
 const Wrapper = styled.div`
-  height: 588px;
-  width: 960px;
-  border-radius: 8px;
+  height: ${sizes.size588};
+  width: ${sizes.size960};
+  border-radius: ${sizes.size8};
   background-color: #ffffff;
   box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
   display: flex;
@@ -76,98 +132,41 @@ const Wrapper = styled.div`
   right: 0;
   margin: auto;
 `;
+const BrowseButton = styled.div`
+  margin-top: 50px;
+`;
+const Button = styled.button`
+  width: 5%;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  right: 0px;
+  outline: none;
+  position: absolute;
+  top: 3%;
+`;
 const SuccessImage = styled.div`
-  height: 5px;
-  width: 25px;
+  height: ${sizes.size5};
+  width: ${sizes.size25};
   margin-left: 150px;
   margin-top: 120px;
 `;
-const WrapperLeft = styled.div`
-  background-image: url("../assets/image.png");
-  height: 588px;
-  width: 480px;
-  text-align: left;
-  padding-left: 4%;
-  margin-right: -4%;
-`;
-
 const WrapperRight = styled.div`
   background-color: white;
-  height: 588px;
-  width: 480px;
+  height: ${sizes.size588};
+  width: ${sizes.size48};
 `;
-const Lorem = styled.p`
-  height: 60px;
-  width: 103px;
-  color: #ffffff;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 30px;
-  margin-bottom: 10.5%;
-  margin-top: 35%;
-  transform: scaleY(1.4);
-  font-weight: 600;
-`;
-const Text = styled.p`
-  width: 323px;
-  color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 32px;
-  letter-spacing: -0.57px;
-  text-shadow: 0 0 9px 0 #ffffff;
-  font-weight: 100;
-  margin-bottom: 1%;
-  margin-top: 0;
-`;
-const Text1 = styled.p`
-  font-family: "Open Sans", sans-serif;
-  width: 183px;
+const Title = styled.p`
+  height: ${sizes.size54};
+  width: ${sizes.size200};
   color: #2a2c30;
-  font-size: 22px;
+  font-family: ${fontFamilies.fontFamilyOsBold};
+  font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
-  line-height: 30px;
+  line-height: 27px;
   text-align: center;
   text-shadow: 0 0 9px 0 #ffffff;
-  margin-top: 220px;
-  margin-left: 150px;
-`;
-const Text3 = styled.p`
-  font-family: "Open Sans", sans-serif;
-  width: 203px;
-  color: #2a2c30;
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: -0.37px;
-  line-height: 30px;
-  text-align: center;
-  text-shadow: 0 0 9px 0 #ffffff;
-  margin-left: 110px;
-  margin-top: -20px;
-`;
-const Text2 = styled.p`
-  font-family: "Open Sans", sans-serif;
-  width: 270px;
-  color: #4a4a4a;
-  font-size: 14px;
-  letter-spacing: -0.24px;
-  text-align: center;
-  margin-left: 110px;
-  margin-top: -10px;
-  margin-bottom: 50px;
-`;
-
-const BoldText = styled.p`
-  width: 40%;
-  color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 34px;
-  letter-spacing: -0.57px;
-  text-shadow: 0 0 9px 0 #ffffff;
-  font-weight: 600;
-  margin-bottom: 1%;
-  margin-top: 0;
-`;
-const Line = styled.div`
-  display: flex;
-  flex-direction: row;
+  margin-top: 210px;
+  margin-left: 145px;
 `;

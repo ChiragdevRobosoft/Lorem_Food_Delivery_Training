@@ -7,6 +7,7 @@ import { useNavigate, Link } from "react-router-dom";
 import TextBox from "../../components/textbox";
 import Underline from "../../assets/underline.png";
 import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 import CountryCode from "../../components/country-code";
 import {
   sizes,
@@ -15,7 +16,6 @@ import {
   fontWeight,
   links,
 } from "../../variables";
-
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(true);
@@ -23,7 +23,18 @@ const ForgotPassword = () => {
   const onCloseModal = () => setOpen(false);
   const [InputType, setInputType] = useState("email");
   return (
-    <Modal open={open} onClose={onCloseModal}>
+    <Modal
+      open={open}
+      classNames={{ modal: "modalStyle" }}
+      onClose={onCloseModal}
+      center
+      showCloseIcon={false}
+      styles={{
+        overlay: {
+          background: "transparent",
+        },
+      }}
+    >
       <Wrapper>
         <WrapperLeft>
           <Lorem>LOREM</Lorem>
@@ -136,7 +147,7 @@ const InputTypeButton = styled.button`
   height: ${sizes.size24};
   opacity: 0.66;
   color: #4a4a4a;
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
   letter-spacing: -0.43px;
   line-height: ${sizes.size24};
@@ -150,7 +161,7 @@ const WrapperRight = styled.div`
   width: ${sizes.size480};
 `;
 const Title = styled.p`
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   height: ${sizes.size30};
   width: ${sizes.size183};
   color: #2a2c30;
@@ -163,14 +174,6 @@ const Title = styled.p`
   margin-top: ${sizes.size116};
   margin-left: ${sizes.size150};
 `;
-const WrapperLeft = styled.div`
-  background-image: url("../assets/image.png");
-  height: ${sizes.size588};
-  width: ${sizes.size480};
-  text-align: left;
-  padding-left: ${sizes.sizep4};
-  margin-right: ${sizes.sizen40};
-`;
 const Discription = styled.p`
   margin-left: ${sizes.size90};
   word-wrap: break-word;
@@ -182,6 +185,14 @@ const Discription = styled.p`
   letter-spacing: -0.24px;
   line-height: ${sizes.size20};
   text-align: center;
+`;
+const WrapperLeft = styled.div`
+  background-image: url("../assets/image.png");
+  height: ${sizes.size588};
+  width: ${sizes.size480};
+  text-align: left;
+  padding-left: ${sizes.sizep4};
+  margin-right: ${sizes.sizen40};
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};

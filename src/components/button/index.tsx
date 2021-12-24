@@ -1,9 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "../../variables";
-const Buttons = ({ name, className }: { name: any; className: any }) => {
+const Buttons = ({
+  name,
+  className,
+  onClick,
+}: {
+  name: any;
+  className: any;
+  onClick?: () => void;
+}) => {
   console.log(className);
-  return <Button className={className}>{name}</Button>;
+  return (
+    <Button className={className} onClick={onClick}>
+      {name}
+    </Button>
+  );
 };
 export default Buttons;
 const Button = styled.button`

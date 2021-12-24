@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import backButton from "../../assets/backButton.png";
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 import passwordsuccess from "../../assets/password_success.png";
-import { useNavigate } from "react-router-dom";
-import TextBox from "../../components/textbox";
 import Buttons from "../../components/button/index";
 import closeButton from "../../assets/close_button.png";
 import {
@@ -18,30 +17,43 @@ const PasswordSuccess = () => {
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
   return (
-    <Wrapper>
-      <WrapperLeft>
-        <Lorem>LOREM</Lorem>
-        <TagLine>
-          Experience the easiest a way to get <BoldText>great food </BoldText>
-          Delivered
-        </TagLine>
-      </WrapperLeft>
-      <WrapperRight>
-        <CloseImage
-          src={closeButton}
-          alt="cut"
-          onClick={onCloseModal}
-        ></CloseImage>
-        <SuccessImage>
-          <img src={passwordsuccess} className="passwordsuccess"></img>
-        </SuccessImage>
-        <Title>Great!</Title>
-        <Discription>Your password has been successfully reset</Discription>
-        <LoginButton>
-          <Buttons className="colouredBgButton" name="LOGIN NOW"></Buttons>
-        </LoginButton>
-      </WrapperRight>
-    </Wrapper>
+    <Modal
+      open={open}
+      classNames={{ modal: "modalStyle" }}
+      onClose={onCloseModal}
+      center
+      showCloseIcon={false}
+      styles={{
+        overlay: {
+          background: "transparent",
+        },
+      }}
+    >
+      <Wrapper>
+        <WrapperLeft>
+          <Lorem>LOREM</Lorem>
+          <TagLine>
+            Experience the easiest a way to get <BoldText>great food </BoldText>
+            Delivered
+          </TagLine>
+        </WrapperLeft>
+        <WrapperRight>
+          <CloseImage
+            src={closeButton}
+            alt="cut"
+            onClick={onCloseModal}
+          ></CloseImage>
+          <SuccessImage>
+            <img src={passwordsuccess} className="passwordsuccess"></img>
+          </SuccessImage>
+          <Title>Great!</Title>
+          <Discription>Your password has been successfully reset</Discription>
+          <LoginButton>
+            <Buttons className="colouredBgButton" name="LOGIN NOW"></Buttons>
+          </LoginButton>
+        </WrapperRight>
+      </Wrapper>
+    </Modal>
   );
 };
 export default PasswordSuccess;

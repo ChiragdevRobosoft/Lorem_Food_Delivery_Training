@@ -33,8 +33,8 @@ const Verified = () => {
         </VerifyImage>
         <Title>Verified!</Title>
         <Discription>
-          <Line1>Your mobile no. is verified.</Line1>
-          <Line2>Enter the new password to reset your account.</Line2>
+          Your mobile no. is verified. <br />
+          Enter the new password to reset your account.
         </Discription>
         <TextBox name="Password" isPassword={true}></TextBox>
         <VerifyButton>
@@ -62,30 +62,16 @@ const Title = styled.p`
 const Discription = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
-`;
-const Line1 = styled.p`
-  margin-left: ${sizes.size140};
+  margin-left: ${sizes.size90};
   word-wrap: break-word;
   margin-top: -10px;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: -0.24px;
   text-align: center;
-  width: ${sizes.size210};
+  width: 300px;
   color: #4a4a4a;
-`;
-const Line2 = styled.p`
-  margin-left: ${sizes.size100};
-  margin-top: ${sizes.sizen10};
   margin-bottom: ${sizes.size80};
-  word-wrap: break-word;
-  font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: ${sizes.size14};
-  letter-spacing: -0.24px;
-  text-align: center;
-  width: ${sizes.size300};
-  color: #4a4a4a;
 `;
 const RedirectLink = styled(Link)`
   text-decoration: none;
@@ -134,7 +120,7 @@ const TagLine = styled.div`
   word-wrap: break-word;
 `;
 const VerifyButton = styled.div`
-  margin-top: ${sizes.size30};
+  margin-top: ${sizes.size40};
 `;
 const Wrapper = styled.div`
   height: ${sizes.size588};

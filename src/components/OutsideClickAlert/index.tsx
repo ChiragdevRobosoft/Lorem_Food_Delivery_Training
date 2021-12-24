@@ -1,18 +1,18 @@
 import React, { useRef, useEffect } from "react";
 
-function useOutsideAlerter(ref: any, handlePress: () => void) {
+const useOutsideAlerter = (ref: any, handlePress: () => void) => {
   useEffect(() => {
-    function handleClickOutside(event: { target: any }) {
+    const handleClickOutside = (event: { target: any }) => {
       if (ref.current && !ref.current!.contains(event.target)) {
         handlePress();
       }
-    }
+    };
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [ref, handlePress]);
-}
+};
 
 function OutsideAlerter(props: {
   handlePress: () => void;

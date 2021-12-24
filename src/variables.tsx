@@ -86,6 +86,13 @@ export const sizes = {
   size120: "120px",
   size140: "140px",
   size230: "230px",
+  size400: "400px",
+  size280: "280px",
+  size59: "59px",
+  size318: "318px",
+  size450: "450px",
+  size48: "48px",
+  size54: "54px",
 };
 
 export const angles = {

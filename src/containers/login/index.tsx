@@ -4,6 +4,7 @@ import closeButton from "../../assets/close_button.png";
 import Buttons from "../../components/button/index";
 import { useNavigate, Link } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 import TextBox from "../../components/textbox";
 import {
   sizes,
@@ -18,47 +19,73 @@ const Login = () => {
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
   return (
-    <Modal open={open} onClose={onCloseModal}>
-      <Wrapper>
-        <WrapperLeft>
-          <Lorem>LOREM</Lorem>
-          <TagLine>
-            Experience the easiest a way to get <BoldText>great food </BoldText>
-            Delivered
-          </TagLine>
-        </WrapperLeft>
-        <WrapperRight>
-          <CloseImage
-            src={closeButton}
-            alt="cut"
-            onClick={onCloseModal}
-          ></CloseImage>
-          <Title>Let's get started!</Title>
-          <TextBox name="Email" isPassword={false}></TextBox>
-          <TextBox name="Password" isPassword={true}></TextBox>
-          <RedirectLink to={links.forgotPassword}>
-            Forgot Password?
-          </RedirectLink>
-          <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
-          <SocialMedia>
-            <Buttons className="facebook" name="Facebook" />
-            <Buttons className="google" name="Google+" />
-          </SocialMedia>
-          <Footer>
-            <ForgotPasswordLink>Don't have an account?</ForgotPasswordLink>
-            <RedirectLink className="getNewLink" to={links.createAccount}>
-              Get new one!
+    <Div>
+      <Modal
+        open={open}
+        classNames={{ modal: "modalStyle" }}
+        onClose={onCloseModal}
+        center
+        showCloseIcon={false}
+        styles={{
+          overlay: {
+            background: "transparent",
+          },
+        }}
+      >
+        <Wrapper>
+          <WrapperLeft>
+            <Lorem>LOREM</Lorem>
+            <TagLine>
+              Experience the easiest a way to get{" "}
+              <BoldText>great food </BoldText>
+              Delivered
+            </TagLine>
+          </WrapperLeft>
+          <WrapperRight>
+            <CloseImage
+              src={closeButton}
+              alt="cut"
+              onClick={onCloseModal}
+            ></CloseImage>
+            <Title>Let's get started!</Title>
+            <TextBox name="Email" isPassword={false}></TextBox>
+            <TextBox name="Password" isPassword={true}></TextBox>
+            <RedirectLink to={links.forgotPassword}>
+              Forgot Password?
             </RedirectLink>
-          </Footer>
-        </WrapperRight>
-      </Wrapper>
-    </Modal>
+            <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
+            <SocialMedia>
+              <Buttons className="facebook" name="Facebook" />
+              <Buttons className="google" name="Google+" />
+            </SocialMedia>
+            <Footer>
+              <ForgotPasswordLink>Don't have an account?</ForgotPasswordLink>
+              <RedirectLink className="getNewLink" to={links.createAccount}>
+                Get new one!
+              </RedirectLink>
+            </Footer>
+          </WrapperRight>
+        </Wrapper>
+      </Modal>
+    </Div>
   );
 };
 export default Login;
+const Div = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  .react-responsive-modal-modal {
+    padding: 0 !important;
+  }
+  .modalStyle {
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+`;
 const TagLine = styled.div`
-  height: 132px;
-  width: 330px;
+  height: ${sizes.size132};
+  width: ${sizes.size330};
   color: #ffffff;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 34px;
@@ -70,7 +97,7 @@ const TagLine = styled.div`
 const SocialMedia = styled.div`
   display: flex;
   flex-direction: row;
-  width: 400px;
+  width: ${sizes.size400};
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -146,9 +173,9 @@ const WrapperRight = styled.div`
 `;
 const Title = styled.p`
   height: ${sizes.size38};
-  width: ${sizes.size220};
+  width: ${sizes.size300};
   color: #2a2c30;
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size28};
   font-weight: bold;
   margin-left: ${sizes.size50};
