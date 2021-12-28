@@ -18,7 +18,7 @@ interface headerProps {
 }
 const Header: FC<headerProps> = ({ className }) => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper className={className}>
       <HeaderTitle className={className}>{data.header.title}</HeaderTitle>
       <LanguageSelector name="languages" id="pageLang">
         {languages.map((lang) => {
@@ -40,14 +40,14 @@ const Header: FC<headerProps> = ({ className }) => {
 export default Header;
 
 const HeaderWrapper = styled.header`
-  height: ${({ className }) =>
-    className === "home" ? `${sizes.size89}` : `${sizes.size70}`};
-  width: ${(className) =>
-    className === "home" ? `${sizes.size1825}` : `${sizes.size1921}`};
+  height: ${(props) =>
+    props.className === "home" ? `${sizes.size89}` : `${sizes.size70}`};
+  width: ${(props) =>
+    props.className === "home" ? `${sizes.size1825}` : `${sizes.size1921}`};
   display: flex;
   flex-direction: row;
-  margin: ${(className) =>
-    className === "home"
+  margin: ${(props) =>
+    props.className === "home"
       ? `${sizes.size19} ${sizes.size62} ${sizes.size119} ${sizes.size33}`
       : `${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0}`};
 `;

@@ -25,7 +25,7 @@ const Wrapper = styled.div`
     height: ${sizes.size510};
     width: ${sizes.size966};
     margin: ${sizes.size65} ${sizes.size479} ${sizes.size73} ${sizes.size480};
-    border: 1px solid darkgray;
+    //border: 1px solid darkgray;
     .content-title {
       height: ${sizes.size83};
       width: ${sizes.size362};

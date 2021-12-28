@@ -1,12 +1,19 @@
-import React, { CSSProperties } from "react";
+import { CSSProperties } from "react";
 import KFC from "./../../../../assets/common/carousels/carousel1-img.png";
-import prevButton from "./../../../../assets/common/carousels/previousButton.png";
-import nextButton from "./../../../../assets/common/carousels/nextButton.png";
+import nextButton from "./../../../../assets/common/carousels/next_button.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
-import { sizes, colors, fontFamilies } from "./../../../../variables";
-import { url } from "inspector";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  fontWeight,
+} from "./../../../../variables";
+import kfcLogo from "./../../../../assets/common/carousels/brand_logo.png";
+import tData from "./../../constants.json";
 const Carousel = require("react-responsive-carousel").Carousel;
+
+const datas = ["one", "two", "three", "four", "five", "six"];
 
 const renderArrow =
   (direction: string) =>
@@ -20,24 +27,20 @@ const renderArrow =
       bottom: 0,
       right: 0,
       zIndex: 2,
-      border: "1px solid blue", //"solid #3E3E3E"
-      borderWidth: "0 2px 2px 0",
       display: "inline-block",
-      padding: "3.5px",
       boxSizing: "border-box",
       height: "57px",
       width: "56px",
-      opacity: 0.5,
+      backgroundImage: `url(${nextButton})`,
+      backgroundPosition: "center",
     };
 
     if (direction === "prev") {
-      styles.left = 100;
-      styles.backgroundImage = "url(${prevButton})";
-      styles.transform = "rotate(135deg)";
+      styles.left = 846;
+      styles.transform = "scaleX(-1)";
+      styles.borderLeft = "1px solid #979797";
     } else {
-      styles.transform = "rotate(-45deg)";
-      styles.right = 10;
-      styles.backgroundImage = "url(${nextButton})";
+      styles.right = 0; //4
     }
 
     return <div onClick={onClickHandler} style={styles}></div>;
@@ -56,11 +59,30 @@ const CarouselPB = () => {
         showThumbs={false}
         className="main-slide"
       >
-        <img src={KFC} alt="" />
-        <img src={KFC} alt="" />
-        <img src={KFC} alt="" />
-        <img src={KFC} alt="" />
-        <img src={KFC} alt="" />
+        {datas.map((data, i) => (
+          <SingleSlide>
+            <BrandFoodImage src={KFC} alt="" />
+            <RightDiv>
+              <ContentHolder>
+                <BrandDetails>
+                  <BrandLogo src={kfcLogo} alt="" />
+                  <NameTypeDiv>
+                    <BrandName>
+                      {tData.carousels.popularBrands.brandName}
+                    </BrandName>
+                    <LocType>
+                      {tData.carousels.popularBrands.locAndType}
+                    </LocType>
+                  </NameTypeDiv>
+                </BrandDetails>
+                <HorizontalLine />
+                <Description>
+                  {tData.carousels.popularBrands.description}
+                </Description>
+              </ContentHolder>
+            </RightDiv>
+          </SingleSlide>
+        ))}
       </Carousel>
     </Wrapper>
   );
@@ -70,57 +92,111 @@ export default CarouselPB;
 
 const Wrapper = styled.div`
   .main-slide {
-    border: 1px solid red;
-    height: 240px;
-    width: 958px;
-    margin: 35px auto auto auto;
-    border-radius: 6px;
+    height: ${sizes.size240};
+    width: ${sizes.size958};
+    margin: ${sizes.size35} 0 0 0;
+    border-radius: ${sizes.size6};
     background-color: ${colors.white};
   }
   .carousel {
-    border: 1px solid green;
-    height: 327px;
-    width: 958px;
+    height: ${sizes.size327};
+    width: ${sizes.size958};
     .slider-wrapper {
-      border: 1px solid blue;
-      width: 450px;
-      height: 240px;
-      .grid-display {
-        padding: 20px 18px;
-        display: grid;
-        grid-auto-flow: column;
-        grid-template-rows: 4fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        height: 166.79px;
-        position: relative;
-        .brand-icon {
-          height: auto;
-          width: auto;
-          margin: auto;
-        }
-        .brand-name {
-          height: 19px;
-          color: 9px;
-          font-family: ${fontFamilies.fontFamilyOsSemiBold};
-          font-size: ${sizes.size14};
-          letter-spacing: ${sizes.size0};
-          line-height: ${sizes.size19};
-          text-align: center;
-        }
-        .brand-description {
-          height: 62px;
-          color: grey;
-          font-family: ${fontFamilies.fontFamilyOs};
-          font-size: ${sizes.size14};
-          letter-spacing: ${sizes.size0};
-          line-height: ${sizes.size19};
-          text-align: center;
-        }
-      }
+      width: ${sizes.size958};
+      height: ${sizes.size287};
     }
   }
 `;
 
-//box-shadow: 0 ${sizes.size2} ${sizes.size10} ${sizes.size0} black;
-// margin-left: auto;
-// margin-right: auto;
+const SingleSlide = styled.div`
+  height: ${sizes.size240};
+  width: ${sizes.size958};
+  display: flex;
+  flex-direction: row;
+`;
+
+const BrandFoodImage = styled.img`
+  height: ${sizes.size240};
+  width: ${sizes.size450};
+  margin: ${sizes.size0};
+`;
+
+const RightDiv = styled.div`
+  height: ${sizes.size240};
+  width: ${sizes.size508};
+  margin: ${sizes.size0};
+`;
+
+const ContentHolder = styled.div`
+  height: ${sizes.size181};
+  width: ${sizes.size470};
+  margin: ${sizes.size36} ${sizes.size20} ${sizes.size23} ${sizes.size39};
+  display: flex;
+  flex-direction: column;
+`;
+
+const BrandDetails = styled.div`
+  height: ${sizes.size86};
+  width: ${sizes.size470};
+  margin: ${sizes.size0};
+  display: flex;
+  flex-direction: row;
+`;
+
+const BrandLogo = styled.img`
+  height: ${sizes.size86};
+  width: ${sizes.size86};
+  margin: ${sizes.size0};
+`;
+
+const NameTypeDiv = styled.div`
+  height: ${sizes.size60};
+  width: ${sizes.size150};
+  margin: ${sizes.size17} ${sizes.size207} ${sizes.size12} ${sizes.size25};
+  display: flex;
+  flex-direction: column;
+`;
+
+const BrandName = styled.p`
+  height: ${sizes.size39};
+  width: ${sizes.size53};
+  color: ${colors.blue1};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size29};
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size39};
+  margin: ${sizes.size0} auto ${sizes.size0} ${sizes.size0};
+`;
+
+const LocType = styled.p`
+  height: ${sizes.size19};
+  width: ${sizes.size150};
+  color: ${colors.grey12};
+  font-family: ${fontFamilies.fontFamilyOs};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
+  margin: ${sizes.size2} ${sizes.size0} ${sizes.size0} ${sizes.size2};
+  text-align: left;
+`;
+
+const HorizontalLine = styled.div`
+  box-sizing: border-box;
+  height: ${sizes.size3};
+  width: ${sizes.size456};
+  border: ${sizes.size1} solid ${colors.white1};
+  margin: ${sizes.size17} ${sizes.size12} ${sizes.size0} ${sizes.size0};
+`;
+
+const Description = styled.p`
+  height: ${sizes.size62};
+  width: ${sizes.size470};
+  color: ${colors.grey13};
+  font-family: ${fontFamilies.fontFamilyOs};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
+  margin: ${sizes.size13} ${sizes.size0} ${sizes.size0} ${sizes.size0};
+  text-align: left;
+`;

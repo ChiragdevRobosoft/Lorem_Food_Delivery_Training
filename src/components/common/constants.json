@@ -43,5 +43,12 @@
     "login": "LOGIN",
     "createAnAccount": "CREATE AN ACCOUNT",
     "cart": "CART"
+  },
+  "carousels": {
+    "popularBrands": {
+      "brandName": "KFC",
+      "locAndType": "Latin America, Bakery",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus consequat purus sit amet lectus bibendum finbus vel."
+    }
   }
 }

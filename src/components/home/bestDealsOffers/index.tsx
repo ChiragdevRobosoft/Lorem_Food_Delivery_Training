@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import data from "./../../common/constants.json";
 import { colors, sizes } from "../../../variables";
+import CarouselBDO from "../../common/carousels/bestDealsOffers";
 
 const BestDealsOffers = () => {
   return (
@@ -10,6 +11,7 @@ const BestDealsOffers = () => {
         <ContentDescrp>
           {data.homeTexts.bestDealsOffers.description}
         </ContentDescrp>
+        <CarouselBDO />
       </ContentDiv>
     </Wrapper>
   );
