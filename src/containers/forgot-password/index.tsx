@@ -60,6 +60,7 @@ const ForgotPassword = () => {
               <InputTypeButton
                 type="button"
                 onClick={() => setInputType("email")}
+                className={InputType === "email" ? "boldButton" : "null"}
               >
                 Email
               </InputTypeButton>
@@ -71,6 +72,7 @@ const ForgotPassword = () => {
               <InputTypeButton
                 type="button"
                 onClick={() => setInputType("mobile")}
+                className={InputType === "mobile" ? "boldButton" : "null"}
               >
                 Mobile No.
               </InputTypeButton>
@@ -126,6 +128,10 @@ const Wrapper = styled.div`
   bottom: 0;
   right: 0;
   margin: auto;
+  .boldButton {
+    color: black;
+    font-weight: ${fontWeight.weight600};
+  }
 `;
 const ForgotImage = styled.div`
   height: ${sizes.size5};
