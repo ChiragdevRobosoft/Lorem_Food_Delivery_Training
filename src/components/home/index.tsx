@@ -9,27 +9,33 @@ import BGimage2 from "./../../assets/home/popularBrands/BGimage.png";
 import BGimage3 from "./../../assets/home/bestDealsOffers/BGimage.png";
 import BGimage4 from "./../../assets/home/howToOrder/BGimage.png";
 import { angles, sizes, colors } from "./../../variables";
-import { homeScreenDivs } from "../../mixins";
 import "./index.scss";
 
 const Home = () => {
   return (
     <HomeContainer>
-      <div className="one">
+      <HomeScreens imgUrl={BGimage1} height={`${sizes.size935}`}>
         <FoodRestaurantSearch />
-      </div>
-      <div className="two">
+      </HomeScreens>
+      <HomeScreens imgUrl={BGimage2} height={`${sizes.size617}`}>
         <PopularBrands />
-      </div>
-      <div className="three">
+      </HomeScreens>
+      <HomeScreens imgUrl={BGimage3} height={`${sizes.size823}`}>
         <BestDealsOffers />
-      </div>
-      <div className="four">
+      </HomeScreens>
+      <HomeScreens
+        imgUrl={BGimage4}
+        height={`${sizes.size780}`}
+        backGroundPosition="right"
+      >
         <HowToOrder />
-      </div>
-      <div className="five">
+      </HomeScreens>
+      <HomeScreens
+        height={`${sizes.size847}`}
+        backgroundColor={`linear-gradient(${angles.angle206_72} ${colors.lightblue1} 0%, ${colors.white} 100%)`}
+      >
         <LoremStoreApp />
-      </div>
+      </HomeScreens>
     </HomeContainer>
   );
 };
@@ -41,21 +47,30 @@ const HomeContainer = styled.div`
   margin: ${sizes.size0};
   padding: ${sizes.size0};
   box-sizing: border-box;
-  .one {
-    ${homeScreenDivs({ imageUrl: BGimage1, height: `${sizes.size935}` })}
-  }
-  .two {
-    ${homeScreenDivs({ imageUrl: BGimage2, height: `${sizes.size617}` })}
-  }
-  .three {
-    ${homeScreenDivs({ imageUrl: BGimage3, height: `${sizes.size823}` })}
-  }
-  .four {
-    ${homeScreenDivs({ imageUrl: BGimage4, height: `${sizes.size780}` })}
-    background-position: right;
-  }
-  .five {
-    ${homeScreenDivs({ height: `${sizes.size847}` })}
-    background: linear-gradient(${angles.angle206_72} ${colors.lightblue1} 0%, ${colors.white} 100%);
-  }
 `;
+interface HomeScreensProps {
+  imgUrl?: string;
+  height: string;
+  backGroundPosition?: string;
+  backgroundColor?: string;
+}
+const HomeScreens = styled.div<HomeScreensProps>`
+  background-image: ${(props) => (props.imgUrl ? `url(${props.imgUrl})` : "")};
+  height: ${(props) => props.height};
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  background-position: ${(props) =>
+    props.backGroundPosition ? props.backGroundPosition : ""};
+  background: ${(props) =>
+    props.backgroundColor ? props.backgroundColor : ""};
+`;
+
+// const StoreButton = styled.a`
+//   width: ${sizes.size195};
+//   height: ${sizes.size55};
+//   background: ${(props) => (props.img ? `url(${props.img})` : "")};
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   margin-right: ${(props) => (props.marginR ? props.marginR : "")}; ;
+// `;
