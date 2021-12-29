@@ -67,8 +67,6 @@ const CarouselBDO = () => {
         className="main-slide"
       >
         {datas.map((subData, i) => {
-          console.log(subData.one);
-          console.log(subData.two);
           return (
             <SingleSlide key={i}>
               <LeftImg src={card1} alt="" />
