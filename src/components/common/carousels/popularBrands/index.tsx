@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
 import KFC from "./../../../../assets/common/carousels/carousel1-img.png";
 import nextButton from "./../../../../assets/common/carousels/next_button.png";
+import disabledNextButton from "./../../../../assets/common/carousels/nextButtonDisabled.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
 import {
@@ -19,7 +20,26 @@ const renderArrow =
   (direction: string) =>
   (onClickHandler: any, shouldBeEnabled: boolean, label: any) => {
     if (!shouldBeEnabled) {
-      return;
+      const styles2: CSSProperties = {
+        position: "absolute",
+        bottom: 0,
+        right: 0,
+        zIndex: 2,
+        display: "inline-block",
+        boxSizing: "border-box",
+        height: "57px",
+        width: "56px",
+        backgroundImage: `url(${disabledNextButton})`,
+        backgroundPosition: "center",
+      };
+      if (direction === "prev") {
+        styles2.left = 848;
+        styles2.transform = "scaleX(-1)";
+        styles2.borderLeft = "1px solid #979797";
+      } else {
+        styles2.right = 0;
+      }
+      return <div style={styles2}></div>;
     }
 
     const styles: CSSProperties = {
@@ -38,9 +58,10 @@ const renderArrow =
     if (direction === "prev") {
       styles.left = 846;
       styles.transform = "scaleX(-1)";
-      styles.borderLeft = "1px solid #979797";
+      styles.borderLeft = "0.5px solid #979797";
     } else {
-      styles.right = 0; //4
+      styles.right = 0;
+      styles.borderLeft = "0.5px solid #979797";
     }
 
     return <div onClick={onClickHandler} style={styles}></div>;
@@ -84,6 +105,9 @@ const CarouselPB = () => {
           </SingleSlide>
         ))}
       </Carousel>
+      <RouteText height={`${sizes.size22}`} width={`${sizes.size90_61}`}>
+        All Brands&#62;
+      </RouteText>
     </Wrapper>
   );
 };
@@ -200,3 +224,27 @@ const Description = styled.p`
   margin: ${sizes.size13} ${sizes.size0} ${sizes.size0} ${sizes.size0};
   text-align: left;
 `;
+
+interface RouteTextProps {
+  height: string;
+  width: string;
+  textAlign?: string;
+}
+
+export const RouteText = styled.p<RouteTextProps>`
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
+  color: ${colors.orange1};
+  font-size: ${sizes.size16};
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size22};
+  margin: ${sizes.size15} auto auto ${sizes.size1};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : ``)};
+`;
+
+// const ArrowSpan = styled.span`
+//   height: 7.45px;
+//   width: 3.61px;
+// `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CarouselPB from "../../common/carousels/popularBrands";
 import data from "./../../common/constants.json";
-import { colors, fontFamilies, sizes } from "../../../variables";
+import { colors, fontFamilies, letterSpacing, sizes } from "../../../variables";
 const PopularBrands = () => {
   return (
     <Wrapper>
@@ -45,6 +45,6 @@ const ContentDesc = styled.p`
   color: ${colors.grey5};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
-  letter-spacing: ${sizes.size0_58};
+  letter-spacing: ${letterSpacing.space0_58};
   line-height: ${sizes.size34};
 `;

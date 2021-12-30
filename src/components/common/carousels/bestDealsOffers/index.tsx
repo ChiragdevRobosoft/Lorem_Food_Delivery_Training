@@ -1,9 +1,11 @@
 import { CSSProperties } from "react";
 import nextButton from "./../../../../assets/common/carousels/next_button.png";
+import disabledNextButton from "./../../../../assets/common/carousels/nextButtonDisabled.png";
 import card1 from "./../../../../assets/common/carousels/Card1.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
 import { sizes, colors } from "./../../../../variables";
+import { RouteText } from "../popularBrands";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 const datas = [
@@ -26,7 +28,27 @@ const renderArrow =
   (direction: string) =>
   (onClickHandler: any, shouldBeEnabled: boolean, label: any) => {
     if (!shouldBeEnabled) {
-      return;
+      const styles2: CSSProperties = {
+        position: "absolute",
+        bottom: 0,
+        right: 0,
+        zIndex: 2,
+        display: "inline-block",
+        boxSizing: "border-box",
+        height: "57px",
+        width: "56px",
+        backgroundImage: `url(${disabledNextButton})`,
+        backgroundPosition: "center",
+      };
+      if (direction === "prev") {
+        styles2.left = 848;
+        styles2.transform = "scaleX(-1)";
+        styles2.borderLeft = "0.5px solid #979797";
+      } else {
+        styles2.right = 0;
+        styles2.borderLeft = "0.5px solid #979797";
+      }
+      return <div style={styles2}></div>;
     }
 
     const styles: CSSProperties = {
@@ -49,7 +71,6 @@ const renderArrow =
     } else {
       styles.right = 0;
     }
-
     return <div onClick={onClickHandler} style={styles}></div>;
   };
 
@@ -75,6 +96,13 @@ const CarouselBDO = () => {
           );
         })}
       </Carousel>
+      <RouteText
+        height={`${sizes.size22}`}
+        width={`${sizes.size141_61}`}
+        textAlign="right"
+      >
+        All offers &amp; deals&#62;
+      </RouteText>
     </Wrapper>
   );
 };
