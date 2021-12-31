@@ -27,30 +27,6 @@ const datas = [
 const renderArrow =
   (direction: string) =>
   (onClickHandler: any, shouldBeEnabled: boolean, label: any) => {
-    if (!shouldBeEnabled) {
-      const styles2: CSSProperties = {
-        position: "absolute",
-        bottom: 0,
-        right: 0,
-        zIndex: 2,
-        display: "inline-block",
-        boxSizing: "border-box",
-        height: "57px",
-        width: "56px",
-        backgroundImage: `url(${disabledNextButton})`,
-        backgroundPosition: "center",
-      };
-      if (direction === "prev") {
-        styles2.left = 848;
-        styles2.transform = "scaleX(-1)";
-        styles2.borderLeft = "0.5px solid #979797";
-      } else {
-        styles2.right = 0;
-        styles2.borderLeft = "0.5px solid #979797";
-      }
-      return <div style={styles2}></div>;
-    }
-
     const styles: CSSProperties = {
       position: "absolute",
       bottom: 0,
@@ -58,18 +34,33 @@ const renderArrow =
       zIndex: 2,
       display: "inline-block",
       boxSizing: "border-box",
-      height: "57px",
-      width: "56px",
+      height: `${sizes.size57}`,
+      width: `${sizes.size56}`,
       backgroundImage: `url(${nextButton})`,
       backgroundPosition: "center",
     };
 
+    if (!shouldBeEnabled) {
+      styles.backgroundImage = `url(${disabledNextButton})`;
+
+      if (direction === "prev") {
+        styles.left = 849;
+        styles.borderRight = "0.5px solid rgba(151, 151, 151, 0.29)";
+      } else {
+        styles.right = 0;
+        styles.transform = "scaleX(-1)";
+        styles.borderRight = "0.5px solid rgba(151, 151, 151, 0.29)";
+      }
+      return <div style={styles}></div>;
+    }
+
     if (direction === "prev") {
-      styles.left = 848;
+      styles.left = 849;
       styles.transform = "scaleX(-1)";
-      styles.borderLeft = "1px solid #979797";
+      styles.borderLeft = "0.5px solid rgba(151, 151, 151, 0.29)";
     } else {
       styles.right = 0;
+      styles.borderLeft = "0.5px solid rgba(151, 151, 151, 0.29)";
     }
     return <div onClick={onClickHandler} style={styles}></div>;
   };

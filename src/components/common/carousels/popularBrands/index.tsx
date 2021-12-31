@@ -27,17 +27,18 @@ const renderArrow =
         zIndex: 2,
         display: "inline-block",
         boxSizing: "border-box",
-        height: "57px",
-        width: "56px",
+        height: `${sizes.size57}`,
+        width: `${sizes.size56}`,
         backgroundImage: `url(${disabledNextButton})`,
         backgroundPosition: "center",
       };
       if (direction === "prev") {
         styles2.left = 848;
-        styles2.transform = "scaleX(-1)";
-        styles2.borderLeft = "1px solid #979797";
+        styles2.borderRight = "0.5px solid rgba(151, 151, 151, 0.29)";
       } else {
         styles2.right = 0;
+        styles2.transform = "scaleX(-1)";
+        styles2.borderRight = "0.5px solid rgba(151, 151, 151, 0.29)";
       }
       return <div style={styles2}></div>;
     }
@@ -49,19 +50,19 @@ const renderArrow =
       zIndex: 2,
       display: "inline-block",
       boxSizing: "border-box",
-      height: "57px",
-      width: "56px",
+      height: `${sizes.size57}`,
+      width: `${sizes.size56}`,
       backgroundImage: `url(${nextButton})`,
       backgroundPosition: "center",
     };
 
     if (direction === "prev") {
-      styles.left = 846;
+      styles.left = 848;
       styles.transform = "scaleX(-1)";
-      styles.borderLeft = "0.5px solid #979797";
+      styles.borderLeft = "0.5px solid rgba(151, 151, 151, 0.29)";
     } else {
       styles.right = 0;
-      styles.borderLeft = "0.5px solid #979797";
+      styles.borderLeft = "0.5px solid rgba(151, 151, 151, 0.29)";
     }
 
     return <div onClick={onClickHandler} style={styles}></div>;

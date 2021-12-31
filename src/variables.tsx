@@ -92,6 +92,8 @@ export const sizes = {
   size53: "53px",
   size54: "54px",
   size55: "55px",
+  size56: "56px",
+  size57: "57px",
   size59: "59px",
   size60: "60px",
   size61: "61px",

@@ -29,7 +29,15 @@ const Header: FC<headerProps> = ({ className }) => {
           );
         })}
       </LanguageSelector>
-      <LoginText className={className}>{data.header.login}</LoginText>
+      {className === "home" && (
+        <Login className={className}>{data.header.login}</Login>
+      )}
+      {/* {className === "loggedin" && (
+        <LoggedInDiv>
+          <UserImage src="" alt="" />
+
+        </LoggedInDiv>
+      )} */}
       <CreateAccount className={className}>
         {data.header.createAnAccount}
       </CreateAccount>
@@ -104,7 +112,7 @@ const LanguageSelector = styled.select`
   outline: none;
 `;
 
-const LoginText = styled.p`
+const Login = styled.p`
   margin: ${(props) =>
     props.className === "home"
       ? `${sizes.size30} ${sizes.size51} ${sizes.size40} ${sizes.size0}`
