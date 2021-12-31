@@ -80,6 +80,8 @@ const Wrapper = styled.div`
   height: ${sizes.size227};
   width: ${sizes.fullWidth};
   background-color: ${colors.white};
+  position: relative;
+  z-index: 1;
 `;
 
 const ColumnFlex = styled.div`

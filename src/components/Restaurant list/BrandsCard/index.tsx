@@ -15,7 +15,7 @@ const renderArrow =
     const styles: CSSProperties = {
       position: "absolute",
       top: "45%",
-      zIndex: 2,
+      zIndex: 1,
       border: "solid #3E3E3E",
       borderWidth: "0 2px 2px 0",
       display: "inline-block",
@@ -37,7 +37,7 @@ const renderArrow =
     return <div onClick={onClickHandler} style={styles}></div>;
   };
 
-let details = data.RestaurantList;
+let details = data.restaurantList;
 
 const newData = details.reduce((a: any, c: any, i: number) => {
   return i % 4 === 0 ? (a as any).concat([details.slice(i, i + 4)]) : a;

@@ -11,7 +11,7 @@
     "Contact",
     "Sitemap"
   ],
-  "RestaurantList": [
+  "restaurantList": [
     {
       "name": "Pizzahut",
       "outlets": "2"
@@ -123,6 +123,122 @@
     }
   ],
   "searchPath": {
-    "greatBreakfasts": ["Home", "UAE", "Explore", "Great breakfasts"]
+    "greatBreakfasts": ["Home", "UAE", "Explore", "Great breakfasts"],
+    "menu": [
+      "Home",
+      "UAE",
+      "Explore",
+      "Great breakfasts",
+      "The Boutique Kitchen"
+    ]
+  },
+  "ratingList": [4, 4, 3, 4, 2],
+  "foodcardDetails": {
+    "recommended": [
+      {
+        "foodName": "Chili Cheese Meal",
+        "image": true,
+        "bestseller": true,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "alreadyInCart": true
+      },
+      {
+        "foodName": "Canapes and Crostini",
+        "image": false,
+        "bestseller": false,
+        "veg": true,
+        "cost": "AED27.00",
+        "customizable": false,
+        "description": "Clams, mussels, calamari & shrimp w/ white wine & garlic",
+        "alreadyInCart": true
+      },
+      {
+        "foodName": "Herb-Spiced Chicken Sandwich",
+        "image": false,
+        "bestseller": true,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": false,
+        "description": "Roasted chick peas, julienne carrots, wild mushrooms & manchego w/ cider vinaigrette",
+        "alreadyInCart": false
+      }
+    ],
+    "appetizers": [
+      {
+        "foodName": "Canapes and Crostini",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "alreadyInCart": false
+      },
+      {
+        "foodName": "Stuffed Cherry Peppers",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": false,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "alreadyInCart": false
+      },
+      {
+        "foodName": "Broiled Brie with Cranberry Chutney",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "alreadyInCart": false
+      }
+    ],
+    "soups": [
+      {
+        "foodName": "Charred Spanish Octopus",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "alreadyInCart": false
+      },
+      {
+        "foodName": "Oysters on the Half Shell",
+        "image": true,
+        "bestseller": true,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": true,
+        "description": "Shallot mignonette & cocktail sauce 18/33",
+        "alreadyInCart": false
+      },
+      {
+        "foodName": "Chicken Tortilla",
+        "image": true,
+        "bestseller": true,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "alreadyInCart": true
+      },
+      {
+        "foodName": "Charred Spanish Octopus",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "alreadyInCart": false
+      }
+    ]
   }
 }

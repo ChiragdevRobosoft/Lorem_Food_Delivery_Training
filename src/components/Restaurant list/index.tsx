@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { colors, sizes, fontFamilies } from "../../variables";
 import Searchpath from "../common/Searchpath";
 
-const RestaurantList = () => {
+const restaurantList = () => {
   return (
     <Wrapper>
       <Header />
@@ -166,4 +166,4 @@ const RightArrowImg = styled.img`
   margin-left: 7px;
 `;
 
-export default RestaurantList;
+export default restaurantList;
