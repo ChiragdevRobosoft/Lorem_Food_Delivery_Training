@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import backButton from "../../assets/backButton.png";
 import icon_forgot from "../../assets/icn_forgot.png";
-import Buttons from "../../components/button/index";
+import Buttons from "../../components/common/button/index";
 import { useNavigate, Link } from "react-router-dom";
-import TextBox from "../../components/textbox";
+import TextBox from "../../components/common/textbox";
 import Underline from "../../assets/underline.png";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -82,7 +82,9 @@ const ForgotPassword = () => {
             </TypeContainer>
           </Navbar>
           {InputType === "email" ? (
-            <TextBox name="Email" isPassword={false} />
+            <EmailBox>
+              <TextBox name="Email" isPassword={false} />
+            </EmailBox>
           ) : (
             <CountryCode isOptional={true} />
           )}
@@ -93,6 +95,9 @@ const ForgotPassword = () => {
   );
 };
 export default ForgotPassword;
+const EmailBox = styled.div`
+  margin-bottom: 66px;
+`;
 const TypeContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -118,8 +123,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: #ffffff;
-  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+  background-color: ${colors.white};
+  box-shadow: 0 2px 24px 0 ${colors.black3};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -129,7 +134,7 @@ const Wrapper = styled.div`
   right: 0;
   margin: auto;
   .boldButton {
-    color: black;
+    color: ${colors.black};
     font-weight: ${fontWeight.weight600};
   }
 `;
@@ -152,7 +157,7 @@ const Navbar = styled.div`
 const InputTypeButton = styled.button`
   height: ${sizes.size24};
   opacity: 0.66;
-  color: #4a4a4a;
+  color: ${colors.grey5};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
   letter-spacing: -0.43px;
@@ -162,7 +167,7 @@ const InputTypeButton = styled.button`
   padding: 0;
 `;
 const WrapperRight = styled.div`
-  background-color: white;
+  background-color: ${colors.white};
   height: ${sizes.size588};
   width: ${sizes.size480};
 `;
@@ -170,13 +175,13 @@ const Title = styled.p`
   font-family: ${fontFamilies.fontFamilyOsRegular};
   height: ${sizes.size30};
   width: ${sizes.size183};
-  color: #2a2c30;
+  color: ${colors.black3};
   font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
   line-height: ${sizes.size30};
   text-align: center;
-  text-shadow: 0 0 9px 0 #ffffff;
+  text-shadow: 0 0 9px 0 ${colors.white};
   margin-top: ${sizes.size116};
   margin-left: ${sizes.size150};
 `;
@@ -185,7 +190,7 @@ const Discription = styled.p`
   word-wrap: break-word;
   height: ${sizes.size60};
   width: ${sizes.size296};
-  color: #4a4a4a;
+  color: ${colors.grey5};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: -0.24px;
@@ -203,7 +208,7 @@ const WrapperLeft = styled.div`
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -219,11 +224,12 @@ const BoldText = styled.span`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
   letter-spacing: -0.57px;
   line-height: ${sizes.size44};
-  text-shadow: 0 0 9px 0 #ffffff;
+  margin-top: 60px;
+  text-shadow: 0 0 9px 0 ${colors.white};
   word-wrap: break-word;
 `;

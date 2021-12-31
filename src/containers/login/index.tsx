@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import closeButton from "../../assets/close_button.png";
-import Buttons from "../../components/button/index";
+import Buttons from "../../components/common/button/index";
 import { useNavigate, Link } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-import TextBox from "../../components/textbox";
+import TextBox from "../../components/common/textbox";
 import {
   sizes,
   colors,
@@ -48,8 +48,12 @@ const Login = () => {
               onClick={onCloseModal}
             ></CloseImage>
             <Title>Let's get started!</Title>
-            <TextBox name="Email" isPassword={false}></TextBox>
-            <TextBox name="Password" isPassword={true}></TextBox>
+            <EmailBox>
+              <TextBox name="Email" isPassword={false}></TextBox>
+            </EmailBox>
+            <PasswordBox>
+              <TextBox name="Password" isPassword={true}></TextBox>
+            </PasswordBox>
             <RedirectLink to={links.forgotPassword}>
               Forgot Password?
             </RedirectLink>
@@ -71,10 +75,16 @@ const Login = () => {
   );
 };
 export default Login;
+const EmailBox = styled.div`
+  margin-bottom: 60px;
+`;
+const PasswordBox = styled.div`
+  margin-bottom: 60px;
+`;
 const Div = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: #ffffff;
+  background-color: ${colors.white};
   .react-responsive-modal-modal {
     padding: 0 !important;
   }
@@ -86,12 +96,13 @@ const Div = styled.div`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 34px;
   letter-spacing: -0.57px;
   line-height: 44px;
-  text-shadow: 0 0 9px 0 #ffffff;
+  margin-top: 60px;
+  text-shadow: 0 0 9px 0 ${colors.white};
   word-wrap: break-word;
 `;
 const SocialMedia = styled.div`
@@ -104,7 +115,7 @@ const SocialMedia = styled.div`
 `;
 const ForgotPasswordLink = styled.p`
   height: ${sizes.size19};
-  color: rgba(74, 74, 74, 1);
+  color: ${colors.grey5};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
@@ -117,7 +128,7 @@ const CloseImage = styled.img`
 `;
 const RedirectLink = styled(Link)`
   color: ${(props) =>
-    props.className === "getNewLink" ? "#F67E03" : "#4a4a4a"};
+    props.className === "getNewLink" ? `${colors.orange1}` : `${colors.grey5}`};
   text-decoration: none;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   border: none;
@@ -147,8 +158,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: #ffffff;
-  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+  background-color: ${colors.white};
+  box-shadow: 0 2px 24px 0 ${colors.black3};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -167,14 +178,14 @@ const WrapperLeft = styled.div`
   margin-right: ${sizes.sizen40};
 `;
 const WrapperRight = styled.div`
-  background-color: white;
+  background-color: ${colors.white};
   height: ${sizes.size588};
   width: ${sizes.size480};
 `;
 const Title = styled.p`
   height: ${sizes.size38};
   width: ${sizes.size300};
-  color: #2a2c30;
+  color: ${colors.black2};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size28};
   font-weight: bold;
@@ -183,12 +194,12 @@ const Title = styled.p`
   margin-top: ${sizes.size50};
   letter-spacing: ${sizes.sizenp47};
   line-height: ${sizes.size38};
-  text-shadow: 0 0 9px 0 #ffffff;
+  text-shadow: 0 0 9px 0 ${colors.white};
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};

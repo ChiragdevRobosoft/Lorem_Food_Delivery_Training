@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import registerSuccess from "../../assets/register_success.png";
 import { useNavigate } from "react-router-dom";
-import Buttons from "../../components/button/index";
+import Buttons from "../../components/common/button/index";
 import closeButton from "../../assets/close_button.png";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -71,11 +71,12 @@ const CloseImage = styled.img`
 const Discription = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   margin-left: 130px;
+  margin-top: 50px;
   height: 38px;
   width: 227px;
-  color: #4a4a4a;
+  color: ${colors.grey5};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 14px;
   letter-spacing: -0.24px;
@@ -93,7 +94,7 @@ const WrapperLeft = styled.div`
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -102,6 +103,29 @@ const Lorem = styled.p`
   line-height: ${sizes.size60};
   text-align: center;
 `;
+const BrowseButton = styled.div`
+  margin-top: ${sizes.size50};
+`;
+const SuccessImage = styled.div`
+  height: ${sizes.size5};
+  width: ${sizes.size25};
+  margin-left: 150px;
+  margin-top: 120px;
+`;
+const Title = styled.p`
+  color: ${colors.grey5};
+  font-size: ${sizes.size22};
+  font-weight: bold;
+  letter-spacing: -0.37px;
+  line-height: ${sizes.size30};
+  text-align: center;
+  text-shadow: 0 0 9px 0 ${colors.white};
+  margin-top: 210px;
+  margin-left: 145px;
+  height: ${sizes.size30};
+  width: ${sizes.size200};
+  font-family: ${fontFamilies.fontFamilyOsBold};
+`;
 const BoldText = styled.span`
   font-weight: ${fontWeight.weight800};
   font-family: ${fontFamilies.fontFamilyOsBold};
@@ -109,20 +133,21 @@ const BoldText = styled.span`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
   letter-spacing: -0.57px;
+  margin-top: 60px;
   line-height: ${sizes.size44};
-  text-shadow: 0 0 9px 0 #ffffff;
+  text-shadow: 0 0 9px 0 ${colors.white};
   word-wrap: break-word;
 `;
 const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: #ffffff;
-  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+  background-color: ${colors.white};
+  box-shadow: 0 2px 24px 0 ${colors.black3};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -132,41 +157,8 @@ const Wrapper = styled.div`
   right: 0;
   margin: auto;
 `;
-const BrowseButton = styled.div`
-  margin-top: 50px;
-`;
-const Button = styled.button`
-  width: 5%;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  right: 0px;
-  outline: none;
-  position: absolute;
-  top: 3%;
-`;
-const SuccessImage = styled.div`
-  height: ${sizes.size5};
-  width: ${sizes.size25};
-  margin-left: 150px;
-  margin-top: 120px;
-`;
 const WrapperRight = styled.div`
-  background-color: white;
+  background-color: ${colors.white};
   height: ${sizes.size588};
-  width: ${sizes.size48};
-`;
-const Title = styled.p`
-  height: ${sizes.size54};
-  width: ${sizes.size200};
-  color: #2a2c30;
-  font-family: ${fontFamilies.fontFamilyOsBold};
-  font-size: ${sizes.size22};
-  font-weight: bold;
-  letter-spacing: -0.37px;
-  line-height: 27px;
-  text-align: center;
-  text-shadow: 0 0 9px 0 #ffffff;
-  margin-top: 210px;
-  margin-left: 145px;
+  width: ${sizes.size480};
 `;

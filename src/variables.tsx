@@ -1,14 +1,25 @@
 export const colors = {
   white: "#ffffff",
+  white2: "rgba(210, 210, 210,1)",
   transparentColor: "transparent",
   pink1: "rgba(226, 17, 67, 0.9)",
   pink2: "rgba(255, 51, 102, 0.8)",
+  pink3: "rgba(246, 126, 126, 0.38)",
+  pink4: "rgba(211, 72, 54, 1)",
   yellow1: "rgba(255, 176, 58, 0.9)",
   yellow2: "rgba(255, 176, 58, 0.8)",
   grey1: "rgba(151, 151, 151, 0.19)",
   grey2: "rgba(99, 99, 100, 0.7)",
   grey3: "rgba(151, 151, 151, 1)",
   grey4: "rgba(99, 99, 100, 0.7)",
+  grey5: "rgba(74, 74, 74, 1)",
+  grey6: "rgba(133, 133, 133, 1)",
+  black: "rgba(0,0,0,1)",
+  black2: "rgba(42, 44, 48, 1)",
+  black3: "rgba(0, 0, 0, 0.5)",
+  orange1: "rgba(246, 126, 3, 1)",
+  blue1: "rgba(44, 121, 189, 1)",
+  blue2: "rgba(2, 167, 253, 1)",
 };
 
 export const sizes = {
@@ -61,6 +72,7 @@ export const sizes = {
   sizen40: "-40px",
   sizen2: "-2px",
   size103: "103px",
+  size460: "460px",
   size588: "588px",
   size960: "960px",
   size480: "480px",
@@ -75,6 +87,7 @@ export const sizes = {
   size183: "183px",
   size116: "116px",
   size90: "90px",
+  size29: "29px",
   size296: "296px",
   size132: "132px",
   size330: "330px",
@@ -84,6 +97,7 @@ export const sizes = {
   size124: "124px",
   size210: "210px",
   size120: "120px",
+  size56: "56px",
   size140: "140px",
   size230: "230px",
   size400: "400px",
@@ -93,6 +107,13 @@ export const sizes = {
   size450: "450px",
   size48: "48px",
   size54: "54px",
+  sizep50: "50%",
+  size7: "7px",
+  size11: "11px",
+  size500: "500px",
+  size380: "380px",
+  size88: "88px",
+  size35: "35px",
 };
 
 export const angles = {

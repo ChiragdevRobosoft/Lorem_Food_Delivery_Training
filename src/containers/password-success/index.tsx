@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import passwordsuccess from "../../assets/password_success.png";
-import Buttons from "../../components/button/index";
+import Buttons from "../../components/common/button/index";
 import closeButton from "../../assets/close_button.png";
 import {
   sizes,
@@ -61,13 +61,13 @@ const Title = styled.p`
   font-family: ${fontFamilies.fontFamilyOsBold};
   height: ${sizes.size30};
   width: ${sizes.size70};
-  color: #2a2c30;
+  color: ${colors.black2};
   font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
   line-height: ${sizes.size30};
   text-align: center;
-  text-shadow: 0 0 9px 0 #ffffff;
+  text-shadow: 0 0 9px 0 ${colors.white};
   margin-top: ${sizes.size230};
   margin-left: ${sizes.size210};
   margin-bottom: -5px;
@@ -76,7 +76,7 @@ const Discription = styled.p`
   margin-left: ${sizes.size90};
   word-wrap: break-word;
   width: ${sizes.size330};
-  color: #4a4a4a;
+  color: ${colors.grey5};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: -0.24px;
@@ -94,7 +94,7 @@ const WrapperLeft = styled.div`
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -110,13 +110,14 @@ const BoldText = styled.span`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
   letter-spacing: -0.57px;
   line-height: ${sizes.size44};
-  text-shadow: 0 0 9px 0 #ffffff;
+  text-shadow: 0 0 9px 0 ${colors.white};
   word-wrap: break-word;
+  margin-top: 60px;
 `;
 const CloseImage = styled.img`
   float: right;
@@ -129,8 +130,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: #ffffff;
-  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+  background-color: ${colors.white};
+  box-shadow: 0 2px 24px 0 ${colors.black3};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -147,7 +148,7 @@ const SuccessImage = styled.div`
   margin-top: ${sizes.size120};
 `;
 const WrapperRight = styled.div`
-  background-color: white;
+  background-color: ${colors.white};
   height: ${sizes.size588};
   width: ${sizes.size480};
 `;

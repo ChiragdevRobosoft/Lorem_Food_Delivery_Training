@@ -1,13 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "../../variables";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  fontWeight,
+  links,
+} from "../../../variables";
 const Buttons = ({
   name,
   className,
   onClick,
 }: {
-  name: any;
-  className: any;
+  name: string;
+  className: string;
   onClick?: () => void;
 }) => {
   console.log(className);
@@ -19,9 +25,11 @@ const Buttons = ({
 };
 export default Buttons;
 const Button = styled.button`
-  height: 50px;
+  height: ${sizes.size50};
   width: ${(props) =>
-    props.className === "colouredBgButton" ? "380px" : "180px"};
+    props.className === "colouredBgButton"
+      ? `${sizes.size380}`
+      : `${sizes.size180}`};
   border-radius: 6px;
   background: ${(props) =>
     props.className === "colouredBgButton"
@@ -41,17 +49,17 @@ const Button = styled.button`
   justify-content: space-around;
   color: ${(props) =>
     props.className === "colouredBgButton"
-      ? "#ffffff"
+      ? `${colors.white}`
       : props.className === "google"
-      ? "#D34836"
-      : "#2C79BD"};
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+      ? `${colors.pink4}`
+      : `${colors.blue1}`};
+  font-family: ${fontFamilies.fontFamilyOsBold};
+  font-size: ${sizes.size16};
+  font-weight: ${fontWeight.weight600};
   letter-spacing: -0.3px;
   line-height: 22px;
   text-align: center;
-  text-shadow: 0 0 9px 0 #ffffff;
+  text-shadow: 0 0 9px 0 ${colors.white};
   padding-top: 3%;
   margin-right: auto;
   margin-left: auto;

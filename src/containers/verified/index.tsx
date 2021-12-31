@@ -3,8 +3,8 @@ import styled from "styled-components";
 import backButton from "../../assets/backButton.png";
 import icon_verified from "../../assets/icn_verified.png";
 import { useNavigate, Link } from "react-router-dom";
-import TextBox from "../../components/textbox";
-import Buttons from "../../components/button/index";
+import TextBox from "../../components/common/textbox";
+import Buttons from "../../components/common/button/index";
 import {
   sizes,
   colors,
@@ -46,13 +46,13 @@ const Verified = () => {
 };
 export default Verified;
 const Title = styled.p`
-  color: #2a2c30;
+  color: ${colors.black2};
   font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
   line-height: ${sizes.size30};
   text-align: center;
-  text-shadow: 0 0 9px 0 #ffffff;
+  text-shadow: 0 0 9px 0 ${colors.white};
   margin-top: ${sizes.size116};
   margin-left: ${sizes.size180};
   height: ${sizes.size30};
@@ -70,8 +70,8 @@ const Discription = styled.div`
   letter-spacing: -0.24px;
   text-align: center;
   width: 300px;
-  color: #4a4a4a;
-  margin-bottom: ${sizes.size80};
+  color: ${colors.grey5};
+  margin-bottom: ${sizes.size100};
 `;
 const RedirectLink = styled(Link)`
   text-decoration: none;
@@ -95,7 +95,7 @@ const WrapperLeft = styled.div`
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -111,23 +111,24 @@ const BoldText = styled.span`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
   letter-spacing: -0.57px;
   line-height: ${sizes.size44};
-  text-shadow: 0 0 9px 0 #ffffff;
+  margin-top: 60px;
+  text-shadow: 0 0 9px 0 ${colors.white};
   word-wrap: break-word;
 `;
 const VerifyButton = styled.div`
-  margin-top: ${sizes.size40};
+  margin-top: ${sizes.size100};
 `;
 const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: #ffffff;
-  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+  background-color: ${colors.white};
+  box-shadow: 0 2px 24px 0 ${colors.black2};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -144,7 +145,7 @@ const VerifyImage = styled.div`
   margin-top: ${sizes.size60};
 `;
 const WrapperRight = styled.div`
-  background-color: white;
+  background-color: ${colors.white};
   height: ${sizes.size588};
   width: ${sizes.size480};
 `;

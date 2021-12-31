@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import backButton from "../../assets/backButton.png";
 import { useNavigate, Link } from "react-router-dom";
-import TextBox from "../../components/textbox";
-import Buttons from "../../components/button/index";
+import TextBox from "../../components/common/textbox";
+import Buttons from "../../components/common/button/index";
 import CountryCode from "../../components/country-code";
 import {
   sizes,
@@ -32,8 +32,12 @@ const AccountDetails = () => {
           Your Email is verifeid. <br />
           Finally enter details below to create account.
         </Discription>
-        <TextBox name="First Name" isPassword={false}></TextBox>
-        <TextBox name="Last Name" isPassword={false}></TextBox>
+        <FirstName>
+          <TextBox name="First Name" isPassword={false}></TextBox>
+        </FirstName>
+        <LastName>
+          <TextBox name="Last Name" isPassword={false}></TextBox>
+        </LastName>
         <CountryCode isOptional={true} />
         <TextBox name="Create Password" isPassword={true}></TextBox>
         <VerifyButton>
@@ -44,6 +48,12 @@ const AccountDetails = () => {
   );
 };
 export default AccountDetails;
+const FirstName = styled.div`
+  margin-bottom: 50px;
+`;
+const LastName = styled.div`
+  margin-bottom: 50px;
+`;
 const RedirectLink = styled(Link)`
   text-decoration: none;
   border: none;
@@ -57,13 +67,13 @@ const WrapperLeft = styled.div`
   margin-right: ${sizes.sizen40};
 `;
 const WrapperRight = styled.div`
-  background-color: white;
+  background-color: ${colors.white};
   height: ${sizes.size588};
   width: ${sizes.size480};
 `;
 const Title = styled.p`
   width: ${sizes.size220};
-  color: #2a2c30;
+  color: ${colors.black2};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size28};
   font-weight: bold;
@@ -71,12 +81,12 @@ const Title = styled.p`
   margin-top: ${sizes.size50};
   letter-spacing: ${sizes.sizenp47};
   line-height: ${sizes.size38};
-  text-shadow: 0 0 9px 0 #ffffff;
+  text-shadow: 0 0 9px 0 ${colors.white};
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -93,8 +103,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: #ffffff;
-  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+  background-color: ${colors.white};
+  box-shadow: 0 2px 24px 0 ${colors.black3};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -107,12 +117,13 @@ const Wrapper = styled.div`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: #ffffff;
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 34px;
   letter-spacing: -0.57px;
   line-height: 44px;
-  text-shadow: 0 0 9px 0 #ffffff;
+  margin-top: 60px;
+  text-shadow: 0 0 9px 0 ${colors.white};
   word-wrap: break-word;
 `;
 const BackImage = styled.img`
@@ -128,7 +139,7 @@ const Discription = styled.p`
   word-wrap: break-word;
   height: ${sizes.size60};
   width: ${sizes.size296};
-  color: #4a4a4a;
+  color: ${colors.grey5};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: -0.24px;
@@ -137,4 +148,5 @@ const Discription = styled.p`
 `;
 const VerifyButton = styled.div`
   margin-top: -20px;
+  margin-top: 80px;
 `;

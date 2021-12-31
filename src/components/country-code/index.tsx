@@ -1,27 +1,36 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import icon_dropdown from "../../assets/arrow_drop@.png";
-import array from "./info";
 import OutsideAlerter from "../OutsideClickAlert";
-const TelephonePicker = ({ isOptional }: { isOptional: any }) => {
+import TextBox from "../common/textbox";
+import CountryCode from "./info";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  fontWeight,
+  links,
+} from "../../variables";
+const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
   const [dropDownStatus, setDropDownStatus] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("india");
   const [selectedCode, setSelectedCode] = useState("91");
   const handleSelection = (e: any) => {
     setSelectedCountry(e.currentTarget.id);
     setSelectedCode(
-      array.find((element) => element.country === e.currentTarget.id)!.code
+      CountryCode.find((element) => element.country === e.currentTarget.id)!
+        .code
     );
     setDropDownStatus(false);
   };
-
+  const imagePath = "../../assets/images";
   return (
     <FormContainer>
       {isOptional ? <Label>Mobile No</Label> : <Label>Mobile No.</Label>}
       <MobileNumberContainer>
         <OptionSelected>
           <OptionWrapper>
-            <Flag src={`/assets/images/${selectedCountry}.png`}></Flag>
+            <Flag src={`${imagePath}/${selectedCountry}.png`}></Flag>
             <Code>{`+${selectedCode}`}</Code>
           </OptionWrapper>
           <DropDown
@@ -35,13 +44,13 @@ const TelephonePicker = ({ isOptional }: { isOptional: any }) => {
           <OutsideAlerter handlePress={() => setDropDownStatus(false)}>
             <DropDownContainer>
               <DropDownWindow>
-                {array.map((element) => (
+                {CountryCode.map((element) => (
                   <OptionWrapper
                     key={element.country}
                     id={element.country}
                     onClick={(e) => handleSelection(e)}
                   >
-                    <Flag src={`/assets/images/${element.country}.png`}></Flag>
+                    <Flag src={`${imagePath}/${element.country}.png`}></Flag>
                     <Code>{`+${element.code}`}</Code>
                   </OptionWrapper>
                 ))}
@@ -50,7 +59,7 @@ const TelephonePicker = ({ isOptional }: { isOptional: any }) => {
           </OutsideAlerter>
         ) : null}
 
-        <MobileNumber />
+        <TextBox name="" isPassword={false} />
       </MobileNumberContainer>
     </FormContainer>
   );
@@ -58,8 +67,8 @@ const TelephonePicker = ({ isOptional }: { isOptional: any }) => {
 export default TelephonePicker;
 const FormContainer = styled.div`
   position: relative;
-  height: 56px;
-  width: 380px;
+  height: ${sizes.size56};
+  width: ${sizes.size380};
   margin-left: 50px;
   margin-top: -10px;
   margin-bottom: 42px;
@@ -71,35 +80,15 @@ const MobileNumberContainer = styled.div`
   justify-content: space-between;
 `;
 const DropDown = styled.img`
-  height: 7px;
-  width: 11px;
+  height: ${sizes.size7};
+  width: ${sizes.size11};
   margin-top: 8px;
   margin-left: 10px;
 `;
-const MobileNumber = styled.input`
-  top: 0;
-  height: 90%;
-  width: 65%;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #a4a4a4;
-  color: #000000;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 100;
-  letter-spacing: -0.27px;
-  line-height: 22px;
-  outline: none;
-  pointer-events: all;
-  padding-bottom: 5%;
-  :focus {
-    border-bottom: 1px solid black;
-  }
-`;
 const Label = styled.label`
-  width: 86.36px;
-  color: #858585;
-  font-family: "Open Sans", sans-serif;
+  width: ${sizes.size88};
+  color: ${colors.grey6};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 0.8rem;
   letter-spacing: -0.27px;
   line-height: 22px;
@@ -113,36 +102,36 @@ const DropDownWindow = styled.div`
   top: 0;
 
   ::-webkit-scrollbar {
-    width: 5px;
+    width: ${sizes.size5};
   }
   ::-webkit-scrollbar-track {
     border-radius: 10px;
-    background: white;
+    background: ${colors.white};
     margin-top: 10px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: #808087;
+    background: ${colors.grey6};
   }
 `;
 const OptionWrapper = styled.div`
-  height: 20px;
-  width: 65px;
+  height: ${sizes.size20};
+  width: ${sizes.size65};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 5px;
   :hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: ${colors.black3};
   }
 `;
 const Flag = styled.img`
-  height: 20px;
-  width: 29px;
+  height: ${sizes.size20};
+  width: ${sizes.size29};
 `;
 const Code = styled.p`
-  color: #000000;
-  font-family: "Open Sans", sans-serif;
+  color: ${colors.black};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 16px;
   letter-spacing: -0.27px;
   line-height: 22px;
@@ -150,19 +139,20 @@ const Code = styled.p`
   margin-top: 0;
 `;
 const OptionSelected = styled.div`
-  border-bottom: 1px solid #a4a4a4;
-  width: 90px;
+  border-bottom: 1px solid ${colors.grey5};
+  width: ${sizes.size90};
   display: flex;
+  height: ${sizes.size35};
   flex-direction: row;
 `;
 const DropDownContainer = styled.div`
   z-index: 99;
   position: absolute;
-  background-color: rgb(210, 210, 210);
-  width: 80px;
+  background-color: ${colors.white2};
+  width: ${sizes.size80};
   padding: 10px;
   display: flex;
-  height: 100px;
+  height: ${sizes.size100};
   justify-content: space-around;
   flex-direction: column;
   top: 0;
