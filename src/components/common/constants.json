@@ -136,6 +136,7 @@
   "foodcardDetails": {
     "recommended": [
       {
+        "id": 1,
         "foodName": "Chili Cheese Meal",
         "image": true,
         "bestseller": true,
@@ -146,6 +147,7 @@
         "alreadyInCart": true
       },
       {
+        "id": 2,
         "foodName": "Canapes and Crostini",
         "image": false,
         "bestseller": false,
@@ -156,6 +158,7 @@
         "alreadyInCart": true
       },
       {
+        "id": 3,
         "foodName": "Herb-Spiced Chicken Sandwich",
         "image": false,
         "bestseller": true,
@@ -168,6 +171,7 @@
     ],
     "appetizers": [
       {
+        "id": 4,
         "foodName": "Canapes and Crostini",
         "image": true,
         "bestseller": false,
@@ -178,6 +182,7 @@
         "alreadyInCart": false
       },
       {
+        "id": 5,
         "foodName": "Stuffed Cherry Peppers",
         "image": true,
         "bestseller": false,
@@ -188,6 +193,7 @@
         "alreadyInCart": false
       },
       {
+        "id": 6,
         "foodName": "Broiled Brie with Cranberry Chutney",
         "image": true,
         "bestseller": false,
@@ -200,6 +206,7 @@
     ],
     "soups": [
       {
+        "id": 7,
         "foodName": "Charred Spanish Octopus",
         "image": true,
         "bestseller": false,
@@ -210,6 +217,7 @@
         "alreadyInCart": false
       },
       {
+        "id": 8,
         "foodName": "Oysters on the Half Shell",
         "image": true,
         "bestseller": true,
@@ -220,6 +228,7 @@
         "alreadyInCart": false
       },
       {
+        "id": 9,
         "foodName": "Chicken Tortilla",
         "image": true,
         "bestseller": true,
@@ -230,6 +239,7 @@
         "alreadyInCart": true
       },
       {
+        "id": 10,
         "foodName": "Charred Spanish Octopus",
         "image": true,
         "bestseller": false,
@@ -240,5 +250,6 @@
         "alreadyInCart": false
       }
     ]
-  }
+  },
+  "NavbarElements": ["MENU", "OVERVIEW", "REVIEWS & RATINGS", "GALLERY"]
 }

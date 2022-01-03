@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../common/header";
-import { colors, sizes, fontFamilies } from "../../variables";
+import { colors, sizes, fontFamilies, angles } from "../../variables";
 import Searchpath from "../common/Searchpath";
 import data from "../common/constants.json";
 import BgImg from "../../assets/menu/Bitmap Copy.png";
@@ -18,15 +18,14 @@ const RestaurantDetails = () => {
   const handleClick = (e: any) => {
     setSelected(e.target.innerText);
   };
-  const elements = ["MENU", "OVERVIEW", "REVIEWS & RATINGS", "GALLERY"];
   return (
     <Wrapper>
       <Header></Header>
       <SearchContainer></SearchContainer>
       <MainContainer>
         <Searchpath path={data.searchPath.menu} className="grey-dark" />
-        <Image src={BgImg} />
-        <ContentSection>
+        <Image src={BgImg} style={{ width: "100%" }} />
+        <ImageContentSection>
           <Image src={RestaurantImg} />
           <CutleryImage src={Cutlery} />
           <RestaurantName>The Boutique Kitchen</RestaurantName>
@@ -47,32 +46,36 @@ const RestaurantDetails = () => {
             })}
           </FlexRow>
           <NavBar>
-            {elements.map((a, index) => {
-              return a === selected ? (
+            {data.NavbarElements.map((navbarElement, index) => {
+              return navbarElement === selected ? (
                 <NavBarElement key={index} className="select">
-                  {a}
+                  {navbarElement}
                   <BorderDiv></BorderDiv>
                 </NavBarElement>
               ) : (
-                <Navlink to={`/${a.toLowerCase()}`}>
-                  <NavBarElement onClick={handleClick}>{a}</NavBarElement>
+                <Navlink to={`/${navbarElement.toLowerCase()}`}>
+                  <NavBarElement onClick={handleClick}>
+                    {navbarElement}
+                  </NavBarElement>
                 </Navlink>
               );
             })}
           </NavBar>
+        </ImageContentSection>
+        <RoutingContainer>
           <Routes>
-            <Route path="/menu" element={<Menu />} />
+            <Route path="/" element={<Menu />} />
           </Routes>
-        </ContentSection>
+        </RoutingContainer>
       </MainContainer>
+      <Footer />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  position: relative;
-  height: 100%;
-  width: 100wh;
+  height: 100vh;
+  width: 100%;
 `;
 
 const SearchContainer = styled.div`
@@ -80,14 +83,14 @@ const SearchContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-  width: 100wh;
+  width: ${sizes.fullWidth};
   background: ${colors.violet1};
   margin-left: auto;
   margin-right: auto;
   position: relative;
 `;
 
-const ContentSection = styled.div`
+const ImageContentSection = styled.div`
   width: 972px;
   position: absolute;
   left: 0;
@@ -108,11 +111,11 @@ const RestaurantName = styled.div`
   position: absolute;
   height: 36px;
   width: 380px;
-  color: #1c1c1c;
+  color: ${colors.grey20};
   font-family: ${fontFamilies.fontFamilyOsBold};
-  font-size: 26px;
-  letter-spacing: 0;
-  line-height: 36px;
+  font-size: ${sizes.size26};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size36};
   top: 125px;
   left: 39px;
 `;
@@ -120,11 +123,11 @@ const RestaurantName = styled.div`
 const FoodVariety = styled.div`
   position: absolute;
   height: 19px;
-  color: #757575;
-  font-family: "Open Sans";
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 19px;
+  color: ${colors.grey8};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
   top: 168px;
   left: 39px;
 `;
@@ -133,13 +136,13 @@ const Rating = styled.span`
   position: absolute;
   height: 23px;
   width: 42px;
-  border-radius: 4px;
-  background-color: #5fb700;
-  color: #ffffff;
+  border-radius: ${sizes.size4};
+  background-color: ${colors.green1};
+  color: ${colors.white};
   font-family: ${fontFamilies.fontFamilyOsBold};
-  font-size: 15px;
-  letter-spacing: 0;
-  line-height: 20px;
+  font-size: ${sizes.size15};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size20};
   text-align: center;
   justify-content: center;
   left: 39px;
@@ -160,11 +163,11 @@ const DetailsList = styled.ul`
   display: flex;
   flex-direction: row;
   height: 17px;
-  color: #757575;
-  font-family: "Open Sans";
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 17px;
+  color: ${colors.grey8};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
   gap: 25px;
   padding: 0;
   margin-left: 111px;
@@ -177,12 +180,11 @@ const Detail = styled.li`
 
 const Time = styled.div`
   height: 17px;
-  color: #7c7c7c;
-  font-family: "Open Sans";
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 17px;
+  color: ${colors.grey21};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
   margin-left: 6.5px;
 `;
 
@@ -190,15 +192,15 @@ const RatingTitle = styled.div`
   position: absolute;
   width: 297px;
   height: 17px;
-  color: #6a6a6a;
-  font-family: "Open Sans";
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 17px;
+  color: ${colors.grey22};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
   top: 242px;
   left: 41px;
   padding-bottom: 6px;
-  border-bottom: 2px solid #ededed;
+  border-bottom: ${sizes.size2} solid ${colors.white3};
 `;
 
 const NavBar = styled.ul`
@@ -213,14 +215,14 @@ const NavBarElement = styled.li`
   margin-right: 60px;
   list-style: none;
   height: 19px;
-  color: #1f1f1f;
+  color: ${colors.grey23};
   font-family: ${(props) =>
     props.className === "select"
       ? `${fontFamilies.fontFamilyOsBold}`
       : `${fontFamilies.fontFamilyOsSemiBold}`};
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 19px;
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
 `;
 
 const BorderDiv = styled.div`
@@ -228,11 +230,24 @@ const BorderDiv = styled.div`
   width: 38px;
   margin-top: 11px;
   border-radius: 2px;
-  background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
-  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+  background-image: linear-gradient(
+    ${angles.angle138_33},
+    ${colors.red4} 0%,
+    ${colors.yellow5} 100%
+  );
+  box-shadow: ${sizes.size0} ${sizes.size4} ${sizes.size10} ${sizes.size0}
+    ${colors.red2};
 `;
+
 const Navlink = styled(NavLink)`
   text-decoration: none;
+`;
+
+const RoutingContainer = styled.div`
+  width: 972px;
+  position: relative;
+  margin: auto;
+  top: 211px;
 `;
 
 export default RestaurantDetails;

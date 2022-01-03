@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { colors, sizes, fontFamilies } from "../../variables";
 import Searchpath from "../common/Searchpath";
 
-const restaurantList = () => {
+const RestaurantList = () => {
   return (
     <Wrapper>
       <Header />
@@ -75,7 +75,7 @@ const restaurantList = () => {
 
 const Wrapper = styled.div`
   height: 100vh;
-  width: 100wh;
+  width: 100%;
 `;
 
 const SearchContainer = styled.div`
@@ -83,7 +83,7 @@ const SearchContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-  width: 100wh;
+  width: 100%;
   background: ${colors.violet1};
   margin-left: auto;
   margin-right: auto;
@@ -166,4 +166,4 @@ const RightArrowImg = styled.img`
   margin-left: 7px;
 `;
 
-export default restaurantList;
+export default RestaurantList;

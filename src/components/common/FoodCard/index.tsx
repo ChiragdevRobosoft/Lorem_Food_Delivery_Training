@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import Bitmap from "../../../assets/restaurantList/Bitmap.png";
-import data from "../constants.json";
 import vegIcon from "../../../assets/menu/icon_veg.png";
 import nonvegIcon from "../../../assets/menu/icn_nonveg.png";
 import BestsellerIcon from "../../../assets/menu/Best seller.png";
 import AddIcon from "../../../assets/menu/Add button.png";
 import AddedIcon from "../../../assets/menu/Added button.png";
+import { fontFamilies, colors, sizes } from "../../../variables";
 
 const FoodCard: FC<any> = ({ cardDetails }) => {
   return (
@@ -48,9 +48,10 @@ const Wrapper = styled.div`
   position: relative;
   height: 126px;
   width: 636px;
-  border-radius: 6px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: ${sizes.size6};
+  background-color: ${colors.white};
+  box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
+    ${colors.black1};
   margin-bottom: 20px;
 `;
 
@@ -76,7 +77,6 @@ const Bestseller = styled.img`
 
 const Add = styled.img`
   position: absolute;
-  position: absolute;
   top: 86px;
   right: 10px;
 `;
@@ -86,17 +86,17 @@ const GreenText = styled.div`
   top: 67px;
   right: 24px;
   height: 14px;
-  color: #49bb5c;
-  font-family: "Open Sans";
-  font-size: 10px;
-  letter-spacing: 0;
-  line-height: 14px;
+  color: ${colors.green2};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size10};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size14};
   text-align: center;
 `;
 
 const ColumnFlex = styled.div<any>`
   position: absolute;
-  height: 100%;
+  height: ${sizes.fullWidth};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,40 +107,39 @@ const ColumnFlex = styled.div<any>`
 
 const FoodName = styled.div`
   height: 22px;
-  color: #223136;
-  font-family: "Open Sans";
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 22px;
+  color: ${colors.blue1};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size16};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size22};
 `;
 
 const Cost = styled.div`
   height: 17px;
-  color: #2d2d2d;
-  font-family: "Open Sans";
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 17px;
+  color: ${colors.grey9};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
 `;
 
 const Customizable = styled.div`
   height: 15px;
   width: 70px;
-  color: #a08234;
-  font-family: "Open Sans";
-  font-size: 11px;
-  letter-spacing: 0;
-  line-height: 15px;
+  color: ${colors.yellow4};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size11};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size15};
 `;
 
 const Description = styled.div`
   width: 349px;
-  color: #9b9b9b;
-  font-family: "Open Sans";
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 17px;
+  color: ${colors.grey19};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
 `;
 
 export default FoodCard;

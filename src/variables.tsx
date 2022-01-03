@@ -1,6 +1,7 @@
 export const colors = {
   white: "#ffffff",
   white2: "rgba(225, 225, 225, 1)",
+  white3: "rgba(237,237,237,1)",
   transparentColor: "transparent",
   pink1: "rgba(226, 17, 67, 0.9)",
   pink2: "rgba(255, 51, 102, 0.8)",
@@ -8,6 +9,8 @@ export const colors = {
   yellow1: "rgba(255, 176, 58, 0.9)",
   yellow2: "rgba(255, 176, 58, 0.8)",
   yellow3: "rgba(245,166,35,1)",
+  yellow4: "rgba(160, 130, 52,1)",
+  yellow5: "rgba(254, 180, 86,1)",
   grey1: "rgba(151, 151, 151, 0.19)",
   grey2: "rgba(99, 99, 100, 0.7)",
   grey3: "rgba(151, 151, 151, 1)",
@@ -26,18 +29,30 @@ export const colors = {
   grey16: "rgba(99, 99, 100, 1)",
   grey17: "rgba(48, 49, 52,1)",
   grey18: "rgba(74, 74, 74,1)",
+  grey19: "rgba(155,155,155,1)",
+  grey20: "rgba(28.28.28,1)",
+  grey21: "rgba(124,124,124,1)",
+  grey22: "rgba(106,106,106,1)",
+  grey23: "rgba(31,31,31,1)",
+  grey24: "rgba(198, 198, 198, 0.5)",
   orange1: "rgba(247, 135, 19, 1)",
   orange2: "rgba(245, 124, 0,1)",
   orange3: "rgba(250, 163, 105, 1)",
   orange4: "rgba(245, 134, 123, 1)",
   orange5: "rgba(249, 159, 108, 1)",
   orange6: "rgba(252, 161, 0,1)",
+  orange7: "rgba(246, 126, 3,1)",
   black1: "rgba(0, 0, 0, 0.1)",
   black2: "rgba(0,0,0,1)",
+  black3: "rgba(0, 0, 0, 0.07)",
   blue1: "rgba(34,49,54,1)",
+  blue2: "rgba(206, 207, 212,1)",
   green1: "rgba(95,183,0,1)",
+  green2: "rgba(73, 187, 92)",
   red1: "rgba(255,13,13,1)",
   red2: "rgba(246, 126, 126, 0.38)",
+  red3: "rgba(237, 27, 46,1)",
+  red4: "rgba(243, 105, 142,1)",
   violet1: "rgba(241, 243, 251,1)",
 };
 
@@ -55,6 +70,7 @@ export const sizes = {
   size0: "0",
   size1: "1px",
   size2: "2px",
+  size3: "3px",
   size4: "4px",
   size4_5: "4.5px",
   size5: "5px",
@@ -69,6 +85,7 @@ export const sizes = {
   size11_44: "11.44px",
   size12: "12px",
   size12_72: "12.72px",
+  size13: "13px",
   size14: "14px",
   size15: "15px",
   size15_28: "15.28px",
@@ -86,11 +103,13 @@ export const sizes = {
   size24: "24px",
   size24_95: "24.95px",
   size25: "25px",
+  size26: "26px",
   size27: "27px",
   size27_25: "27.25px",
   size28: "28px",
   size30: "30px",
   size34: "34px",
+  size36: "36px",
   size43_6: "43.6px",
   size45: "45px",
   size50: "50px",
@@ -112,6 +131,7 @@ export const sizes = {
 export const angles = {
   angle60: "60deg",
   angle90: "90deg",
+  angle138_33: "138.33deg",
 };
 
 export const fontFamilies = {
@@ -128,4 +148,5 @@ export const fontWeight = {
 
 export const opacity = {
   opacity0_19: 0.19,
+  opacity0_44: 0.44,
 };

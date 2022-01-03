@@ -81,6 +81,7 @@ const Wrapper = styled.div`
   width: ${sizes.fullWidth};
   background-color: ${colors.white};
   position: relative;
+  bottom: 0;
   z-index: 1;
 `;
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import RedStar from "../../../assets/menu/icn_star_red.png";
 import YellowStar from "../../../assets/menu/icn_star_yellow.png";
 import GreenStar from "../../../assets/menu/icn_star_green.png";
-import { fontFamilies } from "../../../variables";
+import { fontFamilies, sizes, colors } from "../../../variables";
 
 interface RatingProps {
   RatingNum: number;
@@ -23,14 +23,14 @@ const RatingConatiner = styled.div<RatingProps>`
   box-sizing: border-box;
   height: 26px;
   width: 46px;
-  border: 1px solid
+  border: ${sizes.size1} solid
     ${(props) =>
       props.RatingNum > 3
-        ? `#5FB700`
+        ? `${colors.green1}`
         : props.RatingNum < 3
-        ? `#ED1B2E`
-        : `#F5A623`};
-  border-radius: 4px;
+        ? `${colors.red3}`
+        : `${colors.yellow3}`};
+  border-radius: ${sizes.size4};
   margin-right: 17.13px;
 `;
 
@@ -38,14 +38,14 @@ const RatingNumber = styled.span<RatingProps>`
   height: 17px;
   color: ${(props) =>
     props.RatingNum > 3
-      ? `#5FB700`
+      ? `${colors.green1}`
       : props.RatingNum < 3
-      ? `#ED1B2E`
-      : `#F5A623`};
+      ? `${colors.red3}`
+      : `${colors.yellow3}`};
   font-family: ${fontFamilies.fontFamilyOsBold};
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 17px;
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
 `;
 
 const Image = styled.img`
