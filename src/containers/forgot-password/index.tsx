@@ -175,7 +175,7 @@ const Title = styled.p`
   font-family: ${fontFamilies.fontFamilyOsRegular};
   height: ${sizes.size30};
   width: ${sizes.size183};
-  color: ${colors.black3};
+  color: ${colors.black2};
   font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
