@@ -1,64 +1,63 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import CartCard from "../../common/CartCard";
 import DownArrow from "../../../assets/menu/collapse button.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
+import { CartData } from "../../common/CartDataProvider";
 
 const Cart = () => {
-  const cartItems = [
-    {
-      foodName: "Chili Cheese Meal",
-      image: true,
-      bestseller: true,
-      veg: false,
-      cost: "AED27.00",
-      addOn: "Add On : Avacado, Seasoned Grilled Chicken, Grilled Salmon",
-      customizable: true,
-      description:
-        "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
-      alreadyInCart: true,
-      quantity: 2,
-    },
-    {
-      foodName: "Canapes and Crostini",
-      image: false,
-      bestseller: false,
-      veg: true,
-      cost: "AED27.00",
-      customizable: false,
-      description: "Clams, mussels, calamari & shrimp w/ white wine & garlic",
-      alreadyInCart: true,
-      quantity: 2,
-    },
-    {
-      foodName: "Chicken Tortilla",
-      image: true,
-      bestseller: true,
-      veg: false,
-      cost: "AED27.00",
-      customizable: true,
-      description:
-        "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
-      alreadyInCart: true,
-      quantity: 1,
-    },
-  ];
+  const { details, setDetails } = useContext(CartData);
+
+  const handleClick = () => {
+    setDetails([]);
+  };
+
+  let totalCost = details.reduce(
+    (total: any, obj: any) =>
+      Math.round(obj.cost * obj.quantity + (total * 100) / 100).toFixed(2),
+    0
+  );
+
+  let fee = details.length === 0 ? 0 : (10 * 100) / 100;
+  let discount = details.length === 0 ? 0 : 12.24;
+  let costToPay = (totalCost + fee - discount).toFixed(2);
+
   return (
     <Wrapper>
       <TitleFlex>
         <MainTitle>My Order</MainTitle>
-        <ClearCart>Clear cart</ClearCart>
+        <ClearCart onClick={handleClick}>Clear cart</ClearCart>
       </TitleFlex>
       <ItemList>
-        {cartItems.map((item, index) => {
-          return <CartCard item={item} />;
+        {details?.map((item: any, index: any) => {
+          return <CartCard item={item} key={index} />;
         })}
       </ItemList>
-      <TotalCostContainer>
-        <PayText>To Pay</PayText>
-        <TotalCost>AED85.76</TotalCost>
-        <ArrowIcon src={DownArrow} />
-      </TotalCostContainer>
+      <CostDetailsContainer>
+        <TotalCostContainer>
+          <PayText>To Pay</PayText>
+          <TotalCost>AED{costToPay}</TotalCost>
+          <ArrowIcon src={DownArrow} />
+        </TotalCostContainer>
+        <CostColumn>
+          <CostRow>
+            <CostSplit>Items total</CostSplit>
+            <CostSplit>
+              AED
+              {totalCost}
+            </CostSplit>
+          </CostRow>
+          <CostRow>
+            <CostSplit>Fee/ charges</CostSplit>
+            <CostSplit>AED{fee}</CostSplit>
+          </CostRow>
+          <CostRow>
+            <CostSplit>Discount</CostSplit>
+            <CostSplit>AED{discount}</CostSplit>
+          </CostRow>
+        </CostColumn>
+      </CostDetailsContainer>
+      <CookingInstructionTitle>Cooking instructions?</CookingInstructionTitle>
     </Wrapper>
   );
 };
@@ -87,6 +86,8 @@ const TitleFlex = styled.div`
 const ItemList = styled.div`
   padding: 0px 21px;
   border-bottom: ${sizes.size1} solid ${colors.white3};
+  max-height: 353px;
+  overflow: auto;
 `;
 
 const MainTitle = styled.div`
@@ -118,14 +119,11 @@ const ArrowIcon = styled.img`
 const TotalCostContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 28px;
   height: 61px;
   border-radius: ${sizes.size3};
   background-color: ${colors.white};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
     ${colors.grey24};
-  margin-left: 21px;
-  margin-right: 21px;
   align-items: center;
 `;
 
@@ -143,13 +141,62 @@ const PayText = styled.div`
 
 const TotalCost = styled.div`
   height: 22px;
-  width: 73px;
   color: ${colors.blue1};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};
   text-align: right;
+`;
+
+const CostDetailsContainer = styled.div`
+  box-sizing: border-box;
+  height: 169px;
+  width: 263px;
+  border: ${sizes.size1} solid ${colors.grey25};
+  border-radius: ${sizes.size3};
+  background-color: ${colors.white4};
+  box-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size14} ${sizes.size0}
+    ${colors.grey26};
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 28px;
+`;
+
+const CostColumn = styled.div`
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+const CostRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 13px;
+  margin-right: 23px;
+`;
+
+const CostSplit = styled.div`
+  height: 17px;
+  color: ${colors.grey19};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
+`;
+
+const CookingInstructionTitle = styled.div`
+  height: 17px;
+  width: 122.95px;
+  color: ${colors.grey27};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.sizeNeg0_24};
+  line-height: ${sizes.size17};
+  margin-left: 21px;
+  margin-top: 17px;
 `;
 
 export default Cart;

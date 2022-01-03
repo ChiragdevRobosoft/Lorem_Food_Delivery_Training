@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import FoodCard from "../../common/FoodCard";
 import SearchIcon from "../../../assets/menu/icn_search_home copy.png";
@@ -7,21 +7,41 @@ import Cart from "../Cart";
 import { fontFamilies, colors, sizes, opacity } from "../../../variables";
 
 const Menu = () => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleChange = (e: any) => {
+    setSearchValue(e.target.value);
+  };
   return (
     <Wrapper>
       <MenuSection>
-        <Searchbar type="search" placeholder="Search an Item" />
-        {Object.keys(data.foodcardDetails).map((a, index) => {
+        <Searchbar
+          type="search"
+          placeholder="Search an Item"
+          onChange={handleChange}
+        />
+        {Object.keys(data.foodcardDetails).map((foodType, index) => {
           return (
-            <>
-              <FoodCardTitle>
-                {a.charAt(0).toUpperCase() + a.slice(1)} (
-                {(data.foodcardDetails as any)[a].length})
-              </FoodCardTitle>
-              {(data.foodcardDetails as any)[a].map((b: any, index: any) => {
-                return <FoodCard cardDetails={b} />;
-              })}
-            </>
+            <React.Fragment key={index}>
+              {searchValue === "" ? (
+                <FoodCardTitle>
+                  {foodType.charAt(0).toUpperCase() + foodType.slice(1)} (
+                  {(data.foodcardDetails as any)[foodType].length})
+                </FoodCardTitle>
+              ) : null}
+
+              {(data.foodcardDetails as any)[foodType].map(
+                (foodItem: any, index: any) => {
+                  if (
+                    foodItem.foodName
+                      .toUpperCase()
+                      .includes(searchValue.toUpperCase())
+                  ) {
+                    return <FoodCard cardDetails={foodItem} key={index} />;
+                  }
+                }
+              )}
+            </React.Fragment>
           );
         })}
       </MenuSection>

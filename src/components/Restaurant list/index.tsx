@@ -11,7 +11,7 @@ import BrandsCard from "./BrandsCard";
 import Footer from "../common/footer";
 import RightArrow from "../../assets/restaurantList/right_arrow.png";
 import { Link } from "react-router-dom";
-import { colors, sizes, fontFamilies } from "../../variables";
+import { colors, sizes, fontFamilies, links } from "../../variables";
 import Searchpath from "../common/Searchpath";
 
 const RestaurantList = () => {
@@ -54,7 +54,7 @@ const RestaurantList = () => {
                   <React.Fragment key={index}>
                     <RestaurantCard card={cardInfo} />
                     <Brands>Brands Nearby</Brands>
-                    <MoreOption to="/brands">
+                    <MoreOption to={`${links.brands}`}>
                       More
                       <RightArrowImg src={RightArrow} />
                     </MoreOption>

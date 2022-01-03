@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import styled from "styled-components";
 import Bitmap from "../../../assets/restaurantList/Bitmap.png";
 import vegIcon from "../../../assets/menu/icon_veg.png";
@@ -7,8 +7,25 @@ import BestsellerIcon from "../../../assets/menu/Best seller.png";
 import AddIcon from "../../../assets/menu/Add button.png";
 import AddedIcon from "../../../assets/menu/Added button.png";
 import { fontFamilies, colors, sizes } from "../../../variables";
+import { CartData } from "../../common/CartDataProvider";
+import data from "../constants.json";
 
 const FoodCard: FC<any> = ({ cardDetails }) => {
+  const { details, setDetails } = useContext(CartData);
+  const handleClick = (e: any) => {
+    Object.keys(data.foodcardDetails).map((foodType, index) => {
+      return (data.foodcardDetails as any)[foodType].map(
+        (foodItem: any, index: any) => {
+          if (e.target.id === foodItem.id) {
+            foodItem.quantity += 1;
+            let cartSet = new Set([...details, foodItem]);
+            setDetails(Array.from(cartSet.values()));
+          }
+        }
+      );
+    });
+  };
+
   return (
     <Wrapper>
       {cardDetails.image ? <FoodImage src={Bitmap} /> : null}
@@ -19,13 +36,13 @@ const FoodCard: FC<any> = ({ cardDetails }) => {
         />
       ) : null}
       {cardDetails.bestseller ? <Bestseller src={BestsellerIcon} /> : null}
-      {cardDetails.alreadyInCart ? (
+      {details?.includes(cardDetails) ? (
         <>
           <GreenText>Already in cart</GreenText>
-          <Add src={AddedIcon} />
+          <Add src={AddedIcon} id={`${cardDetails.id}`} onClick={handleClick} />
         </>
       ) : (
-        <Add src={AddIcon} />
+        <Add src={AddIcon} onClick={handleClick} id={`${cardDetails.id}`} />
       )}
       <ColumnFlex imageProp={cardDetails.image}>
         <FoodName>
@@ -53,6 +70,7 @@ const Wrapper = styled.div`
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
     ${colors.black1};
   margin-bottom: 20px;
+  margin-top: 14px;
 `;
 
 const FoodImage = styled.img`

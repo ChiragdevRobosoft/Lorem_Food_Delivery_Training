@@ -9,8 +9,7 @@ import RestaurantImg from "../../assets/menu/Resturant Image.png";
 import Cutlery from "../../assets/menu/restaurant-cutlery.png";
 import TimeIcon from "../../assets/menu/time_icon.png";
 import DeliveryRating from "../common/DeliveryRating";
-import { NavLink, Routes, Route } from "react-router-dom";
-import Menu from "./Menu";
+import { NavLink, Outlet } from "react-router-dom";
 import Footer from "../common/footer";
 
 const RestaurantDetails = () => {
@@ -48,12 +47,14 @@ const RestaurantDetails = () => {
           <NavBar>
             {data.NavbarElements.map((navbarElement, index) => {
               return navbarElement === selected ? (
-                <NavBarElement key={index} className="select">
-                  {navbarElement}
-                  <BorderDiv></BorderDiv>
-                </NavBarElement>
+                <Navlink to={`${navbarElement.toLowerCase()}`} key={index}>
+                  <NavBarElement className="select">
+                    {navbarElement}
+                    <BorderDiv></BorderDiv>
+                  </NavBarElement>
+                </Navlink>
               ) : (
-                <Navlink to={`/${navbarElement.toLowerCase()}`}>
+                <Navlink to={`${navbarElement.toLowerCase()}`} key={index}>
                   <NavBarElement onClick={handleClick}>
                     {navbarElement}
                   </NavBarElement>
@@ -63,9 +64,7 @@ const RestaurantDetails = () => {
           </NavBar>
         </ImageContentSection>
         <RoutingContainer>
-          <Routes>
-            <Route path="/" element={<Menu />} />
-          </Routes>
+          <Outlet />
         </RoutingContainer>
       </MainContainer>
       <Footer />

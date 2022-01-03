@@ -2,6 +2,7 @@ export const colors = {
   white: "#ffffff",
   white2: "rgba(225, 225, 225, 1)",
   white3: "rgba(237,237,237,1)",
+  white4: "rgba(252, 252, 252,1)",
   transparentColor: "transparent",
   pink1: "rgba(226, 17, 67, 0.9)",
   pink2: "rgba(255, 51, 102, 0.8)",
@@ -35,6 +36,9 @@ export const colors = {
   grey22: "rgba(106,106,106,1)",
   grey23: "rgba(31,31,31,1)",
   grey24: "rgba(198, 198, 198, 0.5)",
+  grey25: "rgba(245, 238, 238,1)",
+  grey26: "rgba(202, 194, 194, 0.5)",
+  grey27: "rgba(133,133,133,1)",
   orange1: "rgba(247, 135, 19, 1)",
   orange2: "rgba(245, 124, 0,1)",
   orange3: "rgba(250, 163, 105, 1)",
@@ -149,4 +153,12 @@ export const fontWeight = {
 export const opacity = {
   opacity0_19: 0.19,
   opacity0_44: 0.44,
+};
+
+export const links = {
+  home: "/",
+  restaurantList: "restaurant-list",
+  restaurantDetails: "restaurant-details",
+  menu: "menu",
+  brands: "/brands",
 };

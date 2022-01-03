@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { fontFamilies, colors, sizes } from "../../../variables";
 import PlusIcon from "../../../assets/menu/my_order_plus_active.png";
@@ -6,8 +6,37 @@ import MinusIcon from "../../../assets/menu/my_order_minus_inactive.png";
 import vegIcon from "../../../assets/menu/icon_veg.png";
 import DownArrow from "../../../assets/menu/collapse button.png";
 import nonvegIcon from "../../../assets/menu/icn_nonveg.png";
+import { CartData } from "../CartDataProvider";
+import data from "../constants.json";
 
 const CartCard = ({ item }: any) => {
+  const { details, setDetails } = useContext(CartData);
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    Object.keys(data.foodcardDetails).map((foodType, index) => {
+      return (data.foodcardDetails as any)[foodType].map(
+        (foodItem: any, index: any) => {
+          if ((e.target as HTMLElement).id === foodItem.id) {
+            (e.target as HTMLElement).classList.contains("minus")
+              ? (foodItem.quantity -= 1)
+              : (e.target as HTMLElement).classList.contains("plus")
+              ? (foodItem.quantity += 1)
+              : (foodItem.quantity = 0);
+            if (foodItem.quantity === 0) {
+              setDetails(details.filter((item: any) => item !== foodItem));
+            } else {
+              let cartSet = new Set([...details, foodItem]);
+              setDetails(Array.from(cartSet.values()));
+            }
+          }
+        }
+      );
+    });
+  };
+
+  const unitCost = Math.round((item.cost * 100) / 100).toFixed(2);
+  const itemsCost = Math.round((item.cost * item.quantity * 100) / 100).toFixed(
+    2
+  );
   return (
     <Card>
       <FoodName>
@@ -15,14 +44,24 @@ const CartCard = ({ item }: any) => {
         {item.foodName}
       </FoodName>
       <QuantitySelector>
-        <Image src={MinusIcon} />
-        <Quantity>2</Quantity>
-        <Image src={PlusIcon} />
+        <Image
+          src={MinusIcon}
+          onClick={handleClick}
+          id={item.id}
+          className="minus"
+        />
+        <Quantity>{item.quantity}</Quantity>
+        <Image
+          src={PlusIcon}
+          onClick={handleClick}
+          id={item.id}
+          className="plus"
+        />
       </QuantitySelector>
-      <UnitCost>{item.cost}</UnitCost>
+      <UnitCost>AED{unitCost}</UnitCost>
       <ItemsCost>
         AED
-        {+parseFloat(item.cost?.slice(3)).toFixed(2) * item.quantity}
+        {itemsCost}
       </ItemsCost>
       {item.quantity === 1 ? (
         <SelectedQuantity>Quantity : 1</SelectedQuantity>
@@ -37,7 +76,9 @@ const CartCard = ({ item }: any) => {
         ) : (
           <span></span>
         )}
-        <Remove>Remove</Remove>
+        <Remove className="remove" id={item.id} onClick={handleClick}>
+          Remove
+        </Remove>
       </RowFlex>
     </Card>
   );
@@ -53,7 +94,7 @@ const Card = styled.div`
 `;
 
 const FoodName = styled.div`
-  height: 19px;
+  width: 160px;
   color: ${colors.grey9};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};

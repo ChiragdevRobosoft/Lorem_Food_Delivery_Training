@@ -1,8 +1,4 @@
 import React from "react";
-
-import Home from "./components/home/index";
-import RestaurantDetails from "./components/RestaurantDetails";
-import RestaurantList from "./components/Restaurant list";
 import Routing from "./routes/routes";
 
 function App() {
