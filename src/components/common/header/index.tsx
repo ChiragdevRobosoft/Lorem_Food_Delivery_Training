@@ -12,7 +12,7 @@ import data from "./../constants.json";
 import cartSvg from "./../../../assets/common/header/icn_cart.svg";
 
 const languages = ["English", "Arabic", "Spanish"];
-
+//<HeaderTitle className={className}>{data.header.title}</HeaderTitle>
 interface headerProps {
   className: string;
 }
@@ -32,12 +32,14 @@ const Header: FC<headerProps> = ({ className }) => {
       {className === "home" && (
         <Login className={className}>{data.header.login}</Login>
       )}
-      {/* {className === "loggedin" && (
-        <LoggedInDiv>
-          <UserImage src="" alt="" />
-
-        </LoggedInDiv>
-      )} */}
+      {className === "loggedin" && (
+        <LoggedIn>
+          <UserImageDiv>
+            <NoUser src="" alt="" />
+          </UserImageDiv>
+          <UserName>No Name</UserName>
+        </LoggedIn>
+      )}
       <CreateAccount className={className}>
         {data.header.createAnAccount}
       </CreateAccount>
@@ -125,6 +127,40 @@ const Login = styled.p`
   font-weight: ${fontWeight.weight600};
   letter-spacing: 0.5;
   line-height: ${sizes.size19};
+  text-align: right;
+`;
+
+const LoggedIn = styled.div`
+  height: 38px;
+  width: 105.37px;
+  margin: 16px 31.42px 16px 0px;
+  display: flex;
+  flex-direction: row;
+`;
+
+const UserImageDiv = styled.div`
+  height: 38px;
+  width: 38.51px;
+  background-color: #d8d8d8;
+  border-radius: 50%;
+  align-item: center;
+`;
+
+const NoUser = styled.img`
+  height: 19px;
+  width: 19.26;
+`;
+
+const UserName = styled.p`
+  margin: 12px 0px 7px 8.12px;
+  height: 19px;
+  width: 55.74px;
+  color: #303134;
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 19px;
   text-align: right;
 `;
 

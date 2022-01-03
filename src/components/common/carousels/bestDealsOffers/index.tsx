@@ -104,9 +104,10 @@ const Wrapper = styled.div`
   .main-slide {
     height: ${sizes.size287};
     width: ${sizes.size960};
-    margin: ${sizes.size35} ${sizes.size0} ${sizes.size0} ${sizes.size0};
+    margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0};
     border-radius: ${sizes.size6};
-    background-color: ${colors.white};
+    //background-color: ${colors.white};
+    background-color: linear-gradient(178.89deg, #ffffff 0%, #f4f6ff 100%);
     padding: ${sizes.size0};
   }
   .carousel {

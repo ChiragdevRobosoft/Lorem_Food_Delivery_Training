@@ -46,12 +46,15 @@ const Foodsearch: FC<foodSearchProps> = ({ pageType }) => {
 export default Foodsearch;
 
 const Wrapper = styled.div`
+//border: 1px solid black;
   margin: ${(props) =>
     props.className === "home"
       ? `${sizes.size0} ${sizes.size889} ${sizes.size176} ${sizes.size420};`
-      : ``}
+      : null}
   height: ${(props) => (props.className === "home" ? `${sizes.size175}` : ``)};
   width: ${(props) => (props.className === "home" ? `${sizes.size611}` : ``)};
+  display: flex;
+  flex-direction: column;
 `;
 
 const SearchBox = styled.input`
@@ -72,10 +75,10 @@ const SearchBox = styled.input`
   border: none;
   background-image: url(${searchIcon});
   background-repeat: no-repeat;
+  background-size: 20px 27px;
   background-position: ${(props) =>
-    props.className === "home" ? `${sizes.size25} ${sizes.size22}` : ``};
-  padding-left: ${(props) =>
-    props.className === "home" ? `${sizes.size61}` : ``};
+    props.className === "home" ? `${sizes.size25} ${sizes.size22}` : null};
+  padding-left: ${sizes.size61};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   ::placeholder {
     height: ${sizes.size22};
@@ -83,19 +86,24 @@ const SearchBox = styled.input`
     color: #bdbdbd;
     font-family: ${fontFamilies.fontFamilyOsRegular};
     font-size: ${sizes.size16};
-    letter-spacing: -0.27px;
+    letter-spacing: -0.27;
     line-height: ${sizes.size22};
+    margin: 0px;
   }
+  display: flex;
+  //border: 1px solid yellow;
 `;
 
 const LocDateDiv = styled.div`
-  width: ${(props) => (props.className === "home" ? `${sizes.size611}` : ``)};
-  height: ${(props) => (props.className === "home" ? `${sizes.size70}` : ``)};
+  //border: 1px solid green;
+  width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
+  height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
   margin: ${(props) =>
     props.className === "home"
       ? `${sizes.size35} ${sizes.size0} ${sizes.size0} ${sizes.size0}`
       : ``};
   display: flex;
+  flex-direction: row;
 `;
 
 const LocDiv = styled.div`
@@ -106,7 +114,7 @@ const LocDiv = styled.div`
   margin: ${(props) =>
     props.className === "home"
       ? `${sizes.size0} ${sizes.size22} ${sizes.size0} ${sizes.size4}`
-      : `${sizes.size0} ${sizes.size12} ${sizes.size0} ${sizes.size0}`};
+      : null};
   display: flex;
 `;
 

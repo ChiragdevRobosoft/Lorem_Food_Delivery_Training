@@ -41,6 +41,7 @@ const ContentTitle = styled.p`
   line-height: ${sizes.size83};
   text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
     ${colors.white};
+  margin: 0 auto 10px 0;
 `;
 
 const ContentDescrp = styled.p`
@@ -51,4 +52,5 @@ const ContentDescrp = styled.p`
   font-size: ${sizes.size18};
   letter-spacing: ${sizes.size0_58};
   line-height: ${sizes.size34};
+  margin: 0 auto 53px 0;
 `;

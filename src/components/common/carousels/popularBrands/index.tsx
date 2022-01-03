@@ -11,10 +11,11 @@ import {
   fontWeight,
 } from "./../../../../variables";
 import kfcLogo from "./../../../../assets/common/carousels/brand_logo.png";
+import emptyIcon from "./../../../../assets/common/carousels/noRestaurants.jpg";
 import tData from "./../../constants.json";
 const Carousel = require("react-responsive-carousel").Carousel;
 
-const datas = ["one", "two", "three", "four", "five", "six"];
+let datas: string[] = ["one", "two", "three", "four"];
 
 const renderArrow =
   (direction: string) =>
@@ -70,56 +71,106 @@ const renderArrow =
 
 const CarouselPB = () => {
   return (
-    <Wrapper>
-      <Carousel
-        renderArrowPrev={renderArrow("prev")}
-        renderArrowNext={renderArrow("next")}
-        showArrows={true}
-        showIndicators={false}
-        showStatus={false}
-        infiniteLoop={false}
-        showThumbs={false}
-        className="main-slide"
-      >
-        {datas.map((data, i) => (
-          <SingleSlide>
-            <BrandFoodImage src={KFC} alt="" />
-            <RightDiv>
-              <ContentHolder>
-                <BrandDetails>
-                  <BrandLogo src={kfcLogo} alt="" />
-                  <NameTypeDiv>
-                    <BrandName>
-                      {tData.carousels.popularBrands.brandName}
-                    </BrandName>
-                    <LocType>
-                      {tData.carousels.popularBrands.locAndType}
-                    </LocType>
-                  </NameTypeDiv>
-                </BrandDetails>
-                <HorizontalLine />
-                <Description>
-                  {tData.carousels.popularBrands.description}
-                </Description>
-              </ContentHolder>
-            </RightDiv>
-          </SingleSlide>
-        ))}
-      </Carousel>
-      <RouteText height={`${sizes.size22}`} width={`${sizes.size90_61}`}>
-        All Brands&#62;
-      </RouteText>
-    </Wrapper>
+    <>
+      {datas.length === 0 ? (
+        <NoData>
+          <EmptyIcon src={emptyIcon} alt="No Restaurants" />
+          <Oops>Oops</Oops>
+          <SolutionText>
+            No brands nearby change to other locations and try
+          </SolutionText>
+        </NoData>
+      ) : (
+        <Wrapper>
+          <Carousel
+            renderArrowPrev={renderArrow("prev")}
+            renderArrowNext={renderArrow("next")}
+            showArrows={true}
+            showIndicators={false}
+            showStatus={false}
+            infiniteLoop={false}
+            showThumbs={false}
+            className="main-slide"
+          >
+            {datas.map((data, i) => (
+              <SingleSlide>
+                <BrandFoodImage src={KFC} alt="" />
+                <RightDiv>
+                  <ContentHolder>
+                    <BrandDetails>
+                      <BrandLogo src={kfcLogo} alt="" />
+                      <NameTypeDiv>
+                        <BrandName>
+                          {tData.carousels.popularBrands.brandName}
+                        </BrandName>
+                        <LocType>
+                          {tData.carousels.popularBrands.locAndType}
+                        </LocType>
+                      </NameTypeDiv>
+                    </BrandDetails>
+                    <HorizontalLine />
+                    <Description>
+                      {tData.carousels.popularBrands.description}
+                    </Description>
+                  </ContentHolder>
+                </RightDiv>
+              </SingleSlide>
+            ))}
+          </Carousel>
+          <RouteText height={`${sizes.size22}`} width={`${sizes.size90_61}`}>
+            All Brands&#62;
+          </RouteText>
+        </Wrapper>
+      )}
+    </>
   );
 };
 
 export default CarouselPB;
 
+const NoData = styled.div`
+  height: ${sizes.size240};
+  width: ${sizes.size958};
+  margin: ${sizes.size35} 0 0 0;
+  border-radius: ${sizes.size6};
+  background-color: ${colors.white};
+  display: flex;
+  flex-direction: column;
+`;
+const EmptyIcon = styled.img`
+  height: 120px;
+  width: 192px;
+  margin: 26px 402px 15px 364px;
+`;
+const Oops = styled.p`
+  height: 27px;
+  width: 54px;
+  color: #000000;
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.48;
+  line-height: 27px;
+  text-align: center;
+  margin: 0 467px 8px 437px;
+`;
+const SolutionText = styled.p`
+  height: 22px;
+  width: 341px;
+  color: #000000;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 22px;
+  text-align: center;
+  margin: 0 314px 22px 303px;
+`;
+
 const Wrapper = styled.div`
   .main-slide {
     height: ${sizes.size240};
     width: ${sizes.size958};
-    margin: ${sizes.size35} 0 0 0;
+    margin: 0 0 0 0;
     border-radius: ${sizes.size6};
     background-color: ${colors.white};
   }

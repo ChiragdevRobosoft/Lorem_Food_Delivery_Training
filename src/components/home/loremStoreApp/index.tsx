@@ -31,6 +31,8 @@ const PageWrapper = styled.div`
   position: relative;
   top: ${sizes.size0};
   left: ${sizes.size0};
+  height: ${sizes.size847};
+  margin: 0;
   flex-direction: row;
   background: linear-gradient(
     ${angles.angle206_72},
@@ -42,6 +44,7 @@ const PageWrapper = styled.div`
 const LeftBottom = styled.img`
   height: ${sizes.size473};
   width: ${sizes.size548};
+  margin: 372px auto 0px 0px;
   position: absolute;
   bottom: ${sizes.size0};
   left: ${sizes.size0};

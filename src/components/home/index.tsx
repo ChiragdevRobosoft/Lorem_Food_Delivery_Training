@@ -9,7 +9,7 @@ import BGimage2 from "./../../assets/home/popularBrands/BGimage.png";
 import BGimage3 from "./../../assets/home/bestDealsOffers/BGimage.png";
 import BGimage4 from "./../../assets/home/howToOrder/BGimage.png";
 import { angles, sizes, colors } from "./../../variables";
-import "./index.scss";
+import Footer from "../common/footer";
 
 const Home = () => {
   return (
@@ -26,7 +26,7 @@ const Home = () => {
       <HomeScreens
         imgUrl={BGimage4}
         height={`${sizes.size780}`}
-        backGroundPosition="right"
+        backGroundPosition="center"
       >
         <HowToOrder />
       </HomeScreens>
@@ -36,6 +36,7 @@ const Home = () => {
       >
         <LoremStoreApp />
       </HomeScreens>
+      <Footer />
     </HomeContainer>
   );
 };
@@ -55,22 +56,14 @@ interface HomeScreensProps {
   backgroundColor?: string;
 }
 const HomeScreens = styled.div<HomeScreensProps>`
-  background-image: ${(props) => (props.imgUrl ? `url(${props.imgUrl})` : "")};
+  background-image: ${(props) =>
+    props.imgUrl ? `url(${props.imgUrl})` : null};
   height: ${(props) => props.height};
   background-repeat: no-repeat;
-  display: flex;
   justify-content: center;
+  align-items: center;
   background-position: ${(props) =>
-    props.backGroundPosition ? props.backGroundPosition : ""};
+    props.backGroundPosition ? props.backGroundPosition : "center"};
   background: ${(props) =>
-    props.backgroundColor ? props.backgroundColor : ""};
+    props.backgroundColor ? props.backgroundColor : null};
 `;
-
-// const StoreButton = styled.a`
-//   width: ${sizes.size195};
-//   height: ${sizes.size55};
-//   background: ${(props) => (props.img ? `url(${props.img})` : "")};
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   margin-right: ${(props) => (props.marginR ? props.marginR : "")}; ;
-// `;
