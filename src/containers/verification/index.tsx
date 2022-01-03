@@ -5,6 +5,7 @@ import icon_verify from "../../assets/icn_verify.png";
 import { useNavigate, Link } from "react-router-dom";
 import TextBox from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
+import Modal from "react-responsive-modal";
 import {
   sizes,
   colors,
@@ -13,38 +14,81 @@ import {
   links,
 } from "../../variables";
 
-const Verification = () => {
+const Verification = ({
+  onCloseModal,
+  onOpenModal,
+  open,
+  setShowAccountDetails,
+  setShowVerification,
+  setShowCreateAccount,
+}: {
+  onCloseModal: () => void;
+  onOpenModal: () => void;
+  open: boolean;
+  setShowAccountDetails: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowVerification: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowCreateAccount: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const navigate = useNavigate();
   return (
-    <Wrapper>
-      <WrapperLeft>
-        <Lorem>LOREM</Lorem>
-        <TagLine>
-          Experience the easiest a way to get <BoldText>great food </BoldText>
-          Delivered
-        </TagLine>
-      </WrapperLeft>
-      <WrapperRight>
-        <RedirectLink to={links.forgotPassword}>
-          <BackImage src={backButton} alt="cut"></BackImage>
-        </RedirectLink>
-        <VerifyImage>
-          <img src={icon_verify} className="icon_forgot"></img>
-        </VerifyImage>
-        <Title>Verification</Title>
-        <Discription>
-          We just sent you the OTP via SMS to your email address/mobile no. You
-          should get it soon!
-        </Discription>
-        <TextBox name="Enter OTP" isPassword={false}></TextBox>
-        <VerifyButton>
-          <Buttons className="colouredBgButton" name="VERIFY"></Buttons>
-        </VerifyButton>
-      </WrapperRight>
-    </Wrapper>
+    <Modal
+      open={open}
+      center
+      showCloseIcon={false}
+      onClose={() => {
+        setShowVerification(false);
+        onCloseModal();
+      }}
+      styles={{
+        overlay: {
+          background: "transparent",
+        },
+      }}
+    >
+      <Wrapper>
+        <WrapperLeft>
+          <Lorem>LOREM</Lorem>
+          <TagLine>
+            Experience the easiest a way to get <BoldText>great food </BoldText>
+            Delivered
+          </TagLine>
+        </WrapperLeft>
+        <WrapperRight>
+          <BackButton
+            onClick={() => {
+              onCloseModal();
+            }}
+          >
+            <BackImage src={backButton} alt="cut"></BackImage>
+          </BackButton>
+          <VerifyImage>
+            <img src={icon_verify} className="icon_forgot"></img>
+          </VerifyImage>
+          <Title>Verification</Title>
+          <Discription>
+            We just sent you the OTP via SMS to your email address/mobile no.
+            You should get it soon!
+          </Discription>
+          <TextBox name="Enter OTP" isPassword={false}></TextBox>
+          <VerifyButton>
+            <Buttons
+              className="colouredBgButton"
+              name="VERIFY"
+              onClick={() => setShowAccountDetails(true)}
+            ></Buttons>
+          </VerifyButton>
+        </WrapperRight>
+      </Wrapper>
+    </Modal>
   );
 };
 export default Verification;
+const BackButton = styled.button`
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  padding: 0%;
+`;
 const Discription = styled.p`
   margin-left: ${sizes.size130};
   margin-bottom: ${sizes.size80};
@@ -94,10 +138,6 @@ const TagLine = styled.div`
   text-shadow: 0 0 9px 0 ${colors.white};
   word-wrap: break-word;
 `;
-const RedirectLink = styled(Link)`
-  text-decoration: none;
-  border: none;
-`;
 const BackImage = styled.img`
   float: left;
   margin: ${sizes.size20};
@@ -127,12 +167,11 @@ const VerifyImage = styled.div`
   height: ${sizes.size5};
   width: ${sizes.size25};
   margin-left: ${sizes.size200};
-  margin-top: ${sizes.size60};
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 470px;
 `;
 const Title = styled.p`
   color: ${colors.black2};

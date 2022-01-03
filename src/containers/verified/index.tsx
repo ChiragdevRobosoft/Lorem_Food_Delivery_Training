@@ -36,7 +36,9 @@ const Verified = () => {
           Your mobile no. is verified. <br />
           Enter the new password to reset your account.
         </Discription>
-        <TextBox name="Password" isPassword={true}></TextBox>
+        <PasswordBox>
+          <TextBox name="Password" isPassword={true}></TextBox>
+        </PasswordBox>
         <VerifyButton>
           <Buttons className="colouredBgButton" name="VERIFY"></Buttons>
         </VerifyButton>
@@ -45,6 +47,9 @@ const Verified = () => {
   );
 };
 export default Verified;
+const PasswordBox = styled.div`
+  margin-left: 15px;
+`;
 const Title = styled.p`
   color: ${colors.black2};
   font-size: ${sizes.size22};
@@ -122,6 +127,7 @@ const TagLine = styled.div`
 `;
 const VerifyButton = styled.div`
   margin-top: ${sizes.size100};
+  margin-left: 15px;
 `;
 const Wrapper = styled.div`
   height: ${sizes.size588};
@@ -146,6 +152,6 @@ const VerifyImage = styled.div`
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 470px;
 `;

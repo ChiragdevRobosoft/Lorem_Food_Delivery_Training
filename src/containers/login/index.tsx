@@ -13,85 +13,116 @@ import {
   fontWeight,
   links,
 } from "../../variables";
-const Login = () => {
+const Login = ({
+  onCloseModal,
+  onOpenModal,
+  open,
+  setShowForgotPassword,
+  setShowCreateAccount,
+  setRedirectFromLogin,
+  setRedirectFromRegister,
+  redirectFromRegister,
+}: {
+  onCloseModal: () => void;
+  onOpenModal: () => void;
+  open: boolean;
+  setShowForgotPassword: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowCreateAccount: React.Dispatch<React.SetStateAction<boolean>>;
+  setRedirectFromLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setRedirectFromRegister: React.Dispatch<React.SetStateAction<boolean>>;
+  redirectFromRegister: boolean;
+}) => {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(true);
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
   return (
-    <Div>
-      <Modal
-        open={open}
-        classNames={{ modal: "modalStyle" }}
-        onClose={onCloseModal}
-        center
-        showCloseIcon={false}
-        styles={{
-          overlay: {
-            background: "transparent",
-          },
-        }}
-      >
-        <Wrapper>
-          <WrapperLeft>
-            <Lorem>LOREM</Lorem>
-            <TagLine>
-              Experience the easiest a way to get{" "}
-              <BoldText>great food </BoldText>
-              Delivered
-            </TagLine>
-          </WrapperLeft>
-          <WrapperRight>
-            <CloseImage
-              src={closeButton}
-              alt="cut"
-              onClick={onCloseModal}
-            ></CloseImage>
-            <Title>Let's get started!</Title>
-            <EmailBox>
-              <TextBox name="Email" isPassword={false}></TextBox>
-            </EmailBox>
-            <PasswordBox>
-              <TextBox name="Password" isPassword={true}></TextBox>
-            </PasswordBox>
-            <RedirectLink to={links.forgotPassword}>
-              Forgot Password?
-            </RedirectLink>
-            <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
-            <SocialMedia>
-              <Buttons className="facebook" name="Facebook" />
-              <Buttons className="google" name="Google+" />
-            </SocialMedia>
-            <Footer>
-              <ForgotPasswordLink>Don't have an account?</ForgotPasswordLink>
-              <RedirectLink className="getNewLink" to={links.createAccount}>
-                Get new one!
-              </RedirectLink>
-            </Footer>
-          </WrapperRight>
-        </Wrapper>
-      </Modal>
-    </Div>
+    <Modal
+      open={open}
+      classNames={{ modal: "modalStyle" }}
+      onClose={() => {
+        setRedirectFromRegister(false);
+        onCloseModal();
+      }}
+      center
+      showCloseIcon={false}
+      styles={{
+        overlay: {
+          background: redirectFromRegister
+            ? "transparent"
+            : "rgba(0, 0, 0, 0.7)",
+        },
+      }}
+    >
+      <Wrapper>
+        <WrapperLeft>
+          <Lorem>LOREM</Lorem>
+          <TagLine>
+            Experience the easiest a way to get <BoldText>great food </BoldText>
+            Delivered
+          </TagLine>
+        </WrapperLeft>
+        <WrapperRight>
+          <CloseImage
+            src={closeButton}
+            alt="cut"
+            onClick={() => {
+              setRedirectFromRegister(false);
+              onCloseModal();
+            }}
+          ></CloseImage>
+          <Title>Let's get started!</Title>
+          <EmailBox>
+            <TextBox name="Email" isPassword={false}></TextBox>
+          </EmailBox>
+          <PasswordBox>
+            <TextBox name="Password" isPassword={true}></TextBox>
+          </PasswordBox>
+          <ForgetButton onClick={() => setShowForgotPassword(true)}>
+            Forgot Password?
+          </ForgetButton>
+          <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
+          <SocialMedia>
+            <Buttons className="facebook" name="Facebook" />
+            <Buttons className="google" name="Google+" />
+          </SocialMedia>
+          <Footer>
+            <ForgotPasswordLink>Don't have an account?</ForgotPasswordLink>
+            <NewLinkButton
+              onClick={() => {
+                setRedirectFromLogin(true);
+                setShowCreateAccount(true);
+              }}
+            >
+              Get new one!
+            </NewLinkButton>
+          </Footer>
+        </WrapperRight>
+      </Wrapper>
+    </Modal>
   );
 };
 export default Login;
+const ForgetButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: ${colors.grey5};
+  text-decoration: none;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  border: none;
+  background-color: transparent;
+  font-size: ${sizes.size14};
+  font-weight: ${fontWeight.weight600};
+  line-height: ${sizes.size19};
+  margin-left: "300px";
+  float: right;
+  margin-right: 50px;
+  margin-top: "none";
+  margin-bottom: ${sizes.size30};
+  padding-top: 0;
+`;
 const EmailBox = styled.div`
   margin-bottom: 60px;
 `;
 const PasswordBox = styled.div`
   margin-bottom: 60px;
-`;
-const Div = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: ${colors.white};
-  .react-responsive-modal-modal {
-    padding: 0 !important;
-  }
-  .modalStyle {
-    padding: 0 !important;
-    box-shadow: none !important;
-  }
 `;
 const TagLine = styled.div`
   height: ${sizes.size132};
@@ -126,9 +157,8 @@ const CloseImage = styled.img`
   float: right;
   margin: 20px;
 `;
-const RedirectLink = styled(Link)`
-  color: ${(props) =>
-    props.className === "getNewLink" ? `${colors.orange1}` : `${colors.grey5}`};
+const NewLinkButton = styled.button`
+  color: ${colors.orange1};
   text-decoration: none;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   border: none;
@@ -136,12 +166,10 @@ const RedirectLink = styled(Link)`
   font-size: ${sizes.size14};
   font-weight: ${fontWeight.weight600};
   line-height: ${sizes.size19};
-  margin-left: ${(props) =>
-    props.className === "getNewLink" ? "10px" : "300px"};
+  margin-left: 10px;
   float: right;
   margin-right: 50px;
-  margin-top: ${(props) =>
-    props.className === "getNewLink" ? "40px" : "none"};
+  margin-top: 40px;
   margin-bottom: ${sizes.size30};
   padding-top: 0;
 `;
@@ -179,8 +207,8 @@ const WrapperLeft = styled.div`
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 470px;
 `;
 const Title = styled.p`
   height: ${sizes.size38};

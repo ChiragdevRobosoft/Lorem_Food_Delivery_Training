@@ -16,11 +16,20 @@ import {
   fontWeight,
   links,
 } from "../../variables";
-const ForgotPassword = () => {
+const ForgotPassword = ({
+  onCloseModal,
+  onOpenModal,
+  open,
+  setShowForgotPassword,
+  setShowVerification,
+}: {
+  onCloseModal: () => void;
+  onOpenModal: () => void;
+  open: boolean;
+  setShowForgotPassword: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowVerification: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(true);
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
   const [InputType, setInputType] = useState("email");
   return (
     <Modal
@@ -44,9 +53,13 @@ const ForgotPassword = () => {
           </TagLine>
         </WrapperLeft>
         <WrapperRight>
-          <RedirectLink to={links.login}>
+          <BackButton
+            onClick={() => {
+              setShowForgotPassword(false);
+            }}
+          >
             <BackImage src={backButton} alt="cut"></BackImage>
-          </RedirectLink>
+          </BackButton>
           <ForgotImage>
             <img src={icon_forgot} className="icon_forgot"></img>
           </ForgotImage>
@@ -88,7 +101,11 @@ const ForgotPassword = () => {
           ) : (
             <CountryCode isOptional={true} />
           )}
-          <Buttons className="colouredBgButton" name="SEND OTP"></Buttons>
+          <Buttons
+            className="colouredBgButton"
+            name="SEND OTP"
+            onClick={() => setShowVerification(true)}
+          ></Buttons>
         </WrapperRight>
       </Wrapper>
     </Modal>
@@ -108,9 +125,11 @@ const Border = styled.img`
   margin-top: ${sizes.size5};
   padding-left: ${sizes.size1};
 `;
-const RedirectLink = styled(Link)`
+const BackButton = styled.button`
   text-decoration: none;
   border: none;
+  background-color: transparent;
+  padding: 0%;
 `;
 const BackImage = styled.img`
   float: left;
@@ -142,7 +161,6 @@ const ForgotImage = styled.div`
   height: ${sizes.size5};
   width: ${sizes.size25};
   margin-left: ${sizes.size200};
-  margin-top: ${sizes.size60};
 `;
 const Navbar = styled.div`
   display: flex;
@@ -168,8 +186,8 @@ const InputTypeButton = styled.button`
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 470px;
 `;
 const Title = styled.p`
   font-family: ${fontFamilies.fontFamilyOsRegular};

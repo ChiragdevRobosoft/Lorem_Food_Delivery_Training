@@ -15,7 +15,7 @@ const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
   const [dropDownStatus, setDropDownStatus] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("india");
   const [selectedCode, setSelectedCode] = useState("91");
-  const handleSelection = (e: any) => {
+  const handleSelection = (e: React.MouseEvent<HTMLDivElement>) => {
     setSelectedCountry(e.currentTarget.id);
     setSelectedCode(
       CountryCode.find((element) => element.country === e.currentTarget.id)!

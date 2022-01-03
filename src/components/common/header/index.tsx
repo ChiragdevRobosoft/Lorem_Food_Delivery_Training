@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import React, { useState } from "react";
 import cartIcon from "./../../../assets/common/header/cart-icon.png";
+import Modal from "react-responsive-modal";
 import {
   sizes,
   colors,
@@ -8,8 +10,13 @@ import {
   fontWeight,
   opacity,
 } from "../../../variables";
-
-const Header = () => {
+const Header = ({
+  setShowLogin,
+  setShowCreateAccount,
+}: {
+  setShowLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowCreateAccount: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <WrapperHeader>
       <p className="header-title">LOREM</p>
@@ -17,8 +24,15 @@ const Header = () => {
         <option value="English">English</option>
         <option value="Arabic">Arabic</option>
       </select>
-      <p className="login">LOGIN</p>
-      <p className="create-account">CREATE AN ACCOUNT</p>
+      <button className="login" onClick={() => setShowLogin(true)}>
+        LOGIN
+      </button>
+      <button
+        className="create-account"
+        onClick={() => setShowCreateAccount(true)}
+      >
+        CREATE AN ACCOUNT
+      </button>
       <div className="cart-holder">
         <img src={cartIcon} alt="cart-icon" />
         <p className="cart">CART</p>
@@ -27,7 +41,6 @@ const Header = () => {
   );
 };
 export default Header;
-
 const WrapperHeader = styled.header`
   height: 89px;
   width: 1825px;
@@ -84,6 +97,8 @@ const WrapperHeader = styled.header`
     letter-spacing: 0.5px;
     line-height: 19px;
     text-align: right;
+    border: none;
+    background-color: transparent;
   }
 
   /* dobut in create account width  adustments in margins made from here*/
@@ -98,6 +113,8 @@ const WrapperHeader = styled.header`
     letter-spacing: 0.5px;
     line-height: 19px;
     text-align: left;
+    border: none;
+    background-color: transparent;
   }
 
   .cart-holder {

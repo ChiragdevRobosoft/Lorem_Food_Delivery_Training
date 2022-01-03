@@ -146,4 +146,9 @@ export const links = {
   login: "/login",
   forgotPassword: "/forgot-password",
   createAccount: "/create-account",
+  welcome: "/welcome",
+  verified: "/verified",
+  verification: "/verification",
+  passwordSuccess: "/password-success",
+  accountDetails: "/account-details",
 };

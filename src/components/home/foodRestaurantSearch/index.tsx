@@ -2,11 +2,33 @@ import Foodsearch from "./foodSearchBox";
 import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import styled from "styled-components";
-
+import { useState } from "react";
+import Login from "../../../containers/login";
+import { backdropClasses } from "@mui/material";
+import ForgotPassword from "../../../containers/forgot-password";
+import CreateAccount from "../../../containers/create-account";
+import AccountDetails from "../../../containers/account-details";
+import Verification from "../../../containers/verification";
+import RegisterSuccess from "../../../containers/welcome";
 const LandingPage = () => {
+  const [open, setOpen] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [showCreateAccount, setShowCreateAccount] = useState(false);
+  const [redirectFromLogin, setRedirectFromLogin] = useState(false);
+  const [redirectFromRegister, setRedirectFromRegister] = useState(false);
+  const [ShowLogin, setShowLogin] = useState(false);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+  const [showAccountDetails, setShowAccountDetails] = useState(false);
+  const [showVerification, setShowVerification] = useState(false);
+  const [showRegisterSuccess, setShowRegisterSuccess] = useState(false);
+  console.log(redirectFromLogin, redirectFromRegister);
   return (
-    <Wrapper>
-      <Header />
+    <Wrapper className={"backDrop"}>
+      <Header
+        setShowLogin={setOpen}
+        setShowCreateAccount={setShowCreateAccount}
+      />
       <p>
         <span>Order your food</span>
         <span>from the best restaurants</span>
@@ -16,6 +38,63 @@ const LandingPage = () => {
         <img src={mouseScroll} alt="mouse-scroll" />
         <p>Scroll</p>
       </div>
+      {open && (
+        <Login
+          onCloseModal={onCloseModal}
+          onOpenModal={onOpenModal}
+          open={open}
+          setShowForgotPassword={setShowForgotPassword}
+          setShowCreateAccount={setShowCreateAccount}
+          setRedirectFromLogin={setRedirectFromLogin}
+          setRedirectFromRegister={setRedirectFromRegister}
+          redirectFromRegister={redirectFromRegister}
+        />
+      )}
+      {showForgotPassword && (
+        <ForgotPassword
+          onCloseModal={onCloseModal}
+          onOpenModal={onOpenModal}
+          open={open}
+          setShowForgotPassword={setShowForgotPassword}
+          setShowVerification={setShowVerification}
+        />
+      )}
+      {showCreateAccount && (
+        <CreateAccount
+          onCloseModal={() => setShowCreateAccount(false)}
+          onOpenModal={() => setShowCreateAccount(false)}
+          open={showCreateAccount}
+          setShowCreateAccount={setShowCreateAccount}
+          redirectFromLogin={redirectFromLogin}
+          setRedirectFromLogin={setRedirectFromLogin}
+          setShowLogin={setOpen}
+          setRedirectFromRegister={setRedirectFromRegister}
+          setShowVerification={setShowVerification}
+          setShowAccountDetails={setShowAccountDetails}
+        />
+      )}
+      {showAccountDetails && (
+        <AccountDetails
+          onCloseModal={() => setShowAccountDetails(false)}
+          onOpenModal={() => setShowAccountDetails(false)}
+          open={showAccountDetails}
+          setShowRegisterSuccess={setShowRegisterSuccess}
+        />
+      )}
+      {/* {showVerification && (
+        <Verification
+          onCloseModal={() => setShowVerification(false)}
+          onOpenModal={() => setShowVerification(false)}
+          open={showVerification}
+        />
+      )}
+      {showRegisterSuccess && (
+        <RegisterSuccess
+          onCloseModal={() => setShowRegisterSuccess(false)}
+          onOpenModal={() => setShowRegisterSuccess(false)}
+          open={showRegisterSuccess}
+        />
+      )} */}
     </Wrapper>
   );
 };
@@ -39,6 +118,9 @@ const Wrapper = styled.div`
     span {
       display: block;
     }
+  }
+  .backDrop {
+    background-color: rgba(0, 0, 0, 0.7);
   }
   .scroll-holder {
     margin: 0px 900px 38px 901px;

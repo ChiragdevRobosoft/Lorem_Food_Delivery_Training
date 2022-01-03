@@ -14,13 +14,45 @@ import {
   links,
 } from "../../variables";
 
-const CreateAccount = () => {
+const CreateAccount = ({
+  onCloseModal,
+  onOpenModal,
+  open,
+  setShowCreateAccount,
+  redirectFromLogin,
+  setRedirectFromLogin,
+  setShowLogin,
+  setRedirectFromRegister,
+  setShowAccountDetails,
+  setShowVerification,
+}: {
+  onCloseModal: () => void;
+  onOpenModal: () => void;
+  open: boolean;
+  setShowCreateAccount: React.Dispatch<React.SetStateAction<boolean>>;
+  redirectFromLogin: boolean;
+  setRedirectFromLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setRedirectFromRegister: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowAccountDetails: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowVerification: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const history = useNavigate();
-  const [open, setOpen] = useState(true);
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
   return (
-    <Modal open={open} center showCloseIcon={false} onClose={onCloseModal}>
+    <Modal
+      open={open}
+      center
+      showCloseIcon={false}
+      onClose={() => {
+        setRedirectFromLogin(false);
+        onCloseModal();
+      }}
+      styles={{
+        overlay: {
+          background: redirectFromLogin ? "transparent" : "rgba(0, 0, 0, 0.7)",
+        },
+      }}
+    >
       <Wrapper>
         <WrapperLeft>
           <Lorem>LOREM</Lorem>
@@ -33,7 +65,10 @@ const CreateAccount = () => {
           <CloseImage
             src={closeButton}
             alt="cut"
-            onClick={onCloseModal}
+            onClick={() => {
+              setRedirectFromLogin(false);
+              onCloseModal();
+            }}
           ></CloseImage>
           <Title>Create your account</Title>
           <Discription>
@@ -45,6 +80,7 @@ const CreateAccount = () => {
             <Buttons
               className="colouredBgButton"
               name="CREATE ACCOUNT"
+              onClick={() => setShowVerification(true)}
             ></Buttons>
           </CreateAccountButton>
           <TermsAndCondition>
@@ -59,9 +95,16 @@ const CreateAccount = () => {
           </SocialMedia>
           <Footer>
             <LoginLink>Already have an account?</LoginLink>
-            <RedirectLink className="login" to={links.login}>
+            <LoginButton
+              onClick={() => {
+                setRedirectFromRegister(false);
+                setRedirectFromLogin(false);
+                setShowLogin(true);
+                onCloseModal();
+              }}
+            >
               Login
-            </RedirectLink>
+            </LoginButton>
           </Footer>
         </WrapperRight>
       </Wrapper>
@@ -120,6 +163,22 @@ const CloseImage = styled.img`
   float: right;
   margin: 20px;
 `;
+const LoginButton = styled.button`
+  color: ${colors.orange1};
+  text-decoration: none;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  border: none;
+  background-color: transparent;
+  font-size: ${sizes.size14};
+  font-weight: ${fontWeight.weight600};
+  line-height: ${sizes.size19};
+  margin-left: 10px;
+  float: right;
+  margin-right: 70px;
+  margin-top: 15px;
+  margin-bottom: ${sizes.size30};
+  padding-top: 0;
+`;
 const RedirectLink = styled(Link)`
   color: ${colors.orange1};
   text-decoration: none;
@@ -173,8 +232,8 @@ const WrapperLeft = styled.div`
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 470px;
 `;
 const Title = styled.p`
   height: ${sizes.size59};
@@ -214,7 +273,7 @@ const Terms = styled.p`
   font-size: ${sizes.size14};
   line-height: 19px;
   margin-bottom: 20px;
-  margin-left: 80px;
+  margin-left: 60px;
   margin-top: 40px;
 `;
 const TermsAndCondition = styled.div`

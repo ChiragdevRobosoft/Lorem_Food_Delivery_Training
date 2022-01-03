@@ -125,6 +125,7 @@ const CloseImage = styled.img`
 `;
 const LoginButton = styled.div`
   margin-top: ${sizes.size80};
+  margin-left: 20px;
 `;
 const Wrapper = styled.div`
   height: ${sizes.size588};
@@ -149,6 +150,6 @@ const SuccessImage = styled.div`
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 470px;
 `;

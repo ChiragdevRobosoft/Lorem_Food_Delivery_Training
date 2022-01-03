@@ -13,11 +13,19 @@ import {
   fontWeight,
   links,
 } from "../../variables";
-const RegisterSuccess = () => {
+const RegisterSuccess = ({
+  onCloseModal,
+  onOpenModal,
+  open,
+  setShowRegisterSuccess,
+}: {
+  onCloseModal: () => void;
+  onOpenModal: () => void;
+  open: boolean;
+  setShowRegisterSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const history = useNavigate();
-  const [open, setOpen] = useState(true);
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+
   return (
     <Modal
       open={open}
@@ -43,7 +51,10 @@ const RegisterSuccess = () => {
           <CloseImage
             src={closeButton}
             alt="cut"
-            onClick={onCloseModal}
+            onClick={() => {
+              setShowRegisterSuccess(false);
+              onCloseModal();
+            }}
           ></CloseImage>
           <SuccessImage>
             <img src={registerSuccess} className="registersuccess"></img>
@@ -105,6 +116,7 @@ const Lorem = styled.p`
 `;
 const BrowseButton = styled.div`
   margin-top: ${sizes.size50};
+  margin-left: 15px;
 `;
 const SuccessImage = styled.div`
   height: ${sizes.size5};
@@ -159,6 +171,6 @@ const Wrapper = styled.div`
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 470px;
 `;

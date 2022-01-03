@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import TextBox from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
 import CountryCode from "../../components/country-code";
+import Modal from "react-responsive-modal";
 import {
   sizes,
   colors,
@@ -12,41 +13,79 @@ import {
   fontWeight,
   links,
 } from "../../variables";
-const AccountDetails = () => {
+const AccountDetails = ({
+  onCloseModal,
+  onOpenModal,
+  open,
+  setShowRegisterSuccess,
+}: {
+  onCloseModal: () => void;
+  onOpenModal: () => void;
+  open: boolean;
+  setShowRegisterSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   let navigate = useNavigate();
   return (
-    <Wrapper>
-      <WrapperLeft>
-        <Lorem>LOREM</Lorem>
-        <TagLine>
-          Experience the easiest a way to get <BoldText>great food </BoldText>
-          Delivered
-        </TagLine>
-      </WrapperLeft>
-      <WrapperRight>
-        <RedirectLink to={links.createAccount}>
-          <BackImage src={backButton} alt="cut"></BackImage>
-        </RedirectLink>
-        <Title>Verified!</Title>
-        <Discription>
-          Your Email is verifeid. <br />
-          Finally enter details below to create account.
-        </Discription>
-        <FirstName>
-          <TextBox name="First Name" isPassword={false}></TextBox>
-        </FirstName>
-        <LastName>
-          <TextBox name="Last Name" isPassword={false}></TextBox>
-        </LastName>
-        <CountryCode isOptional={true} />
-        <TextBox name="Create Password" isPassword={true}></TextBox>
-        <VerifyButton>
-          <Buttons className="colouredBgButton" name="DONE"></Buttons>
-        </VerifyButton>
-      </WrapperRight>
-    </Wrapper>
+    <Modal
+      open={open}
+      center
+      showCloseIcon={false}
+      onClose={() => {
+        onCloseModal();
+      }}
+      styles={{
+        overlay: {
+          background: "transparent",
+        },
+      }}
+    >
+      <Wrapper>
+        <WrapperLeft>
+          <Lorem>LOREM</Lorem>
+          <TagLine>
+            Experience the easiest a way to get <BoldText>great food </BoldText>
+            Delivered
+          </TagLine>
+        </WrapperLeft>
+        <WrapperRight>
+          <BackButton
+            onClick={() => {
+              onCloseModal();
+            }}
+          >
+            <BackImage src={backButton} alt="cut"></BackImage>
+          </BackButton>
+          <Title>Verified!</Title>
+          <Discription>
+            Your Email is verifeid. <br />
+            Finally enter details below to create account.
+          </Discription>
+          <FirstName>
+            <TextBox name="First Name" isPassword={false}></TextBox>
+          </FirstName>
+          <LastName>
+            <TextBox name="Last Name" isPassword={false}></TextBox>
+          </LastName>
+          <CountryCode isOptional={true} />
+          <TextBox name="Create Password" isPassword={true}></TextBox>
+          <VerifyButton>
+            <Buttons
+              className="colouredBgButton"
+              name="DONE"
+              onClick={() => setShowRegisterSuccess(true)}
+            ></Buttons>
+          </VerifyButton>
+        </WrapperRight>
+      </Wrapper>
+    </Modal>
   );
 };
+const BackButton = styled.button`
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  padding: 0%;
+`;
 export default AccountDetails;
 const FirstName = styled.div`
   margin-bottom: 50px;
@@ -68,8 +107,8 @@ const WrapperLeft = styled.div`
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 470px;
 `;
 const Title = styled.p`
   width: ${sizes.size220};
@@ -78,9 +117,8 @@ const Title = styled.p`
   font-size: ${sizes.size28};
   font-weight: bold;
   margin-left: 175px;
-  margin-top: ${sizes.size50};
   letter-spacing: ${sizes.sizenp47};
-  line-height: ${sizes.size38};
+  line-height: 1px;
   text-shadow: 0 0 9px 0 ${colors.white};
 `;
 const Lorem = styled.p`
