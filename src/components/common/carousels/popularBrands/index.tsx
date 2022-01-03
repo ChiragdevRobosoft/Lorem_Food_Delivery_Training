@@ -117,9 +117,14 @@ const CarouselPB = () => {
               </SingleSlide>
             ))}
           </Carousel>
-          <RouteText height={`${sizes.size22}`} width={`${sizes.size90_61}`}>
-            All Brands&#62;
-          </RouteText>
+          <RouteDiv width={`${sizes.size100_61}`} margin={`${sizes.size15}`}>
+            <RouteText height={`${sizes.size22}`} width={`${sizes.size79}`}>
+              All Brands
+            </RouteText>
+            <Arrowspan>
+              <b>&#62;</b>
+            </Arrowspan>
+          </RouteDiv>
         </Wrapper>
       )}
     </>
@@ -292,11 +297,26 @@ export const RouteText = styled.p<RouteTextProps>`
   font-weight: ${fontWeight.weight600};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};
-  margin: ${sizes.size15} auto auto ${sizes.size1};
-  text-align: ${(props) => (props.textAlign ? props.textAlign : ``)};
+  margin: 0 0 auto ${sizes.size1};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : null)};
+  //display: inline;
 `;
 
-// const ArrowSpan = styled.span`
-//   height: 7.45px;
-//   width: 3.61px;
-// `;
+export const Arrowspan = styled.span`
+  height: 7.45px;
+  width: 3.61px;
+  color: ${colors.orange1};
+  //display: inline;
+  margin-left: 8px;
+`;
+
+interface RouteDivProps {
+  width: string;
+  margin: string;
+}
+export const RouteDiv = styled.div<RouteDivProps>`
+  height: ${sizes.size22};
+  width: ${(props) => props.width};
+  margin: ${(props) => `${props.margin} auto auto ${sizes.size0}`};
+  display: flex;
+`;

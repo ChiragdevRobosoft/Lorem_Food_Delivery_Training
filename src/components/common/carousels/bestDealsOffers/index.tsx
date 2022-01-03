@@ -5,7 +5,8 @@ import card1 from "./../../../../assets/common/carousels/Card1.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
 import { sizes, colors } from "./../../../../variables";
-import { RouteText } from "../popularBrands";
+import { RouteDiv, RouteText, Arrowspan } from "../popularBrands";
+
 const Carousel = require("react-responsive-carousel").Carousel;
 
 const datas = [
@@ -87,13 +88,18 @@ const CarouselBDO = () => {
           );
         })}
       </Carousel>
-      <RouteText
-        height={`${sizes.size22}`}
-        width={`${sizes.size141_61}`}
-        textAlign="right"
-      >
-        All offers &amp; deals&#62;
-      </RouteText>
+      <RouteDiv width={`${sizes.size223_61}`} margin={`${sizes.size19}`}>
+        <RouteText
+          height={`${sizes.size22}`}
+          width={`${sizes.size130}`}
+          textAlign="left"
+        >
+          All offers &amp; deals
+        </RouteText>
+        <Arrowspan>
+          <b>&#62;</b>
+        </Arrowspan>
+      </RouteDiv>
     </Wrapper>
   );
 };
