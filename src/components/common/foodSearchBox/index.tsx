@@ -46,7 +46,6 @@ const Foodsearch: FC<foodSearchProps> = ({ pageType }) => {
 export default Foodsearch;
 
 const Wrapper = styled.div`
-//border: 1px solid black;
   margin: ${(props) =>
     props.className === "home"
       ? `${sizes.size0} ${sizes.size889} ${sizes.size176} ${sizes.size420};`
