@@ -22,10 +22,10 @@ const LoremStoreApp = () => {
         <AppName>{data.homeTexts.loremStoreApp.heading}</AppName>
         <DownloadText>{data.homeTexts.loremStoreApp.subHeading}</DownloadText>
         <AppDesc>{data.homeTexts.loremStoreApp.description}</AppDesc>
-        <StoresDiv>
-          <StoreButton img={appStoreButton} marginR={`${sizes.size20}`} />
-          <StoreButton img={playStoreButton} />
-        </StoresDiv>
+        <Stores>
+          <Store img={appStoreButton} marginR={`${sizes.size20}`} />
+          <Store img={playStoreButton} />
+        </Stores>
       </MarketInfo>
       <CenterPhone src={centerPhone} alt="center-phone" />
       <TopRight src={topRight} alt="top-right" />
@@ -101,18 +101,18 @@ const AppDesc = styled.p`
   line-height: ${sizes.size22};
 `;
 
-const StoresDiv = styled.div`
+const Stores = styled.div`
   height: ${sizes.size55};
   width: ${sizes.size410};
   margin: ${sizes.size0} ${sizes.size0};
   display: flex;
 `;
-interface StoreButtonProps {
+interface StoreProps {
   img: string;
   marginR?: string;
 }
 
-const StoreButton = styled.a<StoreButtonProps>`
+const Store = styled.a<StoreProps>`
   width: ${sizes.size195};
   height: ${sizes.size55};
   background: ${(props) => (props.img ? `url(${props.img})` : "")};

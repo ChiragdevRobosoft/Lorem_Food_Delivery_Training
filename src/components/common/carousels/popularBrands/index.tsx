@@ -20,7 +20,10 @@ let datas: string[] = ["one", "two", "three", "four"];
 
 const renderArrow =
   (direction: string) =>
-  (onClickHandler: any, shouldBeEnabled: boolean, label: any) => {
+  (
+    onClickHandler: React.MouseEventHandler<HTMLInputElement>,
+    shouldBeEnabled: boolean
+  ) => {
     if (!shouldBeEnabled) {
       const styles2: CSSProperties = {
         position: "absolute",
@@ -36,11 +39,11 @@ const renderArrow =
       };
       if (direction === "prev") {
         styles2.left = 848;
-        styles2.borderRight = "0.5px solid rgba(151, 151, 151, 0.29)";
+        styles2.borderRight = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
       } else {
         styles2.right = 0;
         styles2.transform = "scaleX(-1)";
-        styles2.borderRight = "0.5px solid rgba(151, 151, 151, 0.29)";
+        styles2.borderRight = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
       }
       return <div style={styles2}></div>;
     }
@@ -61,10 +64,10 @@ const renderArrow =
     if (direction === "prev") {
       styles.left = 848;
       styles.transform = "scaleX(-1)";
-      styles.borderLeft = "0.5px solid rgba(151, 151, 151, 0.29)";
+      styles.borderLeft = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
     } else {
       styles.right = 0;
-      styles.borderLeft = "0.5px solid rgba(151, 151, 151, 0.29)";
+      styles.borderLeft = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
     }
 
     return <div onClick={onClickHandler} style={styles}></div>;
@@ -96,36 +99,36 @@ const CarouselPB = () => {
             {datas.map((data, i) => (
               <SingleSlide>
                 <BrandFoodImage src={KFC} alt="" />
-                <RightDiv>
+                <RightSide>
                   <ContentHolder>
                     <BrandDetails>
                       <BrandLogo src={kfcLogo} alt="" />
-                      <NameTypeDiv>
+                      <Content>
                         <BrandName>
                           {tData.carousels.popularBrands.brandName}
                         </BrandName>
                         <LocType>
                           {tData.carousels.popularBrands.locAndType}
                         </LocType>
-                      </NameTypeDiv>
+                      </Content>
                     </BrandDetails>
                     <HorizontalLine />
                     <Description>
                       {tData.carousels.popularBrands.description}
                     </Description>
                   </ContentHolder>
-                </RightDiv>
+                </RightSide>
               </SingleSlide>
             ))}
           </Carousel>
-          <RouteDiv width={`${sizes.size100_61}`} margin={`${sizes.size15}`}>
+          <AllBrands width={`${sizes.size100_61}`} margin={`${sizes.size15}`}>
             <RouteText height={`${sizes.size22}`} width={`${sizes.size79}`}>
               {data.carousels.popularBrands.routeText}
             </RouteText>
             <Arrowspan>
               <b>&#62;</b>
             </Arrowspan>
-          </RouteDiv>
+          </AllBrands>
         </Wrapper>
       )}
     </>
@@ -137,16 +140,16 @@ export default CarouselPB;
 const NoData = styled.div`
   height: ${sizes.size240};
   width: ${sizes.size958};
-  margin: ${sizes.size35} 0 0 0;
+  margin: ${sizes.size35} ${sizes.size0} ${sizes.size0} ${sizes.size0};
   border-radius: ${sizes.size6};
   background-color: ${colors.white};
   display: flex;
   flex-direction: column;
 `;
 const EmptyIcon = styled.img`
-  height: 120px;
-  width: 192px;
-  margin: 26px 402px 15px 364px;
+  height: ${sizes.size120};
+  width: ${sizes.size192};
+  margin: ${sizes.size26} ${sizes.size402} ${sizes.size15} ${sizes.size364};
 `;
 const Oops = styled.p`
   height: ${sizes.size27};
@@ -176,7 +179,7 @@ const Wrapper = styled.div`
   .main-slide {
     height: ${sizes.size240};
     width: ${sizes.size958};
-    margin: 0 0 0 0;
+    margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0};
     border-radius: ${sizes.size6};
     background-color: ${colors.white};
   }
@@ -203,7 +206,7 @@ const BrandFoodImage = styled.img`
   margin: ${sizes.size0};
 `;
 
-const RightDiv = styled.div`
+const RightSide = styled.div`
   height: ${sizes.size240};
   width: ${sizes.size508};
   margin: ${sizes.size0};
@@ -231,7 +234,7 @@ const BrandLogo = styled.img`
   margin: ${sizes.size0};
 `;
 
-const NameTypeDiv = styled.div`
+const Content = styled.div`
   height: ${sizes.size60};
   width: ${sizes.size150};
   margin: ${sizes.size17} ${sizes.size207} ${sizes.size12} ${sizes.size25};
@@ -313,7 +316,7 @@ interface RouteDivProps {
   width: string;
   margin: string;
 }
-export const RouteDiv = styled.div<RouteDivProps>`
+export const AllBrands = styled.div<RouteDivProps>`
   height: ${sizes.size22};
   width: ${(props) => props.width};
   margin: ${(props) => `${props.margin} auto auto ${sizes.size0}`};

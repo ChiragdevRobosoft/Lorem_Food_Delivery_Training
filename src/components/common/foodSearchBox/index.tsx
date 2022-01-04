@@ -5,7 +5,7 @@ import searchIcon from "./../../../assets/common/foodSearchBox/search-icon-home.
 import pinIcon from "./../../../assets/common/foodSearchBox/icn_pin.png";
 import gpsIcon from "./../../../assets/common/foodSearchBox/icn_gps_indicator.png";
 import timeDateIcon from "./../../../assets/common/foodSearchBox/present-t&d-firstpage.png";
-
+import data from "./../constants.json";
 interface foodSearchProps {
   pageType: string;
 }
@@ -17,29 +17,29 @@ const Foodsearch: FC<foodSearchProps> = ({ pageType }) => {
         className={pageType}
         type="text"
         name="food-search"
-        placeholder="Search your restaurant or cuisines"
+        placeholder={data.foodSearchBox.placeHolder1}
       />
-      <LocDateDiv className={pageType}>
-        <LocDiv className={pageType}>
-          <LocInput
+      <LocAndDate className={pageType}>
+        <Locationholder className={pageType}>
+          <Location
             className={pageType}
             type="text"
             name="location"
-            placeholder="Downtown Burj Khalifa, Dubai"
+            placeholder={data.foodSearchBox.placeHolder2}
           />
-          <LocButton className={pageType} />
-        </LocDiv>
-        <DateDiv className={pageType}>
-          <DateInput
+          <LocBtn className={pageType} />
+        </Locationholder>
+        <Dateholder className={pageType}>
+          <Date
             className={pageType}
             type="text"
             name="date"
-            placeholder="Search your restaurant or cuisines"
-            value="Today, 28 April, 2018"
+            placeholder={data.foodSearchBox.placeHolder3}
+            value={data.foodSearchBox.val}
           />
-          <DateButton className={pageType} />
-        </DateDiv>
-      </LocDateDiv>
+          <DateBtn className={pageType} />
+        </Dateholder>
+      </LocAndDate>
     </Wrapper>
   );
 };
@@ -51,8 +51,9 @@ const Wrapper = styled.div`
     props.className === "home"
       ? `${sizes.size0} ${sizes.size889} ${sizes.size176} ${sizes.size420};`
       : null}
-  height: ${(props) => (props.className === "home" ? `${sizes.size175}` : ``)};
-  width: ${(props) => (props.className === "home" ? `${sizes.size611}` : ``)};
+  height: ${(props) =>
+    props.className === "home" ? `${sizes.size175}` : null};
+  width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
   display: flex;
   flex-direction: column;
 `;
@@ -94,7 +95,7 @@ const SearchBox = styled.input`
   //border: 1px solid yellow;
 `;
 
-const LocDateDiv = styled.div`
+const LocAndDate = styled.div`
   //border: 1px solid green;
   width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
   height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
@@ -106,7 +107,7 @@ const LocDateDiv = styled.div`
   flex-direction: row;
 `;
 
-const LocDiv = styled.div`
+const Locationholder = styled.div`
   height: ${(props) =>
     props.className === "home" ? `${sizes.size70}` : `${sizes.size50}`};
   width: ${(props) =>
@@ -118,7 +119,7 @@ const LocDiv = styled.div`
   display: flex;
 `;
 
-const LocInput = styled.input`
+const Location = styled.input`
   height: ${(props) =>
     props.className === "home" ? `${sizes.size70}` : `${sizes.size50}`};
   width: ${(props) =>
@@ -133,7 +134,7 @@ const LocInput = styled.input`
   background-image: url(${pinIcon});
   background-repeat: no-repeat;
   background-position: ${(props) =>
-    props.className === "home" ? `${sizes.size19} ${sizes.size25}` : ``};
+    props.className === "home" ? `${sizes.size19} ${sizes.size25}` : null};
   padding-left: ${(props) =>
     props.className === "home" ? `${sizes.size46}` : ``};
   font-family: ${fontFamilies.fontFamilyOsRegular}
@@ -141,39 +142,39 @@ const LocInput = styled.input`
   border: none;
 `;
 
-const LocButton = styled.button`
+const LocBtn = styled.button`
   background-color: ${colors.white};
   background-image: url(${gpsIcon});
   background-repeat: no-repeat;
   background-position: center;
-  height: ${(props) => (props.className === "home" ? `${sizes.size20}` : ``)};
-  width: ${(props) => (props.className === "home" ? `${sizes.size20}` : ``)};
+  height: ${(props) => (props.className === "home" ? `${sizes.size20}` : null)};
+  width: ${(props) => (props.className === "home" ? `${sizes.size20}` : null)};
   margin: ${(props) =>
     props.className === "home"
       ? `auto ${sizes.sizen21} auto ${sizes.sizen41}`
-      : ``};
+      : null};
   border: none;
 `;
 
-const DateDiv = styled.div`
-  height: ${(props) => (props.className === "home" ? `${sizes.size70}` : ``)};
-  width: ${(props) => (props.className === "home" ? `${sizes.size247}` : ``)};
-  margin: ${(props) => (props.className === "home" ? `${sizes.size0}` : ``)};
+const Dateholder = styled.div`
+  height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
+  width: ${(props) => (props.className === "home" ? `${sizes.size247}` : null)};
+  margin: ${(props) => (props.className === "home" ? `${sizes.size0}` : null)};
   display: flex;
 `;
 
-const DateInput = styled.input`
-  height: ${(props) => (props.className === "home" ? `${sizes.size70}` : ``)};
-  width: ${(props) => (props.className === "home" ? `${sizes.size247}` : ``)};
+const Date = styled.input`
+  height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
+  width: ${(props) => (props.className === "home" ? `${sizes.size247}` : null)};
   color: ${colors.grey5};
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: ${(props) =>
-    props.className === "home" ? `${sizes.size14}` : ``};
-  letter-spacing: -0.24px;
+    props.className === "home" ? `${sizes.size14}` : null};
+  letter-spacing: -0.24;
   line-height: ${sizes.size17};
   background-image: none;
   padding-left: ${(props) =>
-    props.className === "home" ? `${sizes.size23}` : ``};
+    props.className === "home" ? `${sizes.size23}` : null};
   background-color: ${colors.white};
   box-shadow: ${(props) =>
     props.className === "home"
@@ -184,9 +185,9 @@ const DateInput = styled.input`
   outline: none;
 `;
 
-const DateButton = styled.button`
-  height: ${(props) => (props.className === "home" ? `${sizes.size54}` : ``)};
-  width: ${(props) => (props.className === "home" ? `${sizes.size54}` : ``)};
+const DateBtn = styled.button`
+  height: ${(props) => (props.className === "home" ? `${sizes.size54}` : null)};
+  width: ${(props) => (props.className === "home" ? `${sizes.size54}` : null)};
   background-color: ${colors.white};
   background-image: url(${timeDateIcon});
   background-repeat: no-repeat;
@@ -194,7 +195,8 @@ const DateButton = styled.button`
   margin: ${(props) =>
     props.className === "home"
       ? `auto ${sizes.sizen10} auto ${sizes.sizen64}`
-      : ``};
-  box-shadow: ${sizes.size0} 2px 6px ${sizes.size0} rgba(0, 0, 0, 0.05);
+      : null};
+  box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size6} ${sizes.size0}
+    rgba(0, 0, 0, 0.05);
   border: none;
 `;

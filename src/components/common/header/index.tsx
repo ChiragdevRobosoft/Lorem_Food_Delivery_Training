@@ -7,6 +7,7 @@ import {
   angles,
   fontFamilies,
   fontWeight,
+  letterSpacing,
 } from "../../../variables";
 import data from "./../constants.json";
 import User from "./userInfo";
@@ -32,7 +33,7 @@ const Header: FC<headerProps> = ({ className }) => {
         <Login className={className}>{data.header.login}</Login>
       ) : null}
       {className === "loggedin" ? <User /> : null}
-      {className === "loggedin" ? <LineDiv className={className} /> : null}
+      {className === "loggedin" ? <VertLine className={className} /> : null}
       {className === "home" || className === "newSec" ? (
         <CreateAccount className={className}>
           {data.header.createAnAccount}
@@ -42,10 +43,10 @@ const Header: FC<headerProps> = ({ className }) => {
         <Logout className={className}>{data.header.logout}</Logout>
       ) : null}
       {className === "home" || className === "newSec" ? (
-        <LineDiv className={className} />
+        <VertLine className={className} />
       ) : null}
-      <CartImage className={className} src={cartIcon} alt="cart-icon" />
-      <CartText className={className}>{data.header.cart}</CartText>
+      <CartLogo className={className} src={cartIcon} alt="cart-icon" />
+      <Cart className={className}>{data.header.cart}</Cart>
     </HeaderWrapper>
   );
 };
@@ -89,7 +90,7 @@ const HeaderTitle = styled.p`
     props.className === "home" ? `${sizes.size60}` : `${sizes.size43}`};
   font-size: ${(props) =>
     props.className === "home" ? `${sizes.size50}` : `${sizes.size35}`};
-  letter-spacing: 0;
+  letter-spacing: ${letterSpacing.space0};
   margin: ${(props) =>
     props.className === "home"
       ? `${sizes.size15} ${sizes.size1226} ${sizes.size14} ${sizes.size7}`
@@ -106,7 +107,7 @@ const LanguageSelector = styled.select`
   color: ${colors.grey11};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
-  letter-spacing: 0.5;
+  letter-spacing: ${letterSpacing.space0_5};
   line-height: ${sizes.size17};
   text-align: right;
   background-color: inherit;
@@ -125,7 +126,7 @@ const Login = styled.p`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   font-weight: ${fontWeight.weight600};
-  letter-spacing: 0.5;
+  letter-spacing: ${letterSpacing.space0_5};
   line-height: ${sizes.size19};
   text-align: right;
 `;
@@ -141,7 +142,7 @@ const CreateAccount = styled.p`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   font-weight: ${fontWeight.weight600};
-  letter-spacing: 0.5;
+  letter-spacing: ${letterSpacing.space0_5};
   line-height: ${sizes.size19};
   text-align: right;
 `;
@@ -157,18 +158,18 @@ const Logout = styled.p`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   font-weight: ${fontWeight.weight600};
-  letter-spacing: 0.5;
+  letter-spacing: ${letterSpacing.space0_5};
   line-height: ${sizes.size19};
   text-align: right;
 `;
 
-const LineDiv = styled.div`
+const VertLine = styled.div`
   box-sizing: border-box;
   height: ${(props) =>
     props.className === "home" ? `${sizes.size54}` : `${sizes.size33_77}`};
   width: ${(props) =>
     props.className === "home" ? `${sizes.size1}` : `${sizes.size2}`};
-  border: ${sizes.size1} solid #000000;
+  border: ${sizes.size1} solid ${colors.black};
   opacity: 0.1;
   margin: ${(props) =>
     props.className === "home"
@@ -176,7 +177,7 @@ const LineDiv = styled.div`
       : `${sizes.size18} ${sizes.size0} ${sizes.size18_23} ${sizes.size0}`};
 `;
 
-const CartImage = styled.img`
+const CartLogo = styled.img`
   margin: ${(props) =>
     props.className === "home"
       ? `${sizes.size25} ${sizes.size24} ${sizes.size37} ${sizes.size34}`
@@ -189,7 +190,7 @@ const CartImage = styled.img`
       ? ``
       : `linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%)`};
 `;
-const CartText = styled.p`
+const Cart = styled.p`
   margin: ${(props) =>
     props.className === "home"
       ? `${sizes.size29} ${sizes.size0} ${sizes.size41} ${sizes.size0}`
@@ -204,17 +205,11 @@ const CartText = styled.p`
   font-size: ${(props) =>
     props.className === "home" ? `${sizes.size14}` : `${sizes.size12}`};
   font-weight: ${fontWeight.weight600};
-  letter-spacing: ${(props) => (props.className === "home" ? `0.5` : `0.43`)};
+  letter-spacing: ${(props) =>
+    props.className === "home"
+      ? `${letterSpacing.space0_5}`
+      : `${letterSpacing.space0_43}`};
   line-height: ${(props) =>
     props.className === "home" ? `${sizes.size19}` : `${sizes.size17}`};
   text-align: right;
 `;
-
-/*
-color: ${(props) =>
-    props.className === "home" ? `` : `${colors.transparentColor}`};
-clip-path: url(${cartSvg});
-// background-clip: ${(props) => (props.className === "home" ? `` : "inherit")};
-  // -webkit-background-clip: ${(props) =>
-  //   props.className === "home" ? `` : "inherit"};
-*/

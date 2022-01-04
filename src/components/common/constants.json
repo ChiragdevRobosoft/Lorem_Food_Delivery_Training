@@ -59,5 +59,11 @@
     "bestDealsOffers": {
       "routeText": "All offers & deals"
     }
+  },
+  "foodSearchBox": {
+    "placeHolder1": "Search your restaurant or cuisines",
+    "placeHolder2": "Downtown Burj Khalifa, Dubai",
+    "placeHolder3": "Search your restaurant or cuisines",
+    "val": "Today, 28 April, 2018"
   }
 }

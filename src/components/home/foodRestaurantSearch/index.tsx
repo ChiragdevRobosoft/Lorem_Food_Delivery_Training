@@ -9,19 +9,19 @@ const FoodRestaurantSearch = () => {
   return (
     <Wrapper>
       <Header className="home" />
-      <HeadingText>
+      <Heading>
         <Headingspan>{data.homeTexts.foodRestaurantSearch.heading}</Headingspan>
         <Headingspan>
           {data.homeTexts.foodRestaurantSearch.description}
         </Headingspan>
-      </HeadingText>
+      </Heading>
       <Foodsearch pageType="home" />
-      <ScrollDiv>
-        <ScrollImage src={mouseScroll} alt="mouse-scroll" />
-        <ScrollText>
+      <ScrollComp>
+        <Scroll src={mouseScroll} alt="mouse-scroll" />
+        <ScrollName>
           {data.homeTexts.foodRestaurantSearch.scrollText}
-        </ScrollText>
-      </ScrollDiv>
+        </ScrollName>
+      </ScrollComp>
     </Wrapper>
   );
 };
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const HeadingText = styled.p`
+const Heading = styled.p`
   margin: ${sizes.size0} ${sizes.size788} ${sizes.size63} ${sizes.size413};
   height: ${sizes.size166};
   width: ${sizes.size719};
@@ -49,20 +49,20 @@ const Headingspan = styled.span`
   display: block;
 `;
 
-const ScrollDiv = styled.div`
+const ScrollComp = styled.div`
   margin: ${sizes.size0} ${sizes.size900} ${sizes.size38} ${sizes.size901};
   height: ${sizes.size77};
   width: ${sizes.size119};
   display: block;
 `;
 
-const ScrollImage = styled.img`
+const Scroll = styled.img`
   margin: ${sizes.size0} ${sizes.size43_82} ${sizes.size10} ${sizes.size43_18};
   height: ${sizes.size49};
   width: ${sizes.size32};
 `;
 
-const ScrollText = styled.p`
+const ScrollName = styled.p`
   margin: ${sizes.size0} ${sizes.size0_45} ${sizes.size0} ${sizes.size0};
   height: ${sizes.size18};
   width: ${sizes.size118_55};

@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import React, { FC } from "react";
+import { FC } from "react";
 import noUser from "./../../../../assets/common/header/noUser.svg";
 import {
   sizes,
   colors,
-  angles,
   fontFamilies,
   fontWeight,
   letterSpacing,
@@ -14,13 +13,13 @@ let loginStatus = false;
 const User = () => {
   return (
     <UserInfo>
-      <UserImageDiv>
+      <UserPhoto>
         {loginStatus === true ? (
-          <UserImg src="" alt="User" />
+          <Users src="" alt="User" />
         ) : (
-          <NoUserImg src={noUser} alt="No user" />
+          <NoUser src={noUser} alt="No user" />
         )}
-      </UserImageDiv>
+      </UserPhoto>
       <UserName>
         {loginStatus === true
           ? `${data.header.userName}`
@@ -39,27 +38,27 @@ const UserInfo = styled.div`
   flex-direction: row;
 `;
 
-const UserImageDiv = styled.div`
+const UserPhoto = styled.div`
   height: ${sizes.size38};
   width: ${sizes.size38_51};
   background-color: ${colors.grey14};
   border-radius: 50%;
   justify-content: center;
 `;
-const UserImg = styled.img`
+const Users = styled.img`
   height: ${sizes.size38};
   width: ${sizes.size38_51};
   border-radius: 50%;
   background-position: center;
 `;
-const NoUserImg = styled.img`
+const NoUser = styled.img`
   height: ${sizes.size19};
   width: ${sizes.size19_26};
-  margin: 9px 10.13px 10px 9.12px;
+  margin: ${sizes.size9} ${sizes.size10_13} ${sizes.size10} ${sizes.size9_12};
 `;
 
 const UserName = styled.p`
-  margin: ${sizes.size12} ${sizes.size0} ${sizes.size7} 8.12px;
+  margin: ${sizes.size12} ${sizes.size0} ${sizes.size7} ${sizes.size8_12};
   height: ${sizes.size19};
   width: ${sizes.size55_74};
   color: ${colors.grey8};

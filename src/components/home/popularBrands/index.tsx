@@ -5,11 +5,11 @@ import { colors, fontFamilies, letterSpacing, sizes } from "../../../variables";
 const PopularBrands = () => {
   return (
     <Wrapper>
-      <ContentDiv>
-        <ContentTitle>{data.homeTexts.popularBrands.heading}</ContentTitle>
-        <ContentDesc>{data.homeTexts.popularBrands.description}</ContentDesc>
+      <BrandsContainer>
+        <Title>{data.homeTexts.popularBrands.heading}</Title>
+        <Description>{data.homeTexts.popularBrands.description}</Description>
         <CarouselPB />
-      </ContentDiv>
+      </BrandsContainer>
     </Wrapper>
   );
 };
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
-const ContentDiv = styled.div`
+const BrandsContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: ${sizes.size510};
@@ -27,7 +27,7 @@ const ContentDiv = styled.div`
   margin: ${sizes.size65} ${sizes.size479} ${sizes.size73} ${sizes.size480};
 `;
 
-const ContentTitle = styled.p`
+const Title = styled.p`
   height: ${sizes.size83};
   width: ${sizes.size362};
   color: ${colors.grey5};
@@ -40,7 +40,7 @@ const ContentTitle = styled.p`
   margin: ${sizes.size0} auto ${sizes.size10} ${sizes.size0};
 `;
 
-const ContentDesc = styled.p`
+const Description = styled.p`
   height: ${sizes.size34};
   width: ${sizes.size776};
   color: ${colors.grey5};

@@ -6,8 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
 import { sizes, colors, angles } from "./../../../../variables";
 import data from "./../../constants.json";
-import { RouteDiv, RouteText, Arrowspan } from "../popularBrands";
-
+import { AllBrands as AllOffers, RouteText, Arrowspan } from "../popularBrands";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 const datas = [
@@ -28,7 +27,10 @@ const datas = [
 
 const renderArrow =
   (direction: string) =>
-  (onClickHandler: any, shouldBeEnabled: boolean, label: any) => {
+  (
+    onClickHandler: React.MouseEventHandler<HTMLInputElement>,
+    shouldBeEnabled: boolean
+  ) => {
     const styles: CSSProperties = {
       position: "absolute",
       bottom: 0,
@@ -47,11 +49,11 @@ const renderArrow =
 
       if (direction === "prev") {
         styles.left = 849;
-        styles.borderRight = "0.5px solid rgba(151, 151, 151, 0.29)";
+        styles.borderRight = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
       } else {
         styles.right = 0;
         styles.transform = "scaleX(-1)";
-        styles.borderRight = "0.5px solid rgba(151, 151, 151, 0.29)";
+        styles.borderRight = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
       }
       return <div style={styles}></div>;
     }
@@ -59,10 +61,10 @@ const renderArrow =
     if (direction === "prev") {
       styles.left = 849;
       styles.transform = "scaleX(-1)";
-      styles.borderLeft = "0.5px solid rgba(151, 151, 151, 0.29)";
+      styles.borderLeft = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
     } else {
       styles.right = 0;
-      styles.borderLeft = "0.5px solid rgba(151, 151, 151, 0.29)";
+      styles.borderLeft = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
     }
     return <div onClick={onClickHandler} style={styles}></div>;
   };
@@ -89,7 +91,7 @@ const CarouselBDO = () => {
           );
         })}
       </Carousel>
-      <RouteDiv width={`${sizes.size223_61}`} margin={`${sizes.size19}`}>
+      <AllOffers width={`${sizes.size223_61}`} margin={`${sizes.size19}`}>
         <RouteText
           height={`${sizes.size22}`}
           width={`${sizes.size130}`}
@@ -100,7 +102,7 @@ const CarouselBDO = () => {
         <Arrowspan>
           <b>&#62;</b>
         </Arrowspan>
-      </RouteDiv>
+      </AllOffers>
     </Wrapper>
   );
 };
