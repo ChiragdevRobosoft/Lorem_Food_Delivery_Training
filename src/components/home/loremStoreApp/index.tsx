@@ -5,7 +5,14 @@ import centerPhone from "./../../../assets/home/loremStoreApp/img_phone.png";
 import topRight from "./../../../assets/home/loremStoreApp/img_gradient_u.png";
 import appStoreButton from "./../../../assets/home/loremStoreApp/Button - App Store.png";
 import playStoreButton from "./../../../assets/home/loremStoreApp/Button - Play Store.png";
-import { angles, colors, fontWeight, sizes, zIndex } from "../../../variables";
+import {
+  angles,
+  colors,
+  fontFamilies,
+  fontWeight,
+  sizes,
+  zIndex,
+} from "../../../variables";
 
 const LoremStoreApp = () => {
   return (
@@ -44,7 +51,7 @@ const PageWrapper = styled.div`
 const LeftBottom = styled.img`
   height: ${sizes.size473};
   width: ${sizes.size548};
-  margin: 372px auto 0px 0px;
+  margin: ${sizes.size372} auto ${sizes.size0} ${sizes.size0};
   position: absolute;
   bottom: ${sizes.size0};
   left: ${sizes.size0};
@@ -63,7 +70,7 @@ const AppName = styled.p`
   height: ${sizes.size83};
   width: ${sizes.size258};
   color: ${colors.grey5};
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size50};
   letter-spacing: 0;
   line-height: ${sizes.size63};
@@ -76,7 +83,7 @@ const DownloadText = styled.p`
   height: ${sizes.size41};
   width: ${sizes.size347};
   color: ${colors.grey8};
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size30};
   letter-spacing: 0;
   line-height: ${sizes.size63};
@@ -88,7 +95,7 @@ const AppDesc = styled.p`
   height: ${sizes.size44};
   width: ${sizes.size349};
   color: ${colors.grey7};
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};

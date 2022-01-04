@@ -1,9 +1,9 @@
-import Foodsearch from "./../../common/foodSearchBox/index";
-import Header from "../../common/header/index";
-import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import styled from "styled-components";
 import data from "./../../common/constants.json";
 import { colors, fontFamilies, opacity, sizes } from "../../../variables";
+import Foodsearch from "./../../common/foodSearchBox/index";
+import Header from "../../common/header/index";
+import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 
 const FoodRestaurantSearch = () => {
   return (

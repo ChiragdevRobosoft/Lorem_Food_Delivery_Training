@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { FC } from "react";
+import { colors, fontFamilies, sizes } from "../../../variables";
 import searchIcon from "./../../../assets/common/foodSearchBox/search-icon-home.png";
 import pinIcon from "./../../../assets/common/foodSearchBox/icn_pin.png";
 import gpsIcon from "./../../../assets/common/foodSearchBox/icn_gps_indicator.png";
 import timeDateIcon from "./../../../assets/common/foodSearchBox/present-t&d-firstpage.png";
-import React, { FC } from "react";
-import { colors, fontFamilies, sizes } from "../../../variables";
 
 interface foodSearchProps {
   pageType: string;

@@ -13,6 +13,7 @@ import {
 import kfcLogo from "./../../../../assets/common/carousels/brand_logo.png";
 import emptyIcon from "./../../../../assets/common/carousels/noRestaurants.jpg";
 import tData from "./../../constants.json";
+import data from "./../../constants.json";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 let datas: string[] = ["one", "two", "three", "four"];
@@ -75,9 +76,9 @@ const CarouselPB = () => {
       {datas.length === 0 ? (
         <NoData>
           <EmptyIcon src={emptyIcon} alt="No Restaurants" />
-          <Oops>Oops</Oops>
+          <Oops>{data.carousels.popularBrands.noRestaurantTitle}</Oops>
           <SolutionText>
-            No brands nearby change to other locations and try
+            {data.carousels.popularBrands.norestaurantDescp}
           </SolutionText>
         </NoData>
       ) : (
@@ -119,7 +120,7 @@ const CarouselPB = () => {
           </Carousel>
           <RouteDiv width={`${sizes.size100_61}`} margin={`${sizes.size15}`}>
             <RouteText height={`${sizes.size22}`} width={`${sizes.size79}`}>
-              All Brands
+              {data.carousels.popularBrands.routeText}
             </RouteText>
             <Arrowspan>
               <b>&#62;</b>
@@ -148,27 +149,27 @@ const EmptyIcon = styled.img`
   margin: 26px 402px 15px 364px;
 `;
 const Oops = styled.p`
-  height: 27px;
-  width: 54px;
-  color: #000000;
+  height: ${sizes.size27};
+  width: ${sizes.size54};
+  color: ${colors.black};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.48;
-  line-height: 27px;
+  font-size: ${sizes.size20};
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: ${sizes.sizen0_48};
+  line-height: ${sizes.size27};
   text-align: center;
-  margin: 0 467px 8px 437px;
+  margin: ${sizes.size0} ${sizes.size467} ${sizes.size8} ${sizes.size437};
 `;
 const SolutionText = styled.p`
-  height: 22px;
-  width: 341px;
-  color: #000000;
+  height: ${sizes.size22};
+  width: ${sizes.size341};
+  color: ${colors.black};
   font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 22px;
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size22};
   text-align: center;
-  margin: 0 314px 22px 303px;
+  margin: ${sizes.size0} ${sizes.size314} ${sizes.size22} ${sizes.size303};
 `;
 
 const Wrapper = styled.div`
@@ -299,15 +300,13 @@ export const RouteText = styled.p<RouteTextProps>`
   line-height: ${sizes.size22};
   margin: 0 0 auto ${sizes.size1};
   text-align: ${(props) => (props.textAlign ? props.textAlign : null)};
-  //display: inline;
 `;
 
 export const Arrowspan = styled.span`
-  height: 7.45px;
-  width: 3.61px;
+  height: ${sizes.size7_45};
+  width: ${sizes.size3_61};
   color: ${colors.orange1};
-  //display: inline;
-  margin-left: 8px;
+  margin-left: ${sizes.size8};
 `;
 
 interface RouteDivProps {

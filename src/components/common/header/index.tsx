@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { FC } from "react";
+import { FC } from "react";
 import cartIcon from "./../../../assets/common/header/cart-icon.png";
 import {
   sizes,
@@ -9,10 +9,9 @@ import {
   fontWeight,
 } from "../../../variables";
 import data from "./../constants.json";
-import cartSvg from "./../../../assets/common/header/icn_cart.svg";
+import User from "./userInfo";
 
 const languages = ["English", "Arabic", "Spanish"];
-//<HeaderTitle className={className}>{data.header.title}</HeaderTitle>
 interface headerProps {
   className: string;
 }
@@ -29,21 +28,22 @@ const Header: FC<headerProps> = ({ className }) => {
           );
         })}
       </LanguageSelector>
-      {className === "home" && (
+      {className === "home" || className === "newSec" ? (
         <Login className={className}>{data.header.login}</Login>
-      )}
-      {className === "loggedin" && (
-        <LoggedIn>
-          <UserImageDiv>
-            <NoUser src="" alt="" />
-          </UserImageDiv>
-          <UserName>No Name</UserName>
-        </LoggedIn>
-      )}
-      <CreateAccount className={className}>
-        {data.header.createAnAccount}
-      </CreateAccount>
-      <LineDiv className={className} />
+      ) : null}
+      {className === "loggedin" ? <User /> : null}
+      {className === "loggedin" ? <LineDiv className={className} /> : null}
+      {className === "home" || className === "newSec" ? (
+        <CreateAccount className={className}>
+          {data.header.createAnAccount}
+        </CreateAccount>
+      ) : null}
+      {className === "loggedin" ? (
+        <Logout className={className}>{data.header.logout}</Logout>
+      ) : null}
+      {className === "home" || className === "newSec" ? (
+        <LineDiv className={className} />
+      ) : null}
       <CartImage className={className} src={cartIcon} alt="cart-icon" />
       <CartText className={className}>{data.header.cart}</CartText>
     </HeaderWrapper>
@@ -99,8 +99,8 @@ const HeaderTitle = styled.p`
 const LanguageSelector = styled.select`
   margin: ${(props) =>
     props.className === "home"
-      ? `${sizes.size36} ${sizes.size15} ${sizes.size36} ${sizes.size0}`
-      : `${sizes.size29} ${sizes.size33} ${sizes.size24} ${sizes.size0}`};
+      ? `${sizes.size36} ${sizes.size0} ${sizes.size36} ${sizes.size0}`
+      : `${sizes.size29} ${sizes.size0} ${sizes.size24} ${sizes.size0}`};
   height: ${sizes.size17};
   width: ${sizes.size68};
   color: ${colors.grey11};
@@ -117,8 +117,8 @@ const LanguageSelector = styled.select`
 const Login = styled.p`
   margin: ${(props) =>
     props.className === "home"
-      ? `${sizes.size30} ${sizes.size51} ${sizes.size40} ${sizes.size0}`
-      : `${sizes.size28} ${sizes.size51} ${sizes.size23} ${sizes.size0}`};
+      ? `${sizes.size30} ${sizes.size51} ${sizes.size40} ${sizes.size15}`
+      : `${sizes.size28} ${sizes.size51} ${sizes.size23} ${sizes.size33}`};
   height: ${sizes.size19};
   width: ${sizes.size47};
   color: ${colors.grey10};
@@ -127,40 +127,6 @@ const Login = styled.p`
   font-weight: ${fontWeight.weight600};
   letter-spacing: 0.5;
   line-height: ${sizes.size19};
-  text-align: right;
-`;
-
-const LoggedIn = styled.div`
-  height: 38px;
-  width: 105.37px;
-  margin: 16px 31.42px 16px 0px;
-  display: flex;
-  flex-direction: row;
-`;
-
-const UserImageDiv = styled.div`
-  height: 38px;
-  width: 38.51px;
-  background-color: #d8d8d8;
-  border-radius: 50%;
-  align-item: center;
-`;
-
-const NoUser = styled.img`
-  height: 19px;
-  width: 19.26;
-`;
-
-const UserName = styled.p`
-  margin: 12px 0px 7px 8.12px;
-  height: 19px;
-  width: 55.74px;
-  color: #303134;
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  line-height: 19px;
   text-align: right;
 `;
 
@@ -180,6 +146,22 @@ const CreateAccount = styled.p`
   text-align: right;
 `;
 
+const Logout = styled.p`
+  margin: ${(props) =>
+    props.className === "loggedin"
+      ? `${sizes.size28} ${sizes.size36_51} ${sizes.size23} ${sizes.size39_53}`
+      : `${sizes.size28} ${sizes.size43} ${sizes.size23} ${sizes.size0}`};
+  height: ${sizes.size19};
+  width: ${sizes.size61_83};
+  color: ${colors.grey10};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: 0.5;
+  line-height: ${sizes.size19};
+  text-align: right;
+`;
+
 const LineDiv = styled.div`
   box-sizing: border-box;
   height: ${(props) =>
@@ -190,15 +172,15 @@ const LineDiv = styled.div`
   opacity: 0.1;
   margin: ${(props) =>
     props.className === "home"
-      ? `${sizes.size12} ${sizes.size34} ${sizes.size33} ${sizes.size0}`
-      : `${sizes.size18} ${sizes.size39_5} ${sizes.size18_23} ${sizes.size0}`};
+      ? `${sizes.size12} ${sizes.size0} ${sizes.size33} ${sizes.size0}`
+      : `${sizes.size18} ${sizes.size0} ${sizes.size18_23} ${sizes.size0}`};
 `;
 
 const CartImage = styled.img`
   margin: ${(props) =>
     props.className === "home"
-      ? `${sizes.size25} ${sizes.size24} ${sizes.size37} ${sizes.size0}`
-      : `${sizes.size23} ${sizes.size24} ${sizes.size20} ${sizes.size0}`};
+      ? `${sizes.size25} ${sizes.size24} ${sizes.size37} ${sizes.size34}`
+      : `${sizes.size23} ${sizes.size24} ${sizes.size20} ${sizes.size39_5}`};
   height: ${(props) =>
     props.className === "home" ? `${sizes.size27}` : `${sizes.size28}`};
   width: ${sizes.size20};

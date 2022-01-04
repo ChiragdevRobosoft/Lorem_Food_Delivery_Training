@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import data from "./../../common/constants.json";
-import { colors, sizes } from "../../../variables";
+import { colors, fontFamilies, sizes } from "../../../variables";
 import CarouselBDO from "../../common/carousels/bestDealsOffers";
 
 const BestDealsOffers = () => {
@@ -35,7 +35,7 @@ const ContentTitle = styled.p`
   height: ${sizes.size83};
   width: ${sizes.size452};
   color: ${colors.grey5};
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size50};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size83};
@@ -48,7 +48,7 @@ const ContentDescrp = styled.p`
   height: ${sizes.size34};
   width: ${sizes.size541};
   color: ${colors.grey5};
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
   letter-spacing: ${sizes.size0_58};
   line-height: ${sizes.size34};

@@ -42,13 +42,22 @@
     "title": "LOREM",
     "login": "LOGIN",
     "createAnAccount": "CREATE AN ACCOUNT",
-    "cart": "CART"
+    "logout": "LOGOUT",
+    "cart": "CART",
+    "noUser": "No User",
+    "userName": "Ashley"
   },
   "carousels": {
     "popularBrands": {
       "brandName": "KFC",
       "locAndType": "Latin America, Bakery",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus consequat purus sit amet lectus bibendum finbus vel."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus consequat purus sit amet lectus bibendum finbus vel.",
+      "routeText": "All Brands",
+      "noRestaurantTitle": "Oops",
+      "norestaurantDescp": "No brands nearby change to other locations and try"
+    },
+    "bestDealsOffers": {
+      "routeText": "All offers & deals"
     }
   }
 }

@@ -4,7 +4,8 @@ import disabledNextButton from "./../../../../assets/common/carousels/nextButton
 import card1 from "./../../../../assets/common/carousels/Card1.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from "styled-components";
-import { sizes, colors } from "./../../../../variables";
+import { sizes, colors, angles } from "./../../../../variables";
+import data from "./../../constants.json";
 import { RouteDiv, RouteText, Arrowspan } from "../popularBrands";
 
 const Carousel = require("react-responsive-carousel").Carousel;
@@ -94,7 +95,7 @@ const CarouselBDO = () => {
           width={`${sizes.size130}`}
           textAlign="left"
         >
-          All offers &amp; deals
+          {data.carousels.bestDealsOffers.routeText}
         </RouteText>
         <Arrowspan>
           <b>&#62;</b>
@@ -112,8 +113,11 @@ const Wrapper = styled.div`
     width: ${sizes.size960};
     margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0};
     border-radius: ${sizes.size6};
-    //background-color: ${colors.white};
-    background-color: linear-gradient(178.89deg, #ffffff 0%, #f4f6ff 100%);
+    background-color: linear-gradient(
+      ${angles.angle178_89},
+      ${colors.white} 0%,
+      ${colors.lightblue2} 100%
+    );
     padding: ${sizes.size0};
   }
   .carousel {

@@ -92,7 +92,7 @@ const ContentTitle = styled.p`
   height: ${sizes.size83};
   width: ${sizes.size319};
   color: ${colors.grey5};
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size50};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size83};
@@ -104,7 +104,7 @@ const ContentDiscrip = styled.p`
   height: ${sizes.size24};
   width: ${sizes.size639};
   color: ${colors.grey6};
-  font-family: "Open Sans", sans-serif;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
   letter-spacing: ${sizes.size0_58};
   line-height: ${sizes.size24};
