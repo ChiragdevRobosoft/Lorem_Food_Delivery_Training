@@ -13,7 +13,6 @@ import {
   fontWeight,
   links,
 } from "../../variables";
-
 const CreateAccount = ({
   onCloseModal,
   onOpenModal,
