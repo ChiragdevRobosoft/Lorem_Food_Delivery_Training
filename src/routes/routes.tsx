@@ -6,8 +6,8 @@ import { links } from "../variables";
 const Routing = () => {
   return (
     <Routes>
-      <Route path={`${links.home}`} element={<Home />} />
-      <Route path={`${links.restaurantList}`} element={<RestaurantList />} />
+      <Route path={links.home} element={<Home />} />
+      <Route path={links.restaurantList} element={<RestaurantList />} />
     </Routes>
   );
 };
