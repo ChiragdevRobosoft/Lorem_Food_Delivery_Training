@@ -54,7 +54,7 @@ const RestaurantList = () => {
                   <React.Fragment key={index}>
                     <RestaurantCard card={cardInfo} />
                     <Brands>Brands Nearby</Brands>
-                    <MoreOption to={`${links.brands}`}>
+                    <MoreOption to={links.brands}>
                       More
                       <RightArrowImg src={RightArrow} />
                     </MoreOption>

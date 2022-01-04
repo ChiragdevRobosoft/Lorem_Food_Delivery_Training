@@ -10,13 +10,10 @@ const Routing = () => {
   return (
     <CartDataProvider>
       <Routes>
-        <Route path={`${links.home}`} element={<Home />} />
-        <Route path={`${links.restaurantList}`} element={<RestaurantList />} />
-        <Route
-          path={`${links.restaurantDetails}`}
-          element={<RestaurantDetails />}
-        >
-          <Route path={`${links.menu}`} element={<Menu />} />
+        <Route path={links.home} element={<Home />} />
+        <Route path={links.restaurantList} element={<RestaurantList />} />
+        <Route path={links.restaurantDetails} element={<RestaurantDetails />}>
+          <Route path={links.menu} element={<Menu />} />
         </Route>
       </Routes>
     </CartDataProvider>
