@@ -16,7 +16,6 @@ import {
   fontWeight,
   opacity,
 } from "./../../variables";
-import "./index.scss";
 import Footer from "../common/footer";
 
 const Home = () => {

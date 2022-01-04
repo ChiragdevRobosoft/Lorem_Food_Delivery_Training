@@ -2,11 +2,17 @@ import React from "react";
 import { colors, sizes, fontFamilies } from "../../../variables";
 import styled from "styled-components";
 
-const Searchpath = ({ path, className }: any) => {
+const Searchpath = ({
+  path,
+  className,
+}: {
+  path: string[];
+  className: string;
+}) => {
   return (
     <SearchPathContainer>
       <SearchPath className={className}>
-        {path.map((page: any, index: any) => {
+        {path.map((page: string, index: number) => {
           return (
             <React.Fragment key={index}>
               {page}

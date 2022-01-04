@@ -1,24 +1,15 @@
 import React, { FC } from "react";
 import Menu from "../../../assets/restaurantList/menu.png";
 import styled from "styled-components";
-import { sizes, colors, fontFamilies, opacity } from "../../../variables";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  opacity,
+  RestauarantCardprops,
+} from "../../../variables";
 import Bitmap from "../../../assets/restaurantList/Bitmap.png";
 import { Link } from "react-router-dom";
-
-interface RestauarantCardprops {
-  card: {
-    name: string;
-    rating: number;
-    address: string;
-    variety: string;
-    availabilityInfo: string;
-    detailsList: string[];
-  };
-}
-
-interface Props {
-  color: string;
-}
 
 const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
   return (
@@ -166,7 +157,7 @@ const Detail = styled.li`
   text-indent: ${sizes.sizeNeg7};
 `;
 
-const OpenClose = styled.div<Props>`
+const OpenClose = styled.div<{ color: string }>`
   height: ${sizes.size17};
   color: ${(props) =>
     props.color === "green" ? `${colors.green1}` : `${colors.red1}`};

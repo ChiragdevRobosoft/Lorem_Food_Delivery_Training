@@ -1,11 +1,10 @@
 import React from "react";
-
-import Home from "./components/home/index";
+import Routing from "./routes/routes";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Routing />
     </div>
   );
 }

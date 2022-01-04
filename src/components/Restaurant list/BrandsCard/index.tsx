@@ -3,11 +3,20 @@ import Pizzahut from "../../../assets/restaurantList/Pizzahut.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import data from "../../common/constants.json";
 import styled from "styled-components";
-import { sizes, colors, fontFamilies } from "../../../variables";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  restaurantListProps,
+} from "../../../variables";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 const renderArrow =
-  (direction: string) => (onClickHandler: any, shouldBeEnabled: boolean) => {
+  (direction: string) =>
+  (
+    onClickHandler: React.MouseEventHandler<HTMLInputElement>,
+    shouldBeEnabled: boolean
+  ) => {
     if (!shouldBeEnabled) {
       return;
     }
@@ -39,9 +48,20 @@ const renderArrow =
 
 let details = data.RestaurantList;
 
-const newData = details.reduce((a: any, c: any, i: number) => {
-  return i % 4 === 0 ? (a as any).concat([details.slice(i, i + 4)]) : a;
-}, []);
+const newData = details.reduce(
+  (
+    concatedArray: restaurantListProps[][],
+    currentValue: restaurantListProps,
+    index: number
+  ) => {
+    return index % 4 === 0
+      ? (concatedArray as restaurantListProps[][]).concat([
+          details.slice(index, index + 4),
+        ])
+      : concatedArray;
+  },
+  []
+);
 
 const BrandsCard = () => {
   return (
@@ -56,18 +76,20 @@ const BrandsCard = () => {
         showThumbs={false}
         className="main-slide"
       >
-        {newData.map((firstArray: any, index: number) => {
+        {newData.map((firstArray: restaurantListProps[], index: number) => {
           return (
             <GridDisplay key={index}>
-              {firstArray.map((secondArray: any, index: number) => {
-                return (
-                  <React.Fragment key={index}>
-                    <BrandIcon src={Pizzahut} />
-                    <BrandName>{secondArray.name}</BrandName>
-                    <BrandOutlets>{secondArray.outlets} outlets</BrandOutlets>
-                  </React.Fragment>
-                );
-              })}
+              {firstArray.map(
+                (secondArray: restaurantListProps, index: number) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <BrandIcon src={Pizzahut} />
+                      <BrandName>{secondArray.name}</BrandName>
+                      <BrandOutlets>{secondArray.outlets} outlets</BrandOutlets>
+                    </React.Fragment>
+                  );
+                }
+              )}
             </GridDisplay>
           );
         })}

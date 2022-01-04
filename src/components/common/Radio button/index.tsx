@@ -2,14 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import Unselected from "../../../assets/restaurantList/radio_button_unselected.png";
 import Selected from "../../../assets/restaurantList/radio_button_selected.png";
-import { sizes, colors, fontFamilies } from "../../../variables";
-
-interface radioProps {
-  value: any;
-  name: string;
-  options: string[];
-  handleChange: any;
-}
+import { sizes, colors, fontFamilies, radioProps } from "../../../variables";
 
 const Radio: FC<radioProps> = ({ name, options, handleChange }) => {
   return (
