@@ -93,10 +93,6 @@ const FirstName = styled.div`
 const LastName = styled.div`
   margin-bottom: 50px;
 `;
-const RedirectLink = styled(Link)`
-  text-decoration: none;
-  border: none;
-`;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
   height: ${sizes.size588};

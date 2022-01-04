@@ -22,7 +22,7 @@ const InputField = ({
   const handleViewIconClick = () => {
     changeViewState(!viewState);
   };
-  const handleFocusChange = (e: any) => {
+  const handleFocusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "") changeFocusState(false);
   };
   return (

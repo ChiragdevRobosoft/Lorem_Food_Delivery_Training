@@ -58,7 +58,6 @@ const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
             </DropDownContainer>
           </OutsideAlerter>
         ) : null}
-
         <TextBox name="" isPassword={false} />
       </MobileNumberContainer>
     </FormContainer>
