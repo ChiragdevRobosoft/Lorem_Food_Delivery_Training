@@ -12,10 +12,17 @@ import {
   fontWeight,
   links,
 } from "../../variables";
-const PasswordSuccess = () => {
-  const [open, setOpen] = useState(true);
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+const PasswordSuccess = ({
+  onCloseModal,
+  onOpenModal,
+  open,
+  setShowPasswordSuccess,
+}: {
+  onCloseModal: () => void;
+  onOpenModal: () => void;
+  open: boolean;
+  setShowPasswordSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <Modal
       open={open}

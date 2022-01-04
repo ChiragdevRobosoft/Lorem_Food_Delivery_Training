@@ -13,7 +13,6 @@ import {
   fontWeight,
   links,
 } from "../../variables";
-
 const Verification = ({
   onCloseModal,
   onOpenModal,
@@ -21,6 +20,8 @@ const Verification = ({
   setShowAccountDetails,
   setShowVerification,
   setShowCreateAccount,
+  setShowVerified,
+  redirectFromForgotPassword,
 }: {
   onCloseModal: () => void;
   onOpenModal: () => void;
@@ -28,6 +29,8 @@ const Verification = ({
   setShowAccountDetails: React.Dispatch<React.SetStateAction<boolean>>;
   setShowVerification: React.Dispatch<React.SetStateAction<boolean>>;
   setShowCreateAccount: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowVerified: React.Dispatch<React.SetStateAction<boolean>>;
+  redirectFromForgotPassword: boolean;
 }) => {
   const navigate = useNavigate();
   return (
@@ -74,7 +77,11 @@ const Verification = ({
             <Buttons
               className="colouredBgButton"
               name="VERIFY"
-              onClick={() => setShowAccountDetails(true)}
+              onClick={() => {
+                redirectFromForgotPassword
+                  ? setShowVerified(true)
+                  : setShowAccountDetails(true);
+              }}
             ></Buttons>
           </VerifyButton>
         </WrapperRight>

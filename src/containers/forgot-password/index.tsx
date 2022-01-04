@@ -19,12 +19,16 @@ import {
 const ForgotPassword = ({
   onCloseModal,
   onOpenModal,
+  redirectFromForgotPassword,
+  setRedirectFromForgotPassword,
   open,
   setShowForgotPassword,
   setShowVerification,
 }: {
   onCloseModal: () => void;
   onOpenModal: () => void;
+  redirectFromForgotPassword: boolean;
+  setRedirectFromForgotPassword: React.Dispatch<React.SetStateAction<boolean>>;
   open: boolean;
   setShowForgotPassword: React.Dispatch<React.SetStateAction<boolean>>;
   setShowVerification: React.Dispatch<React.SetStateAction<boolean>>;
@@ -104,7 +108,10 @@ const ForgotPassword = ({
           <Buttons
             className="colouredBgButton"
             name="SEND OTP"
-            onClick={() => setShowVerification(true)}
+            onClick={() => {
+              setShowVerification(true);
+              setRedirectFromForgotPassword(true);
+            }}
           ></Buttons>
         </WrapperRight>
       </Wrapper>

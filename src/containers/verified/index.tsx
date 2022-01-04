@@ -5,6 +5,7 @@ import icon_verified from "../../assets/icn_verified.png";
 import { useNavigate, Link } from "react-router-dom";
 import TextBox from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
+import Modal from "react-responsive-modal";
 import {
   sizes,
   colors,
@@ -13,42 +14,81 @@ import {
   links,
 } from "../../variables";
 
-const Verified = () => {
+const Verified = ({
+  onCloseModal,
+  onOpenModal,
+  open,
+  setShowPasswordSuccess,
+  setShowVerified,
+}: {
+  onCloseModal: () => void;
+  onOpenModal: () => void;
+  open: boolean;
+  setShowPasswordSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowVerified: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const navigate = useNavigate();
   return (
-    <Wrapper>
-      <WrapperLeft>
-        <Lorem>LOREM</Lorem>
-        <TagLine>
-          Experience the easiest a way to get <BoldText>great food </BoldText>
-          Delivered
-        </TagLine>
-      </WrapperLeft>
-      <WrapperRight>
-        <RedirectLink to={links.forgotPassword}>
-          <BackImage src={backButton} alt="cut"></BackImage>
-        </RedirectLink>
-        <VerifyImage>
-          <img src={icon_verified} className="icon_forgot"></img>
-        </VerifyImage>
-        <Title>Verified!</Title>
-        <Discription>
-          Your mobile no. is verified. <br />
-          Enter the new password to reset your account.
-        </Discription>
-        <PasswordBox>
-          <TextBox name="Password" isPassword={true}></TextBox>
-        </PasswordBox>
-        <VerifyButton>
-          <Buttons className="colouredBgButton" name="VERIFY"></Buttons>
-        </VerifyButton>
-      </WrapperRight>
-    </Wrapper>
+    <Modal
+      open={open}
+      classNames={{ modal: "modalStyle" }}
+      onClose={onCloseModal}
+      center
+      showCloseIcon={false}
+      styles={{
+        overlay: {
+          background: "transparent",
+        },
+      }}
+    >
+      <Wrapper>
+        <WrapperLeft>
+          <Lorem>LOREM</Lorem>
+          <TagLine>
+            Experience the easiest a way to get <BoldText>great food </BoldText>
+            Delivered
+          </TagLine>
+        </WrapperLeft>
+        <WrapperRight>
+          <BackButton
+            onClick={() => {
+              setShowVerified(false);
+            }}
+          >
+            <BackImage src={backButton} alt="cut"></BackImage>
+          </BackButton>
+          <VerifyImage>
+            <img src={icon_verified} className="icon_forgot"></img>
+          </VerifyImage>
+          <Title>Verified!</Title>
+          <Discription>
+            Your mobile no. is verified. <br />
+            Enter the new password to reset your account.
+          </Discription>
+          <PasswordBox>
+            <TextBox name="Password" isPassword={true}></TextBox>
+          </PasswordBox>
+          <VerifyButton>
+            <Buttons
+              className="colouredBgButton"
+              name="VERIFY"
+              onClick={() => setShowPasswordSuccess(true)}
+            ></Buttons>
+          </VerifyButton>
+        </WrapperRight>
+      </Wrapper>
+    </Modal>
   );
 };
 export default Verified;
 const PasswordBox = styled.div`
   margin-left: 15px;
+`;
+const BackButton = styled.button`
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  padding: 0%;
 `;
 const Title = styled.p`
   color: ${colors.black2};
@@ -77,10 +117,6 @@ const Discription = styled.div`
   width: 300px;
   color: ${colors.grey5};
   margin-bottom: ${sizes.size100};
-`;
-const RedirectLink = styled(Link)`
-  text-decoration: none;
-  border: none;
 `;
 const BackImage = styled.img`
   float: left;
@@ -148,7 +184,7 @@ const VerifyImage = styled.div`
   height: ${sizes.size5};
   width: ${sizes.size25};
   margin-left: ${sizes.size200};
-  margin-top: ${sizes.size60};
+  margin-top: ${sizes.size10};
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white};

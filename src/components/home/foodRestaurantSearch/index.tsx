@@ -10,6 +10,8 @@ import CreateAccount from "../../../containers/create-account";
 import AccountDetails from "../../../containers/account-details";
 import Verification from "../../../containers/verification";
 import RegisterSuccess from "../../../containers/welcome";
+import Verified from "../../../containers/verified";
+import PasswordSuccess from "../../../containers/password-success";
 const LandingPage = () => {
   const [open, setOpen] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
@@ -22,6 +24,10 @@ const LandingPage = () => {
   const [showAccountDetails, setShowAccountDetails] = useState(false);
   const [showVerification, setShowVerification] = useState(false);
   const [showRegisterSuccess, setShowRegisterSuccess] = useState(false);
+  const [redirectFromForgotPassword, setRedirectFromForgotPassword] =
+    useState(false);
+  const [showVerified, setShowVerified] = useState(false);
+  const [showPasswordSuccess, setShowPasswordSuccess] = useState(false);
   console.log(redirectFromLogin, redirectFromRegister);
   return (
     <Wrapper className={"backDrop"}>
@@ -57,6 +63,8 @@ const LandingPage = () => {
           open={open}
           setShowForgotPassword={setShowForgotPassword}
           setShowVerification={setShowVerification}
+          redirectFromForgotPassword={redirectFromForgotPassword}
+          setRedirectFromForgotPassword={setRedirectFromForgotPassword}
         />
       )}
       {showCreateAccount && (
@@ -81,11 +89,16 @@ const LandingPage = () => {
           setShowRegisterSuccess={setShowRegisterSuccess}
         />
       )}
-      {/* {showVerification && (
+      {showVerification && (
         <Verification
           onCloseModal={() => setShowVerification(false)}
           onOpenModal={() => setShowVerification(false)}
           open={showVerification}
+          setShowAccountDetails={setShowAccountDetails}
+          setShowVerification={setShowVerification}
+          setShowCreateAccount={setShowCreateAccount}
+          redirectFromForgotPassword={redirectFromForgotPassword}
+          setShowVerified={setShowVerified}
         />
       )}
       {showRegisterSuccess && (
@@ -93,8 +106,26 @@ const LandingPage = () => {
           onCloseModal={() => setShowRegisterSuccess(false)}
           onOpenModal={() => setShowRegisterSuccess(false)}
           open={showRegisterSuccess}
+          setShowRegisterSuccess={setShowRegisterSuccess}
         />
-      )} */}
+      )}
+      {showVerified && (
+        <Verified
+          onCloseModal={() => setShowVerified(false)}
+          onOpenModal={() => setShowVerified(false)}
+          open={showVerified}
+          setShowPasswordSuccess={setShowPasswordSuccess}
+          setShowVerified={setShowVerified}
+        />
+      )}
+      {showPasswordSuccess && (
+        <PasswordSuccess
+          onCloseModal={() => setShowPasswordSuccess(false)}
+          onOpenModal={() => setShowPasswordSuccess(false)}
+          open={showPasswordSuccess}
+          setShowPasswordSuccess={setShowPasswordSuccess}
+        />
+      )}
     </Wrapper>
   );
 };
