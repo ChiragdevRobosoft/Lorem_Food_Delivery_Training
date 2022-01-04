@@ -16,19 +16,19 @@ import {
 const Footer = () => {
   return (
     <Wrapper>
-      <div className="first-flex">
-        <div className="lorem-text">LOREM</div>
-        <hr className="invisible" />
-        <div className="city-countries-container">
-          <span className="city-countries-number">24</span>
-          <span className="city-countries-text">CITIES</span>
-        </div>
-        <hr />
-        <div className="outer-container">
-          <div className="city-countries-container">
-            <div className="city-countries-number">4</div>
-            <div className="city-countries-text">COUNTRIES</div>
-          </div>
+      <ColumnFlex>
+        <LoremText>LOREM</LoremText>
+        <InvisibleLineBreak />
+        <CityCountryContainer>
+          <CityCountryNumber>24</CityCountryNumber>
+          <CityCountryText>CITIES</CityCountryText>
+        </CityCountryContainer>
+        <LineBreak />
+        <OuterContainer>
+          <CityCountryContainer>
+            <CityCountryNumber>4</CityCountryNumber>
+            <CityCountryText>COUNTRIES</CityCountryText>
+          </CityCountryContainer>
           {data.countryCodes.map((countryCode, index) => {
             return (
               <CircleFlag
@@ -39,9 +39,9 @@ const Footer = () => {
               />
             );
           })}
-        </div>
-        <hr />
-        <div className="social-icons">
+        </OuterContainer>
+        <LineBreak />
+        <SocialIconContainer>
           {data.socialIcons.map((socialIcon, index) => {
             return (
               <SocialIcon
@@ -50,21 +50,21 @@ const Footer = () => {
                 network={socialIcon}
                 fgColor="rgba(128,128,128,0.5)"
                 bgColor="white"
-                url={`https://${socialIcon}.com/jaketrent`}
+                url={`https://${socialIcon}.com/lorem`}
               />
             );
           })}
-        </div>
-      </div>
-      <div className="second-flex">
+        </SocialIconContainer>
+      </ColumnFlex>
+      <RowFlex>
         {data.links.map((link, index) => {
           return (
-            <Link to={`/${link.toLowerCase()}`} key={index}>
+            <RedirectLink to={`/${link.toLowerCase()}`} key={index}>
               {link}
-            </Link>
+            </RedirectLink>
           );
         })}
-      </div>
+      </RowFlex>
     </Wrapper>
   );
 };
@@ -80,138 +80,137 @@ const Wrapper = styled.div`
   height: ${sizes.size227};
   width: ${sizes.fullWidth};
   background-color: ${colors.white};
+`;
 
-  .first-flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: auto;
-    margin-left: auto;
-    top: ${sizes.size0};
-    width: ${sizes.halfWidth};
-    padding-bottom: ${sizes.size17};
-    border-bottom: ${sizes.size1} solid ${colors.grey1};
-    border-width: ${sizes.size2};
-    box-sizing: border-box;
+const ColumnFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  top: ${sizes.size0};
+  width: ${sizes.halfWidth};
+  padding-bottom: ${sizes.size17};
+  border-bottom: ${sizes.size1} solid ${colors.grey1};
+  border-width: ${sizes.size2};
+  box-sizing: border-box;
+`;
 
-    .lorem-text {
-      height: ${sizes.size60};
-      width: ${sizes.size103};
-      background-image: linear-gradient(
-        ${angles.angle60},
-        ${colors.pink1},
-        ${colors.yellow1}
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: ${colors.transparentColor};
-      font-family: ${fontFamilies.fontFamilyBn};
-      font-size: ${sizes.size50};
-      letter-spacing: ${sizes.size0};
-      line-height: ${sizes.size60};
-      text-align: center;
-      vertical-align: middle;
-    }
+const LoremText = styled.div`
+  height: ${sizes.size60};
+  width: ${sizes.size103};
+  background-image: linear-gradient(
+    ${angles.angle60},
+    ${colors.pink1},
+    ${colors.yellow1}
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: ${colors.transparentColor};
+  font-family: ${fontFamilies.fontFamilyBn};
+  font-size: ${sizes.size50};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size60};
+  text-align: center;
+  vertical-align: middle;
+`;
 
-    .invisible {
-      height: ${sizes.size0};
-      width: ${sizes.size0};
-    }
+const InvisibleLineBreak = styled.div`
+  height: ${sizes.size0};
+  width: ${sizes.size0};
+`;
 
-    .city-countries-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      height: ${sizes.size19_4};
+const CityCountryContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: ${sizes.size19_4};
+`;
 
-      .city-countries-number {
-        font-family: ${fontFamilies.fontFamilyOsSemiBold};
-        font-size: ${sizes.size24};
-        letter-spacing: ${sizes.size0};
-        line-height: ${sizes.size19_4};
-        text-align: center;
-        margin-right: ${sizes.size9};
-        background-image: linear-gradient(
-          ${angles.angle60},
-          ${colors.pink2},
-          ${colors.yellow2}
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: ${colors.transparentColor};
-      }
+const CityCountryNumber = styled.span`
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size24};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19_4};
+  text-align: center;
+  margin-right: ${sizes.size9};
+  background-image: linear-gradient(
+    ${angles.angle60},
+    ${colors.pink2},
+    ${colors.yellow2}
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: ${colors.transparentColor};
+`;
 
-      .city-countries-text {
-        color: ${colors.grey2};
-        font-family: ${fontFamilies.fontFamilyOs};
-        font-size: ${sizes.size14};
-        letter-spacing: ${sizes.size0};
-        line-height: ${sizes.size19};
-        vertical-align: bottom;
-        font-weight: ${fontWeight.weight600};
-      }
-    }
+const CityCountryText = styled.span`
+  color: ${colors.grey2};
+  font-family: ${fontFamilies.fontFamilyOs};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
+  vertical-align: bottom;
+  font-weight: ${fontWeight.weight600};
+`;
 
-    hr {
-      width: ${sizes.size2};
-      margin: ${sizes.size0};
-      box-sizing: border-box;
-      height: ${sizes.size19_4};
-      border: ${sizes.size1} solid ${colors.grey3};
-      opacity: ${opacity.opacity0_19};
-    }
+const LineBreak = styled.hr`
+  width: ${sizes.size2};
+  margin: ${sizes.size0};
+  box-sizing: border-box;
+  height: ${sizes.size19_4};
+  border: ${sizes.size1} solid ${colors.grey3};
+  opacity: ${opacity.opacity0_19};
+`;
 
-    .outer-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: ${sizes.width35p};
-      height: ${sizes.size19_4};
-
-      .flag {
-        vertical-align: middle;
-        padding-right: ${sizes.size10};
-      }
-    }
-
-    .social-icons {
-      display: flex;
-      flex-direction: row;
-      justify-content: normal;
-      align-items: flex-start;
-
-      .img {
-        vertical-align: middle;
-        height: ${sizes.size22_41};
-        width: ${sizes.size24_95};
-      }
-    }
+const OuterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: ${sizes.width35p};
+  height: ${sizes.size19_4};
+  .flag {
+    vertical-align: middle;
+    padding-right: ${sizes.size10};
   }
+`;
 
-  .second-flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: normal;
-    margin-right: auto;
-    margin-left: auto;
-    width: ${sizes.halfWidth};
-    height: ${sizes.size19};
-    font-family: ${fontFamilies.fontFamilyOs};
-    font-size: ${sizes.size14};
-    letter-spacing: ${sizes.size0};
-    line-height: ${sizes.size19};
-    margin-top: ${sizes.size28};
+const SocialIconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: normal;
+  align-items: flex-start;
 
-    a {
-      text-decoration: none;
-      color: ${colors.grey4};
-      font-weight: ${fontWeight.weight600};
-    }
+  .img {
+    vertical-align: middle;
+    height: ${sizes.size22_41};
+    width: ${sizes.size24_95};
   }
+`;
+
+const RowFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: normal;
+  margin-right: auto;
+  margin-left: auto;
+  width: ${sizes.halfWidth};
+  height: ${sizes.size19};
+  font-family: ${fontFamilies.fontFamilyOs};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
+  margin-top: ${sizes.size28};
+`;
+
+const RedirectLink = styled(Link)`
+  text-decoration: none;
+  color: ${colors.grey2};
+  font-weight: ${fontWeight.weight600};
 `;
 
 export default Footer;
