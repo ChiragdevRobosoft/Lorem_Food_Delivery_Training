@@ -4,12 +4,18 @@ import FoodCard from "../../common/FoodCard";
 import SearchIcon from "../../../assets/menu/icn_search_home copy.png";
 import data from "../../common/constants.json";
 import Cart from "../Cart";
-import { fontFamilies, colors, sizes, opacity } from "../../../variables";
+import {
+  fontFamilies,
+  colors,
+  sizes,
+  opacity,
+  foodItemProps,
+  foodcardDetailsProps,
+} from "../../../variables";
 
 const Menu = () => {
   const [searchValue, setSearchValue] = useState("");
-
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
   return (
@@ -26,12 +32,16 @@ const Menu = () => {
               {searchValue === "" ? (
                 <FoodCardTitle>
                   {foodType.charAt(0).toUpperCase() + foodType.slice(1)} (
-                  {(data.foodcardDetails as any)[foodType].length})
+                  {
+                    (data.foodcardDetails as foodcardDetailsProps)[foodType]
+                      .length
+                  }
+                  )
                 </FoodCardTitle>
               ) : null}
 
-              {(data.foodcardDetails as any)[foodType].map(
-                (foodItem: any, index: any) => {
+              {(data.foodcardDetails as foodcardDetailsProps)[foodType].map(
+                (foodItem: foodItemProps, index: number) => {
                   if (
                     foodItem.foodName
                       .toUpperCase()

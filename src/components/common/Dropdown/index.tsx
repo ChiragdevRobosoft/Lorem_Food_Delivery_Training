@@ -1,15 +1,6 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { sizes, colors, fontFamilies } from "../../../variables";
-
-interface DropdownProps {
-  options: any;
-  name: string;
-}
-
-interface CSSstyle {
-  visibility: string;
-}
+import { sizes, colors, fontFamilies, DropdownProps } from "../../../variables";
 
 const Dropdown: FC<DropdownProps> = ({ options, name }) => {
   const [selected, setSelected] = useState(options[0].content);
@@ -19,13 +10,15 @@ const Dropdown: FC<DropdownProps> = ({ options, name }) => {
     setToggle(!toggle);
   };
 
-  const handleClick = (e: any) => {
-    setSelected(e.target.value);
+  const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
+    setSelected((e.target as HTMLInputElement).value);
     toggleClass();
   };
 
-  const handleChange = (e: any) => {
-    setImageUrl(e.target.children[0]?.src);
+  const handleChange = (e: React.MouseEvent<HTMLLabelElement>) => {
+    setImageUrl(
+      ((e.target as HTMLElement).children[0] as HTMLImageElement)?.src
+    );
   };
 
   return (
@@ -35,25 +28,30 @@ const Dropdown: FC<DropdownProps> = ({ options, name }) => {
         {imageUrl !== null ? <DropdownImage src={imageUrl} /> : null}
       </Select>
       <DropdownList visibility={toggle.toString()} id={name}>
-        {options.map((choice: any, index: any) => {
-          return (
-            <React.Fragment key={index}>
-              <RadioInput
-                type="radio"
-                id={choice.content}
-                name={name}
-                value={choice.content}
-                onClick={handleClick}
-              />
-              <Option htmlFor={choice.content} onClick={handleChange}>
-                {choice.content}
-                {choice.image !== null ? (
-                  <DropdownImage src={choice.image} />
-                ) : null}
-              </Option>
-            </React.Fragment>
-          );
-        })}
+        {options.map(
+          (
+            choice: { content: string; image: string | null },
+            index: number
+          ) => {
+            return (
+              <React.Fragment key={index}>
+                <RadioInput
+                  type="radio"
+                  id={choice.content}
+                  name={name}
+                  value={choice.content}
+                  onClick={handleClick}
+                />
+                <Option htmlFor={choice.content} onClick={handleChange}>
+                  {choice.content}
+                  {choice.image !== null ? (
+                    <DropdownImage src={choice.image} />
+                  ) : null}
+                </Option>
+              </React.Fragment>
+            );
+          }
+        )}
       </DropdownList>
     </Wrapper>
   );
@@ -77,7 +75,7 @@ const Select = styled.span`
   line-height: ${sizes.size22};
 `;
 
-const DropdownList = styled.div<CSSstyle>`
+const DropdownList = styled.div<{ visibility: string }>`
   box-sizing: border-box;
   position: absolute;
   width: 70px;

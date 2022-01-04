@@ -6,17 +6,23 @@ import nonvegIcon from "../../../assets/menu/icn_nonveg.png";
 import BestsellerIcon from "../../../assets/menu/Best seller.png";
 import AddIcon from "../../../assets/menu/Add button.png";
 import AddedIcon from "../../../assets/menu/Added button.png";
-import { fontFamilies, colors, sizes } from "../../../variables";
+import {
+  fontFamilies,
+  colors,
+  sizes,
+  foodItemProps,
+  foodcardDetailsProps,
+} from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
 import data from "../constants.json";
 
-const FoodCard: FC<any> = ({ cardDetails }) => {
+const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
   const { details, setDetails } = useContext(CartData);
-  const handleClick = (e: any) => {
-    Object.keys(data.foodcardDetails).map((foodType, index) => {
-      return (data.foodcardDetails as any)[foodType].map(
-        (foodItem: any, index: any) => {
-          if (e.target.id === foodItem.id) {
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    Object.keys(data.foodcardDetails).map((foodType) => {
+      return (data.foodcardDetails as foodcardDetailsProps)[foodType].map(
+        (foodItem: foodItemProps) => {
+          if ((e.target as HTMLElement).id === foodItem.id) {
             foodItem.quantity += 1;
             let cartSet = new Set([...details, foodItem]);
             setDetails(Array.from(cartSet.values()));
@@ -80,7 +86,7 @@ const FoodImage = styled.img`
   margin: 10px;
 `;
 
-const VegIcon = styled.img<any>`
+const VegIcon = styled.img<{ imageProp?: boolean }>`
   position: ${(props) => (props.imageProp ? "absolute" : "relative")};
   top: ${(props) => (props.imageProp ? "94px" : "auto")};
   left: ${(props) => (props.imageProp ? "18px" : 0)};
@@ -112,7 +118,7 @@ const GreenText = styled.div`
   text-align: center;
 `;
 
-const ColumnFlex = styled.div<any>`
+const ColumnFlex = styled.div<{ imageProp: boolean }>`
   position: absolute;
   height: ${sizes.fullWidth};
   display: flex;

@@ -5,10 +5,7 @@ import YellowStar from "../../../assets/menu/icn_star_yellow.png";
 import GreenStar from "../../../assets/menu/icn_star_green.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
 
-interface RatingProps {
-  RatingNum: number;
-}
-const DeliveryRating: FC<RatingProps> = ({ RatingNum }) => {
+const DeliveryRating: FC<{ RatingNum: number }> = ({ RatingNum }) => {
   return (
     <RatingConatiner RatingNum={RatingNum}>
       <Image
@@ -19,7 +16,7 @@ const DeliveryRating: FC<RatingProps> = ({ RatingNum }) => {
   );
 };
 
-const RatingConatiner = styled.div<RatingProps>`
+const RatingConatiner = styled.div<{ RatingNum: number }>`
   box-sizing: border-box;
   height: 26px;
   width: 46px;
@@ -34,7 +31,7 @@ const RatingConatiner = styled.div<RatingProps>`
   margin-right: 17.13px;
 `;
 
-const RatingNumber = styled.span<RatingProps>`
+const RatingNumber = styled.span<{ RatingNum: number }>`
   height: 17px;
   color: ${(props) =>
     props.RatingNum > 3

@@ -10,9 +10,8 @@ import { fontFamilies, colors, sizes, angles } from "../../../variables";
 
 const Filters = () => {
   const { register, handleSubmit, control, reset } = useForm();
-  const onSubmit = (data: any) => console.log(data);
   return (
-    <Wrapper onSubmit={handleSubmit(onSubmit)}>
+    <Wrapper>
       <TopFlex>
         <Title>Filters</Title>
         <Reset onClick={() => reset()}>Reset all</Reset>
@@ -32,30 +31,34 @@ const Filters = () => {
         />
         <Label htmlFor="Open">Open Now</Label>
       </CheckboxWrapper>
-      {data.radio.map((radioInfo: any, index: any) => {
-        return (
-          <React.Fragment key={index}>
-            <RadioTitle className="radio">{radioInfo.name}</RadioTitle>
-            <Controller
-              control={control}
-              name={radioInfo.name}
-              render={({ field: { onChange, value } }) => (
-                <Radio
-                  options={radioInfo.options}
-                  name={radioInfo.name}
-                  value={value}
-                  handleChange={(e: any) => onChange(e.target.value)}
-                />
-              )}
-            />
-          </React.Fragment>
-        );
-      })}
+      {data.radio.map(
+        (radioInfo: { name: string; options: string[] }, index: number) => {
+          return (
+            <React.Fragment key={index}>
+              <RadioTitle className="radio">{radioInfo.name}</RadioTitle>
+              <Controller
+                control={control}
+                name={radioInfo.name}
+                render={({ field: { onChange, value } }) => (
+                  <Radio
+                    options={radioInfo.options}
+                    name={radioInfo.name}
+                    value={value}
+                    handleChange={(e): void =>
+                      onChange((e.target as HTMLInputElement).value)
+                    }
+                  />
+                )}
+              />
+            </React.Fragment>
+          );
+        }
+      )}
       <EndFlex>
         <Cuisines className="cuisines">CUISINES</Cuisines>
         <AppliedFilterImage src={FilterPlus} className="plus" />
       </EndFlex>
-      <Button onClick={handleSubmit(onSubmit)}>
+      <Button>
         <span>APPLY</span>
       </Button>
     </Wrapper>

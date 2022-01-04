@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import CartCard from "../../common/CartCard";
 import DownArrow from "../../../assets/menu/collapse button.png";
-import { fontFamilies, sizes, colors } from "../../../variables";
+import { fontFamilies, sizes, colors, foodItemProps } from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
 
 const Cart = () => {
@@ -13,8 +13,10 @@ const Cart = () => {
   };
 
   let totalCost = details.reduce(
-    (total: any, obj: any) =>
-      Math.round(obj.cost * obj.quantity + (total * 100) / 100).toFixed(2),
+    (total: number, foodItem: foodItemProps) =>
+      Math.round(
+        foodItem.cost * foodItem.quantity + (total * 100) / 100
+      ).toFixed(2),
     0
   );
 
@@ -29,7 +31,7 @@ const Cart = () => {
         <ClearCart onClick={handleClick}>Clear cart</ClearCart>
       </TitleFlex>
       <ItemList>
-        {details?.map((item: any, index: any) => {
+        {details?.map((item: foodItemProps, index: number) => {
           return <CartCard item={item} key={index} />;
         })}
       </ItemList>
@@ -113,7 +115,7 @@ const ClearCart = styled.div`
 
 const ArrowIcon = styled.img`
   margin-left: 8px;
-  object-fit: none;
+  fooditemect-fit: none;
 `;
 
 const TotalCostContainer = styled.div`

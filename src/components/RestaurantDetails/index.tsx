@@ -14,8 +14,8 @@ import Footer from "../common/footer";
 
 const RestaurantDetails = () => {
   const [selected, setSelected] = useState("MENU");
-  const handleClick = (e: any) => {
-    setSelected(e.target.innerText);
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    setSelected((e.target as HTMLElement).innerText);
   };
   return (
     <Wrapper>

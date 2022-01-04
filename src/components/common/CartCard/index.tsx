@@ -1,6 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, FC } from "react";
 import styled from "styled-components";
-import { fontFamilies, colors, sizes } from "../../../variables";
+import {
+  fontFamilies,
+  colors,
+  sizes,
+  foodItemProps,
+  foodcardDetailsProps,
+} from "../../../variables";
 import PlusIcon from "../../../assets/menu/my_order_plus_active.png";
 import MinusIcon from "../../../assets/menu/my_order_minus_inactive.png";
 import vegIcon from "../../../assets/menu/icon_veg.png";
@@ -9,12 +15,12 @@ import nonvegIcon from "../../../assets/menu/icn_nonveg.png";
 import { CartData } from "../CartDataProvider";
 import data from "../constants.json";
 
-const CartCard = ({ item }: any) => {
+const CartCard: FC<{ item: foodItemProps }> = ({ item }) => {
   const { details, setDetails } = useContext(CartData);
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    Object.keys(data.foodcardDetails).map((foodType, index) => {
-      return (data.foodcardDetails as any)[foodType].map(
-        (foodItem: any, index: any) => {
+    Object.keys(data.foodcardDetails).map((foodType) => {
+      return (data.foodcardDetails as foodcardDetailsProps)[foodType].map(
+        (foodItem: foodItemProps) => {
           if ((e.target as HTMLElement).id === foodItem.id) {
             (e.target as HTMLElement).classList.contains("minus")
               ? (foodItem.quantity -= 1)
@@ -22,7 +28,9 @@ const CartCard = ({ item }: any) => {
               ? (foodItem.quantity += 1)
               : (foodItem.quantity = 0);
             if (foodItem.quantity === 0) {
-              setDetails(details.filter((item: any) => item !== foodItem));
+              setDetails(
+                details.filter((item: foodItemProps) => item !== foodItem)
+              );
             } else {
               let cartSet = new Set([...details, foodItem]);
               setDetails(Array.from(cartSet.values()));
