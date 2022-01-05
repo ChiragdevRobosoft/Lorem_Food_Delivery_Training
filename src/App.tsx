@@ -1,13 +1,10 @@
 import React from "react";
-
-import Home from "./components/home/index";
-
-function App() {
+import Routing from "./routes/routes";
+const App = () => {
   return (
     <div className="App">
-      <Home />
+      <Routing />
     </div>
   );
-}
-
+};
 export default App;
