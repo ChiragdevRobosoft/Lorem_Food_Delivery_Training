@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import Pizzahut from "../../../assets/restaurantList/Pizzahut.png";
+import ChickenTikka from "../../../assets/restaurantList/ChickenTikka.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import data from "../../common/constants.json";
 import styled from "styled-components";
@@ -83,7 +83,7 @@ const BrandsCard = () => {
                 (secondArray: restaurantListProps, index: number) => {
                   return (
                     <React.Fragment key={index}>
-                      <BrandIcon src={Pizzahut} />
+                      <BrandIcon src={ChickenTikka} />
                       <BrandName>{secondArray.name}</BrandName>
                       <BrandOutlets>{secondArray.outlets} outlets</BrandOutlets>
                     </React.Fragment>
