@@ -47,3 +47,15 @@ code {
   src: local("BebasNeue-Regular"),
     url("./fonts/bebasNeue/BebasNeue-Regular.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: local("OpenSans-Bold"),
+    url("./fonts/openSans/OpenSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: local("OpenSans-Regular"),
+    url("./fonts/openSans/OpenSans-Regular.ttf") format("truetype");
+}

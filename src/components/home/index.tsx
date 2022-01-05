@@ -32,7 +32,7 @@ const Home = () => {
       </HomeScreens>
       <HomeScreens
         height={`${sizes.size847}`}
-        backgroundColor={`linear-gradient(${angles.angle206_72} ${colors.lightblue1} 0%, ${colors.white} 100%)`}
+        backgroundColor={`linear-gradient(${angles.angle206_72} ${colors.blue_f3f6ff} 0%, ${colors.white_ffffff} 100%)`}
       >
         <LoremStoreApp />
       </HomeScreens>

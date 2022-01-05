@@ -91,19 +91,19 @@ const Title = styled.p`
   margin: ${sizes.size0} ${sizes.size324} ${sizes.size14} ${sizes.size0};
   height: ${sizes.size83};
   width: ${sizes.size319};
-  color: ${colors.grey5};
+  color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size50};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size83};
   text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
-    ${colors.white};
+    ${colors.white_ffffff};
 `;
 const Discription = styled.p`
   margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size4};
   height: ${sizes.size24};
   width: ${sizes.size639};
-  color: ${colors.grey6};
+  color: ${colors.grey_929598};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
   letter-spacing: ${sizes.size0_58};
@@ -151,7 +151,7 @@ interface StepDescpProps {
 const StepDescp = styled.p<StepDescpProps>`
   height: ${(props) => props.height};
   width: ${(props) => props.width};
-  color: ${colors.grey7};
+  color: ${colors.grey_7c7c7c};
   font-family: ${fontFamilies.fontFamilyOsRegular}
   font-size: ${sizes.size18};
   letter-spacing: ${sizes.size0_64};

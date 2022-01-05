@@ -142,7 +142,7 @@ const NoData = styled.div`
   width: ${sizes.size958};
   margin: ${sizes.size35} ${sizes.size0} ${sizes.size0} ${sizes.size0};
   border-radius: ${sizes.size6};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   display: flex;
   flex-direction: column;
 `;
@@ -154,7 +154,7 @@ const EmptyIcon = styled.img`
 const Oops = styled.p`
   height: ${sizes.size27};
   width: ${sizes.size54};
-  color: ${colors.black};
+  color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size20};
   font-weight: ${fontWeight.weight600};
@@ -166,7 +166,7 @@ const Oops = styled.p`
 const SolutionText = styled.p`
   height: ${sizes.size22};
   width: ${sizes.size341};
-  color: ${colors.black};
+  color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -181,7 +181,7 @@ const Wrapper = styled.div`
     width: ${sizes.size958};
     margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0};
     border-radius: ${sizes.size6};
-    background-color: ${colors.white};
+    background-color: ${colors.white_ffffff};
   }
   .carousel {
     height: ${sizes.size327};
@@ -245,7 +245,7 @@ const Content = styled.div`
 const BrandName = styled.p`
   height: ${sizes.size39};
   width: ${sizes.size53};
-  color: ${colors.blue1};
+  color: ${colors.blue_223136};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size29};
   font-weight: ${fontWeight.weight600};
@@ -257,7 +257,7 @@ const BrandName = styled.p`
 const LocType = styled.p`
   height: ${sizes.size19};
   width: ${sizes.size150};
-  color: ${colors.grey12};
+  color: ${colors.grey_757575};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -270,14 +270,14 @@ const HorizontalLine = styled.div`
   box-sizing: border-box;
   height: ${sizes.size3};
   width: ${sizes.size456};
-  border: ${sizes.size1} solid ${colors.white1};
+  border: ${sizes.size1} solid ${colors.white_ededed};
   margin: ${sizes.size17} ${sizes.size12} ${sizes.size0} ${sizes.size0};
 `;
 
 const Description = styled.p`
   height: ${sizes.size62};
   width: ${sizes.size470};
-  color: ${colors.grey13};
+  color: ${colors.grey_6a6a6a};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -296,7 +296,7 @@ export const RouteText = styled.p<RouteTextProps>`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   height: ${(props) => props.height};
   width: ${(props) => props.width};
-  color: ${colors.orange1};
+  color: ${colors.orange_f67e03};
   font-size: ${sizes.size16};
   font-weight: ${fontWeight.weight600};
   letter-spacing: ${sizes.size0};
@@ -308,7 +308,7 @@ export const RouteText = styled.p<RouteTextProps>`
 export const Arrowspan = styled.span`
   height: ${sizes.size7_45};
   width: ${sizes.size3_61};
-  color: ${colors.orange1};
+  color: ${colors.orange_f67e03};
   margin-left: ${sizes.size8};
 `;
 

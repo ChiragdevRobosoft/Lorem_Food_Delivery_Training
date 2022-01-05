@@ -117,8 +117,8 @@ const Wrapper = styled.div`
     border-radius: ${sizes.size6};
     background-color: linear-gradient(
       ${angles.angle178_89},
-      ${colors.white} 0%,
-      ${colors.lightblue2} 100%
+      ${colors.white_ffffff} 0%,
+      ${colors.blue_f4f6ff} 100%
     );
     padding: ${sizes.size0};
   }

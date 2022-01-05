@@ -49,7 +49,7 @@ const Footer = () => {
                 className="social-icon"
                 network={socialIcon}
                 fgColor="rgba(128,128,128,0.5)"
-                bgColor="white"
+                bgColor={`${colors.white_ffffff}`}
                 url={`https://${socialIcon}.com/jaketrent`}
               />
             );
@@ -79,7 +79,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   height: ${sizes.size227};
   width: ${sizes.fullWidth};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
 
   .first-flex {
     display: flex;
@@ -91,7 +91,7 @@ const Wrapper = styled.div`
     top: ${sizes.size0};
     width: ${sizes.halfWidth};
     padding-bottom: ${sizes.size17};
-    border-bottom: ${sizes.size1} solid ${colors.grey1};
+    border-bottom: ${sizes.size1} solid ${colors.grey_979797_19};
     border-width: ${sizes.size2};
     box-sizing: border-box;
 
@@ -100,8 +100,8 @@ const Wrapper = styled.div`
       width: ${sizes.size103};
       background-image: linear-gradient(
         ${angles.angle60},
-        ${colors.pink1},
-        ${colors.yellow1}
+        ${colors.pink_e21143_09},
+        ${colors.yellow_ffb03a_09}
       );
       background-clip: text;
       -webkit-background-clip: text;
@@ -135,8 +135,8 @@ const Wrapper = styled.div`
         margin-right: ${sizes.size9};
         background-image: linear-gradient(
           ${angles.angle60},
-          ${colors.pink2},
-          ${colors.yellow2}
+          ${colors.pink_ff3366_08},
+          ${colors.yellow_ffb03a_08}
         );
         background-clip: text;
         -webkit-background-clip: text;
@@ -144,7 +144,7 @@ const Wrapper = styled.div`
       }
 
       .city-countries-text {
-        color: ${colors.grey2};
+        color: ${colors.grey_636364_07};
         font-family: ${fontFamilies.fontFamilyOs};
         font-size: ${sizes.size14};
         letter-spacing: ${sizes.size0};
@@ -159,7 +159,7 @@ const Wrapper = styled.div`
       margin: ${sizes.size0};
       box-sizing: border-box;
       height: ${sizes.size19_4};
-      border: ${sizes.size1} solid ${colors.grey3};
+      border: ${sizes.size1} solid ${colors.grey_979797};
       opacity: ${opacity.opacity0_19};
     }
 
@@ -208,7 +208,7 @@ const Wrapper = styled.div`
 
     a {
       text-decoration: none;
-      color: ${colors.grey4};
+      color: ${colors.grey_636364_07};
       font-weight: ${fontWeight.weight600};
     }
   }

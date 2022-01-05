@@ -43,8 +43,8 @@ const PageWrapper = styled.div`
   flex-direction: row;
   background: linear-gradient(
     ${angles.angle206_72},
-    ${colors.lightblue1} 0%,
-    ${colors.white} 100%
+    ${colors.blue_f3f6ff} 0%,
+    ${colors.white_ffffff} 100%
   );
 `;
 
@@ -69,20 +69,20 @@ const AppName = styled.p`
   margin: ${sizes.size0} ${sizes.size152} ${sizes.size0} ${sizes.size0};
   height: ${sizes.size83};
   width: ${sizes.size258};
-  color: ${colors.grey5};
+  color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size50};
   letter-spacing: 0;
   line-height: ${sizes.size63};
   text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
-    ${colors.white};
+    ${colors.white_ffffff};
 `;
 
 const DownloadText = styled.p`
   margin: ${sizes.size0} ${sizes.size63} ${sizes.size18} ${sizes.size0};
   height: ${sizes.size41};
   width: ${sizes.size347};
-  color: ${colors.grey8};
+  color: ${colors.grey_303134};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size30};
   letter-spacing: 0;
@@ -94,7 +94,7 @@ const AppDesc = styled.p`
   margin: ${sizes.size0} ${sizes.size59} ${sizes.size43} ${sizes.size0};
   height: ${sizes.size44};
   width: ${sizes.size349};
-  color: ${colors.grey7};
+  color: ${colors.grey_7c7c7c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};

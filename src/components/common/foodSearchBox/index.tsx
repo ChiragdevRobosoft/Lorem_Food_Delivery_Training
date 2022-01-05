@@ -58,13 +58,14 @@ const Wrapper = styled.div`
 `;
 
 const SearchBox = styled.input`
+  box-sizing: border-box;
   height: ${(props) =>
     props.className === "home" ? `${sizes.size70}` : `${sizes.size50}`};
   width: ${(props) =>
     props.className === "home" ? `${sizes.size611}` : `${sizes.size605}`};
   border-radius: ${(props) =>
     props.className === "home" ? `${sizes.size10}` : `${sizes.size4}`};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${(props) =>
     props.className === "home"
       ? `${sizes.size0} ${sizes.size4} ${sizes.size20} ${sizes.size0}
@@ -91,11 +92,10 @@ const SearchBox = styled.input`
     margin: 0px;
   }
   display: flex;
-  //border: 1px solid yellow;
 `;
 
 const LocAndDate = styled.div`
-  //border: 1px solid green;
+  box-sizing: border-box;
   width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
   height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
   margin: ${(props) =>
@@ -119,13 +119,14 @@ const Locationholder = styled.div`
 `;
 
 const Location = styled.input`
+box-sizing: border-box;
   height: ${(props) =>
     props.className === "home" ? `${sizes.size70}` : `${sizes.size50}`};
   width: ${(props) =>
     props.className === "home" ? `${sizes.size338}` : `${sizes.size283}`};
   border-radius: ${(props) =>
     props.className === "home" ? `${sizes.size10}` : `${sizes.size4}`};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${(props) =>
     props.className === "home"
       ? `${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0} rgba(0, 0, 0, 0.1)`
@@ -142,7 +143,7 @@ const Location = styled.input`
 `;
 
 const LocBtn = styled.button`
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   background-image: url(${gpsIcon});
   background-repeat: no-repeat;
   background-position: center;
@@ -163,9 +164,10 @@ const Dateholder = styled.div`
 `;
 
 const Date = styled.input`
+  box-sizing: border-box;
   height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
   width: ${(props) => (props.className === "home" ? `${sizes.size247}` : null)};
-  color: ${colors.grey5};
+  color: ${colors.grey_4c4c4c};
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: ${(props) =>
     props.className === "home" ? `${sizes.size14}` : null};
@@ -174,7 +176,7 @@ const Date = styled.input`
   background-image: none;
   padding-left: ${(props) =>
     props.className === "home" ? `${sizes.size23}` : null};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${(props) =>
     props.className === "home"
       ? `${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0} rgba(0, 0, 0, 0.1)`
@@ -187,7 +189,7 @@ const Date = styled.input`
 const DateBtn = styled.button`
   height: ${(props) => (props.className === "home" ? `${sizes.size54}` : null)};
   width: ${(props) => (props.className === "home" ? `${sizes.size54}` : null)};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   background-image: url(${timeDateIcon});
   background-repeat: no-repeat;
   background-position: center;

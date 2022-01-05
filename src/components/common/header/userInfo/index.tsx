@@ -41,7 +41,7 @@ const UserInfo = styled.div`
 const UserPhoto = styled.div`
   height: ${sizes.size38};
   width: ${sizes.size38_51};
-  background-color: ${colors.grey14};
+  background-color: ${colors.grey_d8d8d8};
   border-radius: 50%;
   justify-content: center;
 `;
@@ -61,7 +61,7 @@ const UserName = styled.p`
   margin: ${sizes.size12} ${sizes.size0} ${sizes.size7} ${sizes.size8_12};
   height: ${sizes.size19};
   width: ${sizes.size55_74};
-  color: ${colors.grey8};
+  color: ${colors.grey_303134};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   font-weight: ${fontWeight.weight600};

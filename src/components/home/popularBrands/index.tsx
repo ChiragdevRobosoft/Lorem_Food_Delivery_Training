@@ -30,20 +30,20 @@ const BrandsContainer = styled.div`
 const Title = styled.p`
   height: ${sizes.size83};
   width: ${sizes.size362};
-  color: ${colors.grey5};
+  color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size50};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size83};
   text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
-    ${colors.white};
+    ${colors.white_ffffff};
   margin: ${sizes.size0} auto ${sizes.size10} ${sizes.size0};
 `;
 
 const Description = styled.p`
   height: ${sizes.size34};
   width: ${sizes.size776};
-  color: ${colors.grey5};
+  color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
   letter-spacing: ${letterSpacing.space0_58};
