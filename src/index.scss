@@ -13,9 +13,21 @@ code {
 }
 
 @font-face {
+  font-family: "OpenSans-Bold";
+  src: local("OpenSans-Bold"),
+    url("./fonts/openSans/OpenSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "OpenSans-Light";
   src: local("OpenSans-Light"),
     url("./fonts/openSans/OpenSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSans-Medium";
+  src: local("OpenSans-Medium"),
+    url("./fonts/openSans/OpenSans-Medium.ttf") format("truetype");
 }
 
 @font-face {
@@ -28,12 +40,6 @@ code {
   font-family: "OpenSans-SemiBold";
   src: local("OpenSans-SemiBold"),
     url("./fonts/openSans/OpenSans-SemiBold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "OpenSans-Bold";
-  src: local("OpenSans-Bold"),
-    url("./fonts/openSans/OpenSans-Bold.ttf") format("truetype");
 }
 
 @font-face {

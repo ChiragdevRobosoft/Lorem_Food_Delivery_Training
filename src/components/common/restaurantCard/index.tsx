@@ -1,20 +1,15 @@
 import React, { FC } from "react";
 import Menu from "../../../assets/common/restaurantCard/menu.png";
 import styled from "styled-components";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  opacity,
-  RestauarantCardprops,
-} from "../../../variables";
-import Bitmap from "../../../assets/common/restaurantCard/Bitmap.png";
+import { sizes, colors, fontFamilies, opacity } from "../../../variables";
+import FoodIcon from "../../../assets/common/restaurantCard/food.png";
 import { Link } from "react-router-dom";
+import { RestauarantCardprops } from "../interfaces";
 
 const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
   return (
     <Wrapper>
-      <FoodImage src={Bitmap} alt="" />
+      <FoodImage src={FoodIcon} alt="" />
       <Rating>{card.rating}</Rating>
       <Link to="/menu">
         <MenuImage src={Menu} alt="" />
@@ -47,9 +42,9 @@ const Wrapper = styled.div`
   height: 166.79px;
   width: 631.42px;
   border-radius: ${sizes.size6};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
-    ${colors.black1};
+    ${colors.black_000000_1};
   margin-bottom: 10.99px;
 `;
 
@@ -64,8 +59,8 @@ const Rating = styled.div`
   height: 27.25px;
   width: 43.6px;
   border-radius: ${sizes.size4};
-  background-color: ${colors.yellow3};
-  color: ${colors.white};
+  background-color: ${colors.yellow_f5a623};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
@@ -95,7 +90,7 @@ const ColumnFlex = styled.div`
 
 const RestaurantName = styled.div`
   height: 30px;
-  color: ${colors.blue1};
+  color: ${colors.blue_223136};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size22};
   font-weight: bold;
@@ -106,7 +101,7 @@ const RestaurantName = styled.div`
 
 const RestaurantAddress = styled.div`
   height: 17px;
-  color: ${colors.grey6};
+  color: ${colors.grey_858484_9};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -118,7 +113,7 @@ const HorizontalLine = styled.hr`
   box-sizing: border-box;
   height: 2px;
   width: ${sizes.fullWidth};
-  border: ${sizes.size1} solid ${colors.grey3};
+  border: ${sizes.size1} solid ${colors.grey_979797};
   opacity: ${opacity.opacity0_19};
   margin-top: 5px;
   margin-bottom: 4.5px;
@@ -126,7 +121,7 @@ const HorizontalLine = styled.hr`
 
 const FoodVariety = styled.div`
   height: 17px;
-  color: ${colors.grey7};
+  color: ${colors.grey_9f9f9f_9};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -140,7 +135,7 @@ const DetailsList = styled.ul`
   gap: 9px;
   width: 70%;
   height: 17px;
-  color: ${colors.grey8};
+  color: ${colors.grey_757575_9};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -160,7 +155,9 @@ const Detail = styled.li`
 const OpenClose = styled.div<{ color: string }>`
   height: ${sizes.size17};
   color: ${(props) =>
-    props.color === "green" ? `${colors.green1}` : `${colors.red1}`};
+    props.color === "green"
+      ? `${colors.green_5fb700}`
+      : `${colors.red_ff0d0d}`};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
