@@ -21,7 +21,7 @@ const Footer = () => {
         <InvisibleLineBreak />
         <CityCountryContainer>
           <CityCountryNumber>{data.footerData.cities.count}</CityCountryNumber>
-          <CityCountryText>{data.footerData.cities.count}</CityCountryText>
+          <CityCountryText>{data.footerData.cities.title}</CityCountryText>
         </CityCountryContainer>
         <LineBreak />
         <OuterContainer>
