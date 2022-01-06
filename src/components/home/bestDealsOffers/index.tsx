@@ -1,48 +1,53 @@
 import styled from "styled-components";
+import data from "./../../common/constants.json";
+import { colors, fontFamilies, sizes } from "../../../variables";
+import CarouselBDO from "../../common/carousels/bestDealsOffers";
 
 const BestDealsOffers = () => {
   return (
     <Wrapper>
-      <div className="content-container">
-        <p className="content-title">Best Deals & Offers</p>
-        <p className="content-discription">
-          Endless deals near you! Grab the best deals and offers
-        </p>
-      </div>
+      <Content>
+        <ContentTitle>{data.homeTexts.bestDealsOffers.heading}</ContentTitle>
+        <Description>{data.homeTexts.bestDealsOffers.description}</Description>
+        <CarouselBDO />
+      </Content>
     </Wrapper>
   );
 };
 export default BestDealsOffers;
 
 const Wrapper = styled.div`
-display: flex;
-  .content-container {
-    display: flex;
-    flex-direction: column;
-    height: 508px;
-    width: 964px;
-    margin: 125px 481px 190px 475px;
-    /*border: 1px solid darkgray;*/
-    .content-title {
-      height: 83px;
-      width: 452px;
-      color: #4c4c4c;
-      font-family: "Open Sans", sans-serif;
-      font-size: 50px;
-      letter-spacing: 0;
-      line-height: 83px;
-      text-shadow: 0 0 9px 0 #ffff;
-    }
-    .content-discription {
-      height: 34px;
-      width: 541px;
-      color: #4c4c4c;
-      font-family: "Open Sans", sans-serif;
-      font-size: 18px;
-      letter-spacing: 0.58;
-      line-height: 34px;
-    }
-  }
-}
+  display: flex;
+`;
 
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: ${sizes.size508};
+  width: ${sizes.size964};
+  margin: ${sizes.size125} ${sizes.size481} ${sizes.size190} ${sizes.size475};
+`;
+
+const ContentTitle = styled.p`
+  height: ${sizes.size83};
+  width: ${sizes.size452};
+  color: ${colors.grey_4c4c4c};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size50};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size83};
+  text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
+    ${colors.white_ffffff};
+  margin: ${sizes.size0} auto ${sizes.size10} ${sizes.size0};
+`;
+
+const Description = styled.p`
+  height: ${sizes.size34};
+  width: ${sizes.size541};
+  color: ${colors.grey_4c4c4c};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size18};
+  letter-spacing: ${sizes.size0_58};
+  line-height: ${sizes.size34};
+  margin: ${sizes.size0} auto ${sizes.size53} ${sizes.size0};
 `;
