@@ -1,15 +1,15 @@
 import styled from "styled-components";
-
+import CarouselPB from "../../common/carousels/popularBrands";
+import data from "./../../common/constants.json";
+import { colors, fontFamilies, letterSpacing, sizes } from "../../../variables";
 const PopularBrands = () => {
   return (
     <Wrapper>
-      <div className="content-container">
-        <p className="content-title">Popular Brands</p>
-        <p className="content-discription">
-          Find out more about the world's top food that brands are available all
-          over the world today
-        </p>
-      </div>
+      <BrandsContainer>
+        <Title>{data.homeTexts.popularBrands.heading}</Title>
+        <Description>{data.homeTexts.popularBrands.description}</Description>
+        <CarouselPB />
+      </BrandsContainer>
     </Wrapper>
   );
 };
@@ -17,31 +17,36 @@ export default PopularBrands;
 
 const Wrapper = styled.div`
   display: flex;
-  .content-container {
-    display: flex;
-    flex-direction: column;
-    height: 510px;
-    width: 966px;
-    margin: 65px 479px 73px 480px;
-    border: 1px solid darkgray;
-    .content-title {
-      height: 83px;
-      width: 362px;
-      color: #4c4c4c;
-      font-family: "Open Sans", sans-serif;
-      font-size: 50px;
-      letter-spacing: 0;
-      line-height: 83px;
-      text-shadow: 0 0 9px 0 #ffff;
-    }
-    .content-discription {
-      height: 34px;
-      width: 776px;
-      color: #4c4c4c;
-      font-family: "Open Sans", sans-serif;
-      font-size: 18px;
-      letter-spacing: 0.58;
-      line-height: 34px;
-    }
-  }
+`;
+
+const BrandsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: ${sizes.size510};
+  width: ${sizes.size966};
+  margin: ${sizes.size65} ${sizes.size479} ${sizes.size73} ${sizes.size480};
+`;
+
+const Title = styled.p`
+  height: ${sizes.size83};
+  width: ${sizes.size362};
+  color: ${colors.grey_4c4c4c};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size50};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size83};
+  text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
+    ${colors.white_ffffff};
+  margin: ${sizes.size0} auto ${sizes.size10} ${sizes.size0};
+`;
+
+const Description = styled.p`
+  height: ${sizes.size34};
+  width: ${sizes.size776};
+  color: ${colors.grey_4c4c4c};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size18};
+  letter-spacing: ${letterSpacing.space0_58};
+  line-height: ${sizes.size34};
+  margin: ${sizes.size0} auto ${sizes.size25} ${sizes.size4};
 `;

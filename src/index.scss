@@ -13,9 +13,27 @@ code {
 }
 
 @font-face {
+  font-family: "OpenSans-Bold";
+  src: local("OpenSans-Bold"),
+    url("./fonts/openSans/OpenSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "OpenSans-Light";
   src: local("OpenSans-Light"),
     url("./fonts/openSans/OpenSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSans-Medium";
+  src: local("OpenSans-Medium"),
+    url("./fonts/openSans/OpenSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: local("OpenSans-Regular"),
+    url("./fonts/openSans/OpenSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -28,4 +46,16 @@ code {
   font-family: "BebasNeue-Regular";
   src: local("BebasNeue-Regular"),
     url("./fonts/bebasNeue/BebasNeue-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: local("OpenSans-Bold"),
+    url("./fonts/openSans/OpenSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: local("OpenSans-Regular"),
+    url("./fonts/openSans/OpenSans-Regular.ttf") format("truetype");
 }
