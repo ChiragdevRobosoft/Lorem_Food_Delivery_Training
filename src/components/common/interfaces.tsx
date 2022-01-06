@@ -19,3 +19,8 @@ export interface RestauarantCardprops {
     detailsList: string[];
   };
 }
+
+export interface restaurantListProps {
+  name: string;
+  outlets: string;
+}

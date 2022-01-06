@@ -7,6 +7,7 @@ export const colors = {
   black_000000: "rgba(0,0,0,1)", //black
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_000000_05: "rgba(0, 0, 0, 0.5)", //black3
+  black_000000_1: "rgba(0, 0, 0, 0.1)",
   grey_979797: "rgba(151, 151, 151, 1)", //grey3 #979797
   grey_979797_19: "rgba(151, 151, 151, 0.19)", //grey1 #979797
   grey_636364_07: "rgba(99, 99, 100, 0.7)", //grey2 grey4 #636364
@@ -25,6 +26,11 @@ export const colors = {
   grey_606060: "rgba(96, 96, 96,1)",
   grey_6f6f6f: "rgba(111, 111, 111,1)",
   grey_636364_7: "rgba(99, 99, 100, 0.7)",
+  grey_858484_9: "rgba(133, 132, 132, 0.9)",
+  grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
+  grey_757575_9: "rgba(117, 117, 117, 0.9)",
+  grey_2d2d2d: "rgba(45,45,45,1)",
+  grey_777777: "rgba(119, 119, 119,1)",
   pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
   pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
   pink_fda5a3: "#FDA5A3", //pink3
@@ -32,6 +38,7 @@ export const colors = {
   pink_d34836_1: "rgba(211, 72, 54, 1)", //pink4
   yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
+  yellow_f5a623: "rgba(245,166,35,1)",
   orange_f67e03: "rgba(246, 126, 3, 1)", //orange1 #f67e03
   orange_fca100: "rgba(252, 161, 0,1)",
   orange_f78713: "rgba()247, 135, 19,1",
@@ -40,6 +47,8 @@ export const colors = {
   blue_f4f6ff: "#f4f6ff", //lightblue2
   blue_223136: "#223136", //blue1 hexversion
   blue_02a7fd: "rgba(2, 167, 253, 1)", //blue2 #02a7fd
+  green_5fb700: "rgba(95,183,0,1)",
+  red_ff0d0d: "rgba(255,13,13,1)",
 };
 
 export const sizes = {
@@ -47,13 +56,13 @@ export const sizes = {
   sizep4: "4%",
   sizep5: "5%",
   widthp35: "35%",
+  sizeNeg7: "-7px",
   sizep40: "40%",
   halfWidth: "50%",
   fullWidth: "100%",
   sizeNeg0_24: "-0.24px",
-  sizeNeg7: "-7px",
   size0: "0",
-  size0_29: "0.29",
+  size0_29: "0.29px",
   size0_45: "0.45px",
   size0_5: "0.5px",
   size0_58: "0.58px",
@@ -367,4 +376,5 @@ export const links = {
   verification: "/verification",
   passwordSuccess: "/password-success",
   accountDetails: "/account-details",
+  menu: "/menu",
 };
