@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
-import { sizes, colors, fontFamilies, DropdownProps } from "../../../variables";
+import { sizes, colors, fontFamilies } from "../../../variables";
+import { DropdownProps } from "../interfaces";
 
 const Dropdown: FC<DropdownProps> = ({ options, name }) => {
   const [selected, setSelected] = useState(options[0].content);
@@ -67,7 +68,7 @@ const Select = styled.span`
   position: relative;
   box-sizing: border-box;
   height: 22px;
-  color: ${colors.orange6};
+  color: ${colors.orange_fca100};
   padding: 0;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
@@ -81,14 +82,14 @@ const DropdownList = styled.div<{ visibility: string }>`
   width: 70px;
   display: ${(props) => (props.visibility === "true" ? "flex" : "none")};
   flex-direction: column;
-  border: ${sizes.size1} solid ${colors.white};
+  border: ${sizes.size1} solid ${colors.white_ffffff};
   border-radius: ${sizes.size6};
-  box-shadow: 0 2px 8px 0 ${colors.grey14};
+  box-shadow: 0 2px 8px 0 ${colors.grey_949494_34};
   z-index: 1;
 `;
 
 const Option = styled.label`
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   height: 16px;
   color: black;
   font-family: ${fontFamilies.fontFamilyOsRegular};
