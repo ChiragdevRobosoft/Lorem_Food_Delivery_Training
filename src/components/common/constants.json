@@ -11,6 +11,40 @@
     "Contact",
     "Sitemap"
   ],
+  "RestaurantList": [
+    {
+      "name": "Pizzahut",
+      "outlets": "2 outlets"
+    },
+    {
+      "name": "KFC",
+      "outlets": "5 outlets"
+    },
+    {
+      "name": "Chicken Tikka",
+      "outlets": "5 outlets"
+    },
+    {
+      "name": "McDonalds",
+      "outlets": "3 outlets"
+    },
+    {
+      "name": "Chicken Tikka",
+      "outlets": "5 outlets"
+    },
+    {
+      "name": "Pizzahut",
+      "outlets": "2 outlets"
+    },
+    {
+      "name": "McDonalds",
+      "outlets": "2 outlets"
+    },
+    {
+      "name": "KFC",
+      "outlets": "5 outlets"
+    }
+  ],
   "homeTexts": {
     "foodRestaurantSearch": {
       "heading": "Order your food",

@@ -6,6 +6,7 @@ export const colors = {
   black_000000: "rgba(0,0,0,1)", //black
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_000000_05: "rgba(0, 0, 0, 0.5)", //black3
+  black_000000_1: "rgba(0, 0, 0, 0.1)",
   grey_979797: "rgba(151, 151, 151, 1)", //grey3 #979797
   grey_979797_19: "rgba(151, 151, 151, 0.19)", //grey1 #979797
   grey_636364_07: "rgba(99, 99, 100, 0.7)", //grey2 grey4 #636364
@@ -20,6 +21,11 @@ export const colors = {
   grey_757575: "#757575", //grey12
   grey_6a6a6a: "#6a6a6a", //grey13
   grey_d8d8d8: "#d8d8d8", //grey14
+  grey_858484_9: "rgba(133, 132, 132, 0.9)",
+  grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
+  grey_757575_9: "rgba(117, 117, 117, 0.9)",
+  grey_2d2d2d: "rgba(45,45,45,1)",
+  grey_777777: "rgba(119, 119, 119,1)",
   pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
   pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
   pink_fda5a3: "#FDA5A3", //pink3
@@ -27,12 +33,15 @@ export const colors = {
   pink_d34836_1: "rgba(211, 72, 54, 1)", //pink4
   yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
+  yellow_f5a623: "rgba(245,166,35,1)",
   orange_f67e03: "rgba(246, 126, 3, 1)", //orange1 #f67e03
   blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
   blue_223136: "#223136", //blue1 hexversion
   blue_02a7fd: "rgba(2, 167, 253, 1)", //blue2 #02a7fd
+  green_5fb700: "rgba(95,183,0,1)",
+  red_ff0d0d: "rgba(255,13,13,1)",
 };
 
 export const sizes = {
@@ -40,6 +49,7 @@ export const sizes = {
   sizep4: "4%",
   sizep5: "5%",
   width35p: "35%",
+  sizeNeg7: "-7px",
   sizep40: "40%",
   halfWidth: "50%",
   fullWidth: "100%",
@@ -51,12 +61,12 @@ export const sizes = {
   size0_64: "0.64px",
   size1: "1px",
   size2: "2px",
+  size4: "4px",
+  size6: "6px",
   size3: "3px",
   size3_61: "3.61px",
   size3_66: "3.66px",
-  size4: "4px",
   size5: "5px",
-  size6: "6px",
   size7: "7px",
   size7_45: "7.45px",
   size8: "8px",
@@ -64,32 +74,37 @@ export const sizes = {
   size9: "9px",
   size9_12: "9.12px",
   size10: "10px",
-  size10_13: "10.13px",
-  size11: "11px",
   size12: "12px",
-  size13: "13px",
-  size13_18: "13.18px",
   size14: "14px",
-  size15: "15px",
   size16: "16px",
   size17: "17px",
-  size18: "18px",
-  size18_23: "18.23px",
   size19: "19px",
-  size19_26: "19.26px",
   size19_4: "19.4px",
-  size20: "20px",
   size22: "22px",
   size22_41: "22.41px",
-  size23: "23px",
   size24: "24px",
-  size25: "25px",
   size24_95: "24.95px",
+  size27_25: "27.25px",
+  size28: "28px",
+  size30: "30px",
+  size50: "50px",
+  size60: "60px",
+  size103: "103px",
+  size227: "227px",
+  size10_13: "10.13px",
+  size11: "11px",
+  size13: "13px",
+  size13_18: "13.18px",
+  size15: "15px",
+  size18: "18px",
+  size18_23: "18.23px",
+  size19_26: "19.26px",
+  size20: "20px",
+  size23: "23px",
+  size25: "25px",
   size26: "26px",
   size27: "27px",
-  size28: "28px",
   size29: "29px",
-  size30: "30px",
   size31_42: "31.42px",
   size32: "32px",
   size33: "33px",
@@ -115,7 +130,6 @@ export const sizes = {
   size47: "47px",
   size48: "48px",
   size49: "49px",
-  size50: "50px",
   size51: "51px",
   size53: "53px",
   size54: "54px",
@@ -124,7 +138,6 @@ export const sizes = {
   size56: "56px",
   size57: "57px",
   size59: "59px",
-  size60: "60px",
   size61: "61px",
   size61_83: "61.83px",
   size62: "62px",
@@ -156,7 +169,6 @@ export const sizes = {
   size100: "100px",
   size100_61: "100.61px",
   size102: "102px",
-  size103: "103px",
   size105_37: "105.37",
   size107: "107px",
   size110: "110px",
@@ -196,7 +208,6 @@ export const sizes = {
   size220: "220px",
   size223_61: "223.61px",
   size224: "224px",
-  size227: "227px",
   size228: "228px",
   size230: "230px",
   size235: "235px",
@@ -357,4 +368,5 @@ export const links = {
   verification: "/verification",
   passwordSuccess: "/password-success",
   accountDetails: "/account-details",
+  menu: "/menu",
 };
