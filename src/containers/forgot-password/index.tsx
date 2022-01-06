@@ -9,6 +9,7 @@ import Underline from "../../assets/underline.png";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import CountryCode from "../../components/country-code";
+import data from "./../../components/common/constants.json";
 import {
   sizes,
   colors,
@@ -67,10 +68,9 @@ const ForgotPassword = ({
           <ForgotImage>
             <img src={icon_forgot} className="icon_forgot"></img>
           </ForgotImage>
-          <Title>Forgot Password!</Title>
+          <Title>{data.loginModal.forgetPassword.title}</Title>
           <Discription>
-            Share your registered either email address or mobile number to send
-            you the OTP to reset your password
+            {data.loginModal.forgetPassword.description}
           </Discription>
           <Navbar>
             <TypeContainer>
@@ -79,7 +79,7 @@ const ForgotPassword = ({
                 onClick={() => setInputType("email")}
                 className={InputType === "email" ? "boldButton" : "null"}
               >
-                Email
+                {data.loginModal.forgetPassword.email}
               </InputTypeButton>
               {InputType === "email" ? (
                 <Border src={Underline} alt="border" />
@@ -91,7 +91,7 @@ const ForgotPassword = ({
                 onClick={() => setInputType("mobile")}
                 className={InputType === "mobile" ? "boldButton" : "null"}
               >
-                Mobile No.
+                {data.loginModal.forgetPassword.mobileNumber}
               </InputTypeButton>
               {InputType === "mobile" ? (
                 <Border src={Underline} alt="border" />
@@ -149,8 +149,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: ${colors.white};
-  box-shadow: 0 2px 24px 0 ${colors.black3};
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 24px 0 ${colors.black_000000_05};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -160,7 +160,7 @@ const Wrapper = styled.div`
   right: 0;
   margin: auto;
   .boldButton {
-    color: ${colors.black};
+    color: ${colors.black_000000};
     font-weight: ${fontWeight.weight600};
   }
 `;
@@ -182,7 +182,7 @@ const Navbar = styled.div`
 const InputTypeButton = styled.button`
   height: ${sizes.size24};
   opacity: 0.66;
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
   letter-spacing: -0.43px;
@@ -192,7 +192,7 @@ const InputTypeButton = styled.button`
   padding: 0;
 `;
 const WrapperRight = styled.div`
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
 `;
@@ -200,13 +200,13 @@ const Title = styled.p`
   font-family: ${fontFamilies.fontFamilyOsRegular};
   height: ${sizes.size30};
   width: ${sizes.size183};
-  color: ${colors.black2};
+  color: ${colors.black_2a2c30};
   font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
   line-height: ${sizes.size30};
   text-align: center;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   margin-top: ${sizes.size116};
   margin-left: ${sizes.size150};
 `;
@@ -215,7 +215,7 @@ const Discription = styled.p`
   word-wrap: break-word;
   height: ${sizes.size60};
   width: ${sizes.size296};
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: -0.24px;
@@ -233,7 +233,7 @@ const WrapperLeft = styled.div`
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -249,12 +249,12 @@ const BoldText = styled.span`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
   letter-spacing: -0.57px;
   line-height: ${sizes.size44};
   margin-top: 60px;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
 `;

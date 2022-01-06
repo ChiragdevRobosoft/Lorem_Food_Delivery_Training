@@ -6,9 +6,9 @@ const Label = ({ name, className }: { name: string; className: string }) => {
 };
 export default Label;
 const TextBoxLabel = styled.label`
-  height: ${sizes.sizep50};
+  height: ${sizes.halfWidth};
   width: ${sizes.size88};
-  color: ${colors.grey6};
+  color: ${colors.grey_858585};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 16px;
   letter-spacing: -0.27px;

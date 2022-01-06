@@ -6,6 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import TextBox from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
 import Modal from "react-responsive-modal";
+import data from "./../../components/common/constants.json";
 import {
   sizes,
   colors,
@@ -59,7 +60,7 @@ const Verified = ({
           <VerifyImage>
             <img src={icon_verified} className="icon_forgot"></img>
           </VerifyImage>
-          <Title>Verified!</Title>
+          <Title>Verifed!</Title>
           <Discription>
             Your mobile no. is verified. <br />
             Enter the new password to reset your account.
@@ -90,13 +91,13 @@ const BackButton = styled.button`
   padding: 0%;
 `;
 const Title = styled.p`
-  color: ${colors.black2};
+  color: ${colors.black_2a2c30};
   font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
   line-height: ${sizes.size30};
   text-align: center;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   margin-top: ${sizes.size116};
   margin-left: ${sizes.size180};
   height: ${sizes.size30};
@@ -114,7 +115,7 @@ const Discription = styled.div`
   letter-spacing: -0.24px;
   text-align: center;
   width: 300px;
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   margin-bottom: ${sizes.size100};
 `;
 const BackImage = styled.img`
@@ -135,7 +136,7 @@ const WrapperLeft = styled.div`
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -151,13 +152,13 @@ const BoldText = styled.span`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
   letter-spacing: -0.57px;
   line-height: ${sizes.size44};
   margin-top: 60px;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
 `;
 const VerifyButton = styled.div`
@@ -168,8 +169,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: ${colors.white};
-  box-shadow: 0 2px 24px 0 ${colors.black2};
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 24px 0 ${colors.black_2a2c30};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -186,7 +187,7 @@ const VerifyImage = styled.div`
   margin-top: ${sizes.size10};
 `;
 const WrapperRight = styled.div`
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
 `;

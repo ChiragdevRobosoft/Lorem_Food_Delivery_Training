@@ -74,9 +74,9 @@ const Textbox = styled.input`
   width: 78.8%;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid ${colors.grey6};
+  border-bottom: 1px solid ${colors.grey_858585};
   margin-left: 10%;
-  color: ${colors.black};
+  color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 16px;
   font-weight: ${fontWeight.weight100};

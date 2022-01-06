@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FC } from "react";
 import React, { useState } from "react";
 import cartIcon from "./../../../assets/common/header/cart-icon.png";
 import Modal from "react-responsive-modal";
@@ -8,139 +9,223 @@ import {
   angles,
   fontFamilies,
   fontWeight,
-  opacity,
+  letterSpacing,
 } from "../../../variables";
+import data from "./../constants.json";
+import User from "./userInfo";
+
+const languages = ["English", "Arabic", "Spanish"];
 const Header = ({
   setShowLogin,
   setShowCreateAccount,
+  className,
 }: {
   setShowLogin: React.Dispatch<React.SetStateAction<boolean>>;
   setShowCreateAccount: React.Dispatch<React.SetStateAction<boolean>>;
+  className: string;
 }) => {
   return (
-    <WrapperHeader>
-      <p className="header-title">LOREM</p>
-      <select name="languages" id="pageLang">
-        <option value="English">English</option>
-        <option value="Arabic">Arabic</option>
-      </select>
-      <button className="login" onClick={() => setShowLogin(true)}>
-        LOGIN
-      </button>
-      <button
-        className="create-account"
-        onClick={() => setShowCreateAccount(true)}
-      >
-        CREATE AN ACCOUNT
-      </button>
-      <div className="cart-holder">
-        <img src={cartIcon} alt="cart-icon" />
-        <p className="cart">CART</p>
-      </div>
-    </WrapperHeader>
+    <HeaderWrapper className={className}>
+      <HeaderTitle className={className}>{data.header.title}</HeaderTitle>
+      <LanguageSelector className={className} name="languages" id="pageLang">
+        {languages.map((lang) => {
+          return (
+            <option key={lang} value={lang}>
+              {lang}
+            </option>
+          );
+        })}
+      </LanguageSelector>
+      {className === "home" || className === "newSec" ? (
+        <Login className={className} onClick={() => setShowLogin(true)}>
+          {data.header.login}
+        </Login>
+      ) : null}
+      {className === "loggedin" ? <User /> : null}
+      {className === "loggedin" ? <VertLine className={className} /> : null}
+      {className === "home" || className === "newSec" ? (
+        <CreateAccount
+          className={className}
+          onClick={() => setShowCreateAccount(true)}
+        >
+          {data.header.createAnAccount}
+        </CreateAccount>
+      ) : null}
+      {className === "loggedin" ? (
+        <Logout className={className}>{data.header.logout}</Logout>
+      ) : null}
+      {className === "home" || className === "newSec" ? (
+        <VertLine className={className} />
+      ) : null}
+      <CartLogo className={className} src={cartIcon} alt="cart-icon" />
+      <Cart className={className}>{data.header.cart}</Cart>
+    </HeaderWrapper>
   );
 };
 export default Header;
-const WrapperHeader = styled.header`
+
+const HeaderWrapper = styled.header`
+  height: ${(props) =>
+    props.className === "home" ? `${sizes.size89}` : `${sizes.size70}`};
+  width: ${(props) =>
+    props.className === "home" ? `${sizes.size1825}` : `${sizes.size1921}`};
   height: 89px;
   width: 1825px;
   display: flex;
   flex-direction: row;
-  margin: 19px 62px 119px 33px;
+  margin: ${(props) =>
+    props.className === "home"
+      ? `${sizes.size19} ${sizes.size62} ${sizes.size119} ${sizes.size33}`
+      : `${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0}`};
+  background-color: ${(props) =>
+    props.className === "home" ? `` : `${colors.white_ffffff}`};
+  box-shadow: ${(props) =>
+    props.className === "home"
+      ? ``
+      : `${sizes.size0} ${sizes.size2} ${sizes.size4} ${sizes.size0} rgba(0,0,0,0.08)`};
+`;
 
-  .header-title {
-    // font-family: "Bebas Neue", cursive;
-    // background-image: linear-gradient(60deg, #af4261, #e9a459);
-    // background-clip: text;
-    // color: transparent;
-    background-image: linear-gradient(
-      ${angles.angle60},
-      ${colors.pink1},
-      ${colors.yellow1}
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: ${colors.transparentColor};
-    font-family: ${fontFamilies.fontFamilyBn};
-    height: 60px;
-    width: 103px;
-    text-align: center;
-    line-height: 60px;
-    font-size: 50px;
-    letter-spacing: 0;
-    margin: 15px 1195px 14px 7px;
-  }
+const HeaderTitle = styled.p`
+  background-image: linear-gradient(
+    ${angles.angle60},
+    ${colors.pink_e21143_09},
+    ${colors.yellow_ffb03a_09}
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: ${colors.transparentColor};
+  font-family: ${fontFamilies.fontFamilyBn};
+  height: ${(props) =>
+    props.className === "home" ? `${sizes.size60}` : `${sizes.size43}`};
+  width: ${(props) =>
+    props.className === "home" ? `${sizes.size103}` : `${sizes.size72}`};
+  text-align: center;
+  line-height: ${(props) =>
+    props.className === "home" ? `${sizes.size60}` : `${sizes.size43}`};
+  font-size: ${(props) =>
+    props.className === "home" ? `${sizes.size50}` : `${sizes.size35}`};
+  letter-spacing: ${letterSpacing.space0};
+  margin: ${(props) =>
+    props.className === "home"
+      ? `${sizes.size15} ${sizes.size1226} ${sizes.size14} ${sizes.size7}`
+      : `${sizes.size14} ${sizes.size1234} ${sizes.size13} ${sizes.size45}`};
+`;
 
-  select {
-    margin: 36px 35px 36px 0px;
-    height: 17px;
-    width: 75px;
-    color: #3e3e3e;
-    font-family: "Open Sans", sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    line-height: 17px;
-    text-align: left;
-    background-color: inherit;
-    border: none;
-    outline: none;
-  }
+const LanguageSelector = styled.select`
+  margin: ${(props) =>
+    props.className === "home"
+      ? `${sizes.size36} ${sizes.size0} ${sizes.size36} ${sizes.size0}`
+      : `${sizes.size29} ${sizes.size0} ${sizes.size24} ${sizes.size0}`};
+  height: ${sizes.size17};
+  width: ${sizes.size68};
+  color: ${colors.grey_3e3e3e};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${letterSpacing.space0_5};
+  line-height: ${sizes.size17};
+  text-align: right;
+  background-color: inherit;
+  border: none;
+  outline: none;
+`;
 
-  .login {
-    margin: 30px 51px 40px 0px;
-    height: 19px;
-    width: 47px;
-    color: #303134;
-    font-family: "Open Sans", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    text-align: right;
-    border: none;
-    background-color: transparent;
-  }
+const Login = styled.p`
+  margin: ${(props) =>
+    props.className === "home"
+      ? `${sizes.size30} ${sizes.size51} ${sizes.size40} ${sizes.size15}`
+      : `${sizes.size28} ${sizes.size51} ${sizes.size23} ${sizes.size33}`};
+  height: ${sizes.size19};
+  width: ${sizes.size47};
+  color: ${colors.grey_303134};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: ${letterSpacing.space0_5};
+  line-height: ${sizes.size19};
+  text-align: right;
+`;
 
-  /* dobut in create account width  adustments in margins made from here*/
-  .create-account {
-    margin: 30px 41px 40px 0px;
-    height: 19px;
-    width: 153px;
-    color: #303134;
-    font-family: "Open Sans", sans-serif;
-    font-size: 13px; /* font size given 14 adjusted to fit-in */
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    text-align: left;
-    border: none;
-    background-color: transparent;
-  }
+const CreateAccount = styled.p`
+  margin: ${(props) =>
+    props.className === "home"
+      ? `${sizes.size30} ${sizes.size41} ${sizes.size40} ${sizes.size0}`
+      : `${sizes.size28} ${sizes.size43} ${sizes.size23} ${sizes.size0}`};
+  height: ${sizes.size19};
+  width: ${sizes.size153};
+  color: ${colors.grey_303134};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: ${letterSpacing.space0_5};
+  line-height: ${sizes.size19};
+  text-align: right;
+`;
 
-  .cart-holder {
-    display: flex;
-    margin: 12px 0px 23px 0px;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    height: 54px;
-    width: 108px;
+const Logout = styled.p`
+  margin: ${(props) =>
+    props.className === "loggedin"
+      ? `${sizes.size28} ${sizes.size36_51} ${sizes.size23} ${sizes.size39_53}`
+      : `${sizes.size28} ${sizes.size43} ${sizes.size23} ${sizes.size0}`};
+  height: ${sizes.size19};
+  width: ${sizes.size61_83};
+  color: ${colors.grey_303134};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: ${letterSpacing.space0_5};
+  line-height: ${sizes.size19};
+  text-align: right;
+`;
 
-    img {
-      margin: 13px 20px 14px 30px;
-      height: 27px;
-      width: 20px;
-    }
+const VertLine = styled.div`
+  box-sizing: border-box;
+  height: ${(props) =>
+    props.className === "home" ? `${sizes.size54}` : `${sizes.size33_77}`};
+  width: ${(props) =>
+    props.className === "home" ? `${sizes.size1}` : `${sizes.size2}`};
+  border: ${sizes.size1} solid ${colors.black_000000};
+  opacity: 0.1;
+  margin: ${(props) =>
+    props.className === "home"
+      ? `${sizes.size12} ${sizes.size0} ${sizes.size33} ${sizes.size0}`
+      : `${sizes.size18} ${sizes.size0} ${sizes.size18_23} ${sizes.size0}`};
+`;
 
-    .cart {
-      margin: 17px 0px 18px -5px;
-      height: 19px;
-      width: 37px;
-      color: #fff;
-      font-family: "Open Sans", sans-serif;
-      font-size: 14px; /* font size given 14 adjusted to fit-in */
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      line-height: 19px;
-      text-align: right;
-    }
-  }
+const CartLogo = styled.img`
+  margin: ${(props) =>
+    props.className === "home"
+      ? `${sizes.size25} ${sizes.size24} ${sizes.size37} ${sizes.size34}`
+      : `${sizes.size23} ${sizes.size24} ${sizes.size20} ${sizes.size39_5}`};
+  height: ${(props) =>
+    props.className === "home" ? `${sizes.size27}` : `${sizes.size28}`};
+  width: ${sizes.size20};
+  background-image: ${(props) =>
+    props.className === "home"
+      ? ``
+      : `linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%)`};
+`;
+const Cart = styled.p`
+  margin: ${(props) =>
+    props.className === "home"
+      ? `${sizes.size29} ${sizes.size0} ${sizes.size41} ${sizes.size0}`
+      : `${sizes.size27} ${sizes.size67} ${sizes.size26} ${sizes.size0}`};
+  height: ${(props) =>
+    props.className === "home" ? `${sizes.size19}` : `${sizes.size17}`};
+  width: ${(props) =>
+    props.className === "home" ? `${sizes.size37}` : `${sizes.size32}`};
+  color: ${(props) =>
+    props.className === "home"
+      ? `${colors.white_ffffff}`
+      : `${colors.pink_fda5a3}`};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${(props) =>
+    props.className === "home" ? `${sizes.size14}` : `${sizes.size12}`};
+  font-weight: ${fontWeight.weight600};
+  letter-spacing: ${(props) =>
+    props.className === "home"
+      ? `${letterSpacing.space0_5}`
+      : `${letterSpacing.space0_43}`};
+  line-height: ${(props) =>
+    props.className === "home" ? `${sizes.size19}` : `${sizes.size17}`};
+  text-align: right;
 `;

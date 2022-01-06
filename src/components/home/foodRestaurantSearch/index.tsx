@@ -1,10 +1,11 @@
-import Foodsearch from "./foodSearchBox";
+import styled from "styled-components";
+import data from "./../../common/constants.json";
+import { colors, fontFamilies, opacity, sizes } from "../../../variables";
+import Foodsearch from "./../../common/foodSearchBox/index";
 import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
-import styled from "styled-components";
 import { useState } from "react";
 import Login from "../../../containers/login";
-import { backdropClasses } from "@mui/material";
 import ForgotPassword from "../../../containers/forgot-password";
 import CreateAccount from "../../../containers/create-account";
 import AccountDetails from "../../../containers/account-details";
@@ -12,7 +13,8 @@ import Verification from "../../../containers/verification";
 import RegisterSuccess from "../../../containers/welcome";
 import Verified from "../../../containers/verified";
 import PasswordSuccess from "../../../containers/password-success";
-const LandingPage = () => {
+
+const FoodRestaurantSearch = () => {
   const [open, setOpen] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [showCreateAccount, setShowCreateAccount] = useState(false);
@@ -29,21 +31,27 @@ const LandingPage = () => {
   const [showVerified, setShowVerified] = useState(false);
   const [showPasswordSuccess, setShowPasswordSuccess] = useState(false);
   console.log(redirectFromLogin, redirectFromRegister);
+
   return (
     <Wrapper className={"backDrop"}>
       <Header
+        className="home"
         setShowLogin={setOpen}
         setShowCreateAccount={setShowCreateAccount}
       />
-      <p>
-        <span>Order your food</span>
-        <span>from the best restaurants</span>
-      </p>
-      <Foodsearch />
-      <div className="scroll-holder">
-        <img src={mouseScroll} alt="mouse-scroll" />
-        <p>Scroll</p>
-      </div>
+      <Heading>
+        <Headingspan>{data.homeTexts.foodRestaurantSearch.heading}</Headingspan>
+        <Headingspan>
+          {data.homeTexts.foodRestaurantSearch.description}
+        </Headingspan>
+      </Heading>
+      <Foodsearch pageType="home" />
+      <ScrollComp>
+        <Scroll src={mouseScroll} alt="mouse-scroll" />
+        <ScrollName>
+          {data.homeTexts.foodRestaurantSearch.scrollText}
+        </ScrollName>
+      </ScrollComp>
       {open && (
         <Login
           onCloseModal={onCloseModal}
@@ -129,50 +137,55 @@ const LandingPage = () => {
     </Wrapper>
   );
 };
-export default LandingPage;
+export default FoodRestaurantSearch;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  p {
-    margin: 0px 788px 63px 413px;
-    height: 166px;
-    width: 719px;
-    color: #4c4c4c;
-    font-family: "Open Sans", sans-serif;
-    font-size: 60px;
-    letter-spacing: 0;
-    line-height: 83px;
-    text-shadow: 0 0 9px 0 #fff;
-    align-items: left;
-
-    span {
-      display: block;
-    }
-  }
   .backDrop {
     background-color: rgba(0, 0, 0, 0.7);
   }
-  .scroll-holder {
-    margin: 0px 900px 38px 901px;
-    height: 77px;
-    width: 119px;
-    display: block;
-    img {
-      margin: 0px 43.82px 10px 43.18px;
-      height: 49px;
-      width: 32px;
-    }
-    p {
-      margin: 0px 0.45px 0px 0px;
-      height: 18px;
-      width: 118.55px;
-      font-size: 13px;
-      opacity: 0.66;
-      font-family: "Open Sans", sans-serif;
-      letter-spacing: 3.66px;
-      line-height: 18px;
-      text-align: center;
-    }
-  }
+`;
+
+const Heading = styled.p`
+  margin: ${sizes.size0} ${sizes.size788} ${sizes.size63} ${sizes.size413};
+  height: ${sizes.size166};
+  width: ${sizes.size719};
+  color: ${colors.grey_4c4c4c};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size60};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size83};
+  text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
+    ${colors.white_ffffff};
+  align-items: left;
+`;
+const Headingspan = styled.span`
+  display: block;
+`;
+
+const ScrollComp = styled.div`
+  margin: ${sizes.size0} ${sizes.size900} ${sizes.size38} ${sizes.size901};
+  height: ${sizes.size77};
+  width: ${sizes.size119};
+  display: block;
+`;
+
+const Scroll = styled.img`
+  margin: ${sizes.size0} ${sizes.size43_82} ${sizes.size10} ${sizes.size43_18};
+  height: ${sizes.size49};
+  width: ${sizes.size32};
+`;
+
+const ScrollName = styled.p`
+  margin: ${sizes.size0} ${sizes.size0_45} ${sizes.size0} ${sizes.size0};
+  height: ${sizes.size18};
+  width: ${sizes.size118_55};
+  font-size: ${sizes.size13};
+  opacity: ${opacity.opacity0_66};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  letter-spacing: ${sizes.size3_66};
+  line-height: ${sizes.size18};
+  color: ${colors.grey_848484};
+  text-align: center;
 `;

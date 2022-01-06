@@ -6,6 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import TextBox from "../../components/common/textbox";
+import data from "./../../components/common/constants.json";
 import {
   sizes,
   colors,
@@ -69,11 +70,8 @@ const CreateAccount = ({
               onCloseModal();
             }}
           ></CloseImage>
-          <Title>Create your account</Title>
-          <Discription>
-            Share your email address to send you the OTP to get yourself
-            register!
-          </Discription>
+          <Title>{data.loginModal.createAccount.title}</Title>
+          <Discription>{data.loginModal.createAccount.description}</Discription>
           <TextBox name="Email" isPassword={false}></TextBox>
           <CreateAccountButton>
             <Buttons
@@ -83,9 +81,9 @@ const CreateAccount = ({
             ></Buttons>
           </CreateAccountButton>
           <TermsAndCondition>
-            <Terms>By registering you agree to the</Terms>
+            <Terms>{data.loginModal.createAccount.terms}</Terms>
             <RedirectLink className="termsConditions" to={links.login}>
-              Terms & Conditions
+              {data.loginModal.createAccount.termsAndCondition}
             </RedirectLink>
           </TermsAndCondition>
           <SocialMedia>
@@ -93,7 +91,7 @@ const CreateAccount = ({
             <Buttons className="google" name="Google+" />
           </SocialMedia>
           <Footer>
-            <LoginLink>Already have an account?</LoginLink>
+            <LoginLink>{data.loginModal.createAccount.accountLogin}</LoginLink>
             <LoginButton
               onClick={() => {
                 setRedirectFromRegister(false);
@@ -120,7 +118,7 @@ const Discription = styled.div`
   margin-bottom: 60px;
   height: ${sizes.size50};
   width: ${sizes.size280};
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: -0.24px;
@@ -132,13 +130,13 @@ const Discription = styled.div`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 34px;
   letter-spacing: -0.57px;
   line-height: 44px;
   margin-top: 60px;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
 `;
 const SocialMedia = styled.div`
@@ -151,7 +149,7 @@ const SocialMedia = styled.div`
 `;
 const LoginLink = styled.p`
   height: ${sizes.size19};
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 14px;
   line-height: 19px;
@@ -163,7 +161,7 @@ const CloseImage = styled.img`
   margin: 20px;
 `;
 const LoginButton = styled.button`
-  color: ${colors.orange1};
+  color: ${colors.orange_f67e03};
   text-decoration: none;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   border: none;
@@ -179,7 +177,7 @@ const LoginButton = styled.button`
   padding-top: 0;
 `;
 const RedirectLink = styled(Link)`
-  color: ${colors.orange1};
+  color: ${colors.orange_f67e03};
   text-decoration: none;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   border: none;
@@ -210,8 +208,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: ${colors.white};
-  box-shadow: 0 2px 24px 0 ${colors.black3};
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 24px 0 ${colors.black_000000_05};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -230,28 +228,28 @@ const WrapperLeft = styled.div`
   margin-right: ${sizes.sizen40};
 `;
 const WrapperRight = styled.div`
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
 `;
 const Title = styled.p`
   height: ${sizes.size59};
   width: ${sizes.size318};
-  color: ${colors.black2};
+  color: ${colors.black_2a2c30};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size28};
   font-weight: bold;
   letter-spacing: -0.47px;
   line-height: 38px;
   text-align: center;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   margin-top: 70px;
   margin-left: 80px;
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -267,7 +265,7 @@ const BoldText = styled.span`
 const Terms = styled.p`
   height: ${sizes.size19};
   width: ${sizes.size460};
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   line-height: 19px;
@@ -277,7 +275,7 @@ const Terms = styled.p`
 `;
 const TermsAndCondition = styled.div`
   height: ${sizes.size19};
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};

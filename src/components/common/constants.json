@@ -10,5 +10,113 @@
     "Blog",
     "Contact",
     "Sitemap"
-  ]
+  ],
+  "homeTexts": {
+    "foodRestaurantSearch": {
+      "heading": "Order your food",
+      "description": "from the best restaurants",
+      "scrollText": "Scroll"
+    },
+    "popularBrands": {
+      "heading": "Popular Brands",
+      "description": "Find out more about the world's top food that brands are available all over the world today"
+    },
+    "bestDealsOffers": {
+      "heading": "Best Deals & Offers",
+      "description": "Endless deals near you! Grab the best deals and offers"
+    },
+    "howToOrder": {
+      "heading": "How to Order",
+      "description": "Giving you an easiest way to look for the best food that can be ordered.",
+      "step1": "Explore restaurants that deliver to your doorstep.",
+      "step2": "Browse menus and build your order in seconds.",
+      "step3": "Follow the status of your order with real-time alerts."
+    },
+    "loremStoreApp": {
+      "heading": "Lorem App",
+      "subHeading": "Download the Food App",
+      "description": "Get real-time order updates, live chat support, and exclusive app-only offers."
+    }
+  },
+  "header": {
+    "title": "LOREM",
+    "login": "LOGIN",
+    "createAnAccount": "CREATE AN ACCOUNT",
+    "logout": "LOGOUT",
+    "cart": "CART",
+    "noUser": "No User",
+    "userName": "Ashley"
+  },
+  "carousels": {
+    "popularBrands": {
+      "brandName": "KFC",
+      "locAndType": "Latin America, Bakery",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus consequat purus sit amet lectus bibendum finbus vel.",
+      "routeText": "All Brands",
+      "noRestaurantTitle": "Oops",
+      "norestaurantDescp": "No brands nearby change to other locations and try"
+    },
+    "bestDealsOffers": {
+      "routeText": "All offers & deals"
+    }
+  },
+  "foodSearchBox": {
+    "placeHolder1": "Search your restaurant or cuisines",
+    "placeHolder2": "Downtown Burj Khalifa, Dubai",
+    "placeHolder3": "Search your restaurant or cuisines",
+    "val": "Today, 28 April, 2018"
+  },
+  "loginModal": {
+    "accountsDetails": {
+      "lorem": "LOREM",
+      "tagLine": {
+        "line1": "Experience the easiest a way to get ",
+        "line2": "great food ",
+        "line3": "Delivered"
+      },
+      "title": "Verified!",
+      "description": {
+        "line1": "Your Email is verifeid.",
+        "line2": "Finally enter details below to create account."
+      }
+    },
+    "createAccount": {
+      "title": "Create your account",
+      "description": "Share your email address to send you the OTP to get yourself register!",
+      "terms": "By registering you agree to the",
+      "termsAndCondition": "Terms & Conditions",
+      "accountLogin": "Already have an account?"
+    },
+    "forgetPassword": {
+      "title": "Forgot Password!",
+      "description": "Share your registered either email address or mobile number to send you the OTP to reset your password",
+      "email": "Email",
+      "mobileNumber": "Mobile No."
+    },
+    "login": {
+      "title": "Let's get started!",
+      "forgot": "Forgot Password?",
+      "createAccount": "Don't have an account?",
+      "getNewOne": "Get new one!"
+    },
+    "passwordSuccess": {
+      "title": "Great!",
+      "description": "Your password has been successfully reset"
+    },
+    "passwordVerification": {
+      "title": "Verification",
+      "description": "We just sent you the OTP via SMS to your email address/mobile no.You should get it soon!"
+    },
+    "verified": {
+      "title": "Verified!",
+      "description": {
+        "line1": "Your mobile no. is verified. ",
+        "line2": "Enter the new password to reset your account."
+      }
+    },
+    "welcomePage": {
+      "title": "Hi Abdulla, Welcome to Zadoh",
+      "description": "We’ve sent you an email on abdulla.mohammad for verification."
+    }
+  }
 }

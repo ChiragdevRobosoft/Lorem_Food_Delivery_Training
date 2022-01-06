@@ -6,6 +6,7 @@ import TextBox from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
 import CountryCode from "../../components/country-code";
 import Modal from "react-responsive-modal";
+import data from "./../../components/common/constants.json";
 import {
   sizes,
   colors,
@@ -41,10 +42,11 @@ const AccountDetails = ({
     >
       <Wrapper>
         <WrapperLeft>
-          <Lorem>LOREM</Lorem>
+          <Lorem>{data.loginModal.accountsDetails.lorem}</Lorem>
           <TagLine>
-            Experience the easiest a way to get <BoldText>great food </BoldText>
-            Delivered
+            {data.loginModal.accountsDetails.tagLine.line1}
+            <BoldText>{data.loginModal.accountsDetails.tagLine.line2}</BoldText>
+            {data.loginModal.accountsDetails.tagLine.line3}
           </TagLine>
         </WrapperLeft>
         <WrapperRight>
@@ -55,10 +57,11 @@ const AccountDetails = ({
           >
             <BackImage src={backButton} alt="cut"></BackImage>
           </BackButton>
-          <Title>Verified!</Title>
+          <Title>{data.loginModal.accountsDetails.title}</Title>
           <Discription>
-            Your Email is verifeid. <br />
-            Finally enter details below to create account.
+            {data.loginModal.accountsDetails.description.line1}
+            <br />
+            {data.loginModal.accountsDetails.description.line2}
           </Discription>
           <FirstName>
             <TextBox name="First Name" isPassword={false}></TextBox>
@@ -102,25 +105,25 @@ const WrapperLeft = styled.div`
   margin-right: ${sizes.sizen40};
 `;
 const WrapperRight = styled.div`
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
 `;
 const Title = styled.p`
   width: ${sizes.size220};
-  color: ${colors.black2};
+  color: ${colors.black_2a2c30};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size28};
   font-weight: bold;
   margin-left: 175px;
-  letter-spacing: ${sizes.sizenp47};
+  letter-spacing: ${sizes.sizen47};
   line-height: 1px;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -137,8 +140,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: ${colors.white};
-  box-shadow: 0 2px 24px 0 ${colors.black3};
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 24px 0 ${colors.black_000000_05};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -151,13 +154,13 @@ const Wrapper = styled.div`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 34px;
   letter-spacing: -0.57px;
   line-height: 44px;
   margin-top: 60px;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
 `;
 const BackImage = styled.img`
@@ -173,7 +176,7 @@ const Discription = styled.p`
   word-wrap: break-word;
   height: ${sizes.size60};
   width: ${sizes.size296};
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: -0.24px;

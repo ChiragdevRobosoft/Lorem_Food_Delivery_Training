@@ -6,6 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import TextBox from "../../components/common/textbox";
+import data from "./../../components/common/constants.json";
 import {
   sizes,
   colors,
@@ -68,7 +69,7 @@ const Login = ({
               onCloseModal();
             }}
           ></CloseImage>
-          <Title>Let's get started!</Title>
+          <Title>{data.loginModal.login.title}</Title>
           <EmailBox>
             <TextBox name="Email" isPassword={false}></TextBox>
           </EmailBox>
@@ -76,7 +77,7 @@ const Login = ({
             <TextBox name="Password" isPassword={true}></TextBox>
           </PasswordBox>
           <ForgetButton onClick={() => setShowForgotPassword(true)}>
-            Forgot Password?
+            {data.loginModal.login.forgot}
           </ForgetButton>
           <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
           <SocialMedia>
@@ -84,14 +85,16 @@ const Login = ({
             <Buttons className="google" name="Google+" />
           </SocialMedia>
           <Footer>
-            <ForgotPasswordLink>Don't have an account?</ForgotPasswordLink>
+            <ForgotPasswordLink>
+              {data.loginModal.login.createAccount}
+            </ForgotPasswordLink>
             <NewLinkButton
               onClick={() => {
                 setRedirectFromLogin(true);
                 setShowCreateAccount(true);
               }}
             >
-              Get new one!
+              {data.loginModal.login.getNewOne}
             </NewLinkButton>
           </Footer>
         </WrapperRight>
@@ -103,7 +106,7 @@ export default Login;
 const ForgetButton = styled.button`
   background-color: transparent;
   border: none;
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   text-decoration: none;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   border: none;
@@ -127,13 +130,13 @@ const PasswordBox = styled.div`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 34px;
   letter-spacing: -0.57px;
   line-height: 44px;
   margin-top: 60px;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
 `;
 const SocialMedia = styled.div`
@@ -146,7 +149,7 @@ const SocialMedia = styled.div`
 `;
 const ForgotPasswordLink = styled.p`
   height: ${sizes.size19};
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
@@ -158,7 +161,7 @@ const CloseImage = styled.img`
   margin: 20px;
 `;
 const NewLinkButton = styled.button`
-  color: ${colors.orange1};
+  color: ${colors.orange_f67e03};
   text-decoration: none;
   font-family: ${fontFamilies.fontFamilyOsRegular};
   border: none;
@@ -186,8 +189,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: ${colors.white};
-  box-shadow: 0 2px 24px 0 ${colors.black3};
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 24px 0 ${colors.black_000000_05};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -206,28 +209,28 @@ const WrapperLeft = styled.div`
   margin-right: ${sizes.sizen40};
 `;
 const WrapperRight = styled.div`
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
 `;
 const Title = styled.p`
   height: ${sizes.size38};
   width: ${sizes.size300};
-  color: ${colors.black2};
+  color: ${colors.black_2a2c30};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size28};
   font-weight: bold;
   margin-left: ${sizes.size50};
   margin-bottom: ${sizes.size60};
   margin-top: ${sizes.size50};
-  letter-spacing: ${sizes.sizenp47};
+  letter-spacing: ${sizes.sizen47};
   line-height: ${sizes.size38};
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};

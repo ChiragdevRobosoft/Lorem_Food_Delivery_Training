@@ -5,6 +5,7 @@ import "react-responsive-modal/styles.css";
 import passwordsuccess from "../../assets/password_success.png";
 import Buttons from "../../components/common/button/index";
 import closeButton from "../../assets/close_button.png";
+import data from "./../../components/common/constants.json";
 import {
   sizes,
   colors,
@@ -53,8 +54,10 @@ const PasswordSuccess = ({
           <SuccessImage>
             <img src={passwordsuccess} className="passwordsuccess"></img>
           </SuccessImage>
-          <Title>Great!</Title>
-          <Discription>Your password has been successfully reset</Discription>
+          <Title>{data.loginModal.passwordSuccess.title}</Title>
+          <Discription>
+            {data.loginModal.passwordSuccess.description}
+          </Discription>
           <LoginButton>
             <Buttons className="colouredBgButton" name="LOGIN NOW"></Buttons>
           </LoginButton>
@@ -68,13 +71,13 @@ const Title = styled.p`
   font-family: ${fontFamilies.fontFamilyOsBold};
   height: ${sizes.size30};
   width: ${sizes.size70};
-  color: ${colors.black2};
+  color: ${colors.black_2a2c30};
   font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: -0.37px;
   line-height: ${sizes.size30};
   text-align: center;
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   margin-top: ${sizes.size230};
   margin-left: ${sizes.size210};
   margin-bottom: -5px;
@@ -83,7 +86,7 @@ const Discription = styled.p`
   margin-left: ${sizes.size90};
   word-wrap: break-word;
   width: ${sizes.size330};
-  color: ${colors.grey5};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: -0.24px;
@@ -101,7 +104,7 @@ const WrapperLeft = styled.div`
 const Lorem = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size103};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
   margin-bottom: ${sizes.size30};
@@ -117,12 +120,12 @@ const BoldText = styled.span`
 const TagLine = styled.div`
   height: ${sizes.size132};
   width: ${sizes.size330};
-  color: ${colors.white};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
   letter-spacing: -0.57px;
   line-height: ${sizes.size44};
-  text-shadow: 0 0 9px 0 ${colors.white};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
   margin-top: 60px;
 `;
@@ -138,8 +141,8 @@ const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
   border-radius: ${sizes.size8};
-  background-color: ${colors.white};
-  box-shadow: 0 2px 24px 0 ${colors.black3};
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 24px 0 ${colors.black_000000_05};
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -156,7 +159,7 @@ const SuccessImage = styled.div`
   margin-top: ${sizes.size120};
 `;
 const WrapperRight = styled.div`
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
 `;

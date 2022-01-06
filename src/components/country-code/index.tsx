@@ -86,7 +86,7 @@ const DropDown = styled.img`
 `;
 const Label = styled.label`
   width: ${sizes.size88};
-  color: ${colors.grey6};
+  color: ${colors.grey_858585};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 0.8rem;
   letter-spacing: -0.27px;
@@ -105,12 +105,12 @@ const DropDownWindow = styled.div`
   }
   ::-webkit-scrollbar-track {
     border-radius: 10px;
-    background: ${colors.white};
+    background: ${colors.white_ffffff};
     margin-top: 10px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: ${colors.grey6};
+    background: ${colors.grey_858585};
   }
 `;
 const OptionWrapper = styled.div`
@@ -121,7 +121,7 @@ const OptionWrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 5px;
   :hover {
-    background-color: ${colors.black3};
+    background-color: ${colors.black_000000_05};
   }
 `;
 const Flag = styled.img`
@@ -129,7 +129,7 @@ const Flag = styled.img`
   width: ${sizes.size29};
 `;
 const Code = styled.p`
-  color: ${colors.black};
+  color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 16px;
   letter-spacing: -0.27px;
@@ -138,7 +138,7 @@ const Code = styled.p`
   margin-top: 0;
 `;
 const OptionSelected = styled.div`
-  border-bottom: 1px solid ${colors.grey5};
+  border-bottom: 1px solid ${colors.grey_4a4a4a};
   width: ${sizes.size90};
   display: flex;
   height: ${sizes.size35};
@@ -147,7 +147,7 @@ const OptionSelected = styled.div`
 const DropDownContainer = styled.div`
   z-index: 99;
   position: absolute;
-  background-color: ${colors.white2};
+  background-color: ${colors.white_d2d2d2};
   width: ${sizes.size80};
   padding: 10px;
   display: flex;
