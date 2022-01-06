@@ -368,4 +368,5 @@ export const links = {
   verification: "/verification",
   passwordSuccess: "/password-success",
   accountDetails: "/account-details",
+  menu: "/menu",
 };

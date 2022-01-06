@@ -5,13 +5,14 @@ import { sizes, colors, fontFamilies, opacity } from "../../../variables";
 import FoodIcon from "../../../assets/common/restaurantCard/food.png";
 import { Link } from "react-router-dom";
 import { RestauarantCardprops } from "../interfaces";
+import { links } from "../../../variables";
 
 const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
   return (
     <Wrapper>
       <FoodImage src={FoodIcon} alt="" />
       <Rating>{card.rating}</Rating>
-      <Link to="/menu">
+      <Link to={links.menu}>
         <MenuImage src={Menu} alt="" />
       </Link>
       <ColumnFlex>
