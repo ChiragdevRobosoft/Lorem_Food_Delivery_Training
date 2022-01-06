@@ -17,17 +17,19 @@ const Footer = () => {
   return (
     <Wrapper>
       <ColumnFlex>
-        <LoremText>LOREM</LoremText>
+        <LoremText>{data.header.title}</LoremText>
         <InvisibleLineBreak />
         <CityCountryContainer>
-          <CityCountryNumber>24</CityCountryNumber>
-          <CityCountryText>CITIES</CityCountryText>
+          <CityCountryNumber>{data.footerData.cities.count}</CityCountryNumber>
+          <CityCountryText>{data.footerData.cities.count}</CityCountryText>
         </CityCountryContainer>
         <LineBreak />
         <OuterContainer>
           <CityCountryContainer>
-            <CityCountryNumber>4</CityCountryNumber>
-            <CityCountryText>COUNTRIES</CityCountryText>
+            <CityCountryNumber>
+              {data.footerData.countries.count}
+            </CityCountryNumber>
+            <CityCountryText>{data.footerData.countries.title}</CityCountryText>
           </CityCountryContainer>
           {data.countryCodes.map((countryCode, index) => {
             return (

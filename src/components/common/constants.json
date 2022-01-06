@@ -118,5 +118,9 @@
       "title": "Hi Abdulla, Welcome to Zadoh",
       "description": "We’ve sent you an email on abdulla.mohammad for verification."
     }
+  },
+  "footerData": {
+    "cities": { "title": "CITIES", "count": "24" },
+    "countries": { "title": "COUNTRIES", "count": "4" }
   }
 }
