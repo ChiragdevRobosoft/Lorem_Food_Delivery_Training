@@ -3,6 +3,7 @@ export const colors = {
   white_ffffff: "#ffffff", //white
   white_ededed: "#ededed", //white1  #ededed
   white_d2d2d2: "rgba(210, 210, 210,1)", //white2  #d2d2d2
+  white_e1e1e1: "rgba(225, 225, 225,1)",
   black_000000: "rgba(0,0,0,1)", //black
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_000000_05: "rgba(0, 0, 0, 0.5)", //black3
@@ -21,6 +22,10 @@ export const colors = {
   grey_757575: "#757575", //grey12
   grey_6a6a6a: "#6a6a6a", //grey13
   grey_d8d8d8: "#d8d8d8", //grey14
+  grey_949494_34: "rgba(148, 148, 148, 0.34)",
+  grey_606060: "rgba(96, 96, 96,1)",
+  grey_6f6f6f: "rgba(111, 111, 111,1)",
+  grey_636364_7: "rgba(99, 99, 100, 0.7)",
   grey_858484_9: "rgba(133, 132, 132, 0.9)",
   grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
   grey_757575_9: "rgba(117, 117, 117, 0.9)",
@@ -35,6 +40,8 @@ export const colors = {
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
   yellow_f5a623: "rgba(245,166,35,1)",
   orange_f67e03: "rgba(246, 126, 3, 1)", //orange1 #f67e03
+  orange_fca100: "rgba(252, 161, 0,1)",
+  orange_f78713: "rgba()247, 135, 19,1",
   blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
@@ -48,13 +55,14 @@ export const sizes = {
   sizep3: "3%",
   sizep4: "4%",
   sizep5: "5%",
-  width35p: "35%",
+  widthp35: "35%",
   sizeNeg7: "-7px",
   sizep40: "40%",
   halfWidth: "50%",
   fullWidth: "100%",
+  sizeNeg0_24: "-0.24px",
   size0: "0",
-  size0_29: "0.29",
+  size0_29: "0.29px",
   size0_45: "0.45px",
   size0_5: "0.5px",
   size0_58: "0.58px",
@@ -74,8 +82,8 @@ export const sizes = {
   size9: "9px",
   size9_12: "9.12px",
   size10: "10px",
-  size12: "12px",
   size14: "14px",
+  size12: "12px",
   size16: "16px",
   size17: "17px",
   size19: "19px",

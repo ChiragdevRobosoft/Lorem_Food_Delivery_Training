@@ -172,7 +172,7 @@ const OuterContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: ${sizes.width35p};
+  width: ${sizes.widthp35};
   height: ${sizes.size19_4};
   .flag {
     vertical-align: middle;
