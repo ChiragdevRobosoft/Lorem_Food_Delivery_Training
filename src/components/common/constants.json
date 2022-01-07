@@ -236,5 +236,30 @@
   "footerData": {
     "cities": { "title": "CITIES", "count": "24" },
     "countries": { "title": "COUNTRIES", "count": "4" }
+  },
+  "filterData": {
+    "title": "Filters",
+    "reset": "Reset All",
+    "time": "TIME",
+    "cost": "AVERAGE MEAL COST",
+    "radioTitle": "Show restaurant with",
+    "checkboxTitle": "Open Now",
+    "cuisines": "CUISINES",
+    "apply": "APPLY"
+  },
+  "dropdownData": {
+    "list": {
+      "title": "List by",
+      "content": ["All", "Near by"]
+    },
+    "sort": {
+      "title": "Sort by",
+      "content": ["Rating", "Rating"]
+    }
+  },
+  "restaurantListPage": {
+    "title": "Breakfast in Dubai",
+    "brandsNearBy": "Brands Nearby",
+    "more": "More"
   }
 }
