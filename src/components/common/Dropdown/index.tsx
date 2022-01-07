@@ -67,7 +67,7 @@ const Wrapper = styled.div`
 const Select = styled.span`
   position: relative;
   box-sizing: border-box;
-  height: ${sizes.size22};
+  height: 22px;
   color: ${colors.orange_fca100};
   padding: 0;
   font-family: ${fontFamilies.fontFamilyOsRegular};
