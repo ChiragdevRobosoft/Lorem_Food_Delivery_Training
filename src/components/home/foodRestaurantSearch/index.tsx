@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import data from "./../../common/constants.json";
-import { colors, fontFamilies, opacity, sizes } from "../../../variables";
+import {
+  colors,
+  fontFamilies,
+  letterSpacing,
+  opacity,
+  sizes,
+} from "../../../variables";
 import Foodsearch from "./../../common/foodSearchBox/index";
 import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
@@ -148,16 +154,15 @@ const Wrapper = styled.div`
 `;
 
 const Heading = styled.p`
-  margin: ${sizes.size0} ${sizes.size788} ${sizes.size63} ${sizes.size413};
-  height: ${sizes.size166};
-  width: ${sizes.size719};
+  margin: 0 788px 63px 413px;
+  height: 166px;
+  width: 719px;
   color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size60};
-  letter-spacing: ${sizes.size0};
+  letter-spacing: ${letterSpacing.space0};
   line-height: ${sizes.size83};
-  text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
-    ${colors.white_ffffff};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   align-items: left;
 `;
 const Headingspan = styled.span`
@@ -165,26 +170,26 @@ const Headingspan = styled.span`
 `;
 
 const ScrollComp = styled.div`
-  margin: ${sizes.size0} ${sizes.size900} ${sizes.size38} ${sizes.size901};
-  height: ${sizes.size77};
-  width: ${sizes.size119};
+  margin: 0 900px 38px 901px;
+  height: 77px;
+  width: 119px;
   display: block;
 `;
 
 const Scroll = styled.img`
-  margin: ${sizes.size0} ${sizes.size43_82} ${sizes.size10} ${sizes.size43_18};
-  height: ${sizes.size49};
-  width: ${sizes.size32};
+  margin: 0 43.82px 10px 43.18px;
+  height: 49px;
+  width: 32px;
 `;
 
 const ScrollName = styled.p`
-  margin: ${sizes.size0} ${sizes.size0_45} ${sizes.size0} ${sizes.size0};
-  height: ${sizes.size18};
-  width: ${sizes.size118_55};
+  margin: 0 0.45px 0 0;
+  height: 18px;
+  width: 118;
   font-size: ${sizes.size13};
   opacity: ${opacity.opacity0_66};
   font-family: ${fontFamilies.fontFamilyOsRegular};
-  letter-spacing: ${sizes.size3_66};
+  letter-spacing: ${letterSpacing.space3_66};
   line-height: ${sizes.size18};
   color: ${colors.grey_848484};
   text-align: center;

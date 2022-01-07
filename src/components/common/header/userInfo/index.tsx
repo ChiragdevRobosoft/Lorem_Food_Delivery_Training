@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FC } from "react";
 import noUser from "./../../../../assets/common/header/noUser.svg";
 import {
   sizes,
@@ -31,36 +30,36 @@ const User = () => {
 export default User;
 
 const UserInfo = styled.div`
-  height: ${sizes.size38};
-  width: ${sizes.size105_37};
-  margin: ${sizes.size16} ${sizes.size31_42} ${sizes.size16} ${sizes.size13_18};
+  height: 38px;
+  width: 105.37px;
+  margin: 16px 31.42px 16px 13.18px;
   display: flex;
   flex-direction: row;
 `;
 
 const UserPhoto = styled.div`
-  height: ${sizes.size38};
-  width: ${sizes.size38_51};
+  height: 38px;
+  width: 38.51px;
   background-color: ${colors.grey_d8d8d8};
   border-radius: 50%;
   justify-content: center;
 `;
 const Users = styled.img`
-  height: ${sizes.size38};
-  width: ${sizes.size38_51};
+  height: 38px;
+  width: 38.51px;
   border-radius: 50%;
   background-position: center;
 `;
 const NoUser = styled.img`
   height: ${sizes.size19};
-  width: ${sizes.size19_26};
-  margin: ${sizes.size9} ${sizes.size10_13} ${sizes.size10} ${sizes.size9_12};
+  width: 19.26px;
+  margin: 9px 10.13px 10px 9.12px};
 `;
 
 const UserName = styled.p`
-  margin: ${sizes.size12} ${sizes.size0} ${sizes.size7} ${sizes.size8_12};
+  margin: 12px 0 7px 8.12px;
   height: ${sizes.size19};
-  width: ${sizes.size55_74};
+  width: 55.74px;
   color: ${colors.grey_303134};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
