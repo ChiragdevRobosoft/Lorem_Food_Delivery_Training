@@ -3,12 +3,8 @@ import ChickenTikka from "../../../assets/restaurantList/ChickenTikka.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import data from "../../common/constants.json";
 import styled from "styled-components";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  restaurantListProps,
-} from "../../../variables";
+import { sizes, colors, fontFamilies } from "../../../variables";
+import { restaurantListProps } from "../../common/interfaces";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 const renderArrow =
@@ -25,8 +21,8 @@ const renderArrow =
       position: "absolute",
       top: "45%",
       zIndex: 2,
-      border: "solid #3E3E3E",
-      borderWidth: "0 2px 2px 0",
+      border: `solid ${colors.grey_3e3e3e}`,
+      borderWidth: `0 ${sizes.size2} ${sizes.size2} 0`,
       display: "inline-block",
       padding: "3.5px",
       boxSizing: "border-box",
@@ -85,7 +81,7 @@ const BrandsCard = () => {
                     <React.Fragment key={index}>
                       <BrandIcon src={ChickenTikka} />
                       <BrandName>{secondArray.name}</BrandName>
-                      <BrandOutlets>{secondArray.outlets} outlets</BrandOutlets>
+                      <BrandOutlets>{secondArray.outlets}</BrandOutlets>
                     </React.Fragment>
                   );
                 }
@@ -100,37 +96,35 @@ const BrandsCard = () => {
 
 const Wrapper = styled.div`
   .main-slide {
-    height: ${sizes.size166_79};
-    width: ${sizes.size631_42};
+    height: 166.79px;
+    width: 631.42px;
     margin-left: auto;
     margin-right: auto;
     border-radius: ${sizes.size6};
-    background-color: ${colors.white};
+    background-color: ${colors.white_ffffff};
     box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
-      ${colors.black1};
+      ${colors.black_000000_1};
     margin-bottom: 17.14px;
     margin-top: 14px;
   }
   .carousel {
-    height: ${sizes.size166_79};
-    width: ${sizes.size631_42};
+    height: 166.79px;
+    width: 631.42px;
   }
-
   .slider-wrapper {
-    width: ${sizes.size631_42};
-    height: ${sizes.size166_79};
+    width: 631.42px;
+    height: 166.79px;
   }
 `;
 
 const GridDisplay = styled.div`
-  width: ${sizes.size631_42};
-  height: ${sizes.size166_79};
-  padding: ${sizes.size20} ${sizes.size18};
+  width: 631.42px;
+  height: 166.79px;
+  padding: 20px 18px;
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: 4fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: ${sizes.size166_79};
   position: relative;
 `;
 
@@ -143,7 +137,7 @@ const BrandIcon = styled.img`
 
 const BrandName = styled.div`
   height: ${sizes.size19};
-  color: ${colors.grey9};
+  color: ${colors.grey_2d2d2d};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -153,7 +147,7 @@ const BrandName = styled.div`
 
 const BrandOutlets = styled.div`
   height: ${sizes.size19};
-  color: ${colors.grey10};
+  color: ${colors.grey_777777};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};

@@ -2,7 +2,8 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import Unselected from "../../../assets/restaurantList/radio_button_unselected.png";
 import Selected from "../../../assets/restaurantList/radio_button_selected.png";
-import { sizes, colors, fontFamilies, radioProps } from "../../../variables";
+import { sizes, colors, fontFamilies } from "../../../variables";
+import { radioProps } from "../interfaces";
 
 const Radio: FC<radioProps> = ({ name, options, handleChange }) => {
   return (
@@ -48,7 +49,7 @@ const Input = styled.input`
   }
 
   &:checked + label {
-    color: ${colors.orange1};
+    color: ${colors.orange_f78713};
   }
 
   &:not(:checked) {
@@ -57,7 +58,7 @@ const Input = styled.input`
   }
 
   &:not(:checked) + label {
-    color: ${colors.grey5};
+    color: ${colors.grey_606060};
   }
 `;
 

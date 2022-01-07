@@ -69,22 +69,22 @@ const Wrapper = styled.form`
   height: ${sizes.size672};
   width: ${sizes.size304};
   border-radius: ${sizes.size6};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
-    ${colors.black1};
+    ${colors.black_000000_1};
 `;
 
 const TopFlex = styled.div`
   height: ${sizes.size52};
   display: flex;
   flex-direction: row;
-  border-bottom: ${sizes.size2} solid ${colors.white2};
+  border-bottom: ${sizes.size2} solid ${colors.white_e1e1e1};
 `;
 
 const Title = styled.div`
   height: ${sizes.size27};
   width: ${sizes.size60};
-  color: ${colors.grey11};
+  color: ${colors.grey_1b1c1d};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size20};
   letter-spacing: ${sizes.size0};
@@ -95,7 +95,7 @@ const Title = styled.div`
 
 const Reset = styled.div`
   height: ${sizes.size22};
-  color: ${colors.orange2};
+  color: ${colors.orange_f57c00};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
@@ -112,7 +112,7 @@ const MiddleFlex = styled.div`
 
 const AppliedFilter = styled.span`
   height: ${sizes.size19};
-  color: ${colors.grey12};
+  color: ${colors.grey_5e5e5e};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -135,7 +135,7 @@ const AppliedFilterImage = styled.img`
 
 const RadioTitle = styled.div`
   height: ${sizes.size19};
-  color: ${colors.grey13};
+  color: ${colors.grey_9e9999};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.sizeNeg0_48};
@@ -163,7 +163,7 @@ const Input = styled.input`
   :not(:checked) {
     height: ${sizes.size16};
     width: ${sizes.size16};
-    border: ${sizes.size2} solid ${colors.orange1};
+    border: ${sizes.size2} solid ${colors.orange_f78713};
     border-radius: ${sizes.halfWidth};
   }
 `;
@@ -171,7 +171,7 @@ const Input = styled.input`
 const Label = styled.label`
   height: ${sizes.size19};
   width: ${sizes.size70};
-  color: ${colors.orange1};
+  color: ${colors.orange_f78713};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.sizeNeg0_24};
@@ -183,7 +183,7 @@ const EndFlex = styled(MiddleFlex)`
   justify-content: center;
   align-items: center;
   height: ${sizes.size45};
-  border: ${sizes.size2} ${colors.white2};
+  border: ${sizes.size2} ${colors.white_e1e1e1};
   border-style: solid none;
   margin-top: ${sizes.size28};
 `;
@@ -199,33 +199,40 @@ const Button = styled.button`
   height: ${sizes.size45};
   width: ${sizes.size265};
   box-shadow: ${sizes.size0} ${sizes.size4} ${sizes.size10} ${sizes.size0}
-    ${colors.red2};
+    ${colors.red_f67e7e_38};
   margin-left: auto;
   margin-right: auto;
   margin-top: ${sizes.size25};
   padding: ${sizes.size0};
   border: solid ${sizes.size1} ${colors.transparentColor};
   border-radius: ${sizes.size6};
-  background-image: linear-gradient(${colors.white}, ${colors.white}),
-    linear-gradient(${angles.angle90}, ${colors.pink3}, ${colors.orange3});
+  background-image: linear-gradient(
+      ${colors.white_ffffff},
+      ${colors.white_ffffff}
+    ),
+    linear-gradient(
+      ${angles.angle90},
+      ${colors.pink_f2738a},
+      ${colors.orange_faa369}
+    );
   background-origin: border-box;
   background-clip: content-box, border-box;
 
   span {
     height: ${sizes.size19};
     width: ${sizes.size79};
-    color: ${colors.white};
+    color: ${colors.white_ffffff};
     font-family: ${fontFamilies.fontFamilyOsBold};
     font-size: ${sizes.size14};
     letter-spacing: ${sizes.sizeNeg0_18};
     line-height: ${sizes.size19};
     text-align: center;
     text-shadow: ${sizes.size0} ${sizes.size4} ${sizes.size10} ${sizes.size0}
-      ${colors.red2};
+      ${colors.red_f67e7e_38};
     background-image: linear-gradient(
       ${angles.angle90},
-      ${colors.orange4},
-      ${colors.orange5}
+      ${colors.orange_f5867b},
+      ${colors.orange_f99f6c}
     );
     background-clip: text;
     -webkit-background-clip: text;

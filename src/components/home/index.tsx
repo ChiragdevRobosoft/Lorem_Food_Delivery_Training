@@ -8,75 +8,62 @@ import BGimage1 from "./../../assets/home/foodRestaurantSearch/BGimage.png";
 import BGimage2 from "./../../assets/home/popularBrands/BGimage.png";
 import BGimage3 from "./../../assets/home/bestDealsOffers/BGimage.png";
 import BGimage4 from "./../../assets/home/howToOrder/BGimage.png";
-import {
-  sizes,
-  colors,
-  angles,
-  fontFamilies,
-  fontWeight,
-  opacity,
-} from "./../../variables";
-import "./index.scss";
+import { angles, sizes, colors } from "./../../variables";
 import Footer from "../common/footer";
 
 const Home = () => {
   return (
-    <Wrapper>
-      <div className="one">
+    <HomeContainer>
+      <HomeScreens imgUrl={BGimage1} height={`${sizes.size935}`}>
         <FoodRestaurantSearch />
-      </div>
-      <div className="two">
+      </HomeScreens>
+      <HomeScreens imgUrl={BGimage2} height={`${sizes.size617}`}>
         <PopularBrands />
-      </div>
-      <div className="three">
+      </HomeScreens>
+      <HomeScreens imgUrl={BGimage3} height={`${sizes.size823}`}>
         <BestDealsOffers />
-      </div>
-      <div className="four">
+      </HomeScreens>
+      <HomeScreens
+        imgUrl={BGimage4}
+        height={`${sizes.size780}`}
+        backGroundPosition="center"
+      >
         <HowToOrder />
-      </div>
-      <div className="five">
+      </HomeScreens>
+      <HomeScreens
+        height={`${sizes.size847}`}
+        backgroundColor={`linear-gradient(${angles.angle206_72} ${colors.blue_f3f6ff} 0%, ${colors.white_ffffff} 100%)`}
+      >
         <LoremStoreApp />
-      </div>
-    </Wrapper>
+      </HomeScreens>
+      <Footer />
+    </HomeContainer>
   );
 };
 export default Home;
 
-const Wrapper = styled.div`
+const HomeContainer = styled.div`
   width: 100%;
-  .one {
-    background-image: url(${BGimage1});
-    background-repeat: no-repeat;
-    height: 935px;
-    display: flex;
-    justify-content: center;
-  }
-  .two {
-    background-image: url(${BGimage2});
-    background-repeat: no-repeat;
-    height: 617px;
-    display: flex;
-    justify-content: center;
-  }
-  .three {
-    background-image: url(${BGimage3});
-    background-repeat: no-repeat;
-    height: 823px;
-    display: flex;
-    justify-content: center;
-  }
-  .four {
-    background-image: url(${BGimage4});
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 780px;
-    display: flex;
-  }
-  .five {
-    height: 847px;
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(206.72deg, #f3f6ff 0%, #ffffff 100%);
-    background-repeat: no-repeat;
-  }
+  overflow: hidden;
+  margin: ${sizes.size0};
+  padding: ${sizes.size0};
+  box-sizing: border-box;
+`;
+interface HomeScreensProps {
+  imgUrl?: string;
+  height: string;
+  backGroundPosition?: string;
+  backgroundColor?: string;
+}
+const HomeScreens = styled.div<HomeScreensProps>`
+  background-image: ${(props) =>
+    props.imgUrl ? `url(${props.imgUrl})` : null};
+  height: ${(props) => props.height};
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  background-position: ${(props) =>
+    props.backGroundPosition ? props.backGroundPosition : "center"};
+  background: ${(props) =>
+    props.backgroundColor ? props.backgroundColor : null};
 `;

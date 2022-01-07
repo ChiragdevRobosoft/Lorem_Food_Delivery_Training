@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../common/header";
 import Dropdown from "../common/Dropdown";
 import ArrowUp from "../../assets/restaurantList/long-arrow-pointing-up.png";
 import ArrowDown from "../../assets/restaurantList/long-arrow-pointing-down.png";
@@ -17,7 +16,6 @@ import Searchpath from "../common/Searchpath";
 const RestaurantList = () => {
   return (
     <Wrapper>
-      <Header />
       <SearchContainer></SearchContainer>
       <MainContainer>
         <Searchpath
@@ -84,7 +82,7 @@ const SearchContainer = styled.div`
 
 const MainContainer = styled.div`
   width: 100wh;
-  background: ${colors.violet1};
+  background: ${colors.violet_f1f3fb};
   margin-left: auto;
   margin-right: auto;
 `;
@@ -98,7 +96,7 @@ const HeadingSection = styled.div`
 const Title = styled.div`
   height: 34px;
   width: 224px;
-  color: ${colors.grey16};
+  color: ${colors.grey_636364};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size25};
   letter-spacing: ${sizes.size0};
@@ -114,7 +112,7 @@ const FilterRow = styled.div`
 
 const FilterType = styled.span`
   height: 22px;
-  color: ${colors.grey17};
+  color: ${colors.grey_303134};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
@@ -143,7 +141,7 @@ const RightSection = styled.div`
 const Brands = styled.span`
   height: 22px;
   width: 108px;
-  color: ${colors.grey18};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.sizeNeg0_27};
@@ -152,7 +150,7 @@ const Brands = styled.span`
 
 const MoreOption = styled(Link)`
   height: 22px;
-  color: ${colors.orange2};
+  color: ${colors.orange_f57c00};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
