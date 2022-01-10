@@ -349,7 +349,7 @@
         "image": true,
         "bestseller": false,
         "veg": false,
-        "cost": "AED27.00",
+        "cost": 27.0,
         "customizable": true,
         "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
         "quantity": 0
@@ -389,5 +389,7 @@
       }
     ]
   },
+  "costUnit": "AED",
+  "customizeText": "Customizable",
   "NavbarElements": ["MENU", "OVERVIEW", "REVIEWS & RATINGS", "GALLERY"]
 }

@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartCard from "../../common/CartCard";
 import DownArrow from "../../../assets/restaurantDetails/collapse button.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
 import { foodItemProps } from "../../common/interfaces";
+import InputField from "../../common/textbox";
+import Buttons from "../../common/button";
+import RightArrow from "../../../assets/restaurantDetails/arrow_choose_address.png";
 
 const Cart = () => {
   const { details, setDetails } = useContext(CartData);
@@ -61,6 +65,23 @@ const Cart = () => {
         </CostColumn>
       </CostDetailsContainer>
       <CookingInstructionTitle>Cooking instructions?</CookingInstructionTitle>
+      <InputField
+        name="Mention it here..."
+        isPassword={false}
+        style={{
+          width: "263px",
+          margin: "auto",
+          color: `${colors.grey_4a4a4a}`,
+        }}
+      />
+      <RoutingLink to="checkout">
+        <Buttons
+          name="PROCEED TO CHECKOUT"
+          className="colouredBgButton"
+          style={{ width: "264px" }}
+          image={RightArrow}
+        />
+      </RoutingLink>
     </Wrapper>
   );
 };
@@ -73,6 +94,10 @@ const Wrapper = styled.div`
   background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
     ${colors.black_000000_1};
+
+  .colouredBgButton {
+    margin-top: 26px;
+  }
 `;
 
 const TitleFlex = styled.div`
@@ -200,6 +225,11 @@ const CookingInstructionTitle = styled.div`
   line-height: ${sizes.size17};
   margin-left: 21px;
   margin-top: 17px;
+  margin-bottom: 11px;
+`;
+
+const RoutingLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export default Cart;

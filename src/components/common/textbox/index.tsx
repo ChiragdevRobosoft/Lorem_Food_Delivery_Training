@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 import React, { useState } from "react";
 import view_active from "../../../assets/view_active.png";
 import view_inactive from "../../../assets/view_inactive.png";
@@ -7,9 +7,11 @@ import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
 const InputField = ({
   name,
   isPassword,
+  style,
 }: {
   name: string;
   isPassword: boolean;
+  style?: CSSProperties;
 }) => {
   const [viewState, changeViewState] = useState(false);
   const [focusState, changeFocusState] = useState(false);
@@ -20,7 +22,7 @@ const InputField = ({
     if (e.target.value === "") changeFocusState(false);
   };
   return (
-    <FormContainer>
+    <FormContainer style={style}>
       <Textbox
         type={!viewState && isPassword ? "password" : "text"}
         onFocus={() => {
@@ -30,6 +32,7 @@ const InputField = ({
           handleFocusChange(e);
         }}
         className={focusState ? "moveUp" : ""}
+        style={style}
       />
       {isPassword ? (
         <>
@@ -43,7 +46,7 @@ const InputField = ({
           ></ViewIcon>
         </>
       ) : (
-        <Label name={name} className="form-label" />
+        <Label name={name} className="form-label" style={style} />
       )}
     </FormContainer>
   );
@@ -51,7 +54,8 @@ const InputField = ({
 export default InputField;
 const FormContainer = styled.div`
   position: relative;
-  width: 100%;
+  height: 34px;
+  width: ${(props) => (props.style?.width ? props.style.width : "100%")};
   .moveUp ~ .form-label {
     top: -1.5rem;
     font-size: 0.8rem;
@@ -65,11 +69,11 @@ const Textbox = styled.input`
   top: 0;
   left: 0;
   height: ${sizes.size34};
-  width: 78.8%;
+  width: ${(props) => (props.style?.width ? props.style.width : "78.8%")};
   background-color: transparent;
   border: none;
   border-bottom: 1px solid ${colors.grey_858585};
-  margin-left: 10%;
+  margin-left: ${(props) => (props.style?.margin ? props.style.margin : "10%")};
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 16px;

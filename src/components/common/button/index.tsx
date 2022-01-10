@@ -1,19 +1,24 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
 const Buttons = ({
   name,
   className,
   onClick,
+  style,
+  image,
 }: {
   name: string;
   className: string;
   onClick?: () => void;
+  style?: CSSProperties;
+  image?: string;
 }) => {
   console.log(className);
   return (
-    <Button className={className} onClick={onClick}>
+    <Button className={className} onClick={onClick} style={style}>
       {name}
+      <ButtonImage src={image} />
     </Button>
   );
 };
@@ -21,7 +26,9 @@ export default Buttons;
 const Button = styled.button`
   height: ${sizes.size50};
   width: ${(props) =>
-    props.className === "colouredBgButton"
+    props.style?.width
+      ? props.style.width
+      : props.className === "colouredBgButton"
       ? `${sizes.size380}`
       : `${sizes.size180}`};
   border-radius: 6px;
@@ -40,7 +47,8 @@ const Button = styled.button`
       ? "1px solid #D34836"
       : "1px solid #02A7FD"};
   display: flex;
-  justify-content: space-around;
+  gap: 8px;
+  justify-content: center;
   color: ${(props) =>
     props.className === "colouredBgButton"
       ? `${colors.white_ffffff}`
@@ -54,7 +62,10 @@ const Button = styled.button`
   line-height: 22px;
   text-align: center;
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
-  padding-top: 3%;
+  align-items: center;
   margin-right: auto;
   margin-left: auto;
+  cursor: pointer;
 `;
+
+const ButtonImage = styled.img``;

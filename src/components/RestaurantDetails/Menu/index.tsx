@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FoodCard from "../../common/FoodCard";
-import SearchIcon from "../../../assets/restaurantDetails/icn_search_home copy.png";
+import SearchIcon from "../../../assets/restaurantDetails/icon_search.png";
 import data from "../../common/constants.json";
 import Cart from "../Cart";
 import { fontFamilies, colors, sizes, opacity } from "../../../variables";
