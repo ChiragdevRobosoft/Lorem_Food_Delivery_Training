@@ -381,5 +381,7 @@
       }
     ]
   },
+  "costUnit": "AED",
+  "customizeText": "Customizable",
   "NavbarElements": ["MENU", "OVERVIEW", "REVIEWS & RATINGS", "GALLERY"]
 }
