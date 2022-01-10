@@ -5,7 +5,13 @@ import secondStep from "./../../../assets/home/howToOrder/icn_burger.png";
 import thirdStep from "./../../../assets/home/howToOrder/icn_cart.png";
 import pathOne from "./../../../assets/home/howToOrder/wave1.png";
 import pathTwo from "./../../../assets/home/howToOrder/wave2.png";
-import { colors, fontFamilies, sizes } from "../../../variables";
+import {
+  colors,
+  fontFamilies,
+  letterSpacing,
+  opacity,
+  sizes,
+} from "../../../variables";
 
 const HowToOrder = () => {
   return (
@@ -36,6 +42,7 @@ const HowToOrder = () => {
           height={`${sizes.size181}`}
           width={`${sizes.size228}`}
           marginTop={`${sizes.size11}`}
+          marginLeft={`${sizes.sizen31_54}`}
         >
           <Step
             src={secondStep}
@@ -73,9 +80,9 @@ const HowToOrder = () => {
 export default HowToOrder;
 
 const Wrapper = styled.div`
-  height: ${sizes.size742};
-  width: ${sizes.size1886};
-  margin: ${sizes.size37} ${sizes.size24} ${sizes.size1} ${sizes.size38};
+  height: 742px;
+  width: 1886px;
+  margin: 37px 24px 1px 38px;
   display: flex;
   flex-direction: column;
 `;
@@ -83,36 +90,37 @@ const Wrapper = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  height: ${sizes.size121};
-  width: ${sizes.size643};
-  margin: ${sizes.size98} ${sizes.size823} ${sizes.size96} ${sizes.size420};
+  height: 121px;
+  width: 643px;
+  margin: 98px 823px 96px 420px;
 `;
 const Title = styled.p`
-  margin: ${sizes.size0} ${sizes.size324} ${sizes.size14} ${sizes.size0};
-  height: ${sizes.size83};
-  width: ${sizes.size319};
+  margin: 0 324px 14px 0;
+  height: 83px;
+  width: 319px;
   color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size50};
-  letter-spacing: ${sizes.size0};
+  letter-spacing: ${letterSpacing.space0};
   line-height: ${sizes.size83};
-  text-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size9} ${sizes.size0}
-    ${colors.white_ffffff};
+  text-shadow: 0 0 9px 0 ${colors.white_ffffff};
 `;
+
 const Discription = styled.p`
-  margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size4};
-  height: ${sizes.size24};
-  width: ${sizes.size639};
+  margin: 0 0 0 4px;
+  height: 24px;
+  width: 639px;
   color: ${colors.grey_929598};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size18};
-  letter-spacing: ${sizes.size0_58};
+  letter-spacing: ${letterSpacing.space0_58};
   line-height: ${sizes.size24};
 `;
+
 const StepsContainer = styled.div`
-  margin: ${sizes.size0} ${sizes.size572} ${sizes.size235} ${sizes.size421};
-  width: ${sizes.size893};
-  height: ${sizes.size192};
+  margin: 0 572px 235px 421px;
+  width: 893px;
+  height: 192px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -154,14 +162,14 @@ const StepDescp = styled.p<StepDescpProps>`
   color: ${colors.grey_7c7c7c};
   font-family: ${fontFamilies.fontFamilyOsRegular}
   font-size: ${sizes.size18};
-  letter-spacing: ${sizes.size0_64};
+  letter-spacing: ${letterSpacing.space0_64};
   line-height: ${sizes.size27};
   text-align: center;
 `;
 
 const SineWave = styled.img`
-  height: ${sizes.size24};
-  width: ${sizes.size162_54};
-  margin: ${sizes.size47} ${sizes.size0} ${sizes.size121} ${sizes.sizen26};
-  opacity: ${sizes.size0_58};
+  height: 24px;
+  width: 162.54px;
+  margin: 47px 0 121px -26px;
+  opacity: ${opacity.opacity0_58};
 `;
