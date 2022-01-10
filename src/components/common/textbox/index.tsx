@@ -57,7 +57,7 @@ const FormContainer = styled.div`
   height: 34px;
   width: ${(props) => (props.style?.width ? props.style.width : "100%")};
   .moveUp ~ .form-label {
-    top: -1.5rem;
+    top: ${(props) => (props.style?.width === "263px" ? "-1rem" : "-1.5rem")};
     font-size: 0.8rem;
     position: relative;
   }

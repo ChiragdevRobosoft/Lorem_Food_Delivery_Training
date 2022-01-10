@@ -225,7 +225,7 @@ const CookingInstructionTitle = styled.div`
   line-height: ${sizes.size17};
   margin-left: 21px;
   margin-top: 17px;
-  margin-bottom: 11px;
+  margin-bottom: 15px;
 `;
 
 const RoutingLink = styled(Link)`
