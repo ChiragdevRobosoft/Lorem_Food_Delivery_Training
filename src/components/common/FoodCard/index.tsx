@@ -52,7 +52,7 @@ const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
           )}
           {cardDetails.foodName}
         </FoodName>
-        <Cost>AED27.00</Cost>
+        <Cost>AED{cardDetails.cost}</Cost>
         {cardDetails.customizable ? (
           <Customizable>Customizable</Customizable>
         ) : null}
