@@ -12,10 +12,12 @@ import RightArrow from "../../assets/restaurantList/right_arrow.png";
 import { Link } from "react-router-dom";
 import { colors, sizes, fontFamilies, links } from "../../variables";
 import Searchpath from "../common/Searchpath";
+import Header from "../common/header";
 
 const RestaurantList = () => {
   return (
     <Wrapper>
+      <Header className="loggedin" />
       <SearchContainer></SearchContainer>
       <MainContainer>
         <Searchpath
