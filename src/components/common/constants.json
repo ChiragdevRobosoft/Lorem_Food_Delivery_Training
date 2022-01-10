@@ -45,6 +45,86 @@
       "outlets": "5 outlets"
     }
   ],
+  "radio": [
+    {
+      "name": "Delivery in",
+      "options": ["30 min", "45 min", "60 min"]
+    },
+    {
+      "name": "Average Meal cost",
+      "options": ["Upto 30 AED", "Upto 60 AED", "Upto 100 AED"]
+    },
+    { "name": "Minimum order", "options": ["Upto 60 AED", "Upto 100 AED"] }
+  ],
+  "restaurantCardData": [
+    {
+      "name": "The Boutique Kitchen",
+      "rating": 3.8,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Open now",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "Iran Zamin Restaurant & Cafe",
+      "rating": 4,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Closed",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "PAUL Bakery & Restaurant",
+      "rating": 4.5,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Closing in 30 minutes",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "Shakespeare and Co. - The…",
+      "rating": 3.7,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Open now",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "Leila",
+      "rating": 3.8,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Open now",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "The Boutique Kitchen",
+      "rating": 3.9,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Open now",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "Iran Zamin Restaurant & Cafe",
+      "rating": 3.8,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Closed",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    },
+    {
+      "name": "PAUL Bakery & Restaurant",
+      "rating": 3.6,
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "variety": "Indian, Pakistani, Kebab",
+      "availabilityInfo": "Closing in 30 minutes",
+      "detailsList": ["63mins", "AED40 min order", "AED60 avg meal cost"]
+    }
+  ],
+  "searchPath": {
+    "greatBreakfasts": ["Home", "UAE", "Explore", "Great breakfasts"]
+  },
   "homeTexts": {
     "foodRestaurantSearch": {
       "heading": "Order your food",
@@ -156,5 +236,30 @@
   "footerData": {
     "cities": { "title": "CITIES", "count": "24" },
     "countries": { "title": "COUNTRIES", "count": "4" }
+  },
+  "filterData": {
+    "title": "Filters",
+    "reset": "Reset All",
+    "time": "TIME",
+    "cost": "AVERAGE MEAL COST",
+    "radioTitle": "Show restaurant with",
+    "checkboxTitle": "Open Now",
+    "cuisines": "CUISINES",
+    "apply": "APPLY"
+  },
+  "dropdownData": {
+    "list": {
+      "title": "List by",
+      "content": ["All", "Near by"]
+    },
+    "sort": {
+      "title": "Sort by",
+      "content": ["Rating", "Rating"]
+    }
+  },
+  "restaurantListPage": {
+    "title": "Breakfast in Dubai",
+    "brandsNearBy": "Brands Nearby",
+    "more": "More"
   }
 }
