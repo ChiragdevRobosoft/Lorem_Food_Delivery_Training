@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import registerSuccess from "../../assets/register_success.png";
-import { useNavigate } from "react-router-dom";
 import Buttons from "../../components/common/button/index";
 import closeButton from "../../assets/close_button.png";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import data from "./../../components/common/constants.json";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  fontWeight,
-  links,
-} from "../../variables";
+import { sizes, colors, fontFamilies, fontWeight } from "../../variables";
 const RegisterSuccess = ({
   onCloseModal,
   onOpenModal,
@@ -25,8 +18,6 @@ const RegisterSuccess = ({
   open: boolean;
   setShowRegisterSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const history = useNavigate();
-
   return (
     <Modal
       open={open}
@@ -60,10 +51,8 @@ const RegisterSuccess = ({
           <SuccessImage>
             <img src={registerSuccess} className="registersuccess"></img>
           </SuccessImage>
-          <Title>Hi Abdulla, Welcome to Zadoh</Title>
-          <Discription>
-            We’ve sent you an email on abdulla.mohammad for verification.
-          </Discription>
+          <Title>{data.loginModal.welcomePage.title}</Title>
+          <Discription>{data.loginModal.welcomePage.description}</Discription>
           <BrowseButton>
             <Buttons
               className="colouredBgButton"

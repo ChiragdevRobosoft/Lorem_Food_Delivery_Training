@@ -156,5 +156,19 @@
   "footerData": {
     "cities": { "title": "CITIES", "count": "24" },
     "countries": { "title": "COUNTRIES", "count": "4" }
+  },
+  "profile": {
+    "name": "Abdulla",
+    "edit": "Edit",
+    "fullName": "Abdulla Mohammed",
+    "mobileNumber": "+971 87656 43217",
+    "emailAddress": "Abdulla@foodie.com",
+    "creditEarned": "Credits Earned - ",
+    "creditData": "234",
+    "order": "ORDERS",
+    "address": "ADDRESS",
+    "paymentMethods": "PAYMENT METHODS",
+    "reviews": "REVIEWS",
+    "gallery": "GALLERY"
   }
 }

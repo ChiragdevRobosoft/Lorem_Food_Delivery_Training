@@ -8,6 +8,7 @@ export const colors = {
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_000000_05: "rgba(0, 0, 0, 0.5)", //black3
   black_000000_1: "rgba(0, 0, 0, 0.1)",
+  black_000000_03: "rgba(0, 0, 0, 0.3)",
   grey_979797: "rgba(151, 151, 151, 1)", //grey3 #979797
   grey_979797_19: "rgba(151, 151, 151, 0.19)", //grey1 #979797
   grey_636364_07: "rgba(99, 99, 100, 0.7)", //grey2 grey4 #636364
@@ -41,7 +42,8 @@ export const colors = {
   yellow_f5a623: "rgba(245,166,35,1)",
   orange_f67e03: "rgba(246, 126, 3, 1)", //orange1 #f67e03
   orange_fca100: "rgba(252, 161, 0,1)",
-  orange_f78713: "rgba()247, 135, 19,1",
+  orange_f78713: "rgba(247, 135, 19,1",
+  orange_fda200: "rgba(253, 162, 0, 1)",
   blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
@@ -113,6 +115,7 @@ export const sizes = {
   size26: "26px",
   size27: "27px",
   size29: "29px",
+  size31: "31px",
   size31_42: "31.42px",
   size32: "32px",
   size33: "33px",
@@ -129,6 +132,7 @@ export const sizes = {
   size39_53: "39.53px",
   size40: "40px",
   size41: "41px",
+  size42: "42px",
   size43: "43px",
   size43_18: "43.18px",
   size43_82: "43.82px",
