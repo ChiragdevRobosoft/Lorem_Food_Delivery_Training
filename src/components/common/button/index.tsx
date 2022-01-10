@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  fontWeight,
-  links,
-} from "../../../variables";
+import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
 const Buttons = ({
   name,
   className,

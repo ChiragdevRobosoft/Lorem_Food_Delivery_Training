@@ -3,13 +3,7 @@ import React, { useState } from "react";
 import view_active from "../../../assets/view_active.png";
 import view_inactive from "../../../assets/view_inactive.png";
 import Label from "../label";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  fontWeight,
-  links,
-} from "../../../variables";
+import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
 const InputField = ({
   name,
   isPassword,

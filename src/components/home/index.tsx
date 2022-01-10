@@ -45,8 +45,8 @@ export default Home;
 const HomeContainer = styled.div`
   width: 100%;
   overflow: hidden;
-  margin: ${sizes.size0};
-  padding: ${sizes.size0};
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 `;
 interface HomeScreensProps {

@@ -4,13 +4,7 @@ import icon_dropdown from "../../assets/arrow_drop@.png";
 import OutsideAlerter from "../OutsideClickAlert";
 import TextBox from "../common/textbox";
 import CountryCode from "./info";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  fontWeight,
-  links,
-} from "../../variables";
+import { sizes, colors, fontFamilies } from "../../variables";
 const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
   const [dropDownStatus, setDropDownStatus] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("india");
@@ -66,8 +60,8 @@ const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
 export default TelephonePicker;
 const FormContainer = styled.div`
   position: relative;
-  height: ${sizes.size56};
-  width: ${sizes.size380};
+  height: 56px;
+  width: 380px;
   margin-left: 50px;
   margin-top: -10px;
   margin-bottom: 42px;
@@ -79,13 +73,13 @@ const MobileNumberContainer = styled.div`
   justify-content: space-between;
 `;
 const DropDown = styled.img`
-  height: ${sizes.size7};
-  width: ${sizes.size11};
+  height: 7px;
+  width: 11px;
   margin-top: 8px;
   margin-left: 10px;
 `;
 const Label = styled.label`
-  width: ${sizes.size88};
+  width: 88px;
   color: ${colors.grey_858585};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 0.8rem;
@@ -114,8 +108,8 @@ const DropDownWindow = styled.div`
   }
 `;
 const OptionWrapper = styled.div`
-  height: ${sizes.size20};
-  width: ${sizes.size65};
+  height: 20px;
+  width: 65px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -125,8 +119,8 @@ const OptionWrapper = styled.div`
   }
 `;
 const Flag = styled.img`
-  height: ${sizes.size20};
-  width: ${sizes.size29};
+  height: 20px;
+  width: 29px;
 `;
 const Code = styled.p`
   color: ${colors.black_000000};
@@ -139,19 +133,19 @@ const Code = styled.p`
 `;
 const OptionSelected = styled.div`
   border-bottom: 1px solid ${colors.grey_4a4a4a};
-  width: ${sizes.size90};
+  width: 90px;
   display: flex;
-  height: ${sizes.size35};
+  height: 35px;
   flex-direction: row;
 `;
 const DropDownContainer = styled.div`
   z-index: 99;
   position: absolute;
   background-color: ${colors.white_d2d2d2};
-  width: ${sizes.size80};
+  width: 80px;
   padding: 10px;
   display: flex;
-  height: ${sizes.size100};
+  height: 100px;
   justify-content: space-around;
   flex-direction: column;
   top: 0;

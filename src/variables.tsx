@@ -6,10 +6,10 @@ export const colors = {
   white_e1e1e1: "rgba(225, 225, 225,1)",
   white_fcfcfc: "rgba(252, 252, 252,1)",
   black_000000: "rgba(0,0,0,1)", //black
-  black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_000000_05: "rgba(0, 0, 0, 0.5)", //black3
   black_000000_1: "rgba(0, 0, 0, 0.1)",
   black_000000_07: "rgba(0,0,0,0.07)",
+  black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   grey_979797: "rgba(151, 151, 151, 1)", //grey3 #979797
   grey_979797_19: "rgba(151, 151, 151, 0.19)", //grey1 #979797
   grey_636364_07: "rgba(99, 99, 100, 0.7)", //grey2 grey4 #636364
@@ -400,6 +400,7 @@ export const fontWeight = {
 
 export const opacity = {
   opacity0_19: 0.19,
+  opacity0_58: 0.58,
   opacity0_66: 0.66,
   opacity0_44: 0.44,
 };
@@ -413,8 +414,10 @@ export const zIndex = {
 export const letterSpacing = {
   space0: "0",
   space0_43: "0.43",
-  space0_58: "0.58",
   space0_5: "0.5",
+  space0_58: "0.58",
+  space0_64: "0.64px",
+  space3_66: "3.66",
 };
 
 export const links = {
