@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Header from "../common/header";
 import { colors, sizes, fontFamilies, angles } from "../../variables";
 import Searchpath from "../common/Searchpath";
 import data from "../common/constants.json";
-import BgImg from "../../assets/menu/Bitmap Copy.png";
-import RestaurantImg from "../../assets/menu/Resturant Image.png";
-import Cutlery from "../../assets/menu/restaurant-cutlery.png";
-import TimeIcon from "../../assets/menu/time_icon.png";
+import BgImg from "../../assets/restaurantDetails/BgImage.png";
+import RestaurantImg from "../../assets/restaurantDetails/Resturant Image.png";
+import Cutlery from "../../assets/restaurantDetails/restaurant-cutlery.png";
+import TimeIcon from "../../assets/restaurantDetails/time_icon.png";
 import DeliveryRating from "../common/DeliveryRating";
 import { NavLink, Outlet } from "react-router-dom";
 import Footer from "../common/footer";
@@ -19,7 +18,6 @@ const RestaurantDetails = () => {
   };
   return (
     <Wrapper>
-      <Header></Header>
       <SearchContainer></SearchContainer>
       <MainContainer>
         <Searchpath path={data.searchPath.menu} className="grey-dark" />
@@ -83,7 +81,7 @@ const SearchContainer = styled.div`
 
 const MainContainer = styled.div`
   width: ${sizes.fullWidth};
-  background: ${colors.violet1};
+  background: ${colors.violet_f1f3fb};
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -110,7 +108,7 @@ const RestaurantName = styled.div`
   position: absolute;
   height: 36px;
   width: 380px;
-  color: ${colors.grey20};
+  color: ${colors.grey_1c1c1c};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size26};
   letter-spacing: ${sizes.size0};
@@ -122,7 +120,7 @@ const RestaurantName = styled.div`
 const FoodVariety = styled.div`
   position: absolute;
   height: 19px;
-  color: ${colors.grey8};
+  color: ${colors.grey_757575_9};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -136,8 +134,8 @@ const Rating = styled.span`
   height: 23px;
   width: 42px;
   border-radius: ${sizes.size4};
-  background-color: ${colors.green1};
-  color: ${colors.white};
+  background-color: ${colors.green_5fb700};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size15};
   letter-spacing: ${sizes.size0};
@@ -162,7 +160,7 @@ const DetailsList = styled.ul`
   display: flex;
   flex-direction: row;
   height: 17px;
-  color: ${colors.grey8};
+  color: ${colors.grey_757575_9};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -179,7 +177,7 @@ const Detail = styled.li`
 
 const Time = styled.div`
   height: 17px;
-  color: ${colors.grey21};
+  color: ${colors.grey_7c7c7c};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -191,7 +189,7 @@ const RatingTitle = styled.div`
   position: absolute;
   width: 297px;
   height: 17px;
-  color: ${colors.grey22};
+  color: ${colors.grey_6a6a6a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -199,7 +197,7 @@ const RatingTitle = styled.div`
   top: 242px;
   left: 41px;
   padding-bottom: 6px;
-  border-bottom: ${sizes.size2} solid ${colors.white3};
+  border-bottom: ${sizes.size2} solid ${colors.white_ededed};
 `;
 
 const NavBar = styled.ul`
@@ -214,7 +212,7 @@ const NavBarElement = styled.li`
   margin-right: 60px;
   list-style: none;
   height: 19px;
-  color: ${colors.grey23};
+  color: ${colors.grey_1f1f1f};
   font-family: ${(props) =>
     props.className === "select"
       ? `${fontFamilies.fontFamilyOsBold}`
@@ -231,11 +229,11 @@ const BorderDiv = styled.div`
   border-radius: 2px;
   background-image: linear-gradient(
     ${angles.angle138_33},
-    ${colors.red4} 0%,
-    ${colors.yellow5} 100%
+    ${colors.red_f3698e} 0%,
+    ${colors.yellow_feb456} 100%
   );
   box-shadow: ${sizes.size0} ${sizes.size4} ${sizes.size10} ${sizes.size0}
-    ${colors.red2};
+    ${colors.red_f67e7e_38};
 `;
 
 const Navlink = styled(NavLink)`

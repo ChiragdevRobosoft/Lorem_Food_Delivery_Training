@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../common/header";
 import Dropdown from "../common/Dropdown";
-import ArrowUp from "../../assets/restaurantList/long-arrow-pointing-up.png";
-import ArrowDown from "../../assets/restaurantList/long-arrow-pointing-down.png";
+import ArrowUp from "../../assets/common/dropdown/long-arrow-pointing-up.png";
+import ArrowDown from "../../assets/common/dropdown/long-arrow-pointing-down.png";
 import Filters from "./Filters";
 import data from "../common/constants.json";
 import RestaurantCard from "../common/restaurantCard";
@@ -17,7 +16,6 @@ import Searchpath from "../common/Searchpath";
 const RestaurantList = () => {
   return (
     <Wrapper>
-      <Header />
       <SearchContainer></SearchContainer>
       <MainContainer>
         <Searchpath
@@ -25,22 +23,34 @@ const RestaurantList = () => {
           className="grey-light"
         />
         <HeadingSection>
-          <Title>Breakfast in Dubai</Title>
+          <Title>{data.restaurantListPage.title}</Title>
           <FilterRow>
-            <FilterType>List by :</FilterType>
+            <FilterType>{data.dropdownData.list.title} :</FilterType>
             <Dropdown
-              name="List by"
+              name={data.dropdownData.list.title}
               options={[
-                { content: "All", image: null },
-                { content: "Near by", image: null },
+                {
+                  content: `${data.dropdownData.list.content[0]}`,
+                  image: null,
+                },
+                {
+                  content: `${data.dropdownData.list.content[1]}`,
+                  image: null,
+                },
               ]}
             />
-            <FilterType>Sort by :</FilterType>
+            <FilterType>{data.dropdownData.sort.title} :</FilterType>
             <Dropdown
-              name="Sort by"
+              name={data.dropdownData.sort.title}
               options={[
-                { content: "Rating", image: ArrowUp },
-                { content: "Rating", image: ArrowDown },
+                {
+                  content: `${data.dropdownData.sort.content[0]}`,
+                  image: ArrowUp,
+                },
+                {
+                  content: `${data.dropdownData.sort.content[1]}`,
+                  image: ArrowDown,
+                },
               ]}
             />
           </FilterRow>
@@ -53,9 +63,9 @@ const RestaurantList = () => {
                 return (
                   <React.Fragment key={index}>
                     <RestaurantCard card={cardInfo} />
-                    <Brands>Brands Nearby</Brands>
+                    <Brands>{data.restaurantListPage.brandsNearBy}</Brands>
                     <MoreOption to={links.brands}>
-                      More
+                      {data.restaurantListPage.more}
                       <RightArrowImg src={RightArrow} />
                     </MoreOption>
                     <BrandsCard />
@@ -75,7 +85,7 @@ const RestaurantList = () => {
 
 const Wrapper = styled.div`
   height: 100vh;
-  width: 100%;
+  width: 100wh;
 `;
 
 const SearchContainer = styled.div`
@@ -83,8 +93,8 @@ const SearchContainer = styled.div`
 `;
 
 const MainContainer = styled.div`
-  width: 100%;
-  background: ${colors.violet1};
+  width: 100wh;
+  background: ${colors.violet_f1f3fb};
   margin-left: auto;
   margin-right: auto;
 `;
@@ -98,7 +108,7 @@ const HeadingSection = styled.div`
 const Title = styled.div`
   height: 34px;
   width: 224px;
-  color: ${colors.grey16};
+  color: ${colors.grey_636364};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size25};
   letter-spacing: ${sizes.size0};
@@ -114,7 +124,7 @@ const FilterRow = styled.div`
 
 const FilterType = styled.span`
   height: 22px;
-  color: ${colors.grey17};
+  color: ${colors.grey_303134};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
@@ -143,8 +153,8 @@ const RightSection = styled.div`
 const Brands = styled.span`
   height: 22px;
   width: 108px;
-  color: ${colors.grey18};
-  font-family: ${fontFamilies.fontFamilyOs};
+  color: ${colors.grey_4a4a4a};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.sizeNeg0_27};
   line-height: ${sizes.size22};
@@ -152,8 +162,8 @@ const Brands = styled.span`
 
 const MoreOption = styled(Link)`
   height: 22px;
-  color: ${colors.orange2};
-  font-family: ${fontFamilies.fontFamilyOs};
+  color: ${colors.orange_f57c00};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};

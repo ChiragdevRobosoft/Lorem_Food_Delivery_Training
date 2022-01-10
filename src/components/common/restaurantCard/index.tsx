@@ -1,22 +1,18 @@
 import React, { FC } from "react";
-import Menu from "../../../assets/restaurantList/menu.png";
+import Menu from "../../../assets/common/restaurantCard/menu.png";
 import styled from "styled-components";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  opacity,
-  RestauarantCardprops,
-} from "../../../variables";
-import Bitmap from "../../../assets/restaurantList/Bitmap.png";
+import { sizes, colors, fontFamilies, opacity } from "../../../variables";
+import FoodIcon from "../../../assets/common/restaurantCard/food.png";
 import { Link } from "react-router-dom";
+import { RestauarantCardprops } from "../interfaces";
+import { links } from "../../../variables";
 
 const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
   return (
     <Wrapper>
-      <FoodImage src={Bitmap} alt="" />
+      <FoodImage src={FoodIcon} alt="" />
       <Rating>{card.rating}</Rating>
-      <Link to="/menu">
+      <Link to={links.menu}>
         <MenuImage src={Menu} alt="" />
       </Link>
       <ColumnFlex>
@@ -44,28 +40,28 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: ${sizes.size166_79};
-  width: ${sizes.size631_42};
+  height: 166.79px;
+  width: 631.42px;
   border-radius: ${sizes.size6};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
-    ${colors.black1};
+    ${colors.black_000000_1};
   margin-bottom: 10.99px;
 `;
 
 const FoodImage = styled.img`
-  margin-left: ${sizes.size15_73};
+  margin-left: 15.73px;
 `;
 
 const Rating = styled.div`
-  top: ${sizes.size8_88};
-  right: ${sizes.size10};
+  top: 8.88px;
+  right: 10px;
   position: absolute;
-  height: ${sizes.size27_25};
-  width: ${sizes.size43_6};
+  height: 27.25px;
+  width: 43.6px;
   border-radius: ${sizes.size4};
-  background-color: ${colors.yellow3};
-  color: ${colors.white};
+  background-color: ${colors.yellow_f5a623};
+  color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
@@ -77,16 +73,16 @@ const Rating = styled.div`
 const MenuImage = styled.img`
   position: absolute;
   z-index: 1;
-  right: ${sizes.size8_42};
+  right: 8.42px;
   bottom: ${sizes.size16};
 `;
 
 const ColumnFlex = styled.div`
-  margin-right: ${sizes.size10};
-  margin-left: ${sizes.size15};
-  padding-top: ${sizes.size15_92};
+  margin-right: 10px;
+  margin-left: 15px;
+  padding-top: 15.92px;
   width: ${sizes.fullWidth};
-  height: ${sizes.width90p};
+  height: 90%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -94,19 +90,19 @@ const ColumnFlex = styled.div`
 `;
 
 const RestaurantName = styled.div`
-  height: ${sizes.size30};
-  color: ${colors.blue1};
+  height: 30px;
+  color: ${colors.blue_223136};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size22};
   font-weight: bold;
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size30};
-  top: ${sizes.size15_92};
+  top: 15.92px;
 `;
 
 const RestaurantAddress = styled.div`
-  height: ${sizes.size17};
-  color: ${colors.grey6};
+  height: 17px;
+  color: ${colors.grey_858484_9};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -114,33 +110,33 @@ const RestaurantAddress = styled.div`
 `;
 
 const HorizontalLine = styled.hr`
-  margin: ${sizes.size0};
+  margin: 0;
   box-sizing: border-box;
-  height: ${sizes.size2};
+  height: 2px;
   width: ${sizes.fullWidth};
-  border: ${sizes.size1} solid ${colors.grey3};
+  border: ${sizes.size1} solid ${colors.grey_979797};
   opacity: ${opacity.opacity0_19};
-  margin-top: ${sizes.size5};
-  margin-bottom: ${sizes.size4_5};
+  margin-top: 5px;
+  margin-bottom: 4.5px;
 `;
 
 const FoodVariety = styled.div`
-  height: ${sizes.size17};
-  color: ${colors.grey7};
+  height: 17px;
+  color: ${colors.grey_9f9f9f_9};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
-  margin-bottom: ${sizes.size5};
+  margin-bottom: 5px;
 `;
 
 const DetailsList = styled.ul`
   display: flex;
   flex-direction: row;
-  gap: ${sizes.size9};
-  width: ${sizes.width70p};
-  height: ${sizes.size17};
-  color: ${colors.grey8};
+  gap: 9px;
+  width: 70%;
+  height: 17px;
+  color: ${colors.grey_757575_9};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -148,9 +144,9 @@ const DetailsList = styled.ul`
   align-items: flex-start;
   justify-content: space-between;
   padding: ${sizes.size0};
-  margin-left: ${sizes.size15};
-  margin-top: ${sizes.size2};
-  bottom: ${sizes.size0};
+  margin-left: 15px;
+  margin-top: 2px;
+  bottom: 0;
 `;
 
 const Detail = styled.li`
@@ -160,7 +156,9 @@ const Detail = styled.li`
 const OpenClose = styled.div<{ color: string }>`
   height: ${sizes.size17};
   color: ${(props) =>
-    props.color === "green" ? `${colors.green1}` : `${colors.red1}`};
+    props.color === "green"
+      ? `${colors.green_5fb700}`
+      : `${colors.red_ff0d0d}`};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};

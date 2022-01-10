@@ -1,19 +1,14 @@
 import React, { useContext, FC } from "react";
 import styled from "styled-components";
-import {
-  fontFamilies,
-  colors,
-  sizes,
-  foodItemProps,
-  foodcardDetailsProps,
-} from "../../../variables";
-import PlusIcon from "../../../assets/menu/my_order_plus_active.png";
-import MinusIcon from "../../../assets/menu/my_order_minus_inactive.png";
-import vegIcon from "../../../assets/menu/icon_veg.png";
-import DownArrow from "../../../assets/menu/collapse button.png";
-import nonvegIcon from "../../../assets/menu/icn_nonveg.png";
+import { fontFamilies, colors, sizes } from "../../../variables";
+import PlusIcon from "../../../assets/restaurantDetails/my_order_plus_active.png";
+import MinusIcon from "../../../assets/restaurantDetails/my_order_minus_inactive.png";
+import vegIcon from "../../../assets/restaurantDetails/icon_veg.png";
+import DownArrow from "../../../assets/restaurantDetails/collapse button.png";
+import nonvegIcon from "../../../assets/restaurantDetails/icn_nonveg.png";
 import { CartData } from "../CartDataProvider";
 import data from "../constants.json";
+import { foodItemProps, foodcardDetailsProps } from "../interfaces";
 
 const CartCard: FC<{ item: foodItemProps }> = ({ item }) => {
   const { details, setDetails } = useContext(CartData);
@@ -98,12 +93,12 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-bottom: ${sizes.size1} solid ${colors.white3};
+  border-bottom: ${sizes.size1} solid ${colors.white_ededed};
 `;
 
 const FoodName = styled.div`
   width: 160px;
-  color: ${colors.grey9};
+  color: ${colors.grey_2d2d2d};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -117,9 +112,9 @@ const QuantitySelector = styled.div`
   box-sizing: border-box;
   height: 30px;
   width: 87px;
-  border: ${sizes.size1} solid ${colors.blue2};
+  border: ${sizes.size1} solid ${colors.blue_cecfd4};
   border-radius: ${sizes.size15};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   padding: 0 10px;
   position: absolute;
   right: 0;
@@ -138,7 +133,7 @@ const Image = styled.img`
 const Quantity = styled.div`
   height: 27px;
   width: 30px;
-  color: ${colors.orange7};
+  color: ${colors.orange_f67e03};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size13};
   letter-spacing: ${sizes.size0};
@@ -148,7 +143,7 @@ const Quantity = styled.div`
 
 const UnitCost = styled.div`
   height: 27px;
-  color: ${colors.grey9};
+  color: ${colors.grey_2d2d2d};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -158,7 +153,7 @@ const UnitCost = styled.div`
 const ItemsCost = styled.div`
   height: 17px;
   width: 55px;
-  color: ${colors.grey9};
+  color: ${colors.grey_2d2d2d};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -173,7 +168,7 @@ const ItemsCost = styled.div`
 const AddOn = styled.div`
   height: 30px;
   width: 183px;
-  color: ${colors.grey19};
+  color: ${colors.grey_9b9b9b};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};
@@ -190,7 +185,7 @@ const RowFlex = styled.div`
 
 const Customize = styled.div`
   height: 15px;
-  color: ${colors.yellow4};
+  color: ${colors.yellow_a08234};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};
@@ -200,7 +195,7 @@ const Customize = styled.div`
 const Remove = styled.div`
   height: 15px;
   width: 43px;
-  color: ${colors.red3};
+  color: ${colors.red_ed1b2e};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};
@@ -212,7 +207,7 @@ const Remove = styled.div`
 
 const SelectedQuantity = styled.div`
   height: 15px;
-  color: ${colors.grey19};
+  color: ${colors.grey_9b9b9b};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};

@@ -17,17 +17,19 @@ const Footer = () => {
   return (
     <Wrapper>
       <ColumnFlex>
-        <LoremText>LOREM</LoremText>
+        <LoremText>{data.header.title}</LoremText>
         <InvisibleLineBreak />
         <CityCountryContainer>
-          <CityCountryNumber>24</CityCountryNumber>
-          <CityCountryText>CITIES</CityCountryText>
+          <CityCountryNumber>{data.footerData.cities.count}</CityCountryNumber>
+          <CityCountryText>{data.footerData.cities.title}</CityCountryText>
         </CityCountryContainer>
         <LineBreak />
         <OuterContainer>
           <CityCountryContainer>
-            <CityCountryNumber>4</CityCountryNumber>
-            <CityCountryText>COUNTRIES</CityCountryText>
+            <CityCountryNumber>
+              {data.footerData.countries.count}
+            </CityCountryNumber>
+            <CityCountryText>{data.footerData.countries.title}</CityCountryText>
           </CityCountryContainer>
           {data.countryCodes.map((countryCode, index) => {
             return (
@@ -49,8 +51,8 @@ const Footer = () => {
                 className="social-icon"
                 network={socialIcon}
                 fgColor="rgba(128,128,128,0.5)"
-                bgColor="white"
-                url={`https://${socialIcon}.com/lorem`}
+                bgColor={`${colors.white_ffffff}`}
+                url={`https://${socialIcon}.com/jaketrent`}
               />
             );
           })}
@@ -79,10 +81,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   height: ${sizes.size227};
   width: ${sizes.fullWidth};
-  background-color: ${colors.white};
-  position: relative;
-  bottom: 0;
-  z-index: 1;
+  background-color: ${colors.white_ffffff};
 `;
 
 const ColumnFlex = styled.div`
@@ -95,7 +94,7 @@ const ColumnFlex = styled.div`
   top: ${sizes.size0};
   width: ${sizes.halfWidth};
   padding-bottom: ${sizes.size17};
-  border-bottom: ${sizes.size1} solid ${colors.grey1};
+  border-bottom: ${sizes.size1} solid ${colors.grey_979797_19};
   border-width: ${sizes.size2};
   box-sizing: border-box;
 `;
@@ -105,8 +104,8 @@ const LoremText = styled.div`
   width: ${sizes.size103};
   background-image: linear-gradient(
     ${angles.angle60},
-    ${colors.pink1},
-    ${colors.yellow1}
+    ${colors.pink_e21143_09},
+    ${colors.yellow_ffb03a_09}
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -141,8 +140,8 @@ const CityCountryNumber = styled.span`
   margin-right: ${sizes.size9};
   background-image: linear-gradient(
     ${angles.angle60},
-    ${colors.pink2},
-    ${colors.yellow2}
+    ${colors.pink_ff3366_08},
+    ${colors.yellow_ffb03a_08}
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -150,7 +149,7 @@ const CityCountryNumber = styled.span`
 `;
 
 const CityCountryText = styled.span`
-  color: ${colors.grey2};
+  color: ${colors.grey_636364_07};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -164,7 +163,7 @@ const LineBreak = styled.hr`
   margin: ${sizes.size0};
   box-sizing: border-box;
   height: ${sizes.size19_4};
-  border: ${sizes.size1} solid ${colors.grey3};
+  border: ${sizes.size1} solid ${colors.grey_979797};
   opacity: ${opacity.opacity0_19};
 `;
 
@@ -173,7 +172,7 @@ const OuterContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: ${sizes.width35p};
+  width: ${sizes.widthp35};
   height: ${sizes.size19_4};
   .flag {
     vertical-align: middle;
@@ -186,7 +185,6 @@ const SocialIconContainer = styled.div`
   flex-direction: row;
   justify-content: normal;
   align-items: flex-start;
-
   .img {
     vertical-align: middle;
     height: ${sizes.size22_41};
@@ -212,7 +210,7 @@ const RowFlex = styled.div`
 
 const RedirectLink = styled(Link)`
   text-decoration: none;
-  color: ${colors.grey2};
+  color: ${colors.grey_636364_07};
   font-weight: ${fontWeight.weight600};
 `;
 

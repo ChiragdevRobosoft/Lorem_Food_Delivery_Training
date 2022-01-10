@@ -1,17 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FoodCard from "../../common/FoodCard";
-import SearchIcon from "../../../assets/menu/icn_search_home copy.png";
+import SearchIcon from "../../../assets/restaurantDetails/icn_search_home copy.png";
 import data from "../../common/constants.json";
 import Cart from "../Cart";
-import {
-  fontFamilies,
-  colors,
-  sizes,
-  opacity,
-  foodItemProps,
-  foodcardDetailsProps,
-} from "../../../variables";
+import { fontFamilies, colors, sizes, opacity } from "../../../variables";
+import { foodItemProps, foodcardDetailsProps } from "../../common/interfaces";
 
 const Menu = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -74,10 +68,10 @@ const Searchbar = styled.input`
   width: 633px;
   border-radius: ${sizes.size4};
   border: none;
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   background-size: 17px 20px;
   box-shadow: ${sizes.size0} ${sizes.size5} ${sizes.size10} ${sizes.size0}
-    ${colors.black3};
+    ${colors.black_000000_07};
   outline: none;
   background-image: url(${SearchIcon});
   background-repeat: no-repeat;
@@ -86,7 +80,7 @@ const Searchbar = styled.input`
   ::placeholder {
     height: 19px;
     opacity: ${opacity.opacity0_44};
-    color: ${colors.grey18};
+    color: ${colors.grey_4a4a4a};
     font-family: ${fontFamilies.fontFamilyOsSemiBold};
     font-size: ${sizes.size14};
     letter-spacing: ${sizes.size0};
@@ -98,7 +92,7 @@ const MenuSection = styled.div``;
 
 const FoodCardTitle = styled.div`
   height: 22px;
-  color: ${colors.grey18};
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.sizeNeg0_27};

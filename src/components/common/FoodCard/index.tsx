@@ -1,20 +1,15 @@
 import React, { FC, useContext } from "react";
 import styled from "styled-components";
-import Bitmap from "../../../assets/restaurantList/Bitmap.png";
-import vegIcon from "../../../assets/menu/icon_veg.png";
-import nonvegIcon from "../../../assets/menu/icn_nonveg.png";
-import BestsellerIcon from "../../../assets/menu/Best seller.png";
-import AddIcon from "../../../assets/menu/Add button.png";
-import AddedIcon from "../../../assets/menu/Added button.png";
-import {
-  fontFamilies,
-  colors,
-  sizes,
-  foodItemProps,
-  foodcardDetailsProps,
-} from "../../../variables";
+import FoodIcon from "../../../assets/common/restaurantCard/food.png";
+import vegIcon from "../../../assets/restaurantDetails/icon_veg.png";
+import nonvegIcon from "../../../assets/restaurantDetails/icn_nonveg.png";
+import BestsellerIcon from "../../../assets/restaurantDetails/Best seller.png";
+import AddIcon from "../../../assets/restaurantDetails/Add button.png";
+import AddedIcon from "../../../assets/restaurantDetails/Added button.png";
+import { fontFamilies, colors, sizes } from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
 import data from "../constants.json";
+import { foodItemProps, foodcardDetailsProps } from "../interfaces";
 
 const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
   const { details, setDetails } = useContext(CartData);
@@ -34,7 +29,7 @@ const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
 
   return (
     <Wrapper>
-      {cardDetails.image ? <FoodImage src={Bitmap} /> : null}
+      {cardDetails.image ? <FoodImage src={FoodIcon} /> : null}
       {cardDetails.image ? (
         <VegIcon
           src={cardDetails.veg ? vegIcon : nonvegIcon}
@@ -72,9 +67,9 @@ const Wrapper = styled.div`
   height: 126px;
   width: 636px;
   border-radius: ${sizes.size6};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
-    ${colors.black1};
+    ${colors.black_000000_1};
   margin-bottom: 20px;
   margin-top: 14px;
 `;
@@ -110,7 +105,7 @@ const GreenText = styled.div`
   top: 67px;
   right: 24px;
   height: 14px;
-  color: ${colors.green2};
+  color: ${colors.green_49bb5c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size10};
   letter-spacing: ${sizes.size0};
@@ -131,7 +126,7 @@ const ColumnFlex = styled.div<{ imageProp: boolean }>`
 
 const FoodName = styled.div`
   height: 22px;
-  color: ${colors.blue1};
+  color: ${colors.blue_223136};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
@@ -140,7 +135,7 @@ const FoodName = styled.div`
 
 const Cost = styled.div`
   height: 17px;
-  color: ${colors.grey9};
+  color: ${colors.grey_2d2d2d};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -150,7 +145,7 @@ const Cost = styled.div`
 const Customizable = styled.div`
   height: 15px;
   width: 70px;
-  color: ${colors.yellow4};
+  color: ${colors.yellow_a08234};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};
@@ -159,7 +154,7 @@ const Customizable = styled.div`
 
 const Description = styled.div`
   width: 349px;
-  color: ${colors.grey19};
+  color: ${colors.grey_9b9b9b};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};

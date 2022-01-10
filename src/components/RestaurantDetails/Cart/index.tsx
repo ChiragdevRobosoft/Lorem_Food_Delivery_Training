@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import CartCard from "../../common/CartCard";
-import DownArrow from "../../../assets/menu/collapse button.png";
-import { fontFamilies, sizes, colors, foodItemProps } from "../../../variables";
+import DownArrow from "../../../assets/restaurantDetails/collapse button.png";
+import { fontFamilies, sizes, colors } from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
+import { foodItemProps } from "../../common/interfaces";
 
 const Cart = () => {
   const { details, setDetails } = useContext(CartData);
@@ -69,9 +70,9 @@ const Wrapper = styled.div`
   height: 816px;
   width: 305px;
   border-radius: ${sizes.size6};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
-    ${colors.black1};
+    ${colors.black_000000_1};
 `;
 
 const TitleFlex = styled.div`
@@ -82,12 +83,12 @@ const TitleFlex = styled.div`
   align-items: center;
   padding-left: 21px;
   padding-right: 21px;
-  border-bottom: ${sizes.size1} solid ${colors.white3};
+  border-bottom: ${sizes.size1} solid ${colors.white_ededed};
 `;
 
 const ItemList = styled.div`
   padding: 0px 21px;
-  border-bottom: ${sizes.size1} solid ${colors.white3};
+  border-bottom: ${sizes.size1} solid ${colors.white_ededed};
   max-height: 353px;
   overflow: auto;
 `;
@@ -95,7 +96,7 @@ const ItemList = styled.div`
 const MainTitle = styled.div`
   height: 30px;
   width: 101px;
-  color: ${colors.black2};
+  color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size22};
   letter-spacing: ${sizes.size0};
@@ -105,7 +106,7 @@ const MainTitle = styled.div`
 const ClearCart = styled.div`
   height: 19px;
   width: 66px;
-  color: ${colors.orange2};
+  color: ${colors.orange_f57c00};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
@@ -123,16 +124,16 @@ const TotalCostContainer = styled.div`
   flex-direction: row;
   height: 61px;
   border-radius: ${sizes.size3};
-  background-color: ${colors.white};
+  background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
-    ${colors.grey24};
+    ${colors.grey_c6c6c6_5};
   align-items: center;
 `;
 
 const PayText = styled.div`
   height: 22px;
   width: 54px;
-  color: ${colors.blue1};
+  color: ${colors.blue_223136};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
@@ -143,7 +144,7 @@ const PayText = styled.div`
 
 const TotalCost = styled.div`
   height: 22px;
-  color: ${colors.blue1};
+  color: ${colors.blue_223136};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
@@ -155,11 +156,11 @@ const CostDetailsContainer = styled.div`
   box-sizing: border-box;
   height: 169px;
   width: 263px;
-  border: ${sizes.size1} solid ${colors.grey25};
+  border: ${sizes.size1} solid ${colors.grey_f5eeee};
   border-radius: ${sizes.size3};
-  background-color: ${colors.white4};
+  background-color: ${colors.white_fcfcfc};
   box-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size14} ${sizes.size0}
-    ${colors.grey26};
+    ${colors.grey_cac2c2_5};
   margin-left: auto;
   margin-right: auto;
   margin-top: 28px;
@@ -182,7 +183,7 @@ const CostRow = styled.div`
 
 const CostSplit = styled.div`
   height: 17px;
-  color: ${colors.grey19};
+  color: ${colors.grey_9b9b9b};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -192,7 +193,7 @@ const CostSplit = styled.div`
 const CookingInstructionTitle = styled.div`
   height: 17px;
   width: 122.95px;
-  color: ${colors.grey27};
+  color: ${colors.grey_858585};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.sizeNeg0_24};

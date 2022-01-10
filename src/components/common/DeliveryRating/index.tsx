@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import RedStar from "../../../assets/menu/icn_star_red.png";
-import YellowStar from "../../../assets/menu/icn_star_yellow.png";
-import GreenStar from "../../../assets/menu/icn_star_green.png";
+import RedStar from "../../../assets/restaurantDetails/icn_star_red.png";
+import YellowStar from "../../../assets/restaurantDetails/icn_star_yellow.png";
+import GreenStar from "../../../assets/restaurantDetails/icn_star_green.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
 
 const DeliveryRating: FC<{ RatingNum: number }> = ({ RatingNum }) => {
@@ -23,10 +23,10 @@ const RatingConatiner = styled.div<{ RatingNum: number }>`
   border: ${sizes.size1} solid
     ${(props) =>
       props.RatingNum > 3
-        ? `${colors.green1}`
+        ? `${colors.green_5fb700}`
         : props.RatingNum < 3
-        ? `${colors.red3}`
-        : `${colors.yellow3}`};
+        ? `${colors.red_ed1b2e}`
+        : `${colors.yellow_f5a623}`};
   border-radius: ${sizes.size4};
   margin-right: 17.13px;
 `;
@@ -35,10 +35,10 @@ const RatingNumber = styled.span<{ RatingNum: number }>`
   height: 17px;
   color: ${(props) =>
     props.RatingNum > 3
-      ? `${colors.green1}`
+      ? `${colors.green_5fb700}`
       : props.RatingNum < 3
-      ? `${colors.red3}`
-      : `${colors.yellow3}`};
+      ? `${colors.red_ed1b2e}`
+      : `${colors.yellow_f5a623}`};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
