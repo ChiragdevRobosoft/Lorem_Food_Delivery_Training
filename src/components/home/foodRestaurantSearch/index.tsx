@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import data from "./../../common/constants.json";
 import { colors, fontFamilies, opacity, sizes } from "../../../variables";
-import Foodsearch from "./../../common/foodSearchBox/index";
+import Foodsearch from "./SearchComponent/index";
 import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import { useState } from "react";

@@ -4,33 +4,40 @@ export const colors = {
   white_ededed: "#ededed", //white1  #ededed
   white_d2d2d2: "rgba(210, 210, 210,1)", //white2  #d2d2d2
   white_e1e1e1: "rgba(225, 225, 225,1)",
+
   black_000000: "rgba(0,0,0,1)", //black
-  black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
-  black_000000_05: "rgba(0, 0, 0, 0.5)", //black3
+  black_000000_007: "rgba(0, 0, 0, 0.07)",
   black_000000_1: "rgba(0, 0, 0, 0.1)",
+  black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
+  black_000000_05: "rgba(0, 0, 0, 0.5)",
+  black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
+
+  grey_bdbdbd: "#bdbdbd",
+  grey_d8d8d8: "#d8d8d8", //grey14
+  grey_2d2d2d: "rgba(45,45,45,1)",
+  grey_3e3e3e: "#3e3e3e", //grey11  #3e3e3e
+  grey_303134: "#303134", //grey8 grey10
+  grey_393939: "#393939",
+  grey_4a4a4a: "rgba(74, 74, 74, 1)", //grey5 #4a4a4a
+  grey_4c4c4c: "#4c4c4c", //grey5 hexversion
+  grey_6a6a6a: "#6a6a6a", //grey13
+  grey_6f6f6f: "rgba(111, 111, 111,1)",
+  grey_606060: "rgba(96, 96, 96,1)",
+  grey_636364_07: "rgba(99, 99, 100, 0.7)", //grey2 grey4 #636364
+  grey_636364_7: "rgba(99, 99, 100, 0.7)",
+  grey_7c7c7c: "#7c7c7c", //grey7
+  grey_757575: "#757575", //grey12
+  grey_757575_9: "rgba(117, 117, 117, 0.9)",
+  grey_777777: "rgba(119, 119, 119,1)",
+  grey_848484: "#848484", //grey9
+  grey_858484_9: "rgba(133, 132, 132, 0.9)",
+  grey_858585: "rgba(133, 133, 133, 1)", //grey6 #858585
+  grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
+  grey_929598: "#929598", //grey6 hexversion
+  grey_949494_34: "rgba(148, 148, 148, 0.34)",
   grey_979797: "rgba(151, 151, 151, 1)", //grey3 #979797
   grey_979797_19: "rgba(151, 151, 151, 0.19)", //grey1 #979797
-  grey_636364_07: "rgba(99, 99, 100, 0.7)", //grey2 grey4 #636364
-  grey_4c4c4c: "#4c4c4c", //grey5 hexversion
-  grey_929598: "#929598", //grey6 hexversion
-  grey_7c7c7c: "#7c7c7c", //grey7
-  grey_303134: "#303134", //grey8 grey10
-  grey_848484: "#848484", //grey9
-  grey_4a4a4a: "rgba(74, 74, 74, 1)", //grey5 #4a4a4a
-  grey_858585: "rgba(133, 133, 133, 1)", //grey6 #858585
-  grey_3e3e3e: "#3e3e3e", //grey11  #3e3e3e
-  grey_757575: "#757575", //grey12
-  grey_6a6a6a: "#6a6a6a", //grey13
-  grey_d8d8d8: "#d8d8d8", //grey14
-  grey_949494_34: "rgba(148, 148, 148, 0.34)",
-  grey_606060: "rgba(96, 96, 96,1)",
-  grey_6f6f6f: "rgba(111, 111, 111,1)",
-  grey_636364_7: "rgba(99, 99, 100, 0.7)",
-  grey_858484_9: "rgba(133, 132, 132, 0.9)",
-  grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
-  grey_757575_9: "rgba(117, 117, 117, 0.9)",
-  grey_2d2d2d: "rgba(45,45,45,1)",
-  grey_777777: "rgba(119, 119, 119,1)",
+
   pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
   pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
   pink_fda5a3: "#FDA5A3", //pink3
@@ -337,6 +344,7 @@ export const fontFamilies = {
   fontFamilyOsSemiBold: "OpenSans-SemiBold",
   fontFamilyOsMedium: "OpenSans-Medium",
   fontFamilyOsRegular: "OpenSans-Regular",
+  fontFamilySFNSRegular: "SFNS Display Regular",
 };
 
 export const fontWeight = {
