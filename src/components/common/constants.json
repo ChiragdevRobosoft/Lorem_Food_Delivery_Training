@@ -394,6 +394,7 @@
     "discount": "Discount",
     "cookingInstruction": "Cooking instructions?",
     "singleItem": "Quantity : 1",
-    "remove": "Remove"
+    "remove": "Remove",
+    "customize": "Customize"
   }
 }

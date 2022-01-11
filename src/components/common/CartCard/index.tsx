@@ -76,12 +76,10 @@ const CartCard: FC<{ item: foodItemProps }> = ({ item }) => {
       <CustomizeContainer>
         {item.customizable ? (
           <Customize>
-            {data.customizeText}
+            {data.cartData.customize}
             <ArrowIcon src={DownArrow} />
           </Customize>
-        ) : (
-          <></>
-        )}
+        ) : null}
         <Remove className="remove" id={item.id} onClick={handleClick}>
           {data.cartData.remove}
         </Remove>
