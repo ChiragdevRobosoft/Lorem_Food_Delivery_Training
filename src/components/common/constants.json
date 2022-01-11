@@ -391,5 +391,18 @@
   },
   "costUnit": "AED",
   "customizeText": "Customizable",
-  "NavbarElements": ["MENU", "OVERVIEW", "REVIEWS & RATINGS", "GALLERY"]
+  "inCart": "Already in cart",
+  "NavbarElements": ["MENU", "OVERVIEW", "REVIEWS & RATINGS", "GALLERY"],
+  "cartData": {
+    "title": "My Order",
+    "clear": "Clear cart",
+    "toPay": "To Pay",
+    "itemsTotal": "Items total",
+    "charges": "Fee/ charges",
+    "discount": "Discount",
+    "cookingInstruction": "Cooking instructions?",
+    "singleItem": "Quantity : 1",
+    "remove": "Remove",
+    "customize": "Customize"
+  }
 }

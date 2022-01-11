@@ -8,7 +8,7 @@ import { fontFamilies, sizes, colors } from "../../../variables";
 const DeliveryRating: FC<{ RatingNum: number }> = ({ RatingNum }) => {
   return (
     <RatingConatiner RatingNum={RatingNum}>
-      <Image
+      <RatingImage
         src={RatingNum > 3 ? GreenStar : RatingNum < 3 ? RedStar : YellowStar}
       />
       <RatingNumber RatingNum={RatingNum}>{RatingNum}</RatingNumber>
@@ -45,7 +45,7 @@ const RatingNumber = styled.span<{ RatingNum: number }>`
   line-height: ${sizes.size17};
 `;
 
-const Image = styled.img`
+const RatingImage = styled.img`
   vertical-align: middle;
   margin-left: 8.61px;
   margin-right: 4.22px;

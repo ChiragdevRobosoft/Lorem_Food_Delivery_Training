@@ -47,48 +47,50 @@ const CartCard: FC<{ item: foodItemProps }> = ({ item }) => {
         {item.foodName}
       </FoodName>
       <QuantitySelector>
-        <Image
+        <CountControlIcon
           src={MinusIcon}
           onClick={handleClick}
           id={item.id}
           className="minus"
         />
         <Quantity>{item.quantity}</Quantity>
-        <Image
+        <CountControlIcon
           src={PlusIcon}
           onClick={handleClick}
           id={item.id}
           className="plus"
         />
       </QuantitySelector>
-      <UnitCost>AED{unitCost}</UnitCost>
+      <UnitCost>
+        {data.costUnit}
+        {unitCost}
+      </UnitCost>
       <ItemsCost>
-        AED
+        {data.costUnit}
         {itemsCost}
       </ItemsCost>
       {item.quantity === 1 ? (
-        <SelectedQuantity>Quantity : 1</SelectedQuantity>
+        <SelectedQuantity>{data.cartData.singleItem}</SelectedQuantity>
       ) : null}
       {item.addOn ? <AddOn>{item.addOn}</AddOn> : null}
-      <RowFlex>
+      <CustomizeContainer>
         {item.customizable ? (
           <Customize>
-            Customize
+            {data.cartData.customize}
             <ArrowIcon src={DownArrow} />
           </Customize>
-        ) : (
-          <span></span>
-        )}
+        ) : null}
         <Remove className="remove" id={item.id} onClick={handleClick}>
-          Remove
+          {data.cartData.remove}
         </Remove>
-      </RowFlex>
+      </CustomizeContainer>
     </Card>
   );
 };
 
 const Card = styled.div`
   padding: 13px 0px;
+  width: 264px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -125,7 +127,7 @@ const VegIcon = styled.img`
   margin-right: 7px;
 `;
 
-const Image = styled.img`
+const CountControlIcon = styled.img`
   object-fit: none;
   width: 12.0156px;
 `;
@@ -175,7 +177,7 @@ const AddOn = styled.div`
   line-height: ${sizes.size15};
 `;
 
-const RowFlex = styled.div`
+const CustomizeContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

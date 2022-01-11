@@ -16,7 +16,7 @@ import {
 const Footer = () => {
   return (
     <Wrapper>
-      <ColumnFlex>
+      <FooterContainer>
         <LoremText>{data.header.title}</LoremText>
         <InvisibleLineBreak />
         <CityCountryContainer>
@@ -57,8 +57,8 @@ const Footer = () => {
             );
           })}
         </SocialIconContainer>
-      </ColumnFlex>
-      <RowFlex>
+      </FooterContainer>
+      <LinksContainer>
         {data.links.map((link, index) => {
           return (
             <RedirectLink to={`/${link.toLowerCase()}`} key={index}>
@@ -66,7 +66,7 @@ const Footer = () => {
             </RedirectLink>
           );
         })}
-      </RowFlex>
+      </LinksContainer>
     </Wrapper>
   );
 };
@@ -79,29 +79,29 @@ const Wrapper = styled.div`
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
-  height: ${sizes.size227};
+  height: 227px;
   width: ${sizes.fullWidth};
   background-color: ${colors.white_ffffff};
 `;
 
-const ColumnFlex = styled.div`
+const FooterContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-right: auto;
   margin-left: auto;
-  top: ${sizes.size0};
+  top: 0;
   width: ${sizes.halfWidth};
-  padding-bottom: ${sizes.size17};
+  padding-bottom: 17px;
   border-bottom: ${sizes.size1} solid ${colors.grey_979797_19};
   border-width: ${sizes.size2};
   box-sizing: border-box;
 `;
 
 const LoremText = styled.div`
-  height: ${sizes.size60};
-  width: ${sizes.size103};
+  height: 60px;
+  width: 103px;
   background-image: linear-gradient(
     ${angles.angle60},
     ${colors.pink_e21143_09},
@@ -128,7 +128,7 @@ const CityCountryContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: ${sizes.size19_4};
+  height: 19.4px;
 `;
 
 const CityCountryNumber = styled.span`
@@ -137,7 +137,7 @@ const CityCountryNumber = styled.span`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19_4};
   text-align: center;
-  margin-right: ${sizes.size9};
+  margin-right: 9px;
   background-image: linear-gradient(
     ${angles.angle60},
     ${colors.pink_ff3366_08},
@@ -150,19 +150,18 @@ const CityCountryNumber = styled.span`
 
 const CityCountryText = styled.span`
   color: ${colors.grey_636364_07};
-  font-family: ${fontFamilies.fontFamilyOs};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   vertical-align: bottom;
-  font-weight: ${fontWeight.weight600};
 `;
 
 const LineBreak = styled.hr`
-  width: ${sizes.size2};
-  margin: ${sizes.size0};
+  width: 2px;
+  margin: 0;
   box-sizing: border-box;
-  height: ${sizes.size19_4};
+  height: 19.4px;
   border: ${sizes.size1} solid ${colors.grey_979797};
   opacity: ${opacity.opacity0_19};
 `;
@@ -172,11 +171,11 @@ const OuterContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: ${sizes.widthp35};
-  height: ${sizes.size19_4};
+  width: 35%;
+  height: 19.4px;
   .flag {
     vertical-align: middle;
-    padding-right: ${sizes.size10};
+    padding-right: 10px;
   }
 `;
 
@@ -187,12 +186,12 @@ const SocialIconContainer = styled.div`
   align-items: flex-start;
   .img {
     vertical-align: middle;
-    height: ${sizes.size22_41};
-    width: ${sizes.size24_95};
+    height: 22.41px;
+    width: 24.95px;
   }
 `;
 
-const RowFlex = styled.div`
+const LinksContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -200,18 +199,17 @@ const RowFlex = styled.div`
   margin-right: auto;
   margin-left: auto;
   width: ${sizes.halfWidth};
-  height: ${sizes.size19};
-  font-family: ${fontFamilies.fontFamilyOs};
+  height: 19px;
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
-  margin-top: ${sizes.size28};
+  margin-top: 28px;
 `;
 
 const RedirectLink = styled(Link)`
   text-decoration: none;
   color: ${colors.grey_636364_07};
-  font-weight: ${fontWeight.weight600};
 `;
 
 export default Footer;

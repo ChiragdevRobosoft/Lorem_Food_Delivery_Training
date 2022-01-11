@@ -10,6 +10,7 @@ import TimeIcon from "../../assets/restaurantDetails/time_icon.png";
 import DeliveryRating from "../common/DeliveryRating";
 import { NavLink, Outlet } from "react-router-dom";
 import Footer from "../common/footer";
+import Header from "../common/header";
 
 const RestaurantDetails = () => {
   const [selected, setSelected] = useState("MENU");
@@ -18,6 +19,7 @@ const RestaurantDetails = () => {
   };
   return (
     <Wrapper>
+      <Header className="loggedin" />
       <SearchContainer></SearchContainer>
       <MainContainer>
         <Searchpath path={data.searchPath.menu} className="grey-dark" />

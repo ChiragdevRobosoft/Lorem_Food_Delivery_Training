@@ -39,13 +39,13 @@ const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
       {cardDetails.bestseller ? <Bestseller src={BestsellerIcon} /> : null}
       {details?.includes(cardDetails) ? (
         <>
-          <GreenText>Already in cart</GreenText>
+          <GreenText>{data.inCart}</GreenText>
           <Add src={AddedIcon} id={`${cardDetails.id}`} onClick={handleClick} />
         </>
       ) : (
         <Add src={AddIcon} onClick={handleClick} id={`${cardDetails.id}`} />
       )}
-      <ColumnFlex imageProp={cardDetails.image}>
+      <DetailsContainer imageProp={cardDetails.image}>
         <FoodName>
           {cardDetails.image ? null : (
             <VegIcon src={cardDetails.veg ? vegIcon : nonvegIcon} />
@@ -60,7 +60,7 @@ const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
           <Customizable>{data.customizeText}</Customizable>
         ) : null}
         <Description>{cardDetails.description}</Description>
-      </ColumnFlex>
+      </DetailsContainer>
     </Wrapper>
   );
 };
@@ -116,7 +116,7 @@ const GreenText = styled.div`
   text-align: center;
 `;
 
-const ColumnFlex = styled.div<{ imageProp: boolean }>`
+const DetailsContainer = styled.div<{ imageProp: boolean }>`
   position: absolute;
   height: ${sizes.fullWidth};
   display: flex;
