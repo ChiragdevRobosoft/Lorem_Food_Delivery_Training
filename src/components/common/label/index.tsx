@@ -19,13 +19,13 @@ const Label = ({
 export default Label;
 const TextBoxLabel = styled.label`
   height: 22px;
-  width: ${sizes.size88};
+  width: 88px;
   color: ${(props) =>
     props.style?.color ? props.style.color : `${colors.grey_858585}`};
   font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: 16px;
-  letter-spacing: -0.27px;
-  line-height: 22px;
+  font-size: ${sizes.size16};
+  letter-spacing: ${sizes.sizeNeg0_27};
+  line-height: ${sizes.size22};
   margin-left: ${(props) => (props.style?.margin ? props.style.margin : "10%")};
   cursor: text;
   pointer-events: none;

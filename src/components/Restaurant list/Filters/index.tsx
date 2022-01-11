@@ -155,10 +155,12 @@ const CheckboxInput = styled.input`
   -webkit-appearance: none;
   margin-left: 21px;
   vertical-align: middle;
+
   :checked {
     background-image: url(${FilterCheckbox});
     height: 16px;
   }
+
   :not(:checked) {
     height: 16px;
     width: 16px;
