@@ -51,7 +51,6 @@ const Profile = () => {
           </Navbar>
         </CenterContainer>
       </ProfileBanner>
-
       <Footer />
     </Wrapper>
   );
