@@ -61,26 +61,29 @@ const CartCard: FC<{ item: foodItemProps }> = ({ item }) => {
           className="plus"
         />
       </QuantitySelector>
-      <UnitCost>AED{unitCost}</UnitCost>
+      <UnitCost>
+        {data.costUnit}
+        {unitCost}
+      </UnitCost>
       <ItemsCost>
-        AED
+        {data.costUnit}
         {itemsCost}
       </ItemsCost>
       {item.quantity === 1 ? (
-        <SelectedQuantity>Quantity : 1</SelectedQuantity>
+        <SelectedQuantity>{data.cartData.singleItem}</SelectedQuantity>
       ) : null}
       {item.addOn ? <AddOn>{item.addOn}</AddOn> : null}
       <CustomizeContainer>
         {item.customizable ? (
           <Customize>
-            Customize
+            {data.customizeText}
             <ArrowIcon src={DownArrow} />
           </Customize>
         ) : (
-          <span></span>
+          <></>
         )}
         <Remove className="remove" id={item.id} onClick={handleClick}>
-          Remove
+          {data.cartData.remove}
         </Remove>
       </CustomizeContainer>
     </Card>

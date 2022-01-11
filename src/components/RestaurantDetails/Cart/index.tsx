@@ -5,6 +5,7 @@ import DownArrow from "../../../assets/restaurantDetails/collapse button.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
 import { foodItemProps } from "../../common/interfaces";
+import data from "../../common/constants.json";
 
 const Cart = () => {
   const { details, setDetails } = useContext(CartData);
@@ -27,10 +28,10 @@ const Cart = () => {
 
   return (
     <Wrapper>
-      <TitleFlex>
-        <MainTitle>My Order</MainTitle>
-        <ClearCart onClick={handleClick}>Clear cart</ClearCart>
-      </TitleFlex>
+      <TitleContainer>
+        <Title>{data.cartData.title}</Title>
+        <ClearCart onClick={handleClick}>{data.cartData.clear}</ClearCart>
+      </TitleContainer>
       <ItemList>
         {details?.map((item: foodItemProps, index: number) => {
           return <CartCard item={item} key={index} />;
@@ -38,29 +39,40 @@ const Cart = () => {
       </ItemList>
       <CostDetailsContainer>
         <TotalCostContainer>
-          <PayText>To Pay</PayText>
-          <TotalCost>AED{costToPay}</TotalCost>
+          <PayText>{data.cartData.toPay}</PayText>
+          <TotalCost>
+            {data.costUnit}
+            {costToPay}
+          </TotalCost>
           <ArrowIcon src={DownArrow} />
         </TotalCostContainer>
-        <CostColumn>
-          <CostRow>
-            <CostSplit>Items total</CostSplit>
+        <CostList>
+          <Cost>
+            <CostSplit>{data.cartData.itemsTotal}</CostSplit>
             <CostSplit>
-              AED
+              {data.costUnit}
               {totalCost}
             </CostSplit>
-          </CostRow>
-          <CostRow>
-            <CostSplit>Fee/ charges</CostSplit>
-            <CostSplit>AED{fee}</CostSplit>
-          </CostRow>
-          <CostRow>
-            <CostSplit>Discount</CostSplit>
-            <CostSplit>AED{discount}</CostSplit>
-          </CostRow>
-        </CostColumn>
+          </Cost>
+          <Cost>
+            <CostSplit>{data.cartData.charges}</CostSplit>
+            <CostSplit>
+              {data.costUnit}
+              {fee}
+            </CostSplit>
+          </Cost>
+          <Cost>
+            <CostSplit>{data.cartData.discount}</CostSplit>
+            <CostSplit>
+              {data.costUnit}
+              {discount}
+            </CostSplit>
+          </Cost>
+        </CostList>
       </CostDetailsContainer>
-      <CookingInstructionTitle>Cooking instructions?</CookingInstructionTitle>
+      <CookingInstructionTitle>
+        {data.cartData.cookingInstruction}
+      </CookingInstructionTitle>
     </Wrapper>
   );
 };
@@ -75,7 +87,7 @@ const Wrapper = styled.div`
     ${colors.black_000000_1};
 `;
 
-const TitleFlex = styled.div`
+const TitleContainer = styled.div`
   height: 70px;
   display: flex;
   flex-direction: row;
@@ -93,7 +105,7 @@ const ItemList = styled.div`
   overflow: auto;
 `;
 
-const MainTitle = styled.div`
+const Title = styled.div`
   height: 30px;
   width: 101px;
   color: ${colors.black_000000};
@@ -166,14 +178,14 @@ const CostDetailsContainer = styled.div`
   margin-top: 28px;
 `;
 
-const CostColumn = styled.div`
+const CostList = styled.div`
   height: 110px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 `;
 
-const CostRow = styled.div`
+const Cost = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
