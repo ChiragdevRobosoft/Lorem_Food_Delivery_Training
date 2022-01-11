@@ -39,7 +39,7 @@ const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
       {cardDetails.bestseller ? <Bestseller src={BestsellerIcon} /> : null}
       {details?.includes(cardDetails) ? (
         <>
-          <GreenText>Already in cart</GreenText>
+          <GreenText>{data.inCart}</GreenText>
           <Add src={AddedIcon} id={`${cardDetails.id}`} onClick={handleClick} />
         </>
       ) : (

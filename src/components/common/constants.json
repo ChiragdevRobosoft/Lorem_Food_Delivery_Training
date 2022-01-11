@@ -383,5 +383,6 @@
   },
   "costUnit": "AED",
   "customizeText": "Customizable",
+  "inCart": "Already in cart",
   "NavbarElements": ["MENU", "OVERVIEW", "REVIEWS & RATINGS", "GALLERY"]
 }
