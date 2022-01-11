@@ -14,17 +14,20 @@ export const colors = {
 
   grey_bdbdbd: "#bdbdbd",
   grey_d8d8d8: "#d8d8d8", //grey14
+  grey_1b1c1d: "rgba(27, 28, 29,1)",
   grey_2d2d2d: "rgba(45,45,45,1)",
   grey_3e3e3e: "#3e3e3e", //grey11  #3e3e3e
   grey_303134: "#303134", //grey8 grey10
   grey_393939: "#393939",
   grey_4a4a4a: "rgba(74, 74, 74, 1)", //grey5 #4a4a4a
   grey_4c4c4c: "#4c4c4c", //grey5 hexversion
+  grey_5e5e5e: "rgba(94, 94, 94,1)",
   grey_6a6a6a: "#6a6a6a", //grey13
   grey_6f6f6f: "rgba(111, 111, 111,1)",
   grey_606060: "rgba(96, 96, 96,1)",
   grey_636364_07: "rgba(99, 99, 100, 0.7)", //grey2 grey4 #636364
   grey_636364_7: "rgba(99, 99, 100, 0.7)",
+  grey_636364: "rgba(99, 99, 100,1)",
   grey_7c7c7c: "#7c7c7c", //grey7
   grey_757575: "#757575", //grey12
   grey_757575_9: "rgba(117, 117, 117, 0.9)",
@@ -32,6 +35,8 @@ export const colors = {
   grey_848484: "#848484", //grey9
   grey_858484_9: "rgba(133, 132, 132, 0.9)",
   grey_858585: "rgba(133, 133, 133, 1)", //grey6 #858585
+  grey_9b9b9b: "rgba(155,155,155,1)",
+  grey_9e9999: "rgba(158, 153, 153,1)",
   grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
   grey_929598: "#929598", //grey6 hexversion
   grey_949494_34: "rgba(148, 148, 148, 0.34)",
@@ -43,31 +48,44 @@ export const colors = {
   pink_fda5a3: "#FDA5A3", //pink3
   pink_f67e7e_038: "rgba(246, 126, 126, 0.38)", //pink3
   pink_d34836_1: "rgba(211, 72, 54, 1)", //pink4
+  pink_f2738a: "rgba(242, 115, 138, 1)",
   yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
   yellow_f5a623: "rgba(245,166,35,1)",
+  yellow_a08234: "rgba(160, 130, 52,1)",
   orange_f67e03: "rgba(246, 126, 3, 1)", //orange1 #f67e03
   orange_fca100: "rgba(252, 161, 0,1)",
-  orange_f78713: "rgba()247, 135, 19,1",
+  orange_f57c00: "rgba(245, 124, 0,1)",
+  orange_f78713: "rgba(247, 135, 19,1)",
+  orange_faa369: "rgba(250, 163, 105, 1)",
+  orange_f5867b: "rgba(245, 134, 123, 1)",
+  orange_f99f6c: "rgba(249, 159, 108, 1)",
   blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
   blue_223136: "#223136", //blue1 hexversion
   blue_02a7fd: "rgba(2, 167, 253, 1)", //blue2 #02a7fd
   green_5fb700: "rgba(95,183,0,1)",
+  green_49bb5c: "rgba(73, 187, 92,1)",
   red_ff0d0d: "rgba(255,13,13,1)",
+  red_f67e7e_38: "rgba(246, 126, 126, 0.38)",
+  red_ed1b2e: "rgba(237, 27, 46,1)",
+  violet_f1f3fb: "rgba(241, 243, 251,1)",
 };
 
 export const sizes = {
   sizep3: "3%",
   sizep4: "4%",
   sizep5: "5%",
+  sizeNeg0_48: "-0.48px",
+  sizeNeg0_27: "-0.27px",
+  sizeNeg0_24: "-0.24px",
+  sizeNeg0_18: "-0.18px",
   widthp35: "35%",
   sizeNeg7: "-7px",
   sizep40: "40%",
   halfWidth: "50%",
   fullWidth: "100%",
-  sizeNeg0_24: "-0.24px",
   size0: "0",
   size0_29: "0.29px",
   size0_45: "0.45px",
@@ -77,54 +95,76 @@ export const sizes = {
   size1: "1px",
   size2: "2px",
   size4: "4px",
+  size4_5: "4.5px",
+  size5: "5px",
   size6: "6px",
+  size7: "7px",
+  size7_22: "7.22px",
+  size8_42: "8.42px",
+  size8_88: "8.88px",
   size3: "3px",
   size3_61: "3.61px",
   size3_66: "3.66px",
-  size5: "5px",
-  size7: "7px",
   size7_45: "7.45px",
   size8: "8px",
   size8_12: "8.12px",
   size9: "9px",
   size9_12: "9.12px",
   size10: "10px",
-  size14: "14px",
+  size11: "11px",
+  size11_44: "11.44px",
   size12: "12px",
+  size12_72: "12.72px",
+  size14: "14px",
+  size15: "15px",
+  size15_28: "15.28px",
+  size15_73: "15.73px",
+  size15_92: "15.92px",
   size16: "16px",
   size17: "17px",
+  size18: "18px",
   size19: "19px",
   size19_4: "19.4px",
+  size20: "20px",
+  size21: "21px",
   size22: "22px",
   size22_41: "22.41px",
   size24: "24px",
   size24_95: "24.95px",
+  size25: "25px",
+  size27: "27px",
   size27_25: "27.25px",
   size28: "28px",
   size30: "30px",
+  size34: "34px",
+  size43_6: "43.6px",
+  size45: "45px",
   size50: "50px",
+  size52: "52px",
   size60: "60px",
+  size70: "70px",
+  size79: "79px",
   size103: "103px",
+  size141: "141px",
+  size166_79: "166.79px",
+  size187: "187px",
   size227: "227px",
+  size265: "265px",
+  size304: "304px",
+  size672: "672px",
+  size631_42: "631.42px",
   size10_13: "10.13px",
-  size11: "11px",
   size13: "13px",
   size13_18: "13.18px",
-  size15: "15px",
-  size18: "18px",
   size18_23: "18.23px",
   size19_26: "19.26px",
-  size20: "20px",
   size23: "23px",
-  size25: "25px",
   size26: "26px",
-  size27: "27px",
   size29: "29px",
   size31_42: "31.42px",
   size32: "32px",
   size33: "33px",
   size33_77: "33.77px",
-  size34: "34px",
   size35: "35px",
   size36: "36px",
   size36_51: "36.51px",
@@ -140,7 +180,6 @@ export const sizes = {
   size43_18: "43.18px",
   size43_82: "43.82px",
   size44: "44px",
-  size45: "45px",
   size46: "46px",
   size47: "47px",
   size48: "48px",
@@ -162,13 +201,11 @@ export const sizes = {
   size66: "66px",
   size67: "67px",
   size68: "68px",
-  size70: "70px",
   size72: "72px",
   size73: "73px",
   size74: "74px",
   size75: "75px",
   size77: "77px",
-  size79: "79px",
   size80: "80px",
   size83: "83px",
   size86: "86px",
@@ -333,6 +370,7 @@ export const sizes = {
 
 export const angles = {
   angle60: "60deg",
+  angle90: "90deg",
   angle206_72: "206.72deg",
   angle178_89: "178.89deg",
 };
@@ -359,6 +397,7 @@ export const fontWeight = {
 
 export const opacity = {
   opacity0_19: 0.19,
+  opacity0_58: 0.58,
   opacity0_66: 0.66,
 };
 
@@ -371,11 +410,14 @@ export const zIndex = {
 export const letterSpacing = {
   space0: "0",
   space0_43: "0.43",
-  space0_58: "0.58",
   space0_5: "0.5",
+  space0_58: "0.58",
+  space0_64: "0.64px",
+  space3_66: "3.66",
 };
 
 export const links = {
+  home: "/",
   login: "/login",
   forgotPassword: "/forgot-password",
   createAccount: "/create-account",
@@ -385,4 +427,6 @@ export const links = {
   passwordSuccess: "/password-success",
   accountDetails: "/account-details",
   menu: "/menu",
+  restaurantList: "restaurant-list",
+  brands: "/brands",
 };
