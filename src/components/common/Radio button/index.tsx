@@ -28,23 +28,23 @@ const Radio: FC<radioProps> = ({ name, options, handleChange }) => {
 
 const Wrapper = styled.div`
   display: block;
-  margin-left: ${sizes.size0};
+  margin-left: 0;
   margin-bottom: 12.72px;
-  height: ${sizes.size16};
-  top: ${sizes.size0};
+  height: 16px;
+  top: 0;
   margin-left: 21px;
   margin-top: 10px;
 `;
 
 const RadioInput = styled.input`
-  width: ${sizes.size16};
+  width: 16px;
   -webkit-appearance: none;
   margin: 0px 7px;
-  margin-left: ${sizes.size0};
+  margin-left: 0;
   vertical-align: middle;
   &:checked {
     background-image: url(${Selected});
-    height: ${sizes.size16};
+    height: 16px;
   }
   &:checked + label {
     color: ${colors.orange_f78713};
@@ -59,7 +59,7 @@ const RadioInput = styled.input`
 `;
 
 const OptionName = styled.label`
-  height: ${sizes.size19};
+  height: 19px;
   font-size: ${sizes.size14};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   letter-spacing: ${sizes.sizeNeg0_24};
