@@ -35,6 +35,7 @@ export const colors = {
   grey_5e5e5e: "rgba(94, 94, 94,1)",
   grey_9e9999: "rgba(158, 153, 153,1)",
   grey_636364: "rgba(99, 99, 100,1)",
+  grey_9b9b9b: "rgba(155,155,155,1)",
   pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
   pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
   pink_fda5a3: "#FDA5A3", //pink3
@@ -44,6 +45,7 @@ export const colors = {
   yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
   yellow_f5a623: "rgba(245,166,35,1)",
+  yellow_a08234: "rgba(160, 130, 52,1)",
   orange_f67e03: "rgba(246, 126, 3, 1)", //orange1 #f67e03
   orange_fca100: "rgba(252, 161, 0,1)",
   orange_f57c00: "rgba(245, 124, 0,1)",
@@ -57,8 +59,10 @@ export const colors = {
   blue_223136: "#223136", //blue1 hexversion
   blue_02a7fd: "rgba(2, 167, 253, 1)", //blue2 #02a7fd
   green_5fb700: "rgba(95,183,0,1)",
+  green_49bb5c: "rgba(73, 187, 92,1)",
   red_ff0d0d: "rgba(255,13,13,1)",
   red_f67e7e_38: "rgba(246, 126, 126, 0.38)",
+  red_ed1b2e: "rgba(237, 27, 46,1)",
   violet_f1f3fb: "rgba(241, 243, 251,1)",
 };
 

@@ -261,5 +261,128 @@
     "title": "Breakfast in Dubai",
     "brandsNearBy": "Brands Nearby",
     "more": "More"
-  }
+  },
+  "foodcardDetails": {
+    "recommended": [
+      {
+        "id": "1",
+        "foodName": "Chili Cheese Meal",
+        "image": true,
+        "bestseller": true,
+        "veg": false,
+        "cost": 27.0,
+        "addOn": "Add On : Avacado, Seasoned Grilled Chicken, Grilled Salmon",
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "quantity": 0
+      },
+      {
+        "id": "2",
+        "foodName": "Canapes and Crostini",
+        "image": false,
+        "bestseller": false,
+        "veg": true,
+        "cost": 27.0,
+        "customizable": false,
+        "description": "Clams, mussels, calamari & shrimp w/ white wine & garlic",
+        "quantity": 0
+      },
+      {
+        "id": "3",
+        "foodName": "Herb-Spiced Chicken Sandwich",
+        "image": false,
+        "bestseller": true,
+        "veg": false,
+        "cost": 27.0,
+        "customizable": false,
+        "description": "Roasted chick peas, julienne carrots, wild mushrooms & manchego w/ cider vinaigrette",
+        "quantity": 0
+      }
+    ],
+    "appetizers": [
+      {
+        "id": "4",
+        "foodName": "Canapes and Crostini",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": 27.0,
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "quantity": 0
+      },
+      {
+        "id": "5",
+        "foodName": "Stuffed Cherry Peppers",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": 27.0,
+        "customizable": false,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "quantity": 0
+      },
+      {
+        "id": "6",
+        "foodName": "Broiled Brie with Cranberry Chutney",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": 27.0,
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "quantity": 0
+      }
+    ],
+    "soups": [
+      {
+        "id": "7",
+        "foodName": "Charred Spanish Octopus",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": "AED27.00",
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "quantity": 0
+      },
+      {
+        "id": "8",
+        "foodName": "Oysters on the Half Shell",
+        "image": true,
+        "bestseller": true,
+        "veg": false,
+        "cost": 27.0,
+        "customizable": true,
+        "description": "Shallot mignonette & cocktail sauce 18/33",
+        "quantity": 0
+      },
+      {
+        "id": "9",
+        "foodName": "Chicken Tortilla",
+        "image": true,
+        "bestseller": true,
+        "veg": false,
+        "cost": 27.0,
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "quantity": 0
+      },
+      {
+        "id": "10",
+        "foodName": "Charred Spanish Octopus",
+        "image": true,
+        "bestseller": false,
+        "veg": false,
+        "cost": 27.0,
+        "customizable": true,
+        "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
+        "quantity": 0
+      }
+    ]
+  },
+  "costUnit": "AED",
+  "customizeText": "Customizable",
+  "inCart": "Already in cart",
+  "NavbarElements": ["MENU", "OVERVIEW", "REVIEWS & RATINGS", "GALLERY"]
 }
