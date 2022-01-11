@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartCard from "../../common/CartCard";
 import DownArrow from "../../../assets/restaurantDetails/collapse button.png";
-import { fontFamilies, sizes, colors } from "../../../variables";
+import { fontFamilies, sizes, colors, links } from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
 import { foodItemProps } from "../../common/interfaces";
 import InputField from "../../common/textbox";
@@ -78,7 +78,7 @@ const Cart = () => {
         {data.cartData.cookingInstruction}
       </CookingInstructionTitle>
       <InputField
-        name="Mention it here..."
+        name={data.cartData.textboxLabel}
         isPassword={false}
         style={{
           width: "263px",
@@ -86,9 +86,9 @@ const Cart = () => {
           color: `${colors.grey_4a4a4a}`,
         }}
       />
-      <RoutingLink to="checkout">
+      <RoutingLink to={links.checkout}>
         <Buttons
-          name="PROCEED TO CHECKOUT"
+          name={data.cartData.buttonText}
           className="colouredBgButton"
           style={{ width: "264px" }}
           image={RightArrow}

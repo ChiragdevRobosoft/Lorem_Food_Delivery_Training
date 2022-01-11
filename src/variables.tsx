@@ -426,4 +426,5 @@ export const links = {
   restaurantList: "restaurant-list",
   brands: "/brands",
   restaurantDetails: "restaurant-details",
+  checkout: "checkout",
 };

@@ -403,6 +403,17 @@
     "cookingInstruction": "Cooking instructions?",
     "singleItem": "Quantity : 1",
     "remove": "Remove",
-    "customize": "Customize"
+    "customize": "Customize",
+    "textboxLabel": "Mention it here...",
+    "buttonText": "PROCEED TO CHECKOUT"
+  },
+  "restaurantData": {
+    "name": "The Boutique Kitchen",
+    "foodVariety": "Indian, Pakistani, Kebab",
+    "rating": 4.3,
+    "time": "63 mins",
+    "cost": "AED30 min order",
+    "timeRange": "11:00 AM - 10:00 PM",
+    "ratingTitle": "Delivery rating for last 5 orders"
   }
 }

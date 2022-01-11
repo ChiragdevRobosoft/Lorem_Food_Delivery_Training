@@ -13,7 +13,7 @@ import Footer from "../common/footer";
 import Header from "../common/header";
 
 const RestaurantDetails = () => {
-  const [selected, setSelected] = useState("MENU");
+  const [selected, setSelected] = useState(data.NavbarElements[0]);
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     setSelected((e.target as HTMLElement).innerText);
   };
@@ -23,34 +23,34 @@ const RestaurantDetails = () => {
       <SearchContainer></SearchContainer>
       <MainContainer>
         <Searchpath path={data.searchPath.menu} className="grey-dark" />
-        <Image src={BgImg} style={{ width: "100%" }} />
+        <BgImage src={BgImg} />
         <ImageContentSection>
-          <Image src={RestaurantImg} />
+          <Icon src={RestaurantImg} />
           <CutleryImage src={Cutlery} />
-          <RestaurantName>The Boutique Kitchen</RestaurantName>
-          <FoodVariety>Indian, Pakistani, Kebab</FoodVariety>
-          <FlexRow className="first-row">
-            <Rating>4.3</Rating>
+          <RestaurantName>{data.restaurantData.name}</RestaurantName>
+          <FoodVariety>{data.restaurantData.foodVariety}</FoodVariety>
+          <DetailsContainer className="first-row">
+            <Rating>{data.restaurantData.rating}</Rating>
             <DetailsList>
-              <Detail>63 mins</Detail>
-              <Detail>AED30 min order</Detail>
+              <Detail>{data.restaurantData.time}</Detail>
+              <Detail>{data.restaurantData.cost}</Detail>
             </DetailsList>
-            <Image src={TimeIcon} />
-            <Time>11:00 AM - 10:00 PM</Time>
-          </FlexRow>
-          <RatingTitle>Delivery rating for last 5 orders</RatingTitle>
-          <FlexRow>
+            <Icon src={TimeIcon} />
+            <Time>{data.restaurantData.timeRange}</Time>
+          </DetailsContainer>
+          <RatingTitle>{data.restaurantData.ratingTitle}</RatingTitle>
+          <DetailsContainer>
             {data.ratingList.map((rate, index) => {
               return <DeliveryRating key={index} RatingNum={rate} />;
             })}
-          </FlexRow>
+          </DetailsContainer>
           <NavBar>
             {data.NavbarElements.map((navbarElement, index) => {
               return navbarElement === selected ? (
                 <Navlink to={`${navbarElement.toLowerCase()}`} key={index}>
                   <NavBarElement className="select">
                     {navbarElement}
-                    <BorderDiv></BorderDiv>
+                    <Underline></Underline>
                   </NavBarElement>
                 </Navlink>
               ) : (
@@ -98,7 +98,11 @@ const ImageContentSection = styled.div`
   top: 83px;
 `;
 
-const Image = styled.img``;
+const Icon = styled.img``;
+
+const BgImage = styled.img`
+  width: 100%;
+`;
 
 const CutleryImage = styled.img`
   position: absolute;
@@ -147,7 +151,7 @@ const Rating = styled.span`
   left: 39px;
 `;
 
-const FlexRow = styled.div`
+const DetailsContainer = styled.div`
   position: absolute;
   height: ${(props) => (props.className === "first-row" ? "23px" : "26px")};
   top: ${(props) => (props.className === "first-row" ? "203px" : "282px")};
@@ -224,7 +228,7 @@ const NavBarElement = styled.li`
   line-height: ${sizes.size19};
 `;
 
-const BorderDiv = styled.div`
+const Underline = styled.div`
   height: 4px;
   width: 38px;
   margin-top: 11px;
