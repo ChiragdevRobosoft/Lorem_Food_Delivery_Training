@@ -36,7 +36,7 @@ const InputField = ({
       />
       {isPassword ? (
         <>
-          <Label name={name} className="form-label" />
+          <Label content={name} className="form-label" />
           <ViewIcon
             onClick={(e) => {
               handleViewIconClick();
@@ -46,7 +46,7 @@ const InputField = ({
           ></ViewIcon>
         </>
       ) : (
-        <Label name={name} className="form-label" style={style} />
+        <Label content={name} className="form-label" />
       )}
     </FormContainer>
   );
