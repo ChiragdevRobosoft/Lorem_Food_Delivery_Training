@@ -78,10 +78,6 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const SearchContainer = styled.div`
-  height: 133px;
-`;
-
 const MainContainer = styled.div`
   width: ${sizes.fullWidth};
   background: ${colors.violet_f1f3fb};
