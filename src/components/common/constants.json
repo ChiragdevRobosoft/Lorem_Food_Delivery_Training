@@ -416,5 +416,14 @@
     "cost": "AED30 min order",
     "timeRange": "11:00 AM - 10:00 PM",
     "ratingTitle": "Delivery rating for last 5 orders"
-  }
+  },
+  "orderCardData": [
+    {
+      "orderId": "1234567890",
+      "hotelName": "The Boutique Kitchen",
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "Items": "3",
+      "Costs": "85.76"
+    }
+  ]
 }
