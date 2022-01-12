@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { FC } from "react";
-import { colors, fontFamilies, sizes } from "../../../variables";
+import { colors, fontFamilies, fontWeight, sizes } from "../../../variables";
 import SearchBoxComp from "../searchBox";
 import LocationInput from "../locationInput";
 import DateInput from "../dateInput";
 import searchBoxBg from "./../../..//assets/common/foodSearchBox/searchbox_bg.png";
-
+import data from "./../constants.json";
 interface foodSearchProps {
   pageType: string;
 }
@@ -28,7 +28,7 @@ const Foodsearch: FC<foodSearchProps> = ({ pageType }) => {
       ) : (
         <Wrapper>
           <ContentContainer>
-            <DeliveryAsap>Delivery ASAP</DeliveryAsap>
+            <DeliveryAsap>{data.foodSearchBox.delivery}</DeliveryAsap>
             <SearchContainer>
               <LocationInput className={pageType} />
               <SearchBoxComp className={pageType} />
@@ -96,9 +96,7 @@ const ContentContainer = styled.div`
   margin: 23px auto 35px auto;
   height: 76px;
   width: 961px;
-
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
 `;
@@ -106,12 +104,12 @@ const ContentContainer = styled.div`
 const DeliveryAsap = styled.p`
 height: 17px;
   width: 78px;
-  color: #636364;
+  color: ${colors.grey_636364};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: 12px;
-  font-weight: 600;
+  font-size: ${sizes.size12};
+  font-weight: ${fontWeight.weight600};
   letter-spacing: -0.2px;
-  line-height: 17px;
+  line-height: ${sizes.size17};
   padding:0;
   margin: 0 0 9px 2px;
 }

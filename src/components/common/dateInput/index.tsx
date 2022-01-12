@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import React, { FC, forwardRef, SetStateAction, useState } from "react";
+import { FC, useState } from "react";
 import { colors, fontFamilies, sizes } from "../../../variables";
 import timeDateIcon from "./../../../assets/common/foodSearchBox/present-t&d-firstpage.png";
-import data from "../constants.json";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-calendar/dist/Calendar.css";
@@ -20,7 +19,6 @@ const DateInput: FC<dateInputProps> = ({ className }) => {
     <>
       {className === "home" ? (
         <Dateholder className={className}>
-          {console.log(newDate)}
           <DatePicker
             selected={newDate}
             onChange={setNewDate}
@@ -33,7 +31,6 @@ const DateInput: FC<dateInputProps> = ({ className }) => {
         </Dateholder>
       ) : (
         <Dateholder className={className}>
-          {console.log(newDate)}
           <DatePicker
             selected={newDate}
             onChange={setNewDate}
