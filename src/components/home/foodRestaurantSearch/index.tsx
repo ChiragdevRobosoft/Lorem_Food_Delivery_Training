@@ -7,7 +7,7 @@ import {
   opacity,
   sizes,
 } from "../../../variables";
-import Foodsearch from "./../../common/foodSearchBox/index";
+import Foodsearch from "../../common/SearchComponent/index";
 import Header from "../../common/header/index";
 import mouseScroll from "./../../../assets/home/foodRestaurantSearch/mouse-scroll.png";
 import { useState } from "react";
