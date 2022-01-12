@@ -123,7 +123,14 @@
     }
   ],
   "searchPath": {
-    "greatBreakfasts": ["Home", "UAE", "Explore", "Great breakfasts"]
+    "greatBreakfasts": ["Home", "UAE", "Explore", "Great breakfasts"],
+    "menu": [
+      "Home",
+      "UAE",
+      "Explore",
+      "Great breakfasts",
+      "The Boutique Kitchen"
+    ]
   },
   "homeTexts": {
     "foodRestaurantSearch": {
@@ -263,6 +270,7 @@
     "brandsNearBy": "Brands Nearby",
     "more": "More"
   },
+  "ratingList": [4, 4, 3, 4, 2],
   "foodcardDetails": {
     "recommended": [
       {
@@ -342,7 +350,7 @@
         "image": true,
         "bestseller": false,
         "veg": false,
-        "cost": "AED27.00",
+        "cost": 27.0,
         "customizable": true,
         "description": "Panko breaded mac and cheese balls fried until golden brown and served with our homemade marinara sauce.",
         "quantity": 0
@@ -396,6 +404,17 @@
     "cookingInstruction": "Cooking instructions?",
     "singleItem": "Quantity : 1",
     "remove": "Remove",
-    "customize": "Customize"
+    "customize": "Customize",
+    "textboxLabel": "Mention it here...",
+    "buttonText": "PROCEED TO CHECKOUT"
+  },
+  "restaurantData": {
+    "name": "The Boutique Kitchen",
+    "foodVariety": "Indian, Pakistani, Kebab",
+    "rating": 4.3,
+    "time": "63 mins",
+    "cost": "AED30 min order",
+    "timeRange": "11:00 AM - 10:00 PM",
+    "ratingTitle": "Delivery rating for last 5 orders"
   }
 }

@@ -184,6 +184,5 @@ const Discription = styled.p`
   text-align: center;
 `;
 const VerifyButton = styled.div`
-  margin-top: -20px;
-  margin-top: 80px;
+  margin-top: 41px;
 `;
