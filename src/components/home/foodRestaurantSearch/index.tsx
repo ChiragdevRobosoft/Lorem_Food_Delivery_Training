@@ -51,7 +51,7 @@ const FoodRestaurantSearch = () => {
           {data.homeTexts.foodRestaurantSearch.description}
         </Headingspan>
       </Heading>
-      <Foodsearch pageType="hello" />
+      <Foodsearch pageType="home" />
       <ScrollComp>
         <Scroll src={mouseScroll} alt="mouse-scroll" />
         <ScrollName>

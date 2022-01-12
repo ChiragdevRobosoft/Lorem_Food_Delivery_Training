@@ -74,7 +74,7 @@ const Dateholder = styled.div`
           ? `0 2px 10px 0 ${colors.black_000000_1}`
           : `0 5px 10px 0 ${colors.black_000000_007}`};
       color: ${colors.grey_4c4c4c};
-      font-family: ${fontFamilies.fontFamilySFNSRegular}
+      font-family: ${fontFamilies.fontFamilySFNSRegular};
       font-size: ${(props) =>
         props.className === "home" ? `${sizes.size14}` : null};
       letter-spacing: -0.24;
