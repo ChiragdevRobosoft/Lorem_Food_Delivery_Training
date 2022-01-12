@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import closeButton from "../../assets/close_button.png";
 import Buttons from "../../components/common/button/index";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import TextBox from "../../components/common/textbox";
 import data from "./../../components/common/constants.json";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  fontWeight,
-  links,
-} from "../../variables";
+import { sizes, colors, fontFamilies, fontWeight } from "../../variables";
 const Login = ({
   onCloseModal,
   onOpenModal,
@@ -118,7 +112,7 @@ const ForgetButton = styled.button`
   float: right;
   margin-right: 50px;
   margin-top: "none";
-  margin-bottom: ${sizes.size30};
+  margin-bottom: 30px;
   padding-top: 0;
 `;
 const EmailBox = styled.div`
@@ -128,8 +122,8 @@ const PasswordBox = styled.div`
   margin-bottom: 60px;
 `;
 const TagLine = styled.div`
-  height: ${sizes.size132};
-  width: ${sizes.size330};
+  height: 132px;
+  width: 330px;
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: 34px;
@@ -142,19 +136,19 @@ const TagLine = styled.div`
 const SocialMedia = styled.div`
   display: flex;
   flex-direction: row;
-  width: ${sizes.size400};
+  width: 400px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
 `;
 const ForgotPasswordLink = styled.p`
-  height: ${sizes.size19};
+  height: 19px;
   color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOs};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
-  margin-bottom: ${sizes.size20};
-  margin-top: ${sizes.size40};
+  margin-bottom: 20px;
+  margin-top: 40px;
 `;
 const CloseImage = styled.img`
   float: right;
@@ -173,21 +167,21 @@ const NewLinkButton = styled.button`
   float: right;
   margin-right: 50px;
   margin-top: 40px;
-  margin-bottom: ${sizes.size30};
+  margin-bottom: 30px;
   padding-top: 0;
 `;
 const Footer = styled.div`
   flex-direction: row;
-  margin-bottom: ${sizes.size20};
-  margin-top: ${sizes.sizen10};
+  margin-bottom: 20px;
+  margin-top: -10px;
   display: flex;
   align-self: center;
-  margin-left: ${sizes.size125};
+  margin-left: 125px;
   margin-right: auto;
 `;
 const Wrapper = styled.div`
-  height: ${sizes.size588};
-  width: ${sizes.size960};
+  height: 588px;
+  width: 960px;
   border-radius: ${sizes.size8};
   background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 24px 0 ${colors.black_000000_05};
@@ -202,11 +196,11 @@ const Wrapper = styled.div`
 `;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 480px;
   text-align: left;
   padding-left: ${sizes.sizep4};
-  margin-right: ${sizes.sizen40};
+  margin-right: -40px;
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white_ffffff};
@@ -214,27 +208,27 @@ const WrapperRight = styled.div`
   width: 470px;
 `;
 const Title = styled.p`
-  height: ${sizes.size38};
-  width: ${sizes.size300};
+  height: 38px;
+  width: 300px;
   color: ${colors.black_2a2c30};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size28};
   font-weight: bold;
-  margin-left: ${sizes.size50};
-  margin-bottom: ${sizes.size60};
-  margin-top: ${sizes.size50};
+  margin-left: 50px;
+  margin-bottom: 60px;
+  margin-top: 50px;
   letter-spacing: ${sizes.sizen47};
   line-height: ${sizes.size38};
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
 `;
 const Lorem = styled.p`
-  height: ${sizes.size60};
-  width: ${sizes.size103};
+  height: 60px;
+  width: 103px;
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
-  margin-bottom: ${sizes.size30};
-  margin-top: ${sizes.size150};
+  margin-bottom: 30px;
+  margin-top: 150px;
   letter-spacing: 0;
   line-height: 60px;
   text-align: center;

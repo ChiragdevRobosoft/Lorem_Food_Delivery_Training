@@ -2,18 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import backButton from "../../assets/backButton.png";
 import icon_verified from "../../assets/icn_verified.png";
-import { useNavigate, Link } from "react-router-dom";
 import TextBox from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
 import Modal from "react-responsive-modal";
 import data from "./../../components/common/constants.json";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  fontWeight,
-  links,
-} from "../../variables";
+import { sizes, colors, fontFamilies, fontWeight } from "../../variables";
 const Verified = ({
   onCloseModal,
   onOpenModal,
@@ -27,7 +20,6 @@ const Verified = ({
   setShowPasswordSuccess: React.Dispatch<React.SetStateAction<boolean>>;
   setShowVerified: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const navigate = useNavigate();
   return (
     <Modal
       open={open}
@@ -60,10 +52,10 @@ const Verified = ({
           <VerifyImage>
             <img src={icon_verified} className="icon_forgot"></img>
           </VerifyImage>
-          <Title>Verifed!</Title>
+          <Title>{data.loginModal.verified.title}</Title>
           <Discription>
-            Your mobile no. is verified. <br />
-            Enter the new password to reset your account.
+            {data.loginModal.verified.description.line1} <br />
+            {data.loginModal.verified.description.line2}
           </Discription>
           <PasswordBox>
             <TextBox name="Password" isPassword={true}></TextBox>
@@ -98,16 +90,16 @@ const Title = styled.p`
   line-height: ${sizes.size30};
   text-align: center;
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
-  margin-top: ${sizes.size116};
-  margin-left: ${sizes.size180};
-  height: ${sizes.size30};
-  width: ${sizes.size124};
+  margin-top: 116px;
+  margin-left: 180px;
+  height: 30px;
+  width: 124px;
   font-family: ${fontFamilies.fontFamilyOsBold};
 `;
 const Discription = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: ${sizes.size90};
+  margin-left: 90px;
   word-wrap: break-word;
   margin-top: -10px;
   font-family: ${fontFamilies.fontFamilyOsRegular};
@@ -116,31 +108,31 @@ const Discription = styled.div`
   text-align: center;
   width: 300px;
   color: ${colors.grey_4a4a4a};
-  margin-bottom: ${sizes.size100};
+  margin-bottom: 100px;
 `;
 const BackImage = styled.img`
   float: left;
-  margin: ${sizes.size20};
+  margin: 20px;
   border: 0;
-  height: ${sizes.size17};
-  width: ${sizes.size17};
+  height: 17px;
+  width: 17px;
 `;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 480px;
   text-align: left;
-  padding-left: ${sizes.sizep4};
-  margin-right: ${sizes.sizen40};
+  padding-left: 4%;
+  margin-right: -40px;
 `;
 const Lorem = styled.p`
-  height: ${sizes.size60};
-  width: ${sizes.size103};
+  height: 60px;
+  width: 103px;
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
-  margin-bottom: ${sizes.size30};
-  margin-top: ${sizes.size150};
+  margin-bottom: 30px;
+  margin-top: 150px;
   letter-spacing: 0;
   line-height: ${sizes.size60};
   text-align: center;
@@ -150,8 +142,8 @@ const BoldText = styled.span`
   font-family: ${fontFamilies.fontFamilyOsBold};
 `;
 const TagLine = styled.div`
-  height: ${sizes.size132};
-  width: ${sizes.size330};
+  height: 132px;
+  width: 330px;
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
@@ -162,12 +154,12 @@ const TagLine = styled.div`
   word-wrap: break-word;
 `;
 const VerifyButton = styled.div`
-  margin-top: ${sizes.size100};
+  margin-top: 100px;
   margin-left: 15px;
 `;
 const Wrapper = styled.div`
-  height: ${sizes.size588};
-  width: ${sizes.size960};
+  height: 588px;
+  width: 960px;
   border-radius: ${sizes.size8};
   background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 24px 0 ${colors.black_2a2c30};
@@ -181,10 +173,10 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 const VerifyImage = styled.div`
-  height: ${sizes.size5};
-  width: ${sizes.size25};
-  margin-left: ${sizes.size200};
-  margin-top: ${sizes.size10};
+  height: 5px;
+  width: 25px;
+  margin-left: 200px;
+  margin-top: 10px;
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white_ffffff};
