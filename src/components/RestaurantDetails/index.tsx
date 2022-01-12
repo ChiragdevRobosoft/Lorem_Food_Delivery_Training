@@ -11,6 +11,7 @@ import DeliveryRating from "../common/DeliveryRating";
 import { NavLink, Outlet } from "react-router-dom";
 import Footer from "../common/footer";
 import Header from "../common/header";
+import Foodsearch from "../common/SearchComponent";
 
 const RestaurantDetails = () => {
   const [selected, setSelected] = useState(data.NavbarElements[0]);
@@ -20,7 +21,7 @@ const RestaurantDetails = () => {
   return (
     <Wrapper>
       <Header className="loggedin" />
-      <SearchContainer></SearchContainer>
+      <Foodsearch pageType="screen" />
       <MainContainer>
         <Searchpath path={data.searchPath.menu} className="grey-dark" />
         <BgImage src={BgImg} />
@@ -75,10 +76,6 @@ const RestaurantDetails = () => {
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
-`;
-
-const SearchContainer = styled.div`
-  height: 133px;
 `;
 
 const MainContainer = styled.div`

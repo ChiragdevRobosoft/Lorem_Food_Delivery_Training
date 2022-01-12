@@ -90,7 +90,6 @@ const CartCard: FC<{ item: foodItemProps }> = ({ item }) => {
 
 const Card = styled.div`
   padding: 13px 0px;
-  width: 264px;
   position: relative;
   display: flex;
   flex-direction: column;
