@@ -44,43 +44,32 @@ export default Foodsearch;
 
 const WrapperHome = styled.div`
   margin: ${(props) =>
-    props.className === "home"
-      ? `${sizes.size0} ${sizes.size889} ${sizes.size176} ${sizes.size420};`
-      : null}
-  height: ${(props) =>
-    props.className === "home" ? `${sizes.size175}` : null};
-  width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
+    props.className === "home" ? `0 889px 176px 420px;` : null}
+  height: ${(props) => (props.className === "home" ? `175px` : null)};
+  width: ${(props) => (props.className === "home" ? `611px` : null)};
   display: flex;
   flex-direction: column;
 `;
 
 const LocAndDate = styled.div`
   box-sizing: border-box;
-  width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
-  height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
-  margin: ${(props) =>
-    props.className === "home"
-      ? `${sizes.size35} ${sizes.size0} ${sizes.size0} ${sizes.size0}`
-      : ``};
+  width: ${(props) => (props.className === "home" ? `611px` : null)};
+  height: ${(props) => (props.className === "home" ? `70px` : null)};
+  margin: ${(props) => (props.className === "home" ? `35px 0 0 0` : ``)};
   display: flex;
   flex-direction: row;
 `;
 
 const Locationholder = styled.div`
-  height: ${(props) =>
-    props.className === "home" ? `${sizes.size70}` : `${sizes.size50}`};
-  width: ${(props) =>
-    props.className === "home" ? `${sizes.size338}` : `${sizes.size283}`};
-  margin: ${(props) =>
-    props.className === "home"
-      ? `${sizes.size0} ${sizes.size22} ${sizes.size0} ${sizes.size4}`
-      : null};
+  height: ${(props) => (props.className === "home" ? `70px` : `50px`)};
+  width: ${(props) => (props.className === "home" ? `338px` : `283px`)};
+  margin: ${(props) => (props.className === "home" ? `0 22px 0 4px` : null)};
 `;
 
 const Dateholder = styled.div`
-  height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
-  width: ${(props) => (props.className === "home" ? `${sizes.size247}` : null)};
-  margin: ${(props) => (props.className === "home" ? `${sizes.size0}` : null)};
+  height: ${(props) => (props.className === "home" ? `70px` : null)};
+  width: ${(props) => (props.className === "home" ? `247px` : null)};
+  margin: ${(props) => (props.className === "home" ? `0` : null)};
   display: flex;
 `;
 
