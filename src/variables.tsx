@@ -38,19 +38,21 @@ export const colors = {
   grey_9e9999: "rgba(158, 153, 153,1)",
   grey_636364: "rgba(99, 99, 100,1)",
   grey_9b9b9b: "rgba(155,155,155,1)",
+  grey_1c1c1c: "rgba(28,28,28,1)",
+  grey_1f1f1f: "rgba(31, 31, 31,1)",
   grey_c6c6c6_5: "rgba(198, 198, 198, 0.5)",
   grey_f5eeee: "rgba(245, 238, 238,1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
   pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
   pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
   pink_fda5a3: "#FDA5A3", //pink3
-  pink_f67e7e_038: "rgba(246, 126, 126, 0.38)", //pink3
-  pink_d34836_1: "rgba(211, 72, 54, 1)", //pink4
+  pink_d34836: "rgba(211, 72, 54, 1)", //pink4
   pink_f2738a: "rgba(242, 115, 138, 1)",
   yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
   yellow_f5a623: "rgba(245,166,35,1)",
   yellow_a08234: "rgba(160, 130, 52,1)",
+  yellow_feb456: "rgba(254, 180, 86,1)",
   orange_f67e03: "rgba(246, 126, 3, 1)", //orange1 #f67e03
   orange_fca100: "rgba(252, 161, 0,1)",
   orange_f57c00: "rgba(245, 124, 0,1)",
@@ -62,13 +64,14 @@ export const colors = {
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
   blue_223136: "#223136", //blue1 hexversion
-  blue_02a7fd: "rgba(2, 167, 253, 1)", //blue2 #02a7fd,
+  blue_02a7fd: "rgba(2, 167, 253, 1)", //blue2 #02a7fd
   blue_cecfd4: "rgba(206, 207, 212,1)",
   green_5fb700: "rgba(95,183,0,1)",
   green_49bb5c: "rgba(73, 187, 92,1)",
   red_ff0d0d: "rgba(255,13,13,1)",
   red_f67e7e_38: "rgba(246, 126, 126, 0.38)",
   red_ed1b2e: "rgba(237, 27, 46,1)",
+  red_f3698e: "rgba(243, 105, 142,1)",
   violet_f1f3fb: "rgba(241, 243, 251,1)",
 };
 
@@ -365,6 +368,7 @@ export const angles = {
   angle90: "90deg",
   angle206_72: "206.72deg",
   angle178_89: "178.89deg",
+  angle138_33: "138.33deg",
 };
 
 export const fontFamilies = {
@@ -418,7 +422,9 @@ export const links = {
   verification: "/verification",
   passwordSuccess: "/password-success",
   accountDetails: "/account-details",
-  menu: "/menu",
+  menu: "menu",
   restaurantList: "restaurant-list",
   brands: "/brands",
+  restaurantDetails: "restaurant-details",
+  checkout: "checkout",
 };
