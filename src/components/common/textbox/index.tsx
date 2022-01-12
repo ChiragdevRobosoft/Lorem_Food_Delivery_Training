@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 import React, { useState } from "react";
 import view_active from "../../../assets/view_active.png";
 import view_inactive from "../../../assets/view_inactive.png";
@@ -7,9 +7,11 @@ import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
 const InputField = ({
   name,
   isPassword,
+  style,
 }: {
   name: string;
   isPassword: boolean;
+  style?: CSSProperties;
 }) => {
   const [viewState, changeViewState] = useState(false);
   const [focusState, changeFocusState] = useState(false);
@@ -20,7 +22,7 @@ const InputField = ({
     if (e.target.value === "") changeFocusState(false);
   };
   return (
-    <FormContainer>
+    <FormContainer style={style}>
       <Textbox
         type={!viewState && isPassword ? "password" : "text"}
         onFocus={() => {
@@ -30,6 +32,7 @@ const InputField = ({
           handleFocusChange(e);
         }}
         className={focusState ? "moveUp" : ""}
+        style={style}
       />
       {isPassword ? (
         <>
@@ -43,7 +46,7 @@ const InputField = ({
           ></ViewIcon>
         </>
       ) : (
-        <Label name={name} className="form-label" />
+        <Label name={name} className="form-label" style={style} />
       )}
     </FormContainer>
   );
@@ -51,9 +54,10 @@ const InputField = ({
 export default InputField;
 const FormContainer = styled.div`
   position: relative;
-  width: 100%;
+  height: 34px;
+  width: ${(props) => (props.style?.width ? props.style.width : "100%")};
   .moveUp ~ .form-label {
-    top: -1.5rem;
+    top: ${(props) => (props.style?.width === "263px" ? "-1rem" : "-1.5rem")};
     font-size: 0.8rem;
     position: relative;
   }
@@ -64,28 +68,28 @@ const Textbox = styled.input`
   padding: 0;
   top: 0;
   left: 0;
-  height: ${sizes.size34};
-  width: 78.8%;
-  background-color: transparent;
+  height: 34px;
+  width: ${(props) => (props.style?.width ? props.style.width : "78.8%")};
+  background-color: ${colors.transparentColor};
   border: none;
   border-bottom: 1px solid ${colors.grey_858585};
-  margin-left: 10%;
+  margin-left: ${(props) => (props.style?.margin ? props.style.margin : "10%")};
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: 16px;
+  font-size: ${sizes.size16};
   font-weight: ${fontWeight.weight100};
-  letter-spacing: -0.27px;
-  line-height: 22px;
+  letter-spacing: ${sizes.sizeNeg0_27};
+  line-height: ${sizes.size22};
   outline: none;
   pointer-events: all;
   :focus {
-    border-bottom: 1px solid black;
+    border-bottom: ${sizes.size1} solid ${colors.black_000000};
   }
 `;
 const ViewIcon = styled.img`
   right: 14%;
-  height: ${sizes.size17};
-  width: ${sizes.size20};
+  height: 17px;
+  width: 20px;
   margin-top: 1%;
   position: absolute;
 `;

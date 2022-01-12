@@ -1,8 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../components/home";
 import RestaurantList from "../components/Restaurant list";
+import RestaurantDetails from "../components/RestaurantDetails";
 import CartDataProvider from "../components/common/CartDataProvider";
 import Profile from "../components/profile";
+import Menu from "../components/RestaurantDetails/Menu";
 import { links } from "../variables";
 
 const Routing = () => {
@@ -12,6 +14,9 @@ const Routing = () => {
         <Route path={links.home} element={<Home />} />
         <Route path={links.restaurantList} element={<RestaurantList />} />
         <Route path={links.profile} element={<Profile />} />
+        <Route path={links.restaurantDetails} element={<RestaurantDetails />}>
+          <Route path={links.menu} element={<Menu />} />
+        </Route>
       </Routes>
     </CartDataProvider>
   );

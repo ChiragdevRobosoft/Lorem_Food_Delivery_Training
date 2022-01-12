@@ -79,7 +79,7 @@ export default Header;
 
 const HeaderWrapper = styled.header`
   height: ${(props) => (props.className === "home" ? `89px` : `70px`)};
-  width: ${(props) => (props.className === "home" ? `1825px` : `1921px`)};
+  width: ${(props) => (props.className === "home" ? `1825px` : `100%`)};
   display: flex;
   flex-direction: row;
   margin: ${(props) =>
