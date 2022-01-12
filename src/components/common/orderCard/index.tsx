@@ -3,6 +3,7 @@ import styled from "styled-components";
 import data from "../constants.json";
 import Buttons from "../../common/button";
 import Label from "../label";
+import { fontFamilies, angles, colors } from "../../../variables";
 const OrderCard = () => {
   return (
     <CardContainer>
@@ -14,8 +15,30 @@ const OrderCard = () => {
       </ItemsSelected>
       <Delivery>Out for Delivery</Delivery>
       <ButtonContainer>
-        <DetailsButton>DETAILS</DetailsButton>
-        <StatusButton>STATUS</StatusButton>
+        <Buttons
+          name="DETAILS"
+          borderRadius="18px"
+          width="111px"
+          height="36px"
+          border="1px solid #7B7676"
+          color="#7B7676"
+          fontFamily={fontFamilies.fontFamilyOsSemiBold}
+          boxShadow={`0 4px 10px 0 ${colors.black_000000_007}`}
+          marginLeft="0"
+          marginRight="0"
+        />
+        <Buttons
+          name="STATUS"
+          borderRadius="18px"
+          width="111px"
+          height="36px"
+          border={`1px solid ${colors.pink_e21143_09}`}
+          fontFamily={fontFamilies.fontFamilyOsSemiBold}
+          boxShadow={`0 4px 10px 0 ${colors.black_000000_007}`}
+          marginLeft="0"
+          marginRight="0"
+          color={colors.pink_e21143_09}
+        />
       </ButtonContainer>
     </CardContainer>
   );
