@@ -3,7 +3,7 @@ import styled from "styled-components";
 import data from "../constants.json";
 import Buttons from "../../common/button";
 import Label from "../label";
-import { fontFamilies, angles, colors } from "../../../variables";
+import { fontFamilies, angles, colors, sizes } from "../../../variables";
 import { orderCardProps } from "../interfaces";
 const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
   return (
@@ -12,55 +12,55 @@ const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
         content={data.orderIdText + cardDetails.orderId}
         height="30px"
         width="220px"
-        color="#313131"
+        color={colors.black_313131}
         fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-        fontSize="22px"
-        letterSpacing="-0.34px"
-        lineHeight="30px"
+        fontSize={sizes.size22}
+        letterSpacing={sizes.sizeNeg0_34}
+        lineHeight={sizes.size30}
         marginBottom="10px"
       />
       <Label
         content={cardDetails.hotelName}
         height="23px"
         width="165px"
-        color="#4c4c4c"
+        color={colors.grey_4c4c4c}
         fontFamily={`${fontFamilies.fontFamilyOsRegular}`}
-        fontSize="17px"
-        letterSpacing="-0.29px"
-        lineHeight="23px"
+        fontSize={sizes.size17}
+        letterSpacing={sizes.sizeNeg0_29}
+        lineHeight={sizes.size23}
         marginTop="10px"
       />
       <Label
         content={cardDetails.address}
         height="18px"
         width="188px"
-        color="#909090"
+        color={colors.grey_909090}
         font-family={`${fontFamilies.fontFamilyOsRegular}`}
-        font-size="13px"
-        letter-spacing="-0.26px"
-        line-height="18px"
+        font-size={sizes.size13}
+        letter-spacing={sizes.sizeNeg0_26}
+        line-height={sizes.size18}
         margin-top="10px"
       />
       <ItemsSelected>
         <Label
           content={cardDetails.Items + data.ItemText}
           height="19px"
-          color="#4c4c4c"
+          color={colors.grey_4c4c4c}
           fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-          fontSize="14px"
+          fontSize={sizes.size14}
           letterSpacing="0"
-          lineHeight="19px"
+          lineHeight={sizes.size19}
           width="none"
         />{" "}
         <LineBreak />{" "}
         <Label
           content={data.costUnit + cardDetails.Costs}
           height="19px"
-          color="#4c4c4c"
+          color={colors.grey_4c4c4c}
           fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-          fontSize="14px"
+          fontSize={sizes.size14}
           letterSpacing="0"
-          lineHeight="19px"
+          lineHeight={sizes.size19}
           width="none"
         />
       </ItemsSelected>
@@ -68,11 +68,11 @@ const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
       <ButtonContainer>
         <Buttons
           name="DETAILS"
-          borderRadius="18px"
+          borderRadius={sizes.size18}
           width="111px"
           height="36px"
-          border="1px solid #7B7676"
-          color="#7B7676"
+          border={`1px solid ${colors.grey_7b7676}`}
+          color={colors.grey_7b7676}
           fontFamily={fontFamilies.fontFamilyOsSemiBold}
           boxShadow={`0 4px 10px 0 ${colors.black_000000_007}`}
           marginLeft="0"
@@ -80,7 +80,7 @@ const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
         />
         <Buttons
           name="STATUS"
-          borderRadius="18px"
+          borderRadius={sizes.size18}
           width="111px"
           height="36px"
           border={`1px solid ${colors.pink_e21143_09}`}
@@ -99,9 +99,9 @@ export default OrderCard;
 const CardContainer = styled.div`
   height: 248px;
   width: 469px;
-  border-radius: 6px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: ${sizes.size6};
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   padding: 27px 31px 21px 30px;
   box-sizing: border-box;
   position: relative;
@@ -118,7 +118,7 @@ const ItemsSelected = styled.div`
 const LineBreak = styled.hr`
   height: 15px;
   box-sizing: border-box;
-  border: 1px solid #4c4c4c;
+  border: 1px solid ${colors.grey_4c4c4c};
   margin: 0;
 `;
 const ButtonContainer = styled.div`
@@ -130,12 +130,11 @@ const ButtonContainer = styled.div`
 const Delivery = styled.div`
   height: 19px;
   width: 108px;
-  color: #72b000;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: 600;
+  color: ${colors.green_72b000};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold}
+  font-size: ${sizes.size14};
   letter-spacing: 0;
-  line-height: 19px;
+  line-height: ${sizes.size19};
   text-align: right;
   position: absolute;
   right: 31px;
