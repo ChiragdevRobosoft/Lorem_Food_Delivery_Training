@@ -13,31 +13,31 @@ const Overview = () => {
         {data.overviewData[0].content}
       </Description>
       <DescriptionLine className="details">
-        {data.overviewData.map((a, index) => {
+        {data.overviewData.map((description, index) => {
           if (index !== 0) {
             return (
-              <>
+              <React.Fragment key={index}>
                 <DescriptionContainer>
-                  <DescriptionTitle>{a.title}</DescriptionTitle>
+                  <DescriptionTitle>{description.title}</DescriptionTitle>
                   <Description className="other-descriptions">
-                    {a.content}
+                    {description.content}
                   </Description>
                 </DescriptionContainer>
                 {index !== data.overviewData.length - 1 ? (
                   <LineBreak height={index === 1 ? "101px" : "77px"} />
                 ) : null}
-              </>
+              </React.Fragment>
             );
           }
         })}
       </DescriptionLine>
       <DescriptionLine>
         <MapHoursContainer>
-          <DescriptionTitle>Opening Hours</DescriptionTitle>
+          <DescriptionTitle>{data.openingHoursTitle}</DescriptionTitle>
           <OpeningHours />
         </MapHoursContainer>
         <MapHoursContainer>
-          <DescriptionTitle>Get Direction</DescriptionTitle>
+          <DescriptionTitle>{data.mapTitle}</DescriptionTitle>
           <MapImage src={Map} />
         </MapHoursContainer>
       </DescriptionLine>

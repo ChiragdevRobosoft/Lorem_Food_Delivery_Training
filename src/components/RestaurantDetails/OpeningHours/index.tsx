@@ -17,24 +17,26 @@ const OpeningHours = () => {
         >
           {data.openingHours[0].availability}
         </Availability>
-        {data.openingHours[0].time?.map((a, index) => {
-          return <Time>{a}</Time>;
+        {data.openingHours[0].time?.map((timeSlot, index) => {
+          return <Time key={index}>{timeSlot}</Time>;
         })}
         <OffDetail>{data.openingHours[0].off}</OffDetail>
       </AvailabilityCard>
       <WorkHoursContainer visibility={state.toString()}>
-        {data.openingHours.map((a, index) => {
+        {data.openingHours.map((day, index) => {
           if (index !== 0) {
             return (
               <AvailabilityCard>
-                <Date>{a.date}</Date>
-                <Availability className={a.availability.toLowerCase()}>
-                  {a.availability}
+                <Date>{day.date}</Date>
+                <Availability className={day.availability.toLowerCase()}>
+                  {day.availability}
                 </Availability>
-                {a.time?.map((b, index) => {
-                  return <Time>{b}</Time>;
+                {day.time?.map((timeSlot, index) => {
+                  return <Time>{timeSlot}</Time>;
                 })}
-                {a.off !== undefined ? <OffDetail>{a.off}</OffDetail> : null}
+                {day.off !== undefined ? (
+                  <OffDetail>{day.off}</OffDetail>
+                ) : null}
               </AvailabilityCard>
             );
           }

@@ -469,5 +469,7 @@
       "availability": "OPEN"
     }
   ],
-  "workHoursTitle": "Work hours for next 7 days  "
+  "workHoursTitle": "Work hours for next 7 days  ",
+  "openingHoursTitle": "Opening Hours",
+  "mapTitle": "Get Direction"
 }
