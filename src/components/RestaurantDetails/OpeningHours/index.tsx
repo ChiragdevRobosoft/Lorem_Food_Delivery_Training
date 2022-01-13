@@ -66,10 +66,8 @@ const Wrapper = styled.div`
   width: 353px;
   padding: 0px 20px;
   background-color: ${colors.white_ffffff};
-  border-radius: 6px;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  .availability {
-  }
+  border-radius: ${sizes.size6};
+  box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   .work-hours-title {
     background-image: linear-gradient(${angles.angle60}, #f27489, #fbab64);
     background-clip: text;
@@ -80,8 +78,8 @@ const Wrapper = styled.div`
 const AvailabilityCard = styled.div`
   position: relative;
   height: auto;
-  width: 100%;
-  border-bottom: 1px solid #979797;
+  width: ${sizes.fullWidth};
+  border-bottom: ${sizes.size1} solid ${colors.grey_979797};
   padding-top: 16px;
   padding-bottom: 16px;
 `;
@@ -96,7 +94,7 @@ const WorkHoursTitleContainer = styled.div`
 `;
 
 const Arrow = styled.span<{ visibility: string }>`
-  border: solid #f5a623;
+  border: solid ${colors.yellow_f5a623};
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 2px;
