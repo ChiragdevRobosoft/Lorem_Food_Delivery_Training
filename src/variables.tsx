@@ -328,6 +328,6 @@ export const links = {
   restaurantList: "restaurant-list",
   overview: "overview",
   brands: "/brands",
-  restaurantDetails: "restaurant-details",
+  restaurantDetails: "",
   checkout: "checkout",
 };
