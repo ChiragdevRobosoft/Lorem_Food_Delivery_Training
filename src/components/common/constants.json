@@ -423,7 +423,26 @@
       "hotelName": "The Boutique Kitchen",
       "address": "Shiekh Zayed Road, Dubai, UAE",
       "Items": "3",
-      "Costs": "85.76"
+      "Costs": "85.76",
+      "DeliveryStatus": "Out for Delivery"
+    },
+    {
+      "orderId": "1234567890",
+      "hotelName": "The Boutique Kitchen",
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "Items": "3",
+      "Costs": "85.76",
+      "DeliveryStatus": "In Kitchen"
+    },
+    {
+      "orderId": "1234567890",
+      "hotelName": "The Boutique Kitchen",
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "Items": "3",
+      "Costs": "85.76",
+      "DeliveryStatus": "In Kitchen"
     }
-  ]
+  ],
+  "orderIdText": "Order Id:",
+  "ItemText": " Items"
 }

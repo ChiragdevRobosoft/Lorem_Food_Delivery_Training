@@ -4,14 +4,65 @@ import data from "../constants.json";
 import Buttons from "../../common/button";
 import Label from "../label";
 import { fontFamilies, angles, colors } from "../../../variables";
-const OrderCard = () => {
+import { orderCardProps } from "../interfaces";
+const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
   return (
     <CardContainer>
-      <OrderId>Order Id : 1234567890</OrderId>
-      <HotelName>The Boutique Kitchen</HotelName>
-      <Address>Shiekh Zayed Road, Dubai, UAE</Address>
+      <Label
+        content={data.orderIdText + cardDetails.orderId}
+        height="30px"
+        width="220px"
+        color="#313131"
+        fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
+        fontSize="22px"
+        letterSpacing="-0.34px"
+        lineHeight="30px"
+        marginBottom="10px"
+      />
+      <Label
+        content={cardDetails.hotelName}
+        height="23px"
+        width="165px"
+        color="#4c4c4c"
+        fontFamily={`${fontFamilies.fontFamilyOsRegular}`}
+        fontSize="17px"
+        letterSpacing="-0.29px"
+        lineHeight="23px"
+        marginTop="10px"
+      />
+      <Label
+        content={cardDetails.address}
+        height="18px"
+        width="188px"
+        color="#909090"
+        font-family={`${fontFamilies.fontFamilyOsRegular}`}
+        font-size="13px"
+        letter-spacing="-0.26px"
+        line-height="18px"
+        margin-top="10px"
+      />
       <ItemsSelected>
-        <Items>3 Items</Items> <LineBreak /> <Items>AED85.76</Items>
+        <Label
+          content={cardDetails.Items + data.ItemText}
+          height="19px"
+          color="#4c4c4c"
+          fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
+          fontSize="14px"
+          letterSpacing="0"
+          lineHeight="19px"
+          width="none"
+        />{" "}
+        <LineBreak />{" "}
+        <Label
+          content={data.costUnit + cardDetails.Costs}
+          height="19px"
+          color="#4c4c4c"
+          fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
+          fontSize="14px"
+          letterSpacing="0"
+          lineHeight="19px"
+          width="none"
+        />
       </ItemsSelected>
       <Delivery>Out for Delivery</Delivery>
       <ButtonContainer>
@@ -55,37 +106,6 @@ const CardContainer = styled.div`
   box-sizing: border-box;
   position: relative;
 `;
-const OrderId = styled.div`
-  height: 30px;
-  width: 219px;
-  color: #313131;
-  font-family: "Open Sans";
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.34px;
-  line-height: 30px;
-  margin-bottom: 10px;
-`;
-const HotelName = styled.div`
-  height: 23px;
-  width: 165px;
-  color: #4c4c4c;
-  font-family: "Open Sans";
-  font-size: 17px;
-  letter-spacing: -0.29px;
-  line-height: 23px;
-  margin-top: 10px;
-`;
-const Address = styled.div`
-  height: 18px;
-  width: 188px;
-  color: #909090;
-  font-family: "Open Sans";
-  font-size: 13px;
-  letter-spacing: -0.26px;
-  line-height: 18px;
-  margin-top: 10px;
-`;
 const ItemsSelected = styled.div`
   display: flex;
   flex-direction: row;
@@ -94,15 +114,6 @@ const ItemsSelected = styled.div`
   margin-bottom: 44px;
   width: 136px;
   justify-content: space-between;
-`;
-const Items = styled.div`
-  height: 19px;
-  color: #4c4c4c;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 19px;
 `;
 const LineBreak = styled.hr`
   height: 15px;
@@ -115,18 +126,6 @@ const ButtonContainer = styled.div`
   flex-directiom: row;
   justify-content: flex-end;
   gap: 19px;
-`;
-const DetailsButton = styled.button`
-  height: 36px;
-  width: 111px;
-  border-radius: 18px;
-  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
-`;
-const StatusButton = styled.button`
-  height: 36px;
-  width: 111px;
-  border-radius: 18px;
-  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
 `;
 const Delivery = styled.div`
   height: 19px;

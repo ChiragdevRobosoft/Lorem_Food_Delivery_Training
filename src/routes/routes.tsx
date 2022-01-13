@@ -16,7 +16,6 @@ const Routing = () => {
         <Route path={links.restaurantDetails} element={<RestaurantDetails />}>
           <Route path={links.menu} element={<Menu />} />
         </Route>
-        <Route path="/orderCard" element={<OrderCard />} />
       </Routes>
     </CartDataProvider>
   );
