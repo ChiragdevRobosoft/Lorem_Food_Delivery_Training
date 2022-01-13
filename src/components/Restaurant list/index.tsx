@@ -13,12 +13,13 @@ import { Link } from "react-router-dom";
 import { colors, sizes, fontFamilies, links } from "../../variables";
 import Searchpath from "../common/Searchpath";
 import Header from "../common/header";
+import FoodSearch from "../common/SearchComponent";
 
 const RestaurantList = () => {
   return (
     <Wrapper>
       <Header className="loggedin" />
-      <SearchContainer></SearchContainer>
+      <FoodSearch pageType="screen" />
       <MainContainer>
         <Searchpath
           path={data.searchPath.greatBreakfasts}
@@ -88,10 +89,6 @@ const RestaurantList = () => {
 const Wrapper = styled.div`
   height: 100vh;
   width: 100wh;
-`;
-
-const SearchContainer = styled.div`
-  height: 133px;
 `;
 
 const MainContainer = styled.div`

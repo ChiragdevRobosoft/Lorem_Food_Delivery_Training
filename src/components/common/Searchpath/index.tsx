@@ -41,7 +41,7 @@ const SearchPath = styled.div`
   color: ${(props) =>
     props.className === "grey-light"
       ? `${colors.grey_6f6f6f}`
-      : `${colors.grey_636364_7}`};
+      : `${colors.grey_3f3f40}`};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};

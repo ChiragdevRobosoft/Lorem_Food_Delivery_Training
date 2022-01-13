@@ -93,7 +93,8 @@ const Wrapper = styled.div`
 `;
 
 const ContentContainer = styled.div`
-  margin: 23px auto 35px auto;
+  margin: 0px auto 0px auto;
+  padding-top: 23px;
   height: 76px;
   width: 961px;
   box-sizing: border-box;
