@@ -206,6 +206,7 @@ const RatingTitle = styled.div`
 const NavBar = styled.ul`
   display: flex;
   flex-direction: row;
+  height: 34px;
   padding-left: 5px;
   margin-top: 37px;
   margin-bottom: 20px;

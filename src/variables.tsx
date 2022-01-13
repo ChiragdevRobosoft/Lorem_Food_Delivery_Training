@@ -431,6 +431,7 @@ export const links = {
   accountDetails: "/account-details",
   menu: "menu",
   restaurantList: "restaurant-list",
+  overview: "overview",
   brands: "/brands",
   restaurantDetails: "restaurant-details",
   checkout: "checkout",
