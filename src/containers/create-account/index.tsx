@@ -5,7 +5,7 @@ import Buttons from "../../components/common/button/index";
 import { useNavigate, Link } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-import TextBox from "../../components/common/textbox";
+import InputField from "../../components/common/textbox";
 import data from "./../../components/common/constants.json";
 import {
   sizes,
@@ -72,7 +72,9 @@ const CreateAccount = ({
           ></CloseImage>
           <Title>{data.loginModal.createAccount.title}</Title>
           <Discription>{data.loginModal.createAccount.description}</Discription>
-          <TextBox name="Email" isPassword={false}></TextBox>
+          <EmailBox>
+            <InputField name="Email" isPassword={false} />
+          </EmailBox>
           <CreateAccountButton>
             <Buttons
               className="colouredBgButton"
@@ -111,6 +113,11 @@ const CreateAccount = ({
 export default CreateAccount;
 const CreateAccountButton = styled.div`
   margin-top: 60px;
+`;
+const EmailBox = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
 `;
 const Discription = styled.div`
   display: flex;

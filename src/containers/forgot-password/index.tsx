@@ -4,7 +4,7 @@ import backButton from "../../assets/backButton.png";
 import icon_forgot from "../../assets/icn_forgot.png";
 import Buttons from "../../components/common/button/index";
 import { useNavigate, Link } from "react-router-dom";
-import TextBox from "../../components/common/textbox";
+import InputField from "../../components/common/textbox";
 import Underline from "../../assets/underline.png";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -100,7 +100,7 @@ const ForgotPassword = ({
           </Navbar>
           {InputType === "email" ? (
             <EmailBox>
-              <TextBox name="Email" isPassword={false} />
+              <InputField name="Email" isPassword={false} />
             </EmailBox>
           ) : (
             <CountryCode isOptional={true} />
@@ -121,6 +121,9 @@ const ForgotPassword = ({
 export default ForgotPassword;
 const EmailBox = styled.div`
   margin-bottom: 66px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
 `;
 const TypeContainer = styled.div`
   display: flex;

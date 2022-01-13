@@ -69,11 +69,12 @@ const Textbox = styled.input`
   top: 0;
   left: 0;
   height: 34px;
-  width: ${(props) => (props.style?.width ? props.style.width : "78.8%")};
+  width: ${(props) => (props.style?.width ? props.style.width : "380px")};
   background-color: ${colors.transparentColor};
   border: none;
   border-bottom: 1px solid ${colors.grey_858585};
-  margin-left: ${(props) => (props.style?.margin ? props.style.margin : "10%")};
+  margin-left: ${(props) =>
+    props.style?.margin ? props.style.margin : "auto"};
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
@@ -87,7 +88,7 @@ const Textbox = styled.input`
   }
 `;
 const ViewIcon = styled.img`
-  right: 14%;
+  right: 17.29px;
   height: 17px;
   width: 20px;
   margin-top: 1%;

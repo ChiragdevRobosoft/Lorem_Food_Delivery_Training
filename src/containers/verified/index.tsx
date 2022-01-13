@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import backButton from "../../assets/backButton.png";
 import icon_verified from "../../assets/icn_verified.png";
-import TextBox from "../../components/common/textbox";
+import InputField from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
 import Modal from "react-responsive-modal";
 import data from "./../../components/common/constants.json";
@@ -58,7 +58,7 @@ const Verified = ({
             {data.loginModal.verified.description.line2}
           </Discription>
           <PasswordBox>
-            <TextBox name="Password" isPassword={true}></TextBox>
+            <InputField name="Password" isPassword={true} />
           </PasswordBox>
           <VerifyButton>
             <Buttons
@@ -74,7 +74,9 @@ const Verified = ({
 };
 export default Verified;
 const PasswordBox = styled.div`
-  margin-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
 `;
 const BackButton = styled.button`
   text-decoration: none;

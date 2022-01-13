@@ -5,7 +5,7 @@ import Buttons from "../../components/common/button/index";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-import TextBox from "../../components/common/textbox";
+import InputField from "../../components/common/textbox";
 import data from "./../../components/common/constants.json";
 import { sizes, colors, fontFamilies, fontWeight } from "../../variables";
 const Login = ({
@@ -65,10 +65,10 @@ const Login = ({
           ></CloseImage>
           <Title>{data.loginModal.login.title}</Title>
           <EmailBox>
-            <TextBox name="Email" isPassword={false}></TextBox>
+            <InputField name="Email" isPassword={false} />
           </EmailBox>
           <PasswordBox>
-            <TextBox name="Password" isPassword={true}></TextBox>
+            <InputField name="Password" isPassword={true} />
           </PasswordBox>
           <ForgetButton onClick={() => setShowForgotPassword(true)}>
             {data.loginModal.login.forgot}
@@ -117,9 +117,15 @@ const ForgetButton = styled.button`
 `;
 const EmailBox = styled.div`
   margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
 `;
 const PasswordBox = styled.div`
   margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
 `;
 const TagLine = styled.div`
   height: 132px;

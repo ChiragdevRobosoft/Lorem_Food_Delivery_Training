@@ -6,8 +6,8 @@ import styled from "styled-components";
 import Footer from "../common/footer";
 import data from "../../components/common/constants.json";
 import { sizes, colors, fontFamilies } from "../../variables";
+import Label from "../common/label";
 const Profile = () => {
-  let orderNumber = 2;
   return (
     <Wrapper>
       <ProfileBanner>
@@ -16,37 +16,144 @@ const Profile = () => {
             <ProfilePhoto />
             <ProfileInfo>
               <NameLine>
-                <Name>{data.profile.name}</Name>
-                <Edit>{data.profile.edit}</Edit>
+                <Label
+                  content={data.profile.name}
+                  width="119px"
+                  color={colors.white_ffffff}
+                  fontFamily={fontFamilies.fontFamilyOsBold}
+                  fontSize={sizes.size31}
+                  letterSpacing="0"
+                  lineHeight={sizes.size42}
+                  margin="0px"
+                />
+                <Label
+                  content={data.profile.edit}
+                  width="30px"
+                  color={colors.orange_fda200}
+                  fontFamily={fontFamilies.fontFamilyOsMedium}
+                  fontSize={sizes.size16}
+                  letterSpacing="0"
+                  lineHeight={sizes.size19}
+                  marginLeft="28px"
+                  marginTop="20px"
+                />
               </NameLine>
-              <FullName>{data.profile.fullName}</FullName>
+              <Label
+                content={data.profile.fullName}
+                width="153px"
+                color={colors.white_ffffff}
+                fontFamily={fontFamilies.fontFamilyOsRegular}
+                fontSize={sizes.size16}
+                letterSpacing="0"
+                lineHeight="22px"
+                marginTop="11px"
+              />
               <DetailsRow>
                 <DetailContainer>
                   <Icon src={MobileIcon} />
-                  <DetailText>{data.profile.mobileNumber}</DetailText>
+                  <Label
+                    content={data.profile.mobileNumber}
+                    height="22px"
+                    color={colors.white_ffffff}
+                    fontFamily={fontFamilies.fontFamilyOsRegular}
+                    fontSize={sizes.size16}
+                    letterSpacing="0"
+                    lineHeight={sizes.size22}
+                    margin="0"
+                  />
                 </DetailContainer>
                 <LineBreak />
                 <DetailContainer>
                   <Icon src={MailIcon} />
-                  <DetailText>{data.profile.emailAddress}</DetailText>
+                  <Label
+                    content={data.profile.emailAddress}
+                    height="22px"
+                    color={colors.white_ffffff}
+                    fontFamily={fontFamilies.fontFamilyOsRegular}
+                    fontSize={sizes.size16}
+                    letterSpacing="0"
+                    lineHeight={sizes.size22}
+                    margin="0"
+                  />
                 </DetailContainer>
                 <LineBreak />
                 <DetailContainer>
-                  <DetailText>{data.profile.creditEarned}</DetailText>
-                  <CreditData>{data.profile.creditData}</CreditData>
+                  <Label
+                    content={data.profile.creditEarned}
+                    height="22px"
+                    color={colors.white_ffffff}
+                    fontFamily={fontFamilies.fontFamilyOsRegular}
+                    fontSize={sizes.size16}
+                    letterSpacing="0"
+                    lineHeight={sizes.size22}
+                    margin="0"
+                  />
+                  <Label
+                    content={data.profile.creditData}
+                    height="33px"
+                    color={colors.white_ffffff}
+                    fontFamily={fontFamilies.fontFamilyOsBold}
+                    fontSize={sizes.size24}
+                    letterSpacing="0"
+                    lineHeight={sizes.size33}
+                    marginRight="10px"
+                    marginLeft="3px"
+                  />
                   <Icon src={InfoIcon} />
                 </DetailContainer>
               </DetailsRow>
             </ProfileInfo>
           </UserProfile>
           <Navbar>
-            <Orders>
-              {data.profile.order} ({orderNumber})
-            </Orders>
-            <Address>{data.profile.address}</Address>
-            <PaymentMethods>{data.profile.paymentMethods}</PaymentMethods>
-            <Reviews>{data.profile.reviews}</Reviews>
-            <Gallery>{data.profile.gallery}</Gallery>
+            <Label
+              content={data.profile.order + data.orderNumber}
+              height="19px"
+              color={colors.white_ffffff}
+              font-family={fontFamilies.fontFamilyOsSemiBold}
+              font-size={sizes.size14}
+              letterSpacing="0"
+              lineHeight={sizes.size19}
+              marginRight="38px"
+            />
+            <Label
+              content={data.profile.address}
+              height="19px"
+              color={colors.white_ffffff}
+              font-family={fontFamilies.fontFamilyOsSemiBold}
+              font-size={sizes.size14}
+              letterSpacing="0"
+              lineHeight={sizes.size19}
+              marginRight="59px"
+            />
+            <Label
+              content={data.profile.paymentMethods}
+              height="19px"
+              color={colors.white_ffffff}
+              font-family={fontFamilies.fontFamilyOsSemiBold}
+              font-size={sizes.size14}
+              letterSpacing="0"
+              lineHeight={sizes.size19}
+              marginRight="58px"
+            />
+            <Label
+              content={data.profile.reviews}
+              height="19px"
+              color={colors.white_ffffff}
+              font-family={fontFamilies.fontFamilyOsSemiBold}
+              font-size={sizes.size14}
+              letterSpacing="0"
+              lineHeight={sizes.size19}
+              marginRight="58px"
+            />
+            <Label
+              content={data.profile.gallery}
+              height="19px"
+              color={colors.white_ffffff}
+              font-family={fontFamilies.fontFamilyOsSemiBold}
+              font-size={sizes.size14}
+              letterSpacing="0"
+              lineHeight={sizes.size19}
+            />
           </Navbar>
         </CenterContainer>
       </ProfileBanner>
@@ -88,39 +195,9 @@ const ProfileInfo = styled.div`
   text-align: left;
   margin-left: 58px;
 `;
-const Name = styled.p`
-  width: 119px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsBold};
-  font-size: ${sizes.size31};
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: ${sizes.size42};
-  margin: 0px;
-`;
 const NameLine = styled.div`
   display: flex;
   flex-direction: row;
-`;
-const Edit = styled.p`
-  width: 30px;
-  color: ${colors.orange_fda200};
-  font-family: ${fontFamilies.fontFamilyOsMedium};
-  font-size: ${sizes.size16};
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: ${sizes.size19};
-  text-align: right;
-  margin-left: 28px;
-`;
-const FullName = styled.p`
-  width: 153px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: ${sizes.size16};
-  letter-spacing: 0;
-  line-height: 22px;
-  margin-top: 3px;
 `;
 const DetailsRow = styled.div`
   width: 653px;
@@ -129,6 +206,7 @@ const DetailsRow = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 33px;
+  margin-top: 16px;
 `;
 const Icon = styled.img`
   object-fit: none;
@@ -144,80 +222,13 @@ const LineBreak = styled.hr`
   box-sizing: border-box;
   border: 1px solid ${colors.white_ffffff};
   opacity: 0.37;
-`;
-const CreditData = styled.p`
-  height: 33px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsBold};
-  font-size: ${sizes.size24};
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: ${sizes.size33};
-  margin-right: 10px;
-  margin-left: 3px;
-`;
-const DetailText = styled.p`
-  height: 22px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: ${sizes.size16};
-  letter-spacing: 0;
-  line-height: ${sizes.size22};
+  margin=0;
 `;
 const Navbar = styled.div`
   height: 19px;
   display: flex;
   flex-direction: row;
-  margin-top: 60px;
-`;
-const Orders = styled.p`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: ${sizes.size19};
-  margin-right: 38px;
-`;
-const Address = styled.p`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: ${sizes.size19};
-  margin-right: 59px;
-`;
-const PaymentMethods = styled.p`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: ${sizes.size19};
-  margin-right: 58px;
-`;
-const Reviews = styled.p`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: ${sizes.size19};
-  margin-right: 58px;
-`;
-const Gallery = styled.p`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: ${sizes.size19};
+  margin-top: 77px;
 `;
 const Border = styled.img`
   height: ${sizes.size4};

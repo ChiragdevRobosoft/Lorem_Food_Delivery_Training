@@ -3,7 +3,7 @@ import styled from "styled-components";
 import backButton from "../../assets/backButton.png";
 import icon_verify from "../../assets/icn_verify.png";
 import { useNavigate, Link } from "react-router-dom";
-import TextBox from "../../components/common/textbox";
+import InputField from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
 import Modal from "react-responsive-modal";
 import data from "./../../components/common/constants.json";
@@ -73,7 +73,9 @@ const Verification = ({
             We just sent you the OTP via SMS to your email address/mobile no.
             You should get it soon!
           </Discription>
-          <TextBox name="Enter OTP" isPassword={false}></TextBox>
+          <TextField>
+            <InputField name="Enter OTP" isPassword={false} />
+          </TextField>
           <VerifyButton>
             <Buttons
               className="colouredBgButton"
@@ -96,6 +98,11 @@ const BackButton = styled.button`
   border: none;
   background-color: transparent;
   padding: 0%;
+`;
+const TextField = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
 `;
 const Discription = styled.p`
   margin-left: ${sizes.size130};
