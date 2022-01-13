@@ -2,40 +2,43 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import data from "../../common/constants.json";
 import { colors, angles, sizes, fontFamilies } from "../../../variables";
+import Label from "../../common/label";
 
 const OpeningHours = () => {
-  const [state, setState] = useState(false);
+  const [visibility, setVisibility] = useState(false);
   const toggleState = () => {
-    setState(!state);
+    setVisibility(!visibility);
   };
   return (
     <Wrapper>
       <AvailabilityCard>
-        <Date>{data.openingHours[0].date}</Date>
+        <Date content={data.openingHours[0].date} />
         <Availability
-          className={data.openingHours[0].availability.toLocaleLowerCase()}
-        >
-          {data.openingHours[0].availability}
-        </Availability>
+          content={data.openingHours[0].availability}
+          className={data.openingHours[0].availability}
+        />
         {data.openingHours[0].time?.map((timeSlot, index) => {
-          return <Time key={index}>{timeSlot}</Time>;
+          return <Time key={index} content={timeSlot} />;
         })}
-        <OffDetail>{data.openingHours[0].off}</OffDetail>
+        {data.openingHours[0].off !== undefined ? (
+          <PlannedOff content={data.openingHours[0].off} />
+        ) : null}
       </AvailabilityCard>
-      <WorkHoursContainer visibility={state.toString()}>
+      <WorkHoursContainer visibility={visibility.toString()}>
         {data.openingHours.map((day, index) => {
           if (index !== 0) {
             return (
-              <AvailabilityCard>
-                <Date>{day.date}</Date>
-                <Availability className={day.availability.toLowerCase()}>
-                  {day.availability}
-                </Availability>
+              <AvailabilityCard key={index}>
+                <Date content={day.date} />
+                <Availability
+                  content={day.availability}
+                  className={day.availability}
+                />
                 {day.time?.map((timeSlot, index) => {
-                  return <Time>{timeSlot}</Time>;
+                  return <Time key={index} content={timeSlot} />;
                 })}
                 {day.off !== undefined ? (
-                  <OffDetail>{day.off}</OffDetail>
+                  <PlannedOff content={day.off} />
                 ) : null}
               </AvailabilityCard>
             );
@@ -43,8 +46,16 @@ const OpeningHours = () => {
         })}
       </WorkHoursContainer>
       <WorkHoursTitleContainer onClick={toggleState}>
-        <WorkHoursTitle>{data.workHoursTitle}</WorkHoursTitle>
-        <Arrow visibility={state.toString()}></Arrow>
+        <Label
+          content={data.workHoursTitle}
+          className="work-hours-title"
+          width="212px"
+          color={colors.transparentColor}
+          fontFamily={fontFamilies.fontFamilyOsSemiBold}
+          fontSize={sizes.size16}
+          letterSpacing={sizes.sizeNeg0_17}
+        />
+        <Arrow visibility={visibility.toString()}></Arrow>
       </WorkHoursTitleContainer>
     </Wrapper>
   );
@@ -57,6 +68,13 @@ const Wrapper = styled.div`
   background-color: ${colors.white_ffffff};
   border-radius: 6px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  .availability {
+  }
+  .work-hours-title {
+    background-image: linear-gradient(${angles.angle60}, #f27489, #fbab64);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
 `;
 
 const AvailabilityCard = styled.div`
@@ -68,50 +86,6 @@ const AvailabilityCard = styled.div`
   padding-bottom: 16px;
 `;
 
-const Date = styled.div`
-  height: 17px;
-  color: #757575;
-  font-family: "Open Sans";
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 17px;
-  margin-bottom: 3px;
-`;
-
-const Time = styled.div`
-  height: 19px;
-  color: #4a4a4a;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 19px;
-`;
-
-const Availability = styled.div<{ className: string }>`
-  position: absolute;
-  top: 16px;
-  right: 0;
-  height: 17px;
-  color: ${(props) => (props.className === "open" ? "#64AE12" : "#ED1B2E")};
-  font-family: "Open Sans";
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 0;
-  line-height: 17px;
-  text-align: right;
-`;
-
-const OffDetail = styled.div`
-  height: 17px;
-  color: #ed1b2e;
-  font-family: "Open Sans";
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: 17px;
-  margin-top: 9px;
-`;
-
 const WorkHoursTitleContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -121,23 +95,6 @@ const WorkHoursTitleContainer = styled.div`
   justify-content: center;
 `;
 
-const WorkHoursTitle = styled.div`
-  height: 22px;
-  width: 212px;
-  background-image: linear-gradient(
-    ${angles.angle60},
-    ${colors.pink_e21143_09},
-    ${colors.yellow_ffb03a_09}
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: ${colors.transparentColor};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size16};
-  line-height: ${sizes.size22};
-  letter-spacing: -0.17px;
-`;
-
 const Arrow = styled.span<{ visibility: string }>`
   border: solid #f5a623;
   border-width: 0 2px 2px 0;
@@ -145,9 +102,10 @@ const Arrow = styled.span<{ visibility: string }>`
   padding: 2px;
   height: 5px;
   width: 5px;
-  transform: rotate(45deg);
+  transform: ${(props) =>
+    props.visibility === "true" ? "rotate(-135deg)" : "rotate(45deg)"};
   -webkit-transform: ${(props) =>
-    props.visibility === "true" ? "rotate(-135deg)" : "rotate()45deg"};
+    props.visibility === "true" ? "rotate(-135deg)" : "rotate(45deg)"};
   margin-bottom: ${(props) => (props.visibility === "true" ? "0" : "5px")};
   margin-top: ${(props) => (props.visibility === "true" ? "5px" : "0")};
 `;
@@ -155,6 +113,46 @@ const Arrow = styled.span<{ visibility: string }>`
 const WorkHoursContainer = styled.div<{ visibility: string }>`
   display: ${(props) => (props.visibility === "true" ? "block" : "none")};
   padding-right: 13px;
+`;
+
+const Time = styled(Label)`
+  height: ${sizes.size19};
+  color: ${colors.grey_4a4a4a};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size19};
+`;
+
+const ConstSize = styled(Label)`
+  height: ${sizes.size17};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
+`;
+
+const Date = styled(ConstSize)`
+  color: ${colors.grey_757575};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  margin-bottom: 3px;
+`;
+
+const Availability = styled(ConstSize)<{ className: string }>`
+  font-family: ${fontFamilies.fontFamilyOsBold};
+  position: absolute;
+  top: 16px;
+  right: 0;
+  text-align: right;
+  color: ${(props) =>
+    props.className === "OPEN"
+      ? `${colors.green_64ae12}`
+      : `${colors.red_ed1b2e}`};
+`;
+
+const PlannedOff = styled(ConstSize)`
+  color: ${colors.red_ed1b2e};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  margin-top: 9px;
 `;
 
 export default OpeningHours;
