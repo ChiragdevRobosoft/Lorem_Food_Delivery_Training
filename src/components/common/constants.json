@@ -130,7 +130,8 @@
       "Explore",
       "Great breakfasts",
       "The Boutique Kitchen"
-    ]
+    ],
+    "menu1": ["Home", "UAE", "Explore", "Great breakfasts", "My Cart"]
   },
   "homeTexts": {
     "foodRestaurantSearch": {
@@ -416,5 +417,32 @@
     "cost": "AED30 min order",
     "timeRange": "11:00 AM - 10:00 PM",
     "ratingTitle": "Delivery rating for last 5 orders"
+  },
+  "cartContents": {
+    "MyCartTitle": "My Cart",
+    "remove": "Remove",
+    "proceed": "PROCEED",
+    "myCart": [
+      {
+        "restaurantName": "The Boutique Kitchen",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      },
+      {
+        "restaurantName": "Karavalli Lunch Home",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "2 Items  |  AED85.76"
+      },
+      {
+        "restaurantName": "Operation: Falafel",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      },
+      {
+        "restaurantName": "Operation: Falafel",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      }
+    ]
   }
 }

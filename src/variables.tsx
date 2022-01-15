@@ -434,4 +434,5 @@ export const links = {
   brands: "/brands",
   restaurantDetails: "restaurant-details",
   checkout: "checkout",
+  cartItems: "cart-items",
 };
