@@ -16,7 +16,18 @@ const Routing = () => {
         <Route path={links.restaurantDetails} element={<RestaurantDetails />}>
           <Route path={links.menu} element={<Menu />} />
         </Route>
-        <Route path="addressCard" element={<AddressCard />} />
+        <Route
+          path="addressCard"
+          element={
+            <AddressCard
+              cardDetails={{
+                place: "Home",
+                address:
+                  "Downtown Burj Khalifa, Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab EmiratesDubai, UAE",
+              }}
+            />
+          }
+        />
       </Routes>
     </CartDataProvider>
   );

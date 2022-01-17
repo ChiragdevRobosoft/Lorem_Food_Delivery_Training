@@ -416,5 +416,21 @@
     "cost": "AED30 min order",
     "timeRange": "11:00 AM - 10:00 PM",
     "ratingTitle": "Delivery rating for last 5 orders"
-  }
+  },
+  "addressCardDetails": [
+    {
+      "place": "Home",
+      "address": "Downtown Burj Khalifa, Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab EmiratesDubai, UAE"
+    },
+    {
+      "place": "Office",
+      "address": "A-214, 4th Burj Khalifa, Dubai, UAE -Dubai - United Arab EmiratesDubai, UAE"
+    }
+  ],
+  "edit": "Edit",
+  "Delete": "Delete",
+  "orderIdText": "Order Id:",
+  "ItemText": " Items",
+  "status": "STATUS",
+  "details": "DETAILS"
 }

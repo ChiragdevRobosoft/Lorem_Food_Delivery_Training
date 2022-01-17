@@ -1,15 +1,19 @@
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, useState } from "react";
 import styled from "styled-components";
 import data from "../constants.json";
 import Label from "../label";
-import iconUncheck from "../../../assets/addressCard/icn_uncheck.png";
-import iconCheck from "../../../assets/addressCard/icn_check.png";
+import Unchecked from "../../../assets/addressCard/icn_uncheck.png";
+import Checked from "../../../assets/addressCard/icn_check.png";
 import { fontFamilies, angles, colors, sizes } from "../../../variables";
-const AddressCard = () => {
+import { AddressCardDetailsProps } from "../interfaces";
+const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
+  cardDetails,
+}) => {
+  const [primaryCheck, setPrimaryCheck] = useState(true);
   return (
     <CardContainer>
       <Label
-        content="Home"
+        content={cardDetails.place}
         height="19px"
         width="39px"
         color="#6A6A6A"
@@ -20,7 +24,7 @@ const AddressCard = () => {
       />
       <AddressBox>
         <Label
-          content="Downtown Burj Khalifa, Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab EmiratesDubai, UAE"
+          content={cardDetails.address}
           height="84px"
           width="387px"
           color="#2D2D2D"
@@ -32,7 +36,7 @@ const AddressCard = () => {
       </AddressBox>
       <EditDeleteButton>
         <Label
-          content="Edit"
+          content={data.edit}
           height="22px"
           width="30px"
           color="#F57C00"
@@ -42,7 +46,7 @@ const AddressCard = () => {
           line-height="22px"
         />
         <Label
-          content="Delete"
+          content={data.Delete}
           height="22px"
           width="30px"
           color="#F57C00"
@@ -52,7 +56,24 @@ const AddressCard = () => {
           line-height="22px"
         />
       </EditDeleteButton>
-      <PrimaryAddress>Primary</PrimaryAddress>
+
+      <TickBox onClick={() => setPrimaryCheck(!primaryCheck)}>
+        <img
+          src={primaryCheck === true ? Checked : Unchecked}
+          className="checked"
+        ></img>
+        <Label
+          content="Primary"
+          height="19px"
+          width="52px"
+          color={primaryCheck === true ? "#6a6a6a" : "#B8B8B8"}
+          fontFamily={fontFamilies.fontFamilyOsSemiBold}
+          fontSize="14px"
+          letterSpacing="-0.27px"
+          lineHeight="19px"
+          marginLeft="11px"
+        />
+      </TickBox>
     </CardContainer>
   );
 };
@@ -94,7 +115,12 @@ const PrimaryAddress = styled.div`
   letter-spacing: -0.27px;
   line-height: 19px;
 `;
-const iconCheck = styled.img`
-  height: 21px;
-  width: 21px;
+const TickBox = styled.div`
+  text-align: right;
+  position: absolute;
+  top: 21px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
 `;
