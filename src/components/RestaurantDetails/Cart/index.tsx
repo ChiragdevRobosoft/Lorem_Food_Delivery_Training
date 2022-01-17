@@ -90,7 +90,7 @@ const Cart = () => {
         <Buttons
           name={data.cartData.buttonText}
           className="colouredBgButton"
-          style={{ width: "264px" }}
+          width="264px"
           image={RightArrow}
         />
       </RoutingLink>

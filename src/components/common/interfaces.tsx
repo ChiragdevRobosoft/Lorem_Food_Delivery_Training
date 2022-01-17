@@ -57,6 +57,7 @@ export interface foodcardDetailsProps {
 export interface AddressCardDetailsProps {
   place: string;
   address: string;
+  primaryStatus?: boolean;
 }
 export interface orderCardProps {
   orderId: string;

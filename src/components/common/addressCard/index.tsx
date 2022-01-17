@@ -15,7 +15,7 @@ import { AddressCardDetailsProps } from "../interfaces";
 const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
   cardDetails,
 }) => {
-  const [primaryCheck, setPrimaryCheck] = useState(true);
+  const [primaryCheck, setPrimaryCheck] = useState(cardDetails.primaryStatus);
   return (
     <CardContainer>
       <Label
@@ -48,7 +48,7 @@ const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
           color={colors.orange_f57c00}
           fontFamily={fontFamilies.fontFamilyOsSemiBold}
           fontSize={sizes.size16}
-          letterSpacing="0"
+          letterSpacing={letterSpacing.space0}
           lineHeight={sizes.size22}
         />
         <Label
@@ -58,7 +58,7 @@ const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
           color={colors.orange_f57c00}
           font-family={fontFamilies.fontFamilyOsSemiBold}
           font-size={sizes.size16}
-          letter-spacing="0"
+          letter-spacing={letterSpacing.space0}
           line-height={sizes.size22}
         />
       </EditDeleteButton>
@@ -69,17 +69,17 @@ const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
           className="checked"
         ></img>
         <Label
-          content="Primary"
+          content={data.primary}
           height="19px"
           width="52px"
           color={
             primaryCheck === true
-              ? `{${colors.grey_6a6a6a}}`
-              : `{${colors.grey_b8b8b8}}`
+              ? `${colors.grey_6a6a6a}`
+              : `${colors.grey_b8b8b8}`
           }
           fontFamily={fontFamilies.fontFamilyOsSemiBold}
           fontSize={sizes.size14}
-          letterSpacing="-0.27px"
+          letterSpacing={letterSpacing.spaceNeg0_27}
           lineHeight={sizes.size19}
           marginLeft="11px"
         />

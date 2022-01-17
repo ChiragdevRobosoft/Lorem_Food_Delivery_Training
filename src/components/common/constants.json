@@ -420,13 +420,16 @@
   "addressCardDetails": [
     {
       "place": "Home",
-      "address": "Downtown Burj Khalifa, Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab EmiratesDubai, UAE"
+      "address": "Downtown Burj Khalifa, Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab EmiratesDubai, UAE",
+      "primaryStatus": true
     },
     {
       "place": "Office",
-      "address": "A-214, 4th Burj Khalifa, Dubai, UAE -Dubai - United Arab EmiratesDubai, UAE"
+      "address": "A-214, 4th Burj Khalifa, Dubai, UAE -Dubai - United Arab EmiratesDubai, UAE",
+      "primaryStatus": false
     }
   ],
+  "primary": "Primary",
   "edit": "Edit",
   "Delete": "Delete",
   "orderIdText": "Order Id:",
