@@ -51,8 +51,8 @@ const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
           letterSpacing="0"
           lineHeight={sizes.size19}
           width="none"
-        />{" "}
-        <LineBreak />{" "}
+        />
+        <LineBreak />
         <Label
           content={data.costUnit + cardDetails.Costs}
           height="19px"
@@ -120,6 +120,8 @@ const LineBreak = styled.hr`
   box-sizing: border-box;
   border: 1px solid ${colors.grey_4c4c4c};
   margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
 `;
 const ButtonContainer = styled.div`
   display: flex;
