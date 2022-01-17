@@ -81,8 +81,28 @@ const Login = ({
           </ForgetButton>
           <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
           <SocialMedia>
-            <Buttons className="facebook" name="Facebook" />
-            <Buttons className="google" name="Google+" />
+            <Buttons
+              name="Facebook"
+              color="#2C79BD"
+              fontFamily={fontFamilies.fontFamilyOsSemiBold}
+              fontSize="16px"
+              height="50px"
+              width="180px"
+              border="1px solid #02A7FD"
+              borderRadius="6px"
+              box-shadow="0 2px 10px 0 rgba(0,0,0,0.1)"
+            />
+            <Buttons
+              name="Google+"
+              color="#D34836"
+              fontFamily={fontFamilies.fontFamilyOsSemiBold}
+              fontSize="16px"
+              height="50px"
+              width="180px"
+              border="1px solid #FF8C7D"
+              borderRadius="6px"
+              box-shadow="0 2px 10px 0 rgba(0,0,0,0.1)"
+            />
           </SocialMedia>
           <Footer>
             <ForgotPasswordLink>
