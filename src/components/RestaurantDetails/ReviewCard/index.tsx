@@ -73,7 +73,7 @@ const ReviewCard: FC<{ cardDetails: reviewCardProps }> = ({ cardDetails }) => {
       </LikeContainer>
       <FoodImageContainer>
         {[...Array(cardDetails.images)].map((count: number, index: number) => {
-          return <FoodImage src={reviewFoodImage} />;
+          return <FoodImage key={index} src={reviewFoodImage} />;
         })}
       </FoodImageContainer>
     </Wrapper>
