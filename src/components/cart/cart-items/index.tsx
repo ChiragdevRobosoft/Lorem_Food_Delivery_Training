@@ -81,7 +81,7 @@ const CartItems = () => {
 export default CartItems;
 
 const ContentContainer = styled.div`
-  width: 961px;
+  width: 60.063rem;
   height: auto;
   position: relative;
   margin-top: 31px;
