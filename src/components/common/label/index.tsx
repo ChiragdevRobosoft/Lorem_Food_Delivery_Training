@@ -25,9 +25,9 @@ const Label: FC<labelProps> = (props) => {
   );
 };
 export default Label;
-const TextBoxLabel = styled.label`
+const TextBoxLabel = styled.div`
   height: ${(props) => (props.style?.height ? props.style.height : "22px")};
-  width: ${(props) => (props.style?.width ? props.style.width : "88px")};
+  width: ${(props) => (props.style?.width ? props.style.width : "auto")};
   color: ${(props) =>
     props.style?.color ? props.style.color : `${colors.grey_858585}`};
   font-family: ${(props) =>
