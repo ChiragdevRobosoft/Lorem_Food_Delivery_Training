@@ -3,7 +3,6 @@ import styled from "styled-components";
 import RedStar from "../../../assets/restaurantDetails/icn_star_red.png";
 import YellowStar from "../../../assets/restaurantDetails/icn_star_yellow.png";
 import GreenStar from "../../../assets/restaurantDetails/icn_star_green.png";
-import WhiteStar from "../../../assets/restaurantDetails/white_star.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
 
 const DeliveryRating: FC<{ RatingNum: number; className?: string }> = ({
@@ -20,7 +19,7 @@ const DeliveryRating: FC<{ RatingNum: number; className?: string }> = ({
     RatingNum > 3 ? GreenStar : RatingNum < 3 ? RedStar : YellowStar;
   return (
     <RatingConatiner ratingColor={ratingColor} className={className}>
-      <RatingImage src={ratingIcon} />
+      <RatingImage src={ratingIcon} className={className} />
       <RatingNumber
         RatingNum={RatingNum}
         className={className}
@@ -45,6 +44,11 @@ const RatingConatiner = styled.div<{ ratingColor: string }>`
     props.className === "reverse-color"
       ? props.ratingColor
       : `${colors.transparentColor}`};
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3px;
 `;
 
 const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
@@ -61,7 +65,11 @@ const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
 
 const RatingImage = styled.img`
   vertical-align: middle;
-  margin-left: 8.61px;
-  margin-right: 4.22px;
+  height: ${(props) => (props.className === "reverse-color" ? "9px" : "auto")};
+  width: ${(props) => (props.className === "reverse-color" ? "9px" : "auto")};
+  filter: ${(props) =>
+    props.className === "reverse-color"
+      ? "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(100%)"
+      : "none"};
 `;
 export default DeliveryRating;
