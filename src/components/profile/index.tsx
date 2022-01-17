@@ -81,7 +81,7 @@ const ProfilePhoto = styled.div`
   height: 106px;
   width: 106px;
   border: 3px solid ${colors.white_ffffff};
-  box-shadow: 0 2px 3px 0 ${colors.black_000000_03};
+  box-shadow: 0 2px 3px 0 ${colors.black_000000_3};
   border-radius: 100px;
 `;
 const ProfileInfo = styled.div`

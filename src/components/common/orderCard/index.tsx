@@ -64,10 +64,20 @@ const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
           width="none"
         />
       </ItemsSelected>
-      <Delivery>Out for Delivery</Delivery>
+      <Delivery>
+        <Label
+          content={cardDetails.DeliveryStatus}
+          height="19px"
+          color={colors.green_72b000}
+          fontFamily={fontFamilies.fontFamilyOsSemiBold}
+          fontSize={sizes.size14}
+          letterSpacing="0"
+          lineHeight={sizes.size19}
+        />
+      </Delivery>
       <ButtonContainer>
         <Buttons
-          name="DETAILS"
+          name={data.details}
           borderRadius={sizes.size18}
           width="111px"
           height="36px"
@@ -79,7 +89,7 @@ const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
           marginRight="0"
         />
         <Buttons
-          name="STATUS"
+          name={data.status}
           borderRadius={sizes.size18}
           width="111px"
           height="36px"
@@ -130,13 +140,6 @@ const ButtonContainer = styled.div`
   gap: 19px;
 `;
 const Delivery = styled.div`
-  height: 19px;
-  width: 108px;
-  color: ${colors.green_72b000};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold}
-  font-size: ${sizes.size14};
-  letter-spacing: 0;
-  line-height: ${sizes.size19};
   text-align: right;
   position: absolute;
   right: 31px;

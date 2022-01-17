@@ -18,6 +18,21 @@ const Routing = () => {
           <Route path={links.menu} element={<Menu />} />
           <Route path={links.overview} element={<Overview />} />
         </Route>
+        <Route
+          path="order-card"
+          element={
+            <OrderCard
+              cardDetails={{
+                orderId: "1234567890",
+                hotelName: "The Boutique Kitchen",
+                address: "Shiekh Zayed Road, Dubai, UAE",
+                Items: "3",
+                Costs: "85.76",
+                DeliveryStatus: "Out for Delivery",
+              }}
+            />
+          }
+        />
       </Routes>
     </CartDataProvider>
   );
