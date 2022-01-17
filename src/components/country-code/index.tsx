@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { useState } from "react";
 import icon_dropdown from "../../assets/arrow_drop@.png";
 import OutsideAlerter from "../OutsideClickAlert";
-import TextBox from "../common/textbox";
+import InputField from "../common/textbox";
 import CountryCode from "./info";
 import { sizes, colors, fontFamilies } from "../../variables";
 const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
@@ -52,7 +52,7 @@ const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
             </DropDownContainer>
           </OutsideAlerter>
         ) : null}
-        <TextBox name="" isPassword={false} />
+        <InputField style={{ width: "258px" }} name="" isPassword={false} />
       </MobileNumberContainer>
     </FormContainer>
   );
@@ -62,15 +62,18 @@ const FormContainer = styled.div`
   position: relative;
   height: 56px;
   width: 380px;
-  margin-left: 50px;
+  margin-left: auto;
   margin-top: -10px;
   margin-bottom: 42px;
+  margin-right: auto;
 `;
 const MobileNumberContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  gap: 26.73px;
+  width: 375px;
 `;
 const DropDown = styled.img`
   height: 7px;
@@ -93,7 +96,6 @@ const Label = styled.label`
 const DropDownWindow = styled.div`
   overflow-y: scroll;
   top: 0;
-
   ::-webkit-scrollbar {
     width: ${sizes.size5};
   }
