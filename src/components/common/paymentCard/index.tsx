@@ -17,7 +17,7 @@ import { PaymentCardDetailsProps } from "../interfaces";
 const PaymentCard: FC<{ cardDetails: PaymentCardDetailsProps }> = ({
   cardDetails,
 }) => {
-  const [primaryCheck, setPrimaryCheck] = useState(true);
+  const [primaryCheck, setPrimaryCheck] = useState(cardDetails.primaryStatus);
   return (
     <CardContainer>
       <TickBox onClick={() => setPrimaryCheck(!primaryCheck)}>
@@ -26,7 +26,7 @@ const PaymentCard: FC<{ cardDetails: PaymentCardDetailsProps }> = ({
           className="checked"
         ></img>
         <Label
-          content="Primary"
+          content={data.primary}
           height="19px"
           width="52px"
           color={

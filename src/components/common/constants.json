@@ -475,13 +475,16 @@
   "PaymentCardDetails": [
     {
       "cardNumber": "2345 XXXX XXXX 6574",
-      "cardType": "American Experess"
+      "cardType": "American Experess",
+      "primaryStatus": true
     },
     {
       "cardNumber": "1234 XXXX XXXX 3456",
-      "cardType": "Master card"
+      "cardType": "Master card",
+      "primaryStatus": false
     }
   ],
   "edit": "Edit",
-  "delete": "Delete"
+  "delete": "Delete",
+  "primary": "Primary"
 }

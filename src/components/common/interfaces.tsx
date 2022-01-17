@@ -56,4 +56,5 @@ export interface foodcardDetailsProps {
 export interface PaymentCardDetailsProps {
   cardNumber: string;
   cardType: string;
+  primaryStatus?: boolean;
 }
