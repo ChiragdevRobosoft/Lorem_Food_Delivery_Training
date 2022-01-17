@@ -11,6 +11,7 @@ export const colors = {
   black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
   black_000000_05: "rgba(0, 0, 0, 0.5)",
   black_000000_07: "rgba(0,0,0,0.07)",
+  black_000000_3: "rgba(0,0,0,0.3)",
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_313131: "rgba(49, 49, 49, 1)",
   black_2d2d2d: "rgba(45, 45, 45, 1)",
@@ -71,6 +72,7 @@ export const colors = {
   orange_faa369: "rgba(250, 163, 105, 1)",
   orange_f5867b: "rgba(245, 134, 123, 1)",
   orange_f99f6c: "rgba(249, 159, 108, 1)",
+  orange_fda200: "rgba(253, 162, 0, 1)",
   blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
@@ -93,8 +95,8 @@ export const sizes = {
   sizeNeg0_48: "-0.48px",
   sizeNeg0_26: "-0.26px",
   sizeNeg0_27: "-0.27px",
-  sizeNeg0_24: "-0.24px",
   sizeNeg0_29: "-0.29px",
+  sizeNeg0_24: "-0.24px",
   sizeNeg0_18: "-0.18px",
   sizeNeg0_34: "-0.34px",
   sizeNeg0_17: "-0.17px",
@@ -137,6 +139,8 @@ export const sizes = {
   size27_25: "27.25px",
   size28: "28px",
   size30: "30px",
+  size31: "31px",
+  size33: "33px",
   size34: "34px",
   size50: "50px",
   size60: "60px",
@@ -153,6 +157,7 @@ export const sizes = {
   size39: "39px",
   size40: "40px",
   size41: "41px",
+  size42: "42px",
   size43: "43px",
   size44: "44px",
   size53: "53px",

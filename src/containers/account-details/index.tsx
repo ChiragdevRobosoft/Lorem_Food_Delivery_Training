@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import backButton from "../../assets/backButton.png";
 import { useNavigate, Link } from "react-router-dom";
-import TextBox from "../../components/common/textbox";
+import InputField from "../../components/common/textbox";
 import Buttons from "../../components/common/button/index";
 import CountryCode from "../../components/country-code";
 import Modal from "react-responsive-modal";
@@ -64,13 +64,15 @@ const AccountDetails = ({
             {data.loginModal.accountsDetails.description.line2}
           </Discription>
           <FirstName>
-            <TextBox name="First Name" isPassword={false}></TextBox>
+            <InputField name="First Name" isPassword={false} />
           </FirstName>
           <LastName>
-            <TextBox name="Last Name" isPassword={false}></TextBox>
+            <InputField name="Last Name" isPassword={false} />
           </LastName>
           <CountryCode isOptional={true} />
-          <TextBox name="Create Password" isPassword={true}></TextBox>
+          <PasswordField>
+            <InputField name="Create Password" isPassword={true} />
+          </PasswordField>
           <VerifyButton>
             <Buttons
               className="colouredBgButton"
@@ -92,9 +94,20 @@ const BackButton = styled.button`
 export default AccountDetails;
 const FirstName = styled.div`
   margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
 `;
 const LastName = styled.div`
   margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
+`;
+const PasswordField = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
 `;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
