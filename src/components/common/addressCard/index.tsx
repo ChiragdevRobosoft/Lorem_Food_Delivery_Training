@@ -4,7 +4,13 @@ import data from "../constants.json";
 import Label from "../label";
 import Unchecked from "../../../assets/addressCard/icn_uncheck.png";
 import Checked from "../../../assets/addressCard/icn_check.png";
-import { fontFamilies, angles, colors, sizes } from "../../../variables";
+import {
+  fontFamilies,
+  angles,
+  colors,
+  sizes,
+  letterSpacing,
+} from "../../../variables";
 import { AddressCardDetailsProps } from "../interfaces";
 const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
   cardDetails,
@@ -16,22 +22,22 @@ const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
         content={cardDetails.place}
         height="19px"
         width="39px"
-        color="#6A6A6A"
+        color={colors.grey_6a6a6a}
         fontFamily={fontFamilies.fontFamilyOsRegular}
-        fontSize="14px"
-        letterSpacing="-0.27px"
-        lineHeight="19px"
+        fontSize={sizes.size14}
+        letterSpacing={letterSpacing.spaceNeg0_27}
+        lineHeight={sizes.size19}
       />
       <AddressBox>
         <Label
           content={cardDetails.address}
           height="84px"
           width="387px"
-          color="#2D2D2D"
+          color={colors.black_2d2d2d}
           fontFamily={fontFamilies.fontFamilyOsRegular}
-          fontSize="18px"
-          letterSpacing="-0.3px"
-          lineHeight="28px"
+          fontSize={sizes.size18}
+          letterSpacing={letterSpacing.spaceNeg0_3}
+          lineHeight={sizes.size28}
         />
       </AddressBox>
       <EditDeleteButton>
@@ -39,21 +45,21 @@ const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
           content={data.edit}
           height="22px"
           width="30px"
-          color="#F57C00"
-          font-family={fontFamilies.fontFamilyOsSemiBold}
-          font-size="16px"
-          letter-spacing="0"
-          line-height="22px"
+          color={colors.orange_f57c00}
+          fontFamily={fontFamilies.fontFamilyOsSemiBold}
+          fontSize={sizes.size16}
+          letterSpacing="0"
+          lineHeight={sizes.size22}
         />
         <Label
           content={data.Delete}
           height="22px"
           width="30px"
-          color="#F57C00"
+          color={colors.orange_f57c00}
           font-family={fontFamilies.fontFamilyOsSemiBold}
-          font-size="16px"
+          font-size={sizes.size16}
           letter-spacing="0"
-          line-height="22px"
+          line-height={sizes.size22}
         />
       </EditDeleteButton>
 
@@ -66,11 +72,15 @@ const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
           content="Primary"
           height="19px"
           width="52px"
-          color={primaryCheck === true ? "#6a6a6a" : "#B8B8B8"}
+          color={
+            primaryCheck === true
+              ? `{${colors.grey_6a6a6a}}`
+              : `{${colors.grey_b8b8b8}}`
+          }
           fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize="14px"
+          fontSize={sizes.size14}
           letterSpacing="-0.27px"
-          lineHeight="19px"
+          lineHeight={sizes.size19}
           marginLeft="11px"
         />
       </TickBox>
@@ -83,8 +93,8 @@ const CardContainer = styled.div`
   height: 186px;
   width: 469px;
   border-radius: 6px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   padding: 29px 19px 21px 26px;
   box-sizing: border-box;
   position: relative;
