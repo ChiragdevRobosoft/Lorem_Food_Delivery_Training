@@ -8,10 +8,10 @@ import likeActive from "../../../assets/restaurantDetails/like_active.png";
 import likeInactive from "../../../assets/restaurantDetails/like_inactive.png";
 import reviewFoodImage from "../../../assets/restaurantDetails/review_food_image.png";
 import { reviewCardProps } from "../../common/interfaces";
+import data from "../../common/constants.json";
 
 const ReviewCard: FC<{ cardDetails: reviewCardProps }> = ({ cardDetails }) => {
-  const reviewsCount = cardDetails.reviewsCount;
-  const ratingsCount = cardDetails.ratingsCount;
+  const reviewsRatingsText = `${cardDetails.reviewsCount} ${data.reviews} ${cardDetails.ratingsCount} ${data.ratings}`;
   return (
     <Wrapper>
       <ReviewContainer>
@@ -27,7 +27,7 @@ const ReviewCard: FC<{ cardDetails: reviewCardProps }> = ({ cardDetails }) => {
             marginBottom="2px"
           />
           <Label
-            content={reviewsCount + " reviews, " + ratingsCount + " ratings"}
+            content={reviewsRatingsText}
             height={sizes.size17}
             color={colors.grey_757575}
             fontSize={sizes.size12}

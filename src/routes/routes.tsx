@@ -17,24 +17,6 @@ const Routing = () => {
         <Route path={links.restaurantDetails} element={<RestaurantDetails />}>
           <Route path={links.menu} element={<Menu />} />
           <Route path={links.overview} element={<Overview />} />
-          <Route
-            path="reviews-&-ratings"
-            element={
-              <ReviewCard
-                cardDetails={{
-                  name: "John Doe",
-                  reviewsCount: 2,
-                  ratingsCount: 30,
-                  ratingNum: 4,
-                  reviews:
-                    "Offers homely and delicious Indian food choices. The rajma chawal, chana bhature, pav bhaaji, kheer and paan mint shisha are all great. The service is good and staff are friendly. We also liked their playlist, it was a mix of Indian and Western songs.",
-                  date: "March 15, 2018",
-                  likesCount: 45,
-                  images: 0,
-                }}
-              />
-            }
-          />
         </Route>
       </Routes>
     </CartDataProvider>
