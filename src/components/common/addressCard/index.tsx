@@ -52,10 +52,7 @@ const AddressCard = () => {
           line-height="22px"
         />
       </EditDeleteButton>
-      <PrimaryAddress>
-        <iconCheck />
-        Primary
-      </PrimaryAddress>
+      <PrimaryAddress>Primary</PrimaryAddress>
     </CardContainer>
   );
 };
