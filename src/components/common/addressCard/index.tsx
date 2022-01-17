@@ -102,19 +102,6 @@ const EditDeleteButton = styled.div`
   margin-right: 19px;
   margin-bottom: 21px;
 `;
-const PrimaryAddress = styled.div`
-  text-align: right;
-  position: absolute;
-  top: 21px;
-  right: 20px;
-  height: 19px;
-  width: 52px;
-  color: #6a6a6a;
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: 14px;
-  letter-spacing: -0.27px;
-  line-height: 19px;
-`;
 const TickBox = styled.div`
   text-align: right;
   position: absolute;
