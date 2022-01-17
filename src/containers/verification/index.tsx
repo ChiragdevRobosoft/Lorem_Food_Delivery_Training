@@ -68,10 +68,9 @@ const Verification = ({
           <VerifyImage>
             <img src={icon_verify} className="icon_forgot"></img>
           </VerifyImage>
-          <Title>Verification</Title>
+          <Title>{data.loginModal.passwordVerification.title}</Title>
           <Discription>
-            We just sent you the OTP via SMS to your email address/mobile no.
-            You should get it soon!
+            {data.loginModal.passwordVerification.description}
           </Discription>
           <TextField>
             <InputField name="Enter OTP" isPassword={false} />
