@@ -8,13 +8,16 @@ import RestaurantImg from "../../assets/restaurantDetails/Resturant Image.png";
 import Cutlery from "../../assets/restaurantDetails/restaurant-cutlery.png";
 import TimeIcon from "../../assets/restaurantDetails/time_icon.png";
 import DeliveryRating from "../common/DeliveryRating";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import Footer from "../common/footer";
 import Header from "../common/header";
 import Foodsearch from "../common/SearchComponent";
 
 const RestaurantDetails = () => {
-  const [selected, setSelected] = useState(data.NavbarElements[0]);
+  const location = useLocation();
+  const [selected, setSelected] = useState(
+    location.pathname.slice(1).toUpperCase()
+  );
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     setSelected((e.target as HTMLElement).innerText);
   };
