@@ -471,5 +471,17 @@
   ],
   "workHoursTitle": "Work hours for next 7 days  ",
   "openingHoursTitle": "Opening Hours",
-  "mapTitle": "Get Direction"
+  "mapTitle": "Get Direction",
+  "PaymentCardDetails": [
+    {
+      "cardNumber": "2345 XXXX XXXX 6574",
+      "cardType": "American Experess"
+    },
+    {
+      "cardNumber": "1234 XXXX XXXX 3456",
+      "cardType": "Master card"
+    }
+  ],
+  "edit": "Edit",
+  "delete": "Delete"
 }

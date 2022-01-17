@@ -18,7 +18,17 @@ const Routing = () => {
           <Route path={links.menu} element={<Menu />} />
           <Route path={links.overview} element={<Overview />} />
         </Route>
-        <Route path="PaymentCard" element={<PaymentCard />} />
+        <Route
+          path="PaymentCard"
+          element={
+            <PaymentCard
+              cardDetails={{
+                cardNumber: "2345 XXXX XXXX 6574",
+                cardType: "American Experess",
+              }}
+            />
+          }
+        />
       </Routes>
     </CartDataProvider>
   );
