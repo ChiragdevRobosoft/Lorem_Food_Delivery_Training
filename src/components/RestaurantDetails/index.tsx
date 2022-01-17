@@ -27,7 +27,9 @@ const RestaurantDetails = () => {
       <Foodsearch pageType="screen" />
       <MainContainer>
         <Searchpath path={data.searchPath.menu} className="grey-dark" />
-        <BgImage src={BgImg} />
+        <BgImageContainer>
+          <BgImage src={BgImg} />
+        </BgImageContainer>
         <ImageContentSection>
           <Icon src={RestaurantImg} />
           <CutleryImage src={Cutlery} />
@@ -48,25 +50,32 @@ const RestaurantDetails = () => {
               return <DeliveryRating key={index} RatingNum={rate} />;
             })}
           </DetailsContainer>
-          <NavBar>
-            {data.NavbarElements.map((navbarElement, index) => {
-              return navbarElement === selected ? (
-                <Navlink to={`${navbarElement.toLowerCase()}`} key={index}>
-                  <NavBarElement className="select">
-                    {navbarElement}
-                    <Underline></Underline>
-                  </NavBarElement>
-                </Navlink>
-              ) : (
-                <Navlink to={`${navbarElement.toLowerCase()}`} key={index}>
-                  <NavBarElement onClick={handleClick}>
-                    {navbarElement}
-                  </NavBarElement>
-                </Navlink>
-              );
-            })}
-          </NavBar>
         </ImageContentSection>
+
+        <NavBar>
+          {data.NavbarElements.map((navbarElement, index) => {
+            return navbarElement === selected ? (
+              <Navlink
+                to={`${navbarElement.split(" ").join("-").toLowerCase()}`}
+                key={index}
+              >
+                <NavBarElement className="select">
+                  {navbarElement}
+                  <Underline></Underline>
+                </NavBarElement>
+              </Navlink>
+            ) : (
+              <Navlink
+                to={`${navbarElement.split(" ").join("-").toLowerCase()}`}
+                key={index}
+              >
+                <NavBarElement onClick={handleClick}>
+                  {navbarElement}
+                </NavBarElement>
+              </Navlink>
+            );
+          })}
+        </NavBar>
         <RoutingContainer>
           <Outlet />
         </RoutingContainer>
@@ -99,6 +108,10 @@ const ImageContentSection = styled.div`
 `;
 
 const Icon = styled.img``;
+
+const BgImageContainer = styled.div`
+  height: 376px;
+`;
 
 const BgImage = styled.img`
   width: 100%;
@@ -209,9 +222,12 @@ const RatingTitle = styled.div`
 const NavBar = styled.ul`
   display: flex;
   flex-direction: row;
+  width: 972px;
   padding-left: 5px;
   margin-top: 37px;
-  margin-bottom: 20px;
+  margin-bottom: 11px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const NavBarElement = styled.li`
@@ -250,7 +266,6 @@ const RoutingContainer = styled.div`
   width: 972px;
   position: relative;
   margin: auto;
-  top: 211px;
 `;
 
 export default RestaurantDetails;
