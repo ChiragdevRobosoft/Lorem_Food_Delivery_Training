@@ -444,5 +444,60 @@
     }
   ],
   "orderIdText": "Order Id:",
-  "ItemText": " Items"
+  "ItemText": " Items",
+  "overviewData": [
+    {
+      "title": "Description",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet ante at risus mollis, ut rutrum arcu venenatis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam nec erat suscipit, pretium quam eget, condimentum enim. "
+    },
+    {
+      "title": "Cuisines",
+      "content": "Indian, Pakistani, Kebab, Mexican, Mordovian, Mughal, Native American, Nepalese, New Mexican"
+    },
+    { "title": "Average meal cost", "content": "AED70 for two (approx)" },
+    { "title": "Accepted payment", "content": "Cash and Cards accepeted" },
+    { "title": "Phone", "content": "0824 4024999, 0824 3456790" },
+    { "title": "Address", "content": "Shiekh Zayed Road, Dubai, UAE" }
+  ],
+  "openingHours": [
+    {
+      "date": "Today, 25 March 2018",
+      "time": ["10:00:00 AM - 03:00:00 PM", "05:30:00 PM - 11:00:00 PM"],
+      "availability": "OPEN",
+      "off": "Planned off: 03:00 PM - 05:30 PM (Ramadan)"
+    },
+    {
+      "date": "Thursday, 26 March 2018",
+      "time": ["10:00:00 AM - 11:00:00 PM"],
+      "availability": "OPEN"
+    },
+    {
+      "date": "Friday, 27 March 2018",
+      "availability": "CLOSE"
+    },
+    {
+      "date": "Saturday, 28 March 2018",
+      "time": ["10:00:00 AM - 01:00:00 PM"],
+      "availability": "OPEN"
+    },
+    {
+      "date": "Sunday, 29 March 2018 ",
+      "time": ["10:00:00 AM - 01:00:00 PM"],
+      "availability": "OPEN",
+      "off": "Planned off: 10:00 AM - 01:00 PM (Local Holiday)"
+    },
+    {
+      "date": "Monday, 24 March 2018",
+      "time": ["10:00:00 AM - 11:00:00 PM"],
+      "availability": "OPEN"
+    },
+    {
+      "date": "Tuesday, 25 March 2018",
+      "time": ["10:00:00 AM - 03:00:00 PM", "05:30:00 PM - 11:00:00 PM"],
+      "availability": "OPEN"
+    }
+  ],
+  "workHoursTitle": "Work hours for next 7 days  ",
+  "openingHoursTitle": "Opening Hours",
+  "mapTitle": "Get Direction"
 }
