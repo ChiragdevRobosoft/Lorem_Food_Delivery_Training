@@ -17,15 +17,21 @@ const ProceedPayment = () => {
     <PageSection>
       <Searchpath path={data.searchPath.menu1} className="grey-dark" />
       <ContentContainer>
-        <Label
-          content={`${data.cartContents.MyCartTitle} (${data.cartContents.myCart.length})`}
-          height="30px"
-          color="#000000"
-          fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-          fontSize="22px"
-          letterSpacing="0"
-          lineHeight="30px"
-        />
+        <ProgressSection />
+        <CartSection>
+          <StepsSection>
+            <Label
+              content="The Boutique Kitchen"
+              height="30px"
+              color="#000000"
+              fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
+              fontSize="22px"
+              letterSpacing="0"
+              lineHeight="30px"
+            />
+          </StepsSection>
+          <PaymentContainer />
+        </CartSection>
       </ContentContainer>
     </PageSection>
   );
@@ -33,72 +39,66 @@ const ProceedPayment = () => {
 export default ProceedPayment;
 
 const PageSection = styled.div`
-  width: 100%;
+  width: 100wh;
+  height: 842px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 72px;
   border: 1px solid black;
 `;
 
 const ContentContainer = styled.div`
   width: 50%;
-  height: auto;
-  position: relative;
-  margin-top: 31px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: auto;
-  padding-bottom: 10px;
-  border: 1px solid black;
-`;
-
-const CardContainer = styled.div`
-  width: 100%;
-  position: relative;
-  margin-top: 14px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  gap: 20px;
-`;
-
-const Cartcard = styled.div`
-  width: 303px;
-  height: 172px;
+  //position: relative;
+  //margin-top: 40px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  padding: 28px 20px 22px 20px;
-  border-radius: 6px;
-  background-color: ${colors.white_ffffff};
-  box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   box-sizing: border-box;
-  .proceed-button {
-    background-image: linear-gradient(
-      ${angles.angle60},
-      ${colors.pink_e21143_09},
-      ${colors.yellow_ffb03a_09}
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: ${colors.transparentColor};
-    position: absolute;
-    bottom: 22px;
-    right: 21px;
-    top: 120px;
-  }
+  justify-content: space-between;
+  gap: 39px;
+  margin-left: auto;
+  margin-right: auto;
+  //border: 1px solid black;
 `;
 
-const Remove = styled.div`
-  height: 15px;
-  width: 43px;
-  color: ${colors.red_ed1b2e};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size11};
-  letter-spacing: ${sizes.size0};
-  line-height: ${sizes.size15};
-  text-align: right;
-  position: absolute;
-  right: 20px;
-  top: 30px;
-  cursor: pointer;
+const ProgressSection = styled.div`
+  height: 55px;
+  width: 66%;
+  //border: 1px solid black;
+`;
+
+const CartSection = styled.div`
+  width: 100%;
+  //height: 593px;
+  //margin-top: 39px;
+  //margin-left: 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 23px;
+  //border: 1px solid black;
+  box-sizing: border-box;
+`;
+
+const StepsSection = styled.div`
+  width: 634px; //66%
+  //border: 1px solid black;
+`;
+
+const PaymentContainer = styled.div`
+  width: 305px; //32%
+  height: 480px;
+  margin-top: 74px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 15px 17px 12px 18px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid red;
 `;
