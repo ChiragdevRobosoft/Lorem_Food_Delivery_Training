@@ -64,3 +64,16 @@ export interface reviewCardProps {
   likesCount: number;
   images: number;
 }
+export interface AddressCardDetailsProps {
+  place: string;
+  address: string;
+  primaryStatus?: boolean;
+}
+export interface orderCardProps {
+  orderId: string;
+  hotelName: string;
+  address: string;
+  Items: string;
+  Costs: string;
+  DeliveryStatus: string;
+}

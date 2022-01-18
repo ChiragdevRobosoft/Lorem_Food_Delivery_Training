@@ -417,6 +417,51 @@
     "timeRange": "11:00 AM - 10:00 PM",
     "ratingTitle": "Delivery rating for last 5 orders"
   },
+  "addressCardDetails": [
+    {
+      "place": "Home",
+      "address": "Downtown Burj Khalifa, Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab EmiratesDubai, UAE",
+      "primaryStatus": true
+    },
+    {
+      "place": "Office",
+      "address": "A-214, 4th Burj Khalifa, Dubai, UAE -Dubai - United Arab EmiratesDubai, UAE",
+      "primaryStatus": false
+    }
+  ],
+  "primary": "Primary",
+  "edit": "Edit",
+  "Delete": "Delete",
+  "orderCardData": [
+    {
+      "orderId": "1234567890",
+      "hotelName": "The Boutique Kitchen",
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "Items": "3",
+      "Costs": "85.76",
+      "DeliveryStatus": "Out for Delivery"
+    },
+    {
+      "orderId": "1234567890",
+      "hotelName": "The Boutique Kitchen",
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "Items": "3",
+      "Costs": "85.76",
+      "DeliveryStatus": "In Kitchen"
+    },
+    {
+      "orderId": "1234567890",
+      "hotelName": "The Boutique Kitchen",
+      "address": "Shiekh Zayed Road, Dubai, UAE",
+      "Items": "3",
+      "Costs": "85.76",
+      "DeliveryStatus": "In Kitchen"
+    }
+  ],
+  "orderIdText": "Order Id:",
+  "ItemText": " Items",
+  "status": "STATUS",
+  "details": "DETAILS",
   "overviewData": [
     {
       "title": "Description",
@@ -524,5 +569,20 @@
     "imageUploadTitle": "+ Add image",
     "buttonText": "Submit",
     "ratingNumbers": [1, 2, 3, 4, 5]
-  }
+  },
+  "profile": {
+    "name": "Abdulla",
+    "edit": "Edit",
+    "fullName": "Abdulla Mohammed",
+    "mobileNumber": "+971 87656 43217",
+    "emailAddress": "Abdulla@foodie.com",
+    "creditEarned": "Credits Earned - ",
+    "creditData": "234",
+    "order": "ORDERS",
+    "address": "ADDRESS",
+    "paymentMethods": "PAYMENT METHODS",
+    "reviews": "REVIEWS",
+    "gallery": "GALLERY"
+  },
+  "orderNumber": "2"
 }

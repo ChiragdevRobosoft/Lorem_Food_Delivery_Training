@@ -6,6 +6,7 @@ import CartDataProvider from "../components/common/CartDataProvider";
 import Menu from "../components/RestaurantDetails/Menu";
 import Overview from "../components/RestaurantDetails/Overview";
 import { links } from "../variables";
+import AddressCard from "../components/common/addressCard";
 
 const Routing = () => {
   return (
