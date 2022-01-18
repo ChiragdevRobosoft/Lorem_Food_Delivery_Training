@@ -44,7 +44,8 @@ const Overview = () => {
 
 const Wrapper = styled.div`
   width: 972px;
-  padding-bottom: 200px;
+  margin-top: 38px;
+  padding-bottom: 66px;
 `;
 
 const DescriptionLine = styled.div<{ className?: string }>`

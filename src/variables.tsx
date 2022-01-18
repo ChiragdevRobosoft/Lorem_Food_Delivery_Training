@@ -15,7 +15,9 @@ export const colors = {
   black_000000_3: "rgba(0,0,0,0.3)",
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_313131: "rgba(49, 49, 49, 1)",
+  black_2d2d2d: "rgba(45, 45, 45, 1)",
   grey_bdbdbd: "#bdbdbd",
+  grey_b9b9b9: "rgba(185, 185, 185, 1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
   grey_c6c6c6_5: "rgba(198, 198, 198, 0.5)",
   grey_d8d8d8: "#d8d8d8", //grey14
@@ -55,6 +57,7 @@ export const colors = {
   grey_8b8b8b: "rgba(184, 184, 184, 1)",
   grey_7b7676: "rgba(123, 118, 118, 1)",
   grey_909090: "rgba(144, 144, 144, 1)",
+  grey_b8b8b8: "rgba(184, 184, 184, 1)",
   pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
   pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
   pink_fda5a3: "#FDA5A3", //pink3
@@ -142,8 +145,11 @@ export const sizes = {
   size28: "28px",
   size30: "30px",
   size31: "31px",
-  size33: "33px",
   size34: "34px",
+  size42: "42px",
+  size43_6: "43.6px",
+  size45: "45px",
+  size33: "33px",
   size50: "50px",
   size60: "60px",
   size70: "70px",
@@ -159,7 +165,6 @@ export const sizes = {
   size39: "39px",
   size40: "40px",
   size41: "41px",
-  size42: "42px",
   size43: "43px",
   size44: "44px",
   size53: "53px",
@@ -330,6 +335,8 @@ export const letterSpacing = {
   space0_58: "0.58",
   space0_64: "0.64px",
   space3_66: "3.66",
+  spaceNeg0_27: "-0.27px",
+  spaceNeg0_3: "-0.3px",
 };
 
 export const links = {
@@ -346,6 +353,7 @@ export const links = {
   restaurantList: "restaurant-list",
   overview: "overview",
   brands: "/brands",
-  restaurantDetails: "",
+  profile: "/profile",
+  restaurantDetails: "restaurant-details",
   checkout: "checkout",
 };

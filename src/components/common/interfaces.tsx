@@ -56,6 +56,20 @@ export interface foodcardDetailsProps {
 export interface PaymentCardDetailsProps {
   cardNumber: string;
   cardType: string;
+}
+export interface reviewCardProps {
+  name: string;
+  reviewsCount: number;
+  ratingsCount: number;
+  ratingNum: number;
+  reviews?: string;
+  date: string;
+  likesCount: number;
+  images: number;
+}
+export interface AddressCardDetailsProps {
+  place: string;
+  address: string;
   primaryStatus?: boolean;
 }
 export interface orderCardProps {
