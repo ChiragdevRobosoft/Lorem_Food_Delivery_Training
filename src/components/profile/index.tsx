@@ -188,16 +188,46 @@ const ProfilePhoto = styled.div`
   height: 106px;
   width: 106px;
   border: 3px solid ${colors.white_ffffff};
-  box-shadow: 0 2px 3px 0 ${colors.black_000000_03};
+  box-shadow: 0 2px 3px 0 ${colors.black_000000_3};
   border-radius: 100px;
 `;
 const ProfileInfo = styled.div`
   text-align: left;
   margin-left: 58px;
 `;
+const Name = styled.p`
+  width: 119px;
+  color: ${colors.white_ffffff};
+  font-family: ${fontFamilies.fontFamilyOsBold};
+  font-size: ${sizes.size31};
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: ${sizes.size42};
+  margin: 0px;
+`;
 const NameLine = styled.div`
   display: flex;
   flex-direction: row;
+`;
+const Edit = styled.p`
+  width: 30px;
+  color: ${colors.orange_fda200};
+  font-family: ${fontFamilies.fontFamilyOsMedium};
+  font-size: ${sizes.size16};
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: ${sizes.size19};
+  text-align: right;
+  margin-left: 28px;
+`;
+const FullName = styled.p`
+  width: 153px;
+  color: ${colors.white_ffffff};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size16};
+  letter-spacing: 0;
+  line-height: 22px;
+  margin-top: 3px;
 `;
 const DetailsRow = styled.div`
   width: 653px;
@@ -223,6 +253,25 @@ const LineBreak = styled.hr`
   border: 1px solid ${colors.white_ffffff};
   opacity: 0.37;
   margin=0;
+`;
+const CreditData = styled.p`
+  height: 33px;
+  color: ${colors.white_ffffff};
+  font-family: ${fontFamilies.fontFamilyOsBold};
+  font-size: ${sizes.size24};
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: ${sizes.size33};
+  margin-right: 10px;
+  margin-left: 3px;
+`;
+const DetailText = styled.p`
+  height: 22px;
+  color: ${colors.white_ffffff};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size16};
+  letter-spacing: 0;
+  line-height: ${sizes.size22};
 `;
 const Navbar = styled.div`
   height: 19px;

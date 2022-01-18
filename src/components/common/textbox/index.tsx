@@ -89,8 +89,7 @@ const Textbox = styled.input`
 `;
 const ViewIcon = styled.img`
   right: 17.29px;
+  bottom: 13px;
   height: 17px;
-  width: 20px;
-  margin-top: 1%;
   position: absolute;
 `;

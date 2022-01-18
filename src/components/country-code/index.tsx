@@ -96,7 +96,6 @@ const Label = styled.label`
 const DropDownWindow = styled.div`
   overflow-y: scroll;
   top: 0;
-
   ::-webkit-scrollbar {
     width: ${sizes.size5};
   }
