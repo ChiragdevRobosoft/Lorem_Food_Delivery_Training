@@ -25,20 +25,9 @@ const PaymentCard: FC<{ cardDetails: PaymentCardDetailsProps }> = ({
           src={primaryCheck === true ? Checked : Unchecked}
           className="checked"
         ></img>
-        <Label
+        <PrimaryLabel
           content={data.primary}
-          height="19px"
-          width="52px"
-          color={
-            primaryCheck === true
-              ? `${colors.grey_6a6a6a}`
-              : `${colors.grey_8b8b8b}`
-          }
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize={sizes.size14}
-          letterSpacing={letterSpacing.spaceNeg0_27}
-          lineHeight={sizes.size19}
-          marginLeft="11px"
+          className={`${primaryCheck?.toString()}`}
         />
       </TickBox>
       <CardDetails>
@@ -46,50 +35,13 @@ const PaymentCard: FC<{ cardDetails: PaymentCardDetailsProps }> = ({
           <img src={visa} className="visaLogo"></img>
         </VisaLogo>
         <CardInfo>
-          <Label
-            content={cardDetails.cardNumber}
-            height="28px"
-            width="174px"
-            color={colors.black_2D2D2D}
-            fontFamily={fontFamilies.fontFamilyOsRegular}
-            fontSize={sizes.size18}
-            letterSpacing={letterSpacing.spaceNeg0_3}
-            lineHeight={sizes.size28}
-          />
-          <Label
-            content={cardDetails.cardType}
-            height="19px"
-            width="120px"
-            color={colors.grey_6a6a6a}
-            fontFamily={fontFamilies.fontFamilyOsRegular}
-            fontSize={sizes.size14}
-            letterSpacing={letterSpacing.spaceNeg0_27}
-            lineHeight={sizes.size19}
-            marginTop="4px"
-          />
+          <CardNumberLabel content={cardDetails.cardNumber} />
+          <CardTypeLabel content={cardDetails.cardType} />
         </CardInfo>
       </CardDetails>
       <EditDeleteButton>
-        <Label
-          content={data.edit}
-          height="22px"
-          width="30px"
-          color={colors.orange_f57c00}
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize={sizes.size16}
-          letterSpacing={letterSpacing.space0}
-          lineHeight={sizes.size22}
-        />
-        <Label
-          content={data.delete}
-          height="22px"
-          width="30px"
-          color={colors.orange_f57c00}
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize={sizes.size16}
-          letterSpacing={letterSpacing.space0}
-          lineHeight={sizes.size22}
-        />
+        <EditLabel content={data.edit} />
+        <DeleteLabel content={data.delete} />
       </EditDeleteButton>
     </CardContainer>
   );
@@ -116,6 +68,8 @@ const VisaLogo = styled.div`
 `;
 const CardInfo = styled.div`
   margin-left: 30.36px;
+  display: flex;
+  flex-direction: column;
 `;
 const TickBox = styled.div`
   justify-content: flex-end;
@@ -134,4 +88,42 @@ const EditDeleteButton = styled.div`
   gap: 20px;
   margin-right: 19px;
   margin-top: 30px;
+`;
+const PrimaryLabel = styled(Label)`
+  height: 19px;
+  width: 52px;
+  color: ${(props) =>
+    props.className === "true"
+      ? `${colors.grey_6a6a6a}`
+      : `${colors.grey_8b8b8b}`};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  letter-spacing: ${letterSpacing.spaceNeg0_27};
+  line-height: ${sizes.size19};
+  margin-left: 11px;
+`;
+const CardNumberLabel = styled(Label)`
+  height: 28px;
+  color: ${colors.black_2D2D2D};
+  font-size: ${sizes.size18};
+  letter-spacing: ${letterSpacing.spaceNeg0_3};
+  line-height: ${sizes.size28};
+`;
+const CardTypeLabel = styled(Label)`
+  height: 19px;
+  color: ${colors.grey_6a6a6a};
+  font-size: ${sizes.size14};
+  letter-spacing: ${letterSpacing.spaceNeg0_27};
+  line-height: ${sizes.size19};
+  margintop: 4px;
+`;
+const EditLabel = styled(Label)`
+  width: 30px;
+  color: ${colors.orange_f57c00};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+`;
+const DeleteLabel = styled(Label)`
+  width: 30px;
+  color: ${colors.orange_f57c00};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
 `;
