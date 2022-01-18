@@ -12,14 +12,18 @@ const OpeningHours = () => {
   return (
     <Wrapper>
       <AvailabilityCard>
-        <Date content={data.openingHours[0].date} />
-        <Availability
-          content={data.openingHours[0].availability}
-          className={data.openingHours[0].availability}
-        />
-        {data.openingHours[0].time?.map((timeSlot, index) => {
-          return <Time key={index} content={timeSlot} />;
-        })}
+        <DateContainer>
+          <Date content={data.openingHours[0].date} />
+          <Availability
+            content={data.openingHours[0].availability}
+            className={data.openingHours[0].availability}
+          />
+        </DateContainer>
+        <TimeContainer>
+          {data.openingHours[0].time?.map((timeSlot, index) => {
+            return <Time key={index} content={timeSlot} />;
+          })}
+        </TimeContainer>
         {data.openingHours[0].off !== undefined ? (
           <PlannedOff content={data.openingHours[0].off} />
         ) : null}
@@ -29,14 +33,18 @@ const OpeningHours = () => {
           if (index !== 0) {
             return (
               <AvailabilityCard key={index}>
-                <Date content={day.date} />
-                <Availability
-                  content={day.availability}
-                  className={day.availability}
-                />
-                {day.time?.map((timeSlot, index) => {
-                  return <Time key={index} content={timeSlot} />;
-                })}
+                <DateContainer>
+                  <Date content={day.date} />
+                  <Availability
+                    content={day.availability}
+                    className={day.availability}
+                  />
+                </DateContainer>
+                <TimeContainer>
+                  {day.time?.map((timeSlot, index) => {
+                    return <Time key={index} content={timeSlot} />;
+                  })}
+                </TimeContainer>
                 {day.off !== undefined ? (
                   <PlannedOff content={day.off} />
                 ) : null}
@@ -46,15 +54,7 @@ const OpeningHours = () => {
         })}
       </WorkHoursContainer>
       <WorkHoursTitleContainer onClick={toggleState}>
-        <Label
-          content={data.workHoursTitle}
-          className="work-hours-title"
-          width="212px"
-          color={colors.transparentColor}
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize={sizes.size16}
-          letterSpacing={sizes.sizeNeg0_17}
-        />
+        <WorkHoursLabel content={data.workHoursTitle} />
         <Arrow visibility={visibility.toString()}></Arrow>
       </WorkHoursTitleContainer>
     </Wrapper>
@@ -68,15 +68,9 @@ const Wrapper = styled.div`
   background-color: ${colors.white_ffffff};
   border-radius: ${sizes.size6};
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
-  .work-hours-title {
-    background-image: linear-gradient(${angles.angle60}, #f27489, #fbab64);
-    background-clip: text;
-    -webkit-background-clip: text;
-  }
 `;
 
 const AvailabilityCard = styled.div`
-  position: relative;
   height: auto;
   width: ${sizes.fullWidth};
   border-bottom: ${sizes.size1} solid ${colors.grey_979797};
@@ -118,14 +112,12 @@ const Time = styled(Label)`
   color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
 `;
 
 const ConstSize = styled(Label)`
   height: ${sizes.size17};
   font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
 `;
 
@@ -137,9 +129,6 @@ const Date = styled(ConstSize)`
 
 const Availability = styled(ConstSize)<{ className: string }>`
   font-family: ${fontFamilies.fontFamilyOsBold};
-  position: absolute;
-  top: 16px;
-  right: 0;
   text-align: right;
   color: ${(props) =>
     props.className === "OPEN"
@@ -151,6 +140,32 @@ const PlannedOff = styled(ConstSize)`
   color: ${colors.red_ed1b2e};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   margin-top: 9px;
+`;
+
+const WorkHoursLabel = styled(Label)`
+  width: 212px;
+  color: ${colors.transparentColor};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  letter-spacing: ${sizes.sizeNeg0_17};
+  background-image: linear-gradient(
+    ${angles.angle60},
+    ${colors.pink_f27489},
+    ${colors.orange_fbab64}
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+`;
+
+const DateContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const TimeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 `;
 
 export default OpeningHours;

@@ -58,6 +58,7 @@ export const colors = {
   pink_fda5a3: "#FDA5A3", //pink3
   pink_d34836: "rgba(211, 72, 54, 1)", //pink4
   pink_f2738a: "rgba(242, 115, 138, 1)",
+  pink_f27489: "rgba(242, 116, 137, 1)",
   yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
   yellow_f5a623: "rgba(245,166,35,1)",
@@ -71,6 +72,7 @@ export const colors = {
   orange_f5867b: "rgba(245, 134, 123, 1)",
   orange_f99f6c: "rgba(249, 159, 108, 1)",
   orange_fda200: "rgba(253, 162, 0, 1)",
+  orange_fbab64: "rgba(251, 171, 100, 1)",
   blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
