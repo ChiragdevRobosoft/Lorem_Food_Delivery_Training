@@ -5,40 +5,58 @@ import YellowStar from "../../../assets/restaurantDetails/icn_star_yellow.png";
 import GreenStar from "../../../assets/restaurantDetails/icn_star_green.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
 
-const DeliveryRating: FC<{ RatingNum: number }> = ({ RatingNum }) => {
+const DeliveryRating: FC<{ RatingNum: number; className?: string }> = ({
+  RatingNum,
+  className,
+}) => {
+  const ratingColor =
+    RatingNum > 3
+      ? `${colors.green_5fb700}`
+      : RatingNum < 3
+      ? `${colors.red_ed1b2e}`
+      : `${colors.yellow_f5a623}`;
+  const ratingIcon =
+    RatingNum > 3 ? GreenStar : RatingNum < 3 ? RedStar : YellowStar;
   return (
-    <RatingConatiner RatingNum={RatingNum}>
-      <RatingImage
-        src={RatingNum > 3 ? GreenStar : RatingNum < 3 ? RedStar : YellowStar}
-      />
-      <RatingNumber RatingNum={RatingNum}>{RatingNum}</RatingNumber>
+    <RatingConatiner ratingColor={ratingColor} className={className}>
+      <RatingImage src={ratingIcon} className={className} />
+      <RatingNumber
+        RatingNum={RatingNum}
+        className={className}
+        ratingColor={ratingColor}
+      >
+        {RatingNum}
+      </RatingNumber>
     </RatingConatiner>
   );
 };
 
-const RatingConatiner = styled.div<{ RatingNum: number }>`
+const RatingConatiner = styled.div<{ ratingColor: string }>`
   box-sizing: border-box;
-  height: 26px;
-  width: 46px;
+  height: ${(props) => (props.className === "reverse-color" ? "18px" : "26px")};
+  width: ${(props) => (props.className === "reverse-color" ? "32px" : "46px")};
   border: ${sizes.size1} solid
     ${(props) =>
-      props.RatingNum > 3
-        ? `${colors.green_5fb700}`
-        : props.RatingNum < 3
-        ? `${colors.red_ed1b2e}`
-        : `${colors.yellow_f5a623}`};
+      props.className === "reverse-color" ? "none" : props.ratingColor};
   border-radius: ${sizes.size4};
   margin-right: 17.13px;
+  background: ${(props) =>
+    props.className === "reverse-color"
+      ? props.ratingColor
+      : `${colors.transparentColor}`};
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3px;
 `;
 
-const RatingNumber = styled.span<{ RatingNum: number }>`
+const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
   height: 17px;
   color: ${(props) =>
-    props.RatingNum > 3
-      ? `${colors.green_5fb700}`
-      : props.RatingNum < 3
-      ? `${colors.red_ed1b2e}`
-      : `${colors.yellow_f5a623}`};
+    props.className === "reverse-color"
+      ? `${colors.white_ffffff}`
+      : props.ratingColor};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
@@ -47,7 +65,11 @@ const RatingNumber = styled.span<{ RatingNum: number }>`
 
 const RatingImage = styled.img`
   vertical-align: middle;
-  margin-left: 8.61px;
-  margin-right: 4.22px;
+  height: ${(props) => (props.className === "reverse-color" ? "9px" : "auto")};
+  width: ${(props) => (props.className === "reverse-color" ? "9px" : "auto")};
+  filter: ${(props) =>
+    props.className === "reverse-color"
+      ? "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(100%)"
+      : "none"};
 `;
 export default DeliveryRating;

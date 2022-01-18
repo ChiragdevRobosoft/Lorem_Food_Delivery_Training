@@ -16,6 +16,7 @@ export const colors = {
   black_313131: "rgba(49, 49, 49, 1)",
   black_2d2d2d: "rgba(45, 45, 45, 1)",
   grey_bdbdbd: "#bdbdbd",
+  grey_b9b9b9: "rgba(185, 185, 185, 1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
   grey_c6c6c6_5: "rgba(198, 198, 198, 0.5)",
   grey_d8d8d8: "#d8d8d8", //grey14
