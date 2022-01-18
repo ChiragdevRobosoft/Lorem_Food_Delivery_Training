@@ -11,7 +11,9 @@ export const colors = {
   black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
   black_000000_05: "rgba(0, 0, 0, 0.5)",
   black_000000_07: "rgba(0,0,0,0.07)",
+  black_000000_3: "rgba(0,0,0,0.3)",
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
+  black_313131: "rgba(49, 49, 49, 1)",
   grey_bdbdbd: "#bdbdbd",
   grey_b9b9b9: "rgba(185, 185, 185, 1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
@@ -50,6 +52,8 @@ export const colors = {
   grey_979797_19: "rgba(151, 151, 151, 0.19)", //grey1 #979797
   grey_1c1c1c: "rgba(28,28,28,1)",
   grey_1f1f1f: "rgba(31, 31, 31,1)",
+  grey_7b7676: "rgba(123, 118, 118, 1)",
+  grey_909090: "rgba(144, 144, 144, 1)",
   pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
   pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
   pink_fda5a3: "#FDA5A3", //pink3
@@ -67,6 +71,7 @@ export const colors = {
   orange_faa369: "rgba(250, 163, 105, 1)",
   orange_f5867b: "rgba(245, 134, 123, 1)",
   orange_f99f6c: "rgba(249, 159, 108, 1)",
+  orange_fda200: "rgba(253, 162, 0, 1)",
   blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
@@ -75,6 +80,7 @@ export const colors = {
   blue_cecfd4: "rgba(206, 207, 212,1)",
   green_5fb700: "rgba(95,183,0,1)",
   green_49bb5c: "rgba(73, 187, 92,1)",
+  green_72b000: "rgba(114, 176, 0, 1)",
   green_64ae12: "rgba(100, 174, 18,1)",
   red_ff0d0d: "rgba(255,13,13,1)",
   red_f67e7e_38: "rgba(246, 126, 126, 0.38)",
@@ -86,9 +92,12 @@ export const colors = {
 export const sizes = {
   sizep4: "4%",
   sizeNeg0_48: "-0.48px",
+  sizeNeg0_26: "-0.26px",
   sizeNeg0_27: "-0.27px",
+  sizeNeg0_29: "-0.29px",
   sizeNeg0_24: "-0.24px",
   sizeNeg0_18: "-0.18px",
+  sizeNeg0_34: "-0.34px",
   sizeNeg0_17: "-0.17px",
   widthp35: "35%",
   sizeNeg7: "-7px",
@@ -129,6 +138,8 @@ export const sizes = {
   size27_25: "27.25px",
   size28: "28px",
   size30: "30px",
+  size31: "31px",
+  size33: "33px",
   size34: "34px",
   size50: "50px",
   size60: "60px",
@@ -145,6 +156,7 @@ export const sizes = {
   size39: "39px",
   size40: "40px",
   size41: "41px",
+  size42: "42px",
   size43: "43px",
   size44: "44px",
   size53: "53px",
