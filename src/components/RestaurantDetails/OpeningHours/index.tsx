@@ -147,7 +147,11 @@ const WorkHoursLabel = styled(Label)`
   color: ${colors.transparentColor};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   letter-spacing: ${sizes.sizeNeg0_17};
-  background-image: linear-gradient(${angles.angle60}, #f27489, #fbab64);
+  background-image: linear-gradient(
+    ${angles.angle60},
+    ${colors.pink_f27489},
+    ${colors.orange_fbab64}
+  );
   background-clip: text;
   -webkit-background-clip: text;
 `;
