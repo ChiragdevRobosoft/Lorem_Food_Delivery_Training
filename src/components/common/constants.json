@@ -514,5 +514,15 @@
     }
   ],
   "reviews": " reviews, ",
-  "ratings": " ratings"
+  "ratings": " ratings",
+  "ratingCardData": {
+    "title": "Rate your experience",
+    "foodServiceData": ["Food", "Service"],
+    "saved": "Saved",
+    "reviewTitle": "Write a review",
+    "reviewLabel": "Start writing your review",
+    "imageUploadTitle": "+ Add image",
+    "buttonText": "Submit",
+    "ratingNumbers": [1, 2, 3, 4, 5]
+  }
 }

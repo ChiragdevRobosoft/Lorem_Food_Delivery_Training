@@ -27,6 +27,7 @@ export const colors = {
   grey_4a4a4a: "rgba(74, 74, 74, 1)", //grey5 #4a4a4a
   grey_4c4c4c: "#4c4c4c", //grey5 hexversion
   grey_5e5e5e: "rgba(94, 94, 94,1)",
+  grey_565454: "rgba(86, 84, 84, 1)",
   grey_6a6a6a: "#6a6a6a", //grey13
   grey_6f6f6f: "rgba(111, 111, 111,1)",
   grey_606060: "rgba(96, 96, 96,1)",

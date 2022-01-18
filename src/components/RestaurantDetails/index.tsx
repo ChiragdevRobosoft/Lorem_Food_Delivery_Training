@@ -51,7 +51,6 @@ const RestaurantDetails = () => {
             })}
           </DetailsContainer>
         </ImageContentSection>
-
         <NavBar>
           {data.NavbarElements.map((navbarElement, index) => {
             return navbarElement === selected ? (
@@ -168,6 +167,7 @@ const DetailsContainer = styled.div`
   position: absolute;
   height: ${(props) => (props.className === "first-row" ? "23px" : "26px")};
   top: ${(props) => (props.className === "first-row" ? "203px" : "282px")};
+  width: ${(props) => (props.className === "first-row" ? "auto" : "297px")};
   display: flex;
   flex-direction: row;
   justify-content: space-between;

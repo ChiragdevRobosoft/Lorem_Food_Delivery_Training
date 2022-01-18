@@ -1,14 +1,15 @@
 import React, { FC } from "react";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 import RedStar from "../../../assets/restaurantDetails/icn_star_red.png";
 import YellowStar from "../../../assets/restaurantDetails/icn_star_yellow.png";
 import GreenStar from "../../../assets/restaurantDetails/icn_star_green.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
 
-const DeliveryRating: FC<{ RatingNum: number; className?: string }> = ({
-  RatingNum,
-  className,
-}) => {
+const DeliveryRating: FC<{
+  RatingNum: number;
+  className?: string;
+  style?: CSSProperties;
+}> = ({ RatingNum, className, style }) => {
   const ratingColor =
     RatingNum > 3
       ? `${colors.green_5fb700}`
@@ -18,7 +19,11 @@ const DeliveryRating: FC<{ RatingNum: number; className?: string }> = ({
   const ratingIcon =
     RatingNum > 3 ? GreenStar : RatingNum < 3 ? RedStar : YellowStar;
   return (
-    <RatingConatiner ratingColor={ratingColor} className={className}>
+    <RatingConatiner
+      ratingColor={ratingColor}
+      className={className}
+      style={style}
+    >
       <RatingImage src={ratingIcon} className={className} />
       <RatingNumber
         RatingNum={RatingNum}
@@ -33,13 +38,22 @@ const DeliveryRating: FC<{ RatingNum: number; className?: string }> = ({
 
 const RatingConatiner = styled.div<{ ratingColor: string }>`
   box-sizing: border-box;
-  height: ${(props) => (props.className === "reverse-color" ? "18px" : "26px")};
-  width: ${(props) => (props.className === "reverse-color" ? "32px" : "46px")};
+  height: ${(props) =>
+    props.style?.height
+      ? props.style.height
+      : props.className === "reverse-color"
+      ? "18px"
+      : "26px"};
+  width: ${(props) =>
+    props.style?.width
+      ? props.style.width
+      : props.className === "reverse-color"
+      ? "32px"
+      : "46px"};
   border: ${sizes.size1} solid
     ${(props) =>
       props.className === "reverse-color" ? "none" : props.ratingColor};
   border-radius: ${sizes.size4};
-  margin-right: 17.13px;
   background: ${(props) =>
     props.className === "reverse-color"
       ? props.ratingColor
