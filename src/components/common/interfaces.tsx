@@ -53,6 +53,12 @@ export interface foodItemProps {
 export interface foodcardDetailsProps {
   [key: string]: foodItemProps[];
 }
+
+export interface AddressCardDetailsProps {
+  place: string;
+  address: string;
+  primaryStatus?: boolean;
+}
 export interface orderCardProps {
   orderId: string;
   hotelName: string;

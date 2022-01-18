@@ -417,6 +417,21 @@
     "timeRange": "11:00 AM - 10:00 PM",
     "ratingTitle": "Delivery rating for last 5 orders"
   },
+  "addressCardDetails": [
+    {
+      "place": "Home",
+      "address": "Downtown Burj Khalifa, Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab EmiratesDubai, UAE",
+      "primaryStatus": true
+    },
+    {
+      "place": "Office",
+      "address": "A-214, 4th Burj Khalifa, Dubai, UAE -Dubai - United Arab EmiratesDubai, UAE",
+      "primaryStatus": false
+    }
+  ],
+  "primary": "Primary",
+  "edit": "Edit",
+  "Delete": "Delete",
   "orderCardData": [
     {
       "orderId": "1234567890",
