@@ -18,77 +18,28 @@ const AddressCard: FC<{ cardDetails: AddressCardDetailsProps }> = ({
   const [primaryCheck, setPrimaryCheck] = useState(cardDetails.primaryStatus);
   return (
     <CardContainer>
-      <Label
-        content={cardDetails.place}
-        height="19px"
-        width="39px"
-        color={colors.grey_6a6a6a}
-        fontFamily={fontFamilies.fontFamilyOsRegular}
-        fontSize={sizes.size14}
-        letterSpacing={letterSpacing.spaceNeg0_27}
-        lineHeight={sizes.size19}
-      />
+      <PlaceLabel content={cardDetails.place} />
       <AddressBox>
-        <Label
-          content={cardDetails.address}
-          height="84px"
-          width="387px"
-          color={colors.black_2d2d2d}
-          fontFamily={fontFamilies.fontFamilyOsRegular}
-          fontSize={sizes.size18}
-          letterSpacing={letterSpacing.spaceNeg0_3}
-          lineHeight={sizes.size28}
-        />
+        <AddressLabel content={cardDetails.address} />
       </AddressBox>
       <EditDeleteButton>
-        <Label
-          content={data.edit}
-          height="22px"
-          width="30px"
-          color={colors.orange_f57c00}
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize={sizes.size16}
-          letterSpacing={letterSpacing.space0}
-          lineHeight={sizes.size22}
-        />
-        <Label
-          content={data.Delete}
-          height="22px"
-          width="30px"
-          color={colors.orange_f57c00}
-          font-family={fontFamilies.fontFamilyOsSemiBold}
-          font-size={sizes.size16}
-          letter-spacing={letterSpacing.space0}
-          line-height={sizes.size22}
-        />
+        <EditLabel content={data.edit} />
+        <DeleteLabel content={data.Delete} />
       </EditDeleteButton>
-
       <TickBox onClick={() => setPrimaryCheck(!primaryCheck)}>
         <img
           src={primaryCheck === true ? Checked : Unchecked}
           className="checked"
         ></img>
-        <Label
+        <PrimaryLabel
           content={data.primary}
-          height="19px"
-          width="52px"
-          color={
-            primaryCheck === true
-              ? `${colors.grey_6a6a6a}`
-              : `${colors.grey_b8b8b8}`
-          }
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize={sizes.size14}
-          letterSpacing={letterSpacing.spaceNeg0_27}
-          lineHeight={sizes.size19}
-          marginLeft="11px"
+          className={`${primaryCheck?.toString()}`}
         />
       </TickBox>
     </CardContainer>
   );
 };
 export default AddressCard;
-
 const CardContainer = styled.div`
   height: 186px;
   width: 469px;
@@ -120,4 +71,44 @@ const TickBox = styled.div`
   display: flex;
   flex-direction: row;
   cursor: pointer;
+`;
+const PlaceLabel = styled(Label)`
+  height: 19px;
+  width: 39px;
+  color: ${colors.grey_6a6a6a};
+  font-size: ${sizes.size14};
+  letter-spacing: ${letterSpacing.spaceNeg0_27};
+  line-height: ${sizes.size19};
+`;
+const AddressLabel = styled(Label)`
+  height: 84px;
+  width: 387px;
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  color: ${colors.black_2d2d2d};
+  font-size: ${sizes.size18};
+  letter-spacing: ${letterSpacing.spaceNeg0_3};
+  line-height: ${sizes.size28};
+`;
+const EditLabel = styled(Label)`
+  width: 30px;
+  color: ${colors.orange_f57c00};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+`;
+const DeleteLabel = styled(Label)`
+  width: 30px;
+  color: ${colors.orange_f57c00};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+`;
+const PrimaryLabel = styled(Label)<{ className: string }>`
+  height: 19px;
+  width: 52px;
+  color: ${(props) =>
+    props.className === "true"
+      ? `${colors.grey_6a6a6a}`
+      : `${colors.grey_b8b8b8}`};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  letter-spacing: ${letterSpacing.spaceNeg0_27};
+  line-height: ${sizes.size19};
+  margin-left: 11px;
 `;
