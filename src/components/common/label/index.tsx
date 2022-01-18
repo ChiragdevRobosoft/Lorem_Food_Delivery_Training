@@ -16,8 +16,8 @@ const Label: FC<labelProps> = (props) => {
 };
 export default Label;
 const LabelText = styled.label`
-  height: "22px";
-  width: "auto";
+  height: 22px;
+  width: auto;
   color: ${colors.grey_858585};
   font-family: ${fontFamilies.fontFamilyOsRegular}
   font-size: ${sizes.size16};
