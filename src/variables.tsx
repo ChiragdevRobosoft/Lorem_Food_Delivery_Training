@@ -14,7 +14,9 @@ export const colors = {
   black_000000_3: "rgba(0,0,0,0.3)",
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_313131: "rgba(49, 49, 49, 1)",
+  black_2d2d2d: "rgba(45, 45, 45, 1)",
   grey_bdbdbd: "#bdbdbd",
+  grey_b9b9b9: "rgba(185, 185, 185, 1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
   grey_c6c6c6_5: "rgba(198, 198, 198, 0.5)",
   grey_d8d8d8: "#d8d8d8", //grey14
@@ -53,11 +55,13 @@ export const colors = {
   grey_1f1f1f: "rgba(31, 31, 31,1)",
   grey_7b7676: "rgba(123, 118, 118, 1)",
   grey_909090: "rgba(144, 144, 144, 1)",
+  grey_b8b8b8: "rgba(184, 184, 184, 1)",
   pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
   pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
   pink_fda5a3: "#FDA5A3", //pink3
   pink_d34836: "rgba(211, 72, 54, 1)", //pink4
   pink_f2738a: "rgba(242, 115, 138, 1)",
+  pink_f27489: "rgba(242, 116, 137, 1)",
   yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
   yellow_f5a623: "rgba(245,166,35,1)",
@@ -71,6 +75,7 @@ export const colors = {
   orange_f5867b: "rgba(245, 134, 123, 1)",
   orange_f99f6c: "rgba(249, 159, 108, 1)",
   orange_fda200: "rgba(253, 162, 0, 1)",
+  orange_fbab64: "rgba(251, 171, 100, 1)",
   blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
   blue_f3f6ff: "#f3f6ff", //lightblue1
   blue_f4f6ff: "#f4f6ff", //lightblue2
@@ -326,6 +331,8 @@ export const letterSpacing = {
   space0_58: "0.58",
   space0_64: "0.64px",
   space3_66: "3.66",
+  spaceNeg0_27: "-0.27px",
+  spaceNeg0_3: "-0.3px",
 };
 
 export const links = {

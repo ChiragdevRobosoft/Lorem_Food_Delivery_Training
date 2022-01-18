@@ -17,34 +17,22 @@ interface labelProps {
   marginTop?: string;
   marginBottom?: string;
   margin?: string;
+  htmlFor?: string;
 }
 const Label: FC<labelProps> = (props) => {
   return (
-    <TextBoxLabel style={props} className={props.className}>
+    <LabelText className={props.className} htmlFor={props.htmlFor}>
       {props.content}
-    </TextBoxLabel>
+    </LabelText>
   );
 };
 export default Label;
-const TextBoxLabel = styled.div`
-  height: ${(props) => (props.style?.height ? props.style.height : "22px")};
-  width: ${(props) => (props.style?.width ? props.style.width : "auto")};
-  color: ${(props) =>
-    props.style?.color ? props.style.color : `${colors.grey_858585}`};
-  font-family: ${(props) =>
-    props.style?.fontFamily
-      ? props.style.fontFamily
-      : `${fontFamilies.fontFamilyOsRegular}`};
-  font-size: ${(props) =>
-    props.style?.fontSize ? props.style.fontSize : `${sizes.size16}`};
-  letter-spacing: ${(props) =>
-    props.style?.letterSpacing
-      ? props.style.letterSpacing
-      : `${sizes.sizeNeg0_27}`};
-  line-height: ${(props) =>
-    props.style?.lineHeight ? props.style.lineHeight : `${sizes.size22}`};
-  margin-left: ${(props) => props.style?.marginLeft};
-  margin-right: ${(props) => props.style?.marginRight};
-  margin-top: ${(props) => props.style?.marginTop};
-  margin-bottom: ${(props) => props.style?.marginBottom};
+const LabelText = styled.label`
+  height: 22px;
+  width: auto;
+  color: ${colors.grey_858585};
+  font-family: ${fontFamilies.fontFamilyOsRegular}
+  font-size: ${sizes.size16};
+  letter-spacing:${sizes.size0};
+  line-height: ${sizes.size22};
 `;

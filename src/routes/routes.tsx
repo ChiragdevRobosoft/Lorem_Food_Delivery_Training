@@ -7,7 +7,7 @@ import Profile from "../components/profile";
 import Menu from "../components/RestaurantDetails/Menu";
 import Overview from "../components/RestaurantDetails/Overview";
 import { links } from "../variables";
-import OrderCard from "../components/common/orderCard";
+import AddressCard from "../components/common/addressCard";
 
 const Routing = () => {
   return (

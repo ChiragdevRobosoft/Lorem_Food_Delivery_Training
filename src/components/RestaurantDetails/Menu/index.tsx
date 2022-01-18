@@ -57,10 +57,11 @@ const Menu = () => {
 const Wrapper = styled.div`
   width: 972px;
   position: relative;
-  padding-bottom: 323px;
+  padding-bottom: 76px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 30px;
 `;
 
 const Searchbar = styled.input`

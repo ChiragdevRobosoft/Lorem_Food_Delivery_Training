@@ -10,10 +10,7 @@ const Overview = () => {
   return (
     <Wrapper>
       <Title content={data.overviewData[0].title} />
-      <Content
-        content={data.overviewData[0].content}
-        color={colors.grey_4a4a4a}
-      />
+      <Content content={data.overviewData[0].content} className="first-row" />
       <DescriptionLine className="details">
         {data.overviewData.map((description, index) => {
           if (index !== 0) {
@@ -21,13 +18,10 @@ const Overview = () => {
               <React.Fragment key={index}>
                 <DescriptionContainer className="cuisines">
                   <Title content={description.title} />
-                  <Content
-                    content={description.content}
-                    color={colors.grey_7c7c7c}
-                  />
+                  <Content content={description.content} />
                 </DescriptionContainer>
                 {index !== data.overviewData.length - 1 ? (
-                  <LineBreak height={index === 1 ? "101px" : "77px"} />
+                  <LineBreak height={index === 1 ? "long" : "short"} />
                 ) : null}
               </React.Fragment>
             );
@@ -50,7 +44,8 @@ const Overview = () => {
 
 const Wrapper = styled.div`
   width: 972px;
-  padding-bottom: 200px;
+  margin-top: 38px;
+  padding-bottom: 66px;
 `;
 
 const DescriptionLine = styled.div<{ className?: string }>`
@@ -69,24 +64,28 @@ const LineBreak = styled.hr<{ height: string }>`
   width: 2px;
   margin: 0;
   box-sizing: border-box;
-  height: ${(props) => props.height};
+  height: ${(props) => (props.height === "long" ? "101px" : "77px")};
   border: ${sizes.size1} solid ${colors.grey_979797};
   opacity: ${opacity.opacity0_19};
 `;
 
 const Title = styled(Label)`
+  display: block;
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  letter-spacing: ${sizes.size0};
   margin-bottom: 9px;
 `;
 
-const Content = styled(Label)`
+const Content = styled(Label)<{ className?: string }>`
   height: auto;
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
-  line-height: ${sizes.size24};
+  line-height: ${(props) =>
+    props.className === "first-row" ? `${sizes.size24}` : `${sizes.size17}`};
+  color: ${(props) =>
+    props.className === "first-row"
+      ? `${colors.grey_4a4a4a}`
+      : `${colors.grey_7c7c7c}`};
 `;
 
 const MapImage = styled.img``;

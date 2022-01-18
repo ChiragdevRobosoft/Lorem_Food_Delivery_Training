@@ -417,6 +417,21 @@
     "timeRange": "11:00 AM - 10:00 PM",
     "ratingTitle": "Delivery rating for last 5 orders"
   },
+  "addressCardDetails": [
+    {
+      "place": "Home",
+      "address": "Downtown Burj Khalifa, Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab EmiratesDubai, UAE",
+      "primaryStatus": true
+    },
+    {
+      "place": "Office",
+      "address": "A-214, 4th Burj Khalifa, Dubai, UAE -Dubai - United Arab EmiratesDubai, UAE",
+      "primaryStatus": false
+    }
+  ],
+  "primary": "Primary",
+  "edit": "Edit",
+  "Delete": "Delete",
   "orderCardData": [
     {
       "orderId": "1234567890",
@@ -502,6 +517,49 @@
   "workHoursTitle": "Work hours for next 7 days  ",
   "openingHoursTitle": "Opening Hours",
   "mapTitle": "Get Direction",
+  "reviewCard": [
+    {
+      "name": "John Doe",
+      "reviewsCount": 2,
+      "ratingsCount": 30,
+      "ratingNum": 4,
+      "reviews": "Offers homely and delicious Indian food choices. The rajma chawal, chana bhature, pav bhaaji, kheer and paan mint shisha are all great. The service is good and staff are friendly. We also liked their playlist, it was a mix of Indian and Western songs.",
+      "date": "March 15, 2018",
+      "likesCount": 45,
+      "images": 0
+    },
+    {
+      "name": "Mohamed Ali",
+      "reviewsCount": 2,
+      "ratingsCount": 30,
+      "ratingNum": 4,
+      "date": "March 15, 2018",
+      "likesCount": 45,
+      "images": 0
+    },
+    {
+      "name": "Amir",
+      "reviewsCount": 2,
+      "ratingsCount": 30,
+      "ratingNum": 4,
+      "reviews": "Offers homely and delicious Indian food choices. The rajma chawal, chana bhature, pav bhaaji, kheer and paan mint shisha are all great. The service is good and staff are friendly. We also liked their playlist, it was a mix of Indian and Western songs.",
+      "date": "March 15, 2018",
+      "likesCount": 45,
+      "images": 4
+    },
+    {
+      "name": "John Doe",
+      "reviewsCount": 2,
+      "ratingsCount": 30,
+      "ratingNum": 4,
+      "reviews": "Offers homely and delicious Indian food choices. The rajma chawal, chana bhature, pav bhaaji, kheer and paan mint shisha are all great. The service is good and staff are friendly. We also liked their playlist, it was a mix of Indian and Western songs.",
+      "date": "March 15, 2018",
+      "likesCount": 45,
+      "images": 0
+    }
+  ],
+  "reviews": " reviews, ",
+  "ratings": " ratings",
   "profile": {
     "name": "Abdulla",
     "edit": "Edit",
