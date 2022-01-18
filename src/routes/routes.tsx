@@ -9,6 +9,7 @@ import { links } from "../variables";
 import Cart from "../components/cart";
 import CartItems from "../components/cart/cart-items";
 import OrderCard from "../components/common/orderCard";
+import ProceedPayment from "../components/cart/proceed-payment";
 
 const Routing = () => {
   return (
@@ -20,8 +21,9 @@ const Routing = () => {
           <Route path={links.menu} element={<Menu />} />
           <Route path={links.overview} element={<Overview />} />
         </Route>
-        <Route path="" element={<Cart />}>
-          <Route path="/cart-items" element={<CartItems />} />
+        <Route path={links.cart} element={<Cart />}>
+          <Route path={links.cartItems} element={<CartItems />} />
+          <Route path={links.proceedPayment} element={<ProceedPayment />} />
         </Route>
       </Routes>
     </CartDataProvider>

@@ -12,7 +12,6 @@ const Cart = () => {
     <Wrapper>
       <Header className="loggedin" />
       <Foodsearch pageType="screen" />
-      <Searchpath path={data.searchPath.menu1} className="grey-dark" />
       <Outlet />
       <Footer />
     </Wrapper>
@@ -25,8 +24,3 @@ const Wrapper = styled.div`
   width: 100%;
   background: ${colors.violet_f1f3fb};
 `;
-
-// const PageSection = styled.div`
-//   height: 100vh;
-//   width: 100%;
-// `;

@@ -8,7 +8,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import Label from "../../common/label";
 import Buttons from "../../common/button";
 
-const CartItems = () => {
+const ProceedPayment = () => {
   const [cartItems, setCartItems] = useState(data.cartContents.myCart);
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     setCartItems([]);
@@ -26,65 +26,15 @@ const CartItems = () => {
           letterSpacing="0"
           lineHeight="30px"
         />
-        <CardContainer>
-          {data.cartContents.myCart.map((info, index) => {
-            return (
-              <Cartcard key={index}>
-                <Label
-                  content={info.restaurantName}
-                  color="#223136"
-                  fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-                  letterSpacing="0"
-                />
-                <Remove className="remove" onClick={handleClick} id={info.id}>
-                  {data.cartData.remove}
-                </Remove>
-                <Label
-                  content={info.address}
-                  height="17px"
-                  color="#757575"
-                  fontFamily={`${fontFamilies.fontFamilyOsRegular}`}
-                  fontSize="12px"
-                  lineHeight="17px"
-                  letterSpacing="0"
-                  marginTop="4px"
-                />
-                <Label
-                  content={info.orderDetails}
-                  height="17px"
-                  color="#2D2D2D"
-                  fontFamily={`${fontFamilies.fontFamilyOsBold}`}
-                  fontSize="12px"
-                  lineHeight="17px"
-                  letterSpacing="0"
-                  marginTop="7px"
-                />
-                <Link to={""}>
-                  <Buttons
-                    name={data.cartContents.proceed}
-                    className="proceed-button"
-                    height="30px"
-                    width="111px"
-                    borderRadius="15px"
-                    boxShadow="none"
-                    fontFamily={fontFamilies.fontFamilyOsSemiBold}
-                    fontSize="14px"
-                    lineHeight="19px"
-                    border={`1px solid ${colors.pink_e21143_09}`}
-                  />
-                </Link>
-              </Cartcard>
-            );
-          })}
-        </CardContainer>
       </ContentContainer>
     </PageSection>
   );
 };
-export default CartItems;
+export default ProceedPayment;
 
 const PageSection = styled.div`
   width: 100%;
+  border: 1px solid black;
 `;
 
 const ContentContainer = styled.div`
@@ -96,6 +46,7 @@ const ContentContainer = styled.div`
   margin-right: auto;
   margin-bottom: auto;
   padding-bottom: 10px;
+  border: 1px solid black;
 `;
 
 const CardContainer = styled.div`

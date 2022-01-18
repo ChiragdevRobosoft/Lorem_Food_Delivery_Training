@@ -424,21 +424,25 @@
     "proceed": "PROCEED",
     "myCart": [
       {
+        "id": "1",
         "restaurantName": "The Boutique Kitchen",
         "address": "Shiekh Zayed Road, Dubai, UAE",
         "orderDetails": "3 Items  |  AED85.76"
       },
       {
+        "id": "2",
         "restaurantName": "Karavalli Lunch Home",
         "address": "Shiekh Zayed Road, Dubai, UAE",
         "orderDetails": "2 Items  |  AED85.76"
       },
       {
+        "id": "3",
         "restaurantName": "Operation: Falafel",
         "address": "Shiekh Zayed Road, Dubai, UAE",
         "orderDetails": "3 Items  |  AED85.76"
       },
       {
+        "id": "4",
         "restaurantName": "Operation: Falafel",
         "address": "Shiekh Zayed Road, Dubai, UAE",
         "orderDetails": "3 Items  |  AED85.76"
