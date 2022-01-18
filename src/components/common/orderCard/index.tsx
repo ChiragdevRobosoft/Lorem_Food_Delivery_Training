@@ -8,73 +8,19 @@ import { orderCardProps } from "../interfaces";
 const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
   return (
     <CardContainer>
-      <Label
-        content={data.orderIdText + cardDetails.orderId}
-        height="30px"
-        width="220px"
-        color={colors.black_313131}
-        fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-        fontSize={sizes.size22}
-        letterSpacing={sizes.sizeNeg0_34}
-        lineHeight={sizes.size30}
-        marginBottom="10px"
-      />
-      <Label
-        content={cardDetails.hotelName}
-        height="23px"
-        width="165px"
-        color={colors.grey_4c4c4c}
-        fontFamily={`${fontFamilies.fontFamilyOsRegular}`}
-        fontSize={sizes.size17}
-        letterSpacing={sizes.sizeNeg0_29}
-        lineHeight={sizes.size23}
-        marginTop="10px"
-      />
-      <Label
-        content={cardDetails.address}
-        height="18px"
-        width="188px"
-        color={colors.grey_909090}
-        font-family={`${fontFamilies.fontFamilyOsRegular}`}
-        font-size={sizes.size13}
-        letter-spacing={sizes.sizeNeg0_26}
-        line-height={sizes.size18}
-        margin-top="10px"
-      />
-      <ItemsSelected>
-        <Label
-          content={cardDetails.Items + data.ItemText}
-          height="19px"
-          color={colors.grey_4c4c4c}
-          fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-          fontSize={sizes.size14}
-          letterSpacing="0"
-          lineHeight={sizes.size19}
-          width="none"
-        />
-        <LineBreak />
-        <Label
-          content={data.costUnit + cardDetails.Costs}
-          height="19px"
-          color={colors.grey_4c4c4c}
-          fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-          fontSize={sizes.size14}
-          letterSpacing="0"
-          lineHeight={sizes.size19}
-          width="none"
-        />
-      </ItemsSelected>
-      <Delivery>
-        <Label
-          content={cardDetails.DeliveryStatus}
-          height="19px"
-          color={colors.green_72b000}
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize={sizes.size14}
-          letterSpacing="0"
-          lineHeight={sizes.size19}
-        />
-      </Delivery>
+      <DetailsContainer>
+        <DeliveryStatusContainer>
+          <OrderIdLabel content={data.orderIdText + cardDetails.orderId} />
+          <DeliveryStatusLabel content={cardDetails.DeliveryStatus} />
+        </DeliveryStatusContainer>
+        <RestaurantLabel content={cardDetails.hotelName} />
+        <AddressLabel content={cardDetails.address} />
+        <ItemsSelected>
+          <ItemsLabel content={cardDetails.Items + data.ItemText} />
+          <LineBreak />
+          <CostLabel content={data.costUnit + cardDetails.Costs} />
+        </ItemsSelected>
+      </DetailsContainer>
       <ButtonContainer>
         <Buttons
           name={data.details}
@@ -120,8 +66,6 @@ const ItemsSelected = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 44px;
   width: 136px;
   justify-content: space-between;
 `;
@@ -138,10 +82,59 @@ const ButtonContainer = styled.div`
   flex-directiom: row;
   justify-content: flex-end;
   gap: 19px;
+  margin-top: 44px;
 `;
-const Delivery = styled.div`
-  text-align: right;
-  position: absolute;
-  right: 31px;
-  top: 37px;
+const OrderIdLabel = styled(Label)`
+  height: 30px;
+  color: ${colors.black_313131};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size22};
+  letter-spacing: ${sizes.sizeNeg0_34};
+  line-height: ${sizes.size30};
+`;
+const RestaurantLabel = styled(Label)`
+  height: 23px;
+  color: ${colors.grey_4c4c4c};
+  font-size: ${sizes.size17};
+  letter-spacing: ${sizes.sizeNeg0_29};
+  line-height: ${sizes.size23};
+`;
+const AddressLabel = styled(Label)`
+  height: 18px;
+  color: ${colors.grey_909090};
+  font-size: ${sizes.size13};
+  letter-spacing: ${sizes.sizeNeg0_26};
+  line-height: ${sizes.size18};
+`;
+const ItemsLabel = styled(Label)`
+  height: 19px;
+  color: ${colors.grey_4c4c4c};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  line-height: ${sizes.size19};
+`;
+const CostLabel = styled(Label)`
+  height: 19px;
+  color: ${colors.grey_4c4c4c};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  line-height: ${sizes.size19};
+`;
+const DeliveryStatusLabel = styled(Label)`
+  height: 19px;
+  color: ${colors.green_72b000};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  line-height: ${sizes.size19};
+`;
+const DetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+const DeliveryStatusContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 `;
