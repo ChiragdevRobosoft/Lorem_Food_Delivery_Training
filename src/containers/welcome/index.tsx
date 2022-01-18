@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import registerSuccess from "../../assets/register_success.png";
-import { useNavigate } from "react-router-dom";
 import Buttons from "../../components/common/button/index";
 import closeButton from "../../assets/close_button.png";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import data from "./../../components/common/constants.json";
-import {
-  sizes,
-  colors,
-  fontFamilies,
-  fontWeight,
-  links,
-} from "../../variables";
+import { sizes, colors, fontFamilies, fontWeight } from "../../variables";
 const RegisterSuccess = ({
   onCloseModal,
   onOpenModal,
@@ -25,8 +18,6 @@ const RegisterSuccess = ({
   open: boolean;
   setShowRegisterSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const history = useNavigate();
-
   return (
     <Modal
       open={open}
@@ -60,10 +51,8 @@ const RegisterSuccess = ({
           <SuccessImage>
             <img src={registerSuccess} className="registersuccess"></img>
           </SuccessImage>
-          <Title>Hi Abdulla, Welcome to Zadoh</Title>
-          <Discription>
-            We’ve sent you an email on abdulla.mohammad for verification.
-          </Discription>
+          <Title>{data.loginModal.welcomePage.title}</Title>
+          <Discription>{data.loginModal.welcomePage.description}</Discription>
           <BrowseButton>
             <Buttons
               className="colouredBgButton"
@@ -97,31 +86,31 @@ const Discription = styled.div`
 `;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
-  height: ${sizes.size588};
-  width: ${sizes.size480};
+  height: 588px;
+  width: 480px;
   text-align: left;
   padding-left: ${sizes.sizep4};
-  margin-right: ${sizes.sizen40};
+  margin-right: -40px;
 `;
 const Lorem = styled.p`
-  height: ${sizes.size60};
-  width: ${sizes.size103};
+  height: 60px;
+  width: 103px;
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyBn};
   font-size: ${sizes.size50};
-  margin-bottom: ${sizes.size30};
-  margin-top: ${sizes.size150};
+  margin-bottom: 30px;
+  margin-top: 150px;
   letter-spacing: 0;
   line-height: ${sizes.size60};
   text-align: center;
 `;
 const BrowseButton = styled.div`
-  margin-top: ${sizes.size50};
+  margin-top: 50px;
   margin-left: 15px;
 `;
 const SuccessImage = styled.div`
-  height: ${sizes.size5};
-  width: ${sizes.size25};
+  height: 5px;
+  width: 25px;
   margin-left: 150px;
   margin-top: 120px;
 `;
@@ -135,8 +124,8 @@ const Title = styled.p`
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   margin-top: 210px;
   margin-left: 145px;
-  height: ${sizes.size30};
-  width: ${sizes.size200};
+  height: 30px;
+  width: 200px;
   font-family: ${fontFamilies.fontFamilyOsBold};
 `;
 const BoldText = styled.span`
@@ -144,8 +133,8 @@ const BoldText = styled.span`
   font-family: ${fontFamilies.fontFamilyOsBold};
 `;
 const TagLine = styled.div`
-  height: ${sizes.size132};
-  width: ${sizes.size330};
+  height: 132px;
+  width: 330px;
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size34};
@@ -156,8 +145,8 @@ const TagLine = styled.div`
   word-wrap: break-word;
 `;
 const Wrapper = styled.div`
-  height: ${sizes.size588};
-  width: ${sizes.size960};
+  height: 588px;
+  width: 960px;
   border-radius: ${sizes.size8};
   background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 24px 0 ${colors.black_000000_05};

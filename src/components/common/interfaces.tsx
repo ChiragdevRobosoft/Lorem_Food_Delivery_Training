@@ -58,3 +58,11 @@ export interface PaymentCardDetailsProps {
   cardType: string;
   primaryStatus?: boolean;
 }
+export interface orderCardProps {
+  orderId: string;
+  hotelName: string;
+  address: string;
+  Items: string;
+  Costs: string;
+  DeliveryStatus: string;
+}
