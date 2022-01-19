@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colors, sizes, fontFamilies, angles } from "../../variables";
 import Searchpath from "../common/Searchpath";
@@ -8,19 +8,13 @@ import RestaurantImg from "../../assets/restaurantDetails/Resturant Image.png";
 import Cutlery from "../../assets/restaurantDetails/restaurant-cutlery.png";
 import TimeIcon from "../../assets/restaurantDetails/time_icon.png";
 import DeliveryRating from "../common/DeliveryRating";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Footer from "../common/footer";
 import Header from "../common/header";
 import Foodsearch from "../common/SearchComponent";
+import Navbar from "../common/Navbar";
 
 const RestaurantDetails = () => {
-  const location = useLocation();
-  const [selected, setSelected] = useState(
-    location.pathname.slice(1).toUpperCase()
-  );
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    setSelected((e.target as HTMLElement).innerText);
-  };
   return (
     <Wrapper>
       <Header className="loggedin" />
@@ -51,31 +45,12 @@ const RestaurantDetails = () => {
             })}
           </DetailsContainer>
         </ImageContentSection>
-
-        <NavBar>
-          {data.NavbarElements.map((navbarElement, index) => {
-            return navbarElement === selected ? (
-              <Navlink
-                to={`${navbarElement.split(" ").join("-").toLowerCase()}`}
-                key={index}
-              >
-                <NavBarElement className="select">
-                  {navbarElement}
-                  <Underline></Underline>
-                </NavBarElement>
-              </Navlink>
-            ) : (
-              <Navlink
-                to={`${navbarElement.split(" ").join("-").toLowerCase()}`}
-                key={index}
-              >
-                <NavBarElement onClick={handleClick}>
-                  {navbarElement}
-                </NavBarElement>
-              </Navlink>
-            );
-          })}
-        </NavBar>
+        <NavbarConatiner>
+          <Navbar
+            navbarElements={data.NavbarElements}
+            navbarType="restaurant-details"
+          />
+        </NavbarConatiner>
         <RoutingContainer>
           <Outlet />
         </RoutingContainer>
@@ -219,47 +194,12 @@ const RatingTitle = styled.div`
   border-bottom: ${sizes.size2} solid ${colors.white_ededed};
 `;
 
-const NavBar = styled.ul`
-  display: flex;
-  flex-direction: row;
+const NavbarConatiner = styled.div`
   width: 972px;
-  padding-left: 5px;
-  margin-top: 37px;
-  margin-bottom: 11px;
   margin-left: auto;
   margin-right: auto;
-`;
-
-const NavBarElement = styled.li`
-  margin-right: 60px;
-  list-style: none;
-  height: 19px;
-  color: ${colors.grey_1f1f1f};
-  font-family: ${(props) =>
-    props.className === "select"
-      ? `${fontFamilies.fontFamilyOsBold}`
-      : `${fontFamilies.fontFamilyOsSemiBold}`};
-  font-size: ${sizes.size14};
-  letter-spacing: ${sizes.size0};
-  line-height: ${sizes.size19};
-`;
-
-const Underline = styled.div`
-  height: 4px;
-  width: 38px;
-  margin-top: 11px;
-  border-radius: 2px;
-  background-image: linear-gradient(
-    ${angles.angle138_33},
-    ${colors.red_f3698e} 0%,
-    ${colors.yellow_feb456} 100%
-  );
-  box-shadow: ${sizes.size0} ${sizes.size4} ${sizes.size10} ${sizes.size0}
-    ${colors.red_f67e7e_38};
-`;
-
-const Navlink = styled(NavLink)`
-  text-decoration: none;
+  margin-top: 37px;
+  margin-bottom: 11px;
 `;
 
 const RoutingContainer = styled.div`
