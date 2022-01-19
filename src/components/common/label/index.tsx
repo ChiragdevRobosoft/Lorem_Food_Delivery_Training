@@ -5,6 +5,18 @@ import { sizes, colors, fontFamilies } from "../../../variables";
 interface labelProps {
   content: string;
   className?: string;
+  height?: string;
+  width?: string;
+  color?: string;
+  fontFamily?: string;
+  fontSize?: string;
+  letterSpacing?: string;
+  lineHeight?: string;
+  marginLeft?: string;
+  marginRight?: string;
+  marginTop?: string;
+  marginBottom?: string;
+  margin?: string;
   htmlFor?: string;
 }
 const Label: FC<labelProps> = (props) => {
