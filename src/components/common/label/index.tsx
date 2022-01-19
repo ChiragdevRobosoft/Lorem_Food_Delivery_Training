@@ -19,8 +19,8 @@ const LabelText = styled.label`
   height: 22px;
   width: auto;
   color: ${colors.grey_858585};
-  font-family: ${fontFamilies.fontFamilyOsRegular}
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
-  letter-spacing:${sizes.size0};
+  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};
 `;

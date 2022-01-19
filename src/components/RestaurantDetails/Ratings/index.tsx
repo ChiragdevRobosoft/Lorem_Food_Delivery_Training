@@ -1,35 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Label from "../../common/label";
 import data from "../../common/constants.json";
-import { colors, fontFamilies, sizes } from "../../../variables";
+import { colors, fontFamilies, sizes, angles } from "../../../variables";
 import DeliveryRating from "../../common/DeliveryRating";
 import activeIcon from "../../../assets/restaurantDetails/checkbox_active.png";
 import InputField from "../../common/textbox";
+import Buttons from "../../common/button";
 
 const Ratings = () => {
+  const handleChange = (e: any) => {
+    const fileList = e.target.files;
+    console.log(fileList);
+  };
   return (
     <Wrapper>
-      <Label
-        content={data.ratingCardData.title}
-        height="30px"
-        color={colors.black_000000}
-        fontFamily={fontFamilies.fontFamilyOsSemiBold}
-        fontSize={sizes.size22}
-        letterSpacing={sizes.sizeNeg0_24}
-        lineHeight={sizes.size30}
-        marginBottom="13px"
-      />
+      <Title content={data.ratingCardData.title} />
       {data.ratingCardData.foodServiceData.map((title, index) => {
         return (
-          <React.Fragment>
-            <Label
-              content={title}
-              color={colors.grey_565454}
-              fontFamily={fontFamilies.fontFamilyOsSemiBold}
-              letterSpacing={sizes.sizeNeg0_24}
-              marginBottom="15px"
-            />
+          <React.Fragment key={index}>
+            <RatingLabel content={title} />
             <RatingContainer>
               {data.ratingCardData.ratingNumbers.map((ratingNum, index) => {
                 return (
@@ -43,27 +33,12 @@ const Ratings = () => {
             <Underline />
             <SavedContainer>
               <ActiveImage src={activeIcon} />
-              <Label
-                content={data.ratingCardData.saved}
-                height="17px"
-                color="#223136"
-                fontSize={sizes.size12}
-                letterSpacing={sizes.size0}
-                lineHeight={sizes.size17}
-                marginLeft="2px"
-              />
+              <SavedLabel content={data.ratingCardData.saved} />
             </SavedContainer>
           </React.Fragment>
         );
       })}
-      <Label
-        content={data.ratingCardData.reviewTitle}
-        height="17px"
-        font-size={sizes.size12}
-        letter-spacing={sizes.sizeNeg0_24}
-        line-height={sizes.size17}
-        marginBottom="11px"
-      />
+      <ReviewTitle content={data.ratingCardData.reviewTitle} />
       <InputField
         name={data.ratingCardData.reviewLabel}
         isPassword={false}
@@ -75,17 +50,21 @@ const Ratings = () => {
         }}
       />
       <ImageUploadContainer>
-        <ImageLabel>
-          <ImageUpload type="file" />
-          {data.ratingCardData.imageUploadTitle}
-        </ImageLabel>
+        <ImageLabel
+          content={data.ratingCardData.imageUploadTitle}
+          htmlFor="images"
+        />
+        <ImageUpload type="file" multiple id="images" onChange={handleChange} />
       </ImageUploadContainer>
+      <SubmitButton name={data.ratingCardData.buttonText} />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   height: auto;
   width: 303px;
   border-radius: 6px;
@@ -125,13 +104,14 @@ const ImageUploadContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-top: 14px;
 `;
 
 const ImageUpload = styled.input`
   display: none;
 `;
 
-const ImageLabel = styled.label`
+const ImageLabel = styled(Label)`
   height: 19px;
   width: 84px;
   color: #f57c00;
@@ -141,6 +121,50 @@ const ImageLabel = styled.label`
   letter-spacing: 0;
   line-height: 19px;
   text-align: right;
+`;
+
+const Title = styled(Label)`
+  height: 30px;
+  color: ${colors.black_000000};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size22};
+  letter-spacing: ${sizes.sizeNeg0_24};
+  line-height: ${sizes.size30};
+  margin-bottom: 13px;
+`;
+
+const RatingLabel = styled(Label)`
+  color: ${colors.grey_565454};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  letter-spacing: ${sizes.sizeNeg0_24};
+  margin-bottom: 15px;
+`;
+
+const SavedLabel = styled(Label)`
+  height: 17px;
+  color: #223136;
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
+  margin-left: 7px;
+`;
+
+const ReviewTitle = styled(Label)`
+  height: 17px;
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.sizeNeg0_24};
+  line-height: ${sizes.size17};
+  margin-bottom: 11px;
+`;
+
+const SubmitButton = styled(Buttons)`
+  width: 273px;
+  background: linear-gradient(
+    ${angles.angle138_33},
+    ${colors.red_f3698e} 0%,
+    ${colors.yellow_feb456} 100%
+  );
+  margin-top: 31px;
 `;
 
 export default Ratings;
