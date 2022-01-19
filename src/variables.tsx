@@ -335,8 +335,6 @@ export const letterSpacing = {
   space0_58: "0.58",
   space0_64: "0.64px",
   space3_66: "3.66",
-  spaceNeg0_27: "-0.27px",
-  spaceNeg0_3: "-0.3px",
 };
 
 export const links = {
