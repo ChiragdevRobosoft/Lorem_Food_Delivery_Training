@@ -15,6 +15,7 @@ export const colors = {
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_313131: "rgba(49, 49, 49, 1)",
   black_2d2d2d: "rgba(45, 45, 45, 1)",
+  black_223136: "rgba(34, 49, 54, 1)",
   grey_bdbdbd: "#bdbdbd",
   grey_b9b9b9: "rgba(185, 185, 185, 1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
@@ -351,6 +352,6 @@ export const links = {
   overview: "overview",
   brands: "/brands",
   profile: "/profile",
-  restaurantDetails: "restaurant-details",
+  restaurantDetails: "",
   checkout: "checkout",
 };

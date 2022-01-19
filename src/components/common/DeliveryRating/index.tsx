@@ -9,28 +9,36 @@ const DeliveryRating: FC<{
   RatingNum: number;
   className?: string;
   style?: CSSProperties;
-}> = ({ RatingNum, className, style }) => {
+  onClick?: React.MouseEventHandler<HTMLInputElement>;
+  id?: string;
+}> = (props) => {
   const ratingColor =
-    RatingNum > 3
+    props.RatingNum > 3
       ? `${colors.green_5fb700}`
-      : RatingNum < 3
+      : props.RatingNum < 3
       ? `${colors.red_ed1b2e}`
       : `${colors.yellow_f5a623}`;
   const ratingIcon =
-    RatingNum > 3 ? GreenStar : RatingNum < 3 ? RedStar : YellowStar;
+    props.RatingNum > 3
+      ? GreenStar
+      : props.RatingNum < 3
+      ? RedStar
+      : YellowStar;
   return (
     <RatingConatiner
       ratingColor={ratingColor}
-      className={className}
-      style={style}
+      className={props.className}
+      style={props.style}
+      onClick={props.onClick}
+      id={props.id}
     >
-      <RatingImage src={ratingIcon} className={className} />
+      <RatingImage src={ratingIcon} className={props.className} />
       <RatingNumber
-        RatingNum={RatingNum}
-        className={className}
+        RatingNum={props.RatingNum}
+        className={props.className}
         ratingColor={ratingColor}
       >
-        {RatingNum}
+        {props.RatingNum}
       </RatingNumber>
     </RatingConatiner>
   );
@@ -63,6 +71,7 @@ const RatingConatiner = styled.div<{ ratingColor: string }>`
   flex-direction: row;
   justify-content: center;
   gap: 3px;
+  cursor: ${(props) => (props.onClick ? "pointer" : "auto")};
 `;
 
 const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
