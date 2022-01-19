@@ -352,6 +352,6 @@ export const links = {
   overview: "overview",
   brands: "/brands",
   profile: "/profile",
-  restaurantDetails: "restaurant-details",
+  restaurantDetails: "",
   checkout: "checkout",
 };
