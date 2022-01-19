@@ -33,7 +33,7 @@ const ReviewsRatings = () => {
           </DropdownContainer>
         </ReviewsTitleContainer>
         {data.reviewCard.map((review, index) => {
-          return <ReviewCard cardDetails={review} />;
+          return <ReviewCard key={index} cardDetails={review} />;
         })}
       </ReviewsContainer>
       <Ratings />

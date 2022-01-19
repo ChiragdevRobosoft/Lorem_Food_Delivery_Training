@@ -14,21 +14,23 @@ const Ratings = () => {
     console.log(fileList);
   };
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    const siblings = (
+    const siblingElements = (
       (e.currentTarget as HTMLElement).parentNode as HTMLElement
     ).children;
-    Array.from(siblings).map((sibling: Element, index: number) => {
-      if (sibling.id !== e.currentTarget.id) {
-        const unSelected = document.getElementById(sibling.id);
-        if (!unSelected) return;
-        unSelected.style.filter = "none";
-      } else {
-        const selected = document.getElementById(e.currentTarget.id);
-        if (!selected) return;
-        selected.style.filter =
-          "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(50%)";
+    Array.from(siblingElements).map(
+      (siblingElement: Element, index: number) => {
+        if (siblingElement.id !== e.currentTarget.id) {
+          const unSelected = document.getElementById(siblingElement.id);
+          if (!unSelected) return;
+          unSelected.style.filter = "none";
+        } else {
+          const selected = document.getElementById(e.currentTarget.id);
+          if (!selected) return;
+          selected.style.filter =
+            "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(50%)";
+        }
       }
-    });
+    );
   };
   return (
     <Wrapper>
