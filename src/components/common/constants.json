@@ -584,5 +584,10 @@
     "reviews": "REVIEWS",
     "gallery": "GALLERY"
   },
-  "orderNumber": "2"
+  "orderNumber": "2",
+  "reviewsRatingsData": {
+    "title": "Reviews",
+    "dropdownTitle": "Show :",
+    "dropdownContent": "Recent"
+  }
 }

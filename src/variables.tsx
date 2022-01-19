@@ -354,4 +354,5 @@ export const links = {
   profile: "/profile",
   restaurantDetails: "",
   checkout: "checkout",
+  reviewsRatings: "reviews-&-ratings",
 };

@@ -16,11 +16,12 @@ import Foodsearch from "../common/SearchComponent";
 const RestaurantDetails = () => {
   const location = useLocation();
   const [selected, setSelected] = useState(
-    location.pathname.slice(1).toUpperCase()
+    location.pathname.slice(1).toUpperCase().split("-").join(" ")
   );
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     setSelected((e.target as HTMLElement).innerText);
   };
+
   return (
     <Wrapper>
       <Header className="loggedin" />

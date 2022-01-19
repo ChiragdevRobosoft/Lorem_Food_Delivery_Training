@@ -54,6 +54,7 @@ const ReviewCard: FC<{ cardDetails: reviewCardProps }> = ({ cardDetails }) => {
 };
 
 const Wrapper = styled.div`
+  box-sizing: border-box;
   height: auto;
   width: 630px;
   border-radius: ${sizes.size6};
