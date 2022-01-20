@@ -1,24 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import {
-  colors,
-  sizes,
-  fontFamilies,
-  angles,
-  letterSpacing,
-  fontWeight,
-} from "../../../variables";
+import { colors, sizes, fontFamilies, letterSpacing } from "../../../variables";
 import Searchpath from "../../common/Searchpath";
 import data from "../../common/constants.json";
-import { NavLink, Outlet } from "react-router-dom";
 import Label from "../../common/label";
-import Buttons from "../../common/button";
 import { useForm, Controller } from "react-hook-form";
-import Radio from "../../common/Radio button";
 import Unselected from "../../../assets/common/Radio button/radio_button_unselected.png";
 import InputField from "../../common/textbox";
-import { color } from "@mui/system";
 
 const ProceedPayment = () => {
   const { register, handleSubmit, control, reset } = useForm();
@@ -89,7 +77,7 @@ const ProceedPayment = () => {
                   isPassword={false}
                   style={{ width: "238px", height: "33px" }}
                 />
-                <AlertText content="COD options will not available for this offer" />
+                <AlertText content={data.offersRadio.alertsText} />
               </UserCodeSection>
             ) : null}
             <Wrapper style={{ marginTop: "24px" }}>

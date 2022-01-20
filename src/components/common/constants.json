@@ -632,6 +632,7 @@
   "orderNumber": "2",
   "offersRadio": {
     "title": "Offers",
+    "alertsText": "COD options will not available for this offer",
     "options": ["Add your referral code", "Best Offers"]
   },
   "cartTexts": {
