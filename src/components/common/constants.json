@@ -573,6 +573,16 @@
   ],
   "reviews": " reviews, ",
   "ratings": " ratings",
+  "ratingCardData": {
+    "title": "Rate your experience",
+    "foodServiceData": ["Food", "Service"],
+    "saved": "Saved",
+    "reviewTitle": "Write a review",
+    "reviewLabel": "Start writing your review",
+    "imageUploadTitle": "+ Add image",
+    "buttonText": "Submit",
+    "ratingNumbers": [1, 2, 3, 4, 5]
+  },
   "profile": {
     "name": "Abdulla",
     "edit": "Edit",
@@ -587,5 +597,10 @@
     "reviews": "REVIEWS",
     "gallery": "GALLERY"
   },
-  "orderNumber": "2"
+  "orderNumber": "2",
+  "reviewsRatingsData": {
+    "title": "Reviews",
+    "dropdownTitle": "Show :",
+    "dropdownContent": "Recent"
+  }
 }

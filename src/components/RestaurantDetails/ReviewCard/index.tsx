@@ -9,6 +9,7 @@ import likeInactive from "../../../assets/restaurantDetails/like_inactive.png";
 import reviewFoodImage from "../../../assets/restaurantDetails/review_food_image.png";
 import { reviewCardProps } from "../../common/interfaces";
 import data from "../../common/constants.json";
+import Image from "../../common/image";
 
 const ReviewCard: FC<{ cardDetails: reviewCardProps }> = ({ cardDetails }) => {
   const reviewsRatingsText = `${cardDetails.reviewsCount} ${data.reviews} ${cardDetails.ratingsCount} ${data.ratings}`;
@@ -54,6 +55,7 @@ const ReviewCard: FC<{ cardDetails: reviewCardProps }> = ({ cardDetails }) => {
 };
 
 const Wrapper = styled.div`
+  box-sizing: border-box;
   height: auto;
   width: 630px;
   border-radius: ${sizes.size6};
@@ -73,7 +75,7 @@ const IconWrapper = styled.div`
   margin-right: 18px;
 `;
 
-const UserIcon = styled.img`
+const UserIcon = styled(Image)`
   height: 25px;
   width: 25px;
   align-items: center;
@@ -135,7 +137,7 @@ const FoodImageContainer = styled(Container)`
   margin-top: 12px;
 `;
 
-const FoodImage = styled.img`
+const FoodImage = styled(Image)`
   height: 85.32px;
 `;
 

@@ -16,6 +16,7 @@ export const colors = {
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_313131: "rgba(49, 49, 49, 1)",
   black_2d2d2d: "rgba(45, 45, 45, 1)",
+  black_223136: "rgba(34, 49, 54, 1)",
   grey_bdbdbd: "#bdbdbd",
   grey_b9b9b9: "rgba(185, 185, 185, 1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
@@ -31,6 +32,7 @@ export const colors = {
   grey_4a4a4a: "rgba(74, 74, 74, 1)", //grey5 #4a4a4a
   grey_4c4c4c: "#4c4c4c", //grey5 hexversion
   grey_5e5e5e: "rgba(94, 94, 94,1)",
+  grey_565454: "rgba(86, 84, 84, 1)",
   grey_6a6a6a: "#6a6a6a", //grey13
   grey_6f6f6f: "rgba(111, 111, 111,1)",
   grey_606060: "rgba(96, 96, 96,1)",
@@ -354,4 +356,5 @@ export const links = {
   profile: "/profile",
   restaurantDetails: "",
   checkout: "checkout",
+  reviewsRatings: "reviews-&-ratings",
 };
