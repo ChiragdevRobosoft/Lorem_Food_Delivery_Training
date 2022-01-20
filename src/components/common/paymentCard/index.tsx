@@ -14,6 +14,8 @@ import {
   letterSpacing,
 } from "../../../variables";
 import { PaymentCardDetailsProps } from "../interfaces";
+import Image from "../image";
+
 const PaymentCard: FC<{ cardDetails: PaymentCardDetailsProps }> = ({
   cardDetails,
 }) => {
@@ -21,10 +23,10 @@ const PaymentCard: FC<{ cardDetails: PaymentCardDetailsProps }> = ({
   return (
     <CardContainer>
       <TickBox onClick={() => setPrimaryCheck(!primaryCheck)}>
-        <img
+        <TickImage
           src={primaryCheck === true ? Checked : Unchecked}
           className="checked"
-        ></img>
+        />
         <PrimaryLabel
           content={data.primary}
           className={`${primaryCheck?.toString()}`}
@@ -32,7 +34,7 @@ const PaymentCard: FC<{ cardDetails: PaymentCardDetailsProps }> = ({
       </TickBox>
       <CardDetails>
         <VisaLogo>
-          <img src={visa} className="visaLogo"></img>
+          <LogoImage src={visa} />
         </VisaLogo>
         <CardInfo>
           <CardNumberLabel content={cardDetails.cardNumber} />
@@ -60,6 +62,11 @@ const CardContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: fill;
+`;
+const TickImage = styled(Image)``;
+const LogoImage = styled(Image)`
+  height: 24.65px;
+  width: 76.64px;
 `;
 const VisaLogo = styled.div`
   height: 24.65px;
