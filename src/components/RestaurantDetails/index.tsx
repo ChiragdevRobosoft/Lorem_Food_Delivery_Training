@@ -13,6 +13,8 @@ import Footer from "../common/footer";
 import Header from "../common/header";
 import Foodsearch from "../common/SearchComponent";
 import Navbar from "../common/Navbar";
+import Image from "../common/image";
+import Label from "../common/label";
 
 const RestaurantDetails = () => {
   return (
@@ -25,20 +27,20 @@ const RestaurantDetails = () => {
           <BgImage src={BgImg} />
         </BgImageContainer>
         <ImageContentSection>
-          <Icon src={RestaurantImg} />
+          <Image src={RestaurantImg} />
           <CutleryImage src={Cutlery} />
-          <RestaurantName>{data.restaurantData.name}</RestaurantName>
-          <FoodVariety>{data.restaurantData.foodVariety}</FoodVariety>
+          <RestaurantName content={data.restaurantData.name} />
+          <FoodVariety content={data.restaurantData.foodVariety} />
           <DetailsContainer className="first-row">
-            <Rating>{data.restaurantData.rating}</Rating>
+            <Rating content={data.restaurantData.rating} />
             <DetailsList>
               <Detail>{data.restaurantData.time}</Detail>
               <Detail>{data.restaurantData.cost}</Detail>
             </DetailsList>
-            <Icon src={TimeIcon} />
-            <Time>{data.restaurantData.timeRange}</Time>
+            <Image src={TimeIcon} />
+            <Time content={data.restaurantData.timeRange} />
           </DetailsContainer>
-          <RatingTitle>{data.restaurantData.ratingTitle}</RatingTitle>
+          <RatingTitle content={data.restaurantData.ratingTitle} />
           <DetailsContainer>
             {data.ratingList.map((rate, index) => {
               return <DeliveryRating key={index} RatingNum={rate} />;
@@ -82,48 +84,43 @@ const ImageContentSection = styled.div`
   top: 83px;
 `;
 
-const Icon = styled.img``;
-
 const BgImageContainer = styled.div`
   height: 376px;
 `;
 
-const BgImage = styled.img`
+const BgImage = styled(Image)`
   width: 100%;
 `;
 
-const CutleryImage = styled.img`
+const CutleryImage = styled(Image)`
   position: absolute;
   top: 20px;
   left: 39px;
 `;
 
-const RestaurantName = styled.div`
+const RestaurantName = styled(Label)`
   position: absolute;
   height: 36px;
   width: 380px;
   color: ${colors.grey_1c1c1c};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size26};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size36};
   top: 125px;
   left: 39px;
 `;
 
-const FoodVariety = styled.div`
+const FoodVariety = styled(Label)`
   position: absolute;
   height: 19px;
   color: ${colors.grey_757575_9};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   top: 168px;
   left: 39px;
 `;
 
-const Rating = styled.span`
+const Rating = styled(Label)`
   position: absolute;
   height: 23px;
   width: 42px;
@@ -132,7 +129,6 @@ const Rating = styled.span`
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size15};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size20};
   text-align: center;
   justify-content: center;
@@ -155,11 +151,6 @@ const DetailsList = styled.ul`
   display: flex;
   flex-direction: row;
   height: 17px;
-  color: ${colors.grey_757575_9};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
-  line-height: ${sizes.size17};
   gap: 25px;
   padding: 0;
   margin-left: 111px;
@@ -167,27 +158,29 @@ const DetailsList = styled.ul`
 `;
 
 const Detail = styled.li`
+  color: ${colors.grey_757575_9};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
   text-indent: -3px;
 `;
 
-const Time = styled.div`
+const Time = styled(Label)`
   height: 17px;
   color: ${colors.grey_7c7c7c};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
   margin-left: 6.5px;
 `;
 
-const RatingTitle = styled.div`
+const RatingTitle = styled(Label)`
   position: absolute;
   width: 297px;
   height: 17px;
   color: ${colors.grey_6a6a6a};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
   top: 242px;
   left: 41px;
@@ -197,15 +190,11 @@ const RatingTitle = styled.div`
 
 const NavbarConatiner = styled.div`
   width: 972px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 37px;
-  margin-bottom: 11px;
+  margin: 37px auto 11px auto;
 `;
 
 const RoutingContainer = styled.div`
   width: 972px;
-  position: relative;
   margin: auto;
 `;
 

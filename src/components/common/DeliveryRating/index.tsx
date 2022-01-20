@@ -4,6 +4,7 @@ import RedStar from "../../../assets/restaurantDetails/icn_star_red.png";
 import YellowStar from "../../../assets/restaurantDetails/icn_star_yellow.png";
 import GreenStar from "../../../assets/restaurantDetails/icn_star_green.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
+import Image from "../image";
 
 const DeliveryRating: FC<{
   RatingNum: number;
@@ -86,7 +87,7 @@ const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
   line-height: ${sizes.size17};
 `;
 
-const RatingImage = styled.img`
+const RatingImage = styled(Image)`
   vertical-align: middle;
   height: ${(props) => (props.className === "reverse-color" ? "9px" : "auto")};
   width: ${(props) => (props.className === "reverse-color" ? "9px" : "auto")};

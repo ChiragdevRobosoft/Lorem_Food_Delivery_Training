@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { sizes, colors, fontFamilies } from "../../../variables";
 
 interface labelProps {
-  content: string;
+  content: string | number;
   className?: string;
   htmlFor?: string;
 }

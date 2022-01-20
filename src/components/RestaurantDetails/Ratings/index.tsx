@@ -7,6 +7,7 @@ import DeliveryRating from "../../common/DeliveryRating";
 import activeIcon from "../../../assets/restaurantDetails/checkbox_active.png";
 import InputField from "../../common/textbox";
 import Buttons from "../../common/button";
+import Image from "../../common/image";
 
 const Ratings = () => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -78,12 +79,13 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 526px;
   width: 303px;
   border-radius: ${sizes.size6};
   background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   padding: 20px 20px 16px 20px;
+  margin-top: 32px;
 `;
 
 const RowFlex = styled.div`
@@ -110,7 +112,7 @@ const SavedContainer = styled(RowFlex)`
   margin-bottom: 33px;
 `;
 
-const ActiveImage = styled.img`
+const ActiveImage = styled(Image)`
   object-fit: none;
 `;
 
