@@ -149,7 +149,6 @@ const DropdownImage = styled(Image)`
 `;
 
 const ArrowImage = styled(Image)<{ className: string }>`
-  display: inline-block;
   transform: ${(props) =>
     props.className === "true" ? "rotate(180deg)" : "rotate(0deg)"};
   -webkit-transform: ${(props) =>
