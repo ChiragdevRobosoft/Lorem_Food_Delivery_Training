@@ -11,6 +11,7 @@ export const colors = {
   black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
   black_000000_05: "rgba(0, 0, 0, 0.5)",
   black_000000_07: "rgba(0,0,0,0.07)",
+  black_2D2D2D: "rgba(45, 45, 45, 1)",
   black_000000_3: "rgba(0,0,0,0.3)",
   black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
   black_313131: "rgba(49, 49, 49, 1)",
@@ -55,6 +56,7 @@ export const colors = {
   grey_979797_19: "rgba(151, 151, 151, 0.19)", //grey1 #979797
   grey_1c1c1c: "rgba(28,28,28,1)",
   grey_1f1f1f: "rgba(31, 31, 31,1)",
+  grey_8b8b8b: "rgba(184, 184, 184, 1)",
   grey_7b7676: "rgba(123, 118, 118, 1)",
   grey_909090: "rgba(144, 144, 144, 1)",
   grey_b8b8b8: "rgba(184, 184, 184, 1)",
@@ -328,13 +330,13 @@ export const zIndex = {
 
 export const letterSpacing = {
   space0: "0",
+  spaceNeg0_27: "-0.27px",
+  spaceNeg0_3: "-0.3px",
   space0_43: "0.43",
   space0_5: "0.5",
   space0_58: "0.58",
   space0_64: "0.64px",
   space3_66: "3.66",
-  spaceNeg0_27: "-0.27px",
-  spaceNeg0_3: "-0.3px",
 };
 
 export const links = {
