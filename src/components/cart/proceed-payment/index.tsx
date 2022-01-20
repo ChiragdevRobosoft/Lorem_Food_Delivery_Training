@@ -50,30 +50,21 @@ const ProceedPayment = () => {
     <PageSection>
       <Searchpath path={data.searchPath.menu1} className="grey-dark" />
       <ContentContainer>
-        <ProgressSection>
-          <CookingInstructionTitle>
-            {data.cartData.cookingInstruction}
-          </CookingInstructionTitle>
-          <InputField
-            name={data.cartData.textboxLabel}
-            isPassword={false}
-            style={{
-              width: "263px",
-              margin: "auto",
-              color: `${colors.grey_4a4a4a}`,
-            }}
-          />
-        </ProgressSection>
+        <ProgressSection></ProgressSection>
         <CartSection>
           <StepsSection>
-            <Label
-              content={data.cartTexts.title}
-              height="30px"
-              color="#000000"
-              fontFamily={`${fontFamilies.fontFamilyOsSemiBold}`}
-              fontSize="22px"
-              letterSpacing={letterSpacing.space0}
-              lineHeight="30px"
+            <StepTitle content={data.cartTexts.title} />
+            <CookingInstructionTitle>
+              {data.cartData.cookingInstruction}
+            </CookingInstructionTitle>
+            <InputField
+              name={data.cartData.textboxLabel}
+              isPassword={false}
+              style={{
+                width: "263px",
+                margin: "auto",
+                color: `${colors.grey_4a4a4a}`,
+              }}
             />
           </StepsSection>
           <PaymentContainer>
@@ -175,6 +166,15 @@ const CartSection = styled.div`
 
 const StepsSection = styled.div`
   width: 634px;
+`;
+
+const StepTitle = styled(Label)`
+  height: "30px";
+  color: ${colors.black_000000};
+  fontfamily: ${fontFamilies.fontFamilyOsSemiBold};
+  fontsize: ${sizes.size22};
+  letterspacing: ${letterSpacing.space0};
+  lineheight: ${sizes.size30};
 `;
 
 const PaymentContainer = styled.div`

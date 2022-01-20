@@ -14,6 +14,8 @@ export const colors = {
   black_000000: "rgba(0,0,0,1)",
   black_2a2c30: "rgba(42, 44, 48, 1)",
   black_2d2d2d: "rgba(45, 45, 45, 1)",
+  black_2D2D2D: "rgba(45, 45, 45, 1)",
+  black_223136: "rgba(34, 49, 54, 1)",
   black_313131: "rgba(49, 49, 49, 1)",
   grey_bdbdbd: "#bdbdbd",
   grey_b8b8b8: "rgba(184, 184, 184, 1)",
@@ -33,6 +35,7 @@ export const colors = {
   grey_4a4a4a: "rgba(74, 74, 74, 1)",
   grey_4c4c4c: "#4c4c4c",
   grey_5e5e5e: "rgba(94, 94, 94,1)",
+  grey_565454: "rgba(86, 84, 84, 1)",
   grey_6a6a6a: "#6a6a6a",
   grey_6f6f6f: "rgba(111, 111, 111,1)",
   grey_606060: "rgba(96, 96, 96,1)",
@@ -45,6 +48,7 @@ export const colors = {
   grey_757575: "#757575",
   grey_757575_9: "rgba(117, 117, 117, 0.9)",
   grey_777777: "rgba(119, 119, 119,1)",
+  grey_8b8b8b: "rgba(184, 184, 184, 1)",
   grey_848484: "#848484",
   grey_858484_9: "rgba(133, 132, 132, 0.9)",
   grey_858585: "rgba(133, 133, 133, 1)",
@@ -91,6 +95,7 @@ export const colors = {
   blue_02a7fd: "rgba(2, 167, 253, 1)",
   blue_2c79bd: "rgba(44, 121, 189, 1)",
   blue_223136: "#223136",
+  teal_223136: "#223136",
   violet_f1f3fb: "rgba(241, 243, 251,1)",
 };
 
@@ -326,15 +331,15 @@ export const zIndex = {
 };
 
 export const letterSpacing = {
+  spaceNeg0_41: "-0.41px",
+  spaceNeg0_27: "-0.27px",
+  spaceNeg0_3: "-0.3px",
   space0: "0",
   space0_43: "0.43",
   space0_5: "0.5",
   space0_58: "0.58",
   space0_64: "0.64px",
   space3_66: "3.66",
-  spaceNeg0_27: "-0.27px",
-  spaceNeg0_3: "-0.3px",
-  spaceNeg0_41: "-0.41px",
 };
 
 export const links = {
@@ -352,9 +357,10 @@ export const links = {
   overview: "overview",
   brands: "/brands",
   profile: "/profile",
-  restaurantDetails: "restaurant-details",
+  restaurantDetails: "",
   checkout: "checkout",
   cart: "cart",
   cartItems: "cart-items",
   proceedPayment: "proceed-payment",
+  reviewsRatings: "reviews-&-ratings",
 };

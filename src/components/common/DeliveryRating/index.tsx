@@ -1,31 +1,45 @@
 import React, { FC } from "react";
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 import RedStar from "../../../assets/restaurantDetails/icn_star_red.png";
 import YellowStar from "../../../assets/restaurantDetails/icn_star_yellow.png";
 import GreenStar from "../../../assets/restaurantDetails/icn_star_green.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
+import Image from "../image";
 
-const DeliveryRating: FC<{ RatingNum: number; className?: string }> = ({
-  RatingNum,
-  className,
-}) => {
+const DeliveryRating: FC<{
+  RatingNum: number;
+  className?: string;
+  style?: CSSProperties;
+  onClick?: React.MouseEventHandler<HTMLInputElement>;
+  id?: string;
+}> = (props) => {
   const ratingColor =
-    RatingNum > 3
+    props.RatingNum > 3
       ? `${colors.green_5fb700}`
-      : RatingNum < 3
+      : props.RatingNum < 3
       ? `${colors.red_ed1b2e}`
       : `${colors.yellow_f5a623}`;
   const ratingIcon =
-    RatingNum > 3 ? GreenStar : RatingNum < 3 ? RedStar : YellowStar;
+    props.RatingNum > 3
+      ? GreenStar
+      : props.RatingNum < 3
+      ? RedStar
+      : YellowStar;
   return (
-    <RatingConatiner ratingColor={ratingColor} className={className}>
-      <RatingImage src={ratingIcon} className={className} />
+    <RatingConatiner
+      ratingColor={ratingColor}
+      className={props.className}
+      style={props.style}
+      onClick={props.onClick}
+      id={props.id}
+    >
+      <RatingImage src={ratingIcon} className={props.className} />
       <RatingNumber
-        RatingNum={RatingNum}
-        className={className}
+        RatingNum={props.RatingNum}
+        className={props.className}
         ratingColor={ratingColor}
       >
-        {RatingNum}
+        {props.RatingNum}
       </RatingNumber>
     </RatingConatiner>
   );
@@ -33,13 +47,22 @@ const DeliveryRating: FC<{ RatingNum: number; className?: string }> = ({
 
 const RatingConatiner = styled.div<{ ratingColor: string }>`
   box-sizing: border-box;
-  height: ${(props) => (props.className === "reverse-color" ? "18px" : "26px")};
-  width: ${(props) => (props.className === "reverse-color" ? "32px" : "46px")};
+  height: ${(props) =>
+    props.style?.height
+      ? props.style.height
+      : props.className === "reverse-color"
+      ? "18px"
+      : "26px"};
+  width: ${(props) =>
+    props.style?.width
+      ? props.style.width
+      : props.className === "reverse-color"
+      ? "32px"
+      : "46px"};
   border: ${sizes.size1} solid
     ${(props) =>
       props.className === "reverse-color" ? "none" : props.ratingColor};
   border-radius: ${sizes.size4};
-  margin-right: 17.13px;
   background: ${(props) =>
     props.className === "reverse-color"
       ? props.ratingColor
@@ -49,6 +72,7 @@ const RatingConatiner = styled.div<{ ratingColor: string }>`
   flex-direction: row;
   justify-content: center;
   gap: 3px;
+  cursor: ${(props) => (props.onClick ? "pointer" : "auto")};
 `;
 
 const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
@@ -63,7 +87,7 @@ const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
   line-height: ${sizes.size17};
 `;
 
-const RatingImage = styled.img`
+const RatingImage = styled(Image)`
   vertical-align: middle;
   height: ${(props) => (props.className === "reverse-color" ? "9px" : "auto")};
   width: ${(props) => (props.className === "reverse-color" ? "9px" : "auto")};

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { colors, sizes, fontFamilies, angles } from "../../variables";
 import Searchpath from "../common/Searchpath";
@@ -8,19 +8,15 @@ import RestaurantImg from "../../assets/restaurantDetails/Resturant Image.png";
 import Cutlery from "../../assets/restaurantDetails/restaurant-cutlery.png";
 import TimeIcon from "../../assets/restaurantDetails/time_icon.png";
 import DeliveryRating from "../common/DeliveryRating";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Footer from "../common/footer";
 import Header from "../common/header";
 import Foodsearch from "../common/SearchComponent";
+import Navbar from "../common/Navbar";
+import Image from "../common/image";
+import Label from "../common/label";
 
 const RestaurantDetails = () => {
-  const location = useLocation();
-  const [selected, setSelected] = useState(
-    location.pathname.slice(1).toUpperCase()
-  );
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    setSelected((e.target as HTMLElement).innerText);
-  };
   return (
     <Wrapper>
       <Header className="loggedin" />
@@ -31,51 +27,32 @@ const RestaurantDetails = () => {
           <BgImage src={BgImg} />
         </BgImageContainer>
         <ImageContentSection>
-          <Icon src={RestaurantImg} />
+          <Image src={RestaurantImg} />
           <CutleryImage src={Cutlery} />
-          <RestaurantName>{data.restaurantData.name}</RestaurantName>
-          <FoodVariety>{data.restaurantData.foodVariety}</FoodVariety>
+          <RestaurantName content={data.restaurantData.name} />
+          <FoodVariety content={data.restaurantData.foodVariety} />
           <DetailsContainer className="first-row">
-            <Rating>{data.restaurantData.rating}</Rating>
+            <Rating content={data.restaurantData.rating} />
             <DetailsList>
               <Detail>{data.restaurantData.time}</Detail>
               <Detail>{data.restaurantData.cost}</Detail>
             </DetailsList>
-            <Icon src={TimeIcon} />
-            <Time>{data.restaurantData.timeRange}</Time>
+            <Image src={TimeIcon} />
+            <Time content={data.restaurantData.timeRange} />
           </DetailsContainer>
-          <RatingTitle>{data.restaurantData.ratingTitle}</RatingTitle>
+          <RatingTitle content={data.restaurantData.ratingTitle} />
           <DetailsContainer>
             {data.ratingList.map((rate, index) => {
               return <DeliveryRating key={index} RatingNum={rate} />;
             })}
           </DetailsContainer>
         </ImageContentSection>
-
-        <NavBar>
-          {data.NavbarElements.map((navbarElement, index) => {
-            return navbarElement === selected ? (
-              <Navlink
-                to={`${navbarElement.split(" ").join("-").toLowerCase()}`}
-                key={index}
-              >
-                <NavBarElement className="select">
-                  {navbarElement}
-                  <Underline></Underline>
-                </NavBarElement>
-              </Navlink>
-            ) : (
-              <Navlink
-                to={`${navbarElement.split(" ").join("-").toLowerCase()}`}
-                key={index}
-              >
-                <NavBarElement onClick={handleClick}>
-                  {navbarElement}
-                </NavBarElement>
-              </Navlink>
-            );
-          })}
-        </NavBar>
+        <NavbarConatiner>
+          <Navbar
+            navbarElements={data.NavbarElements}
+            navbarType="restaurant-details"
+          />
+        </NavbarConatiner>
         <RoutingContainer>
           <Outlet />
         </RoutingContainer>
@@ -107,48 +84,43 @@ const ImageContentSection = styled.div`
   top: 83px;
 `;
 
-const Icon = styled.img``;
-
 const BgImageContainer = styled.div`
   height: 376px;
 `;
 
-const BgImage = styled.img`
+const BgImage = styled(Image)`
   width: 100%;
 `;
 
-const CutleryImage = styled.img`
+const CutleryImage = styled(Image)`
   position: absolute;
   top: 20px;
   left: 39px;
 `;
 
-const RestaurantName = styled.div`
+const RestaurantName = styled(Label)`
   position: absolute;
   height: 36px;
   width: 380px;
   color: ${colors.grey_1c1c1c};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size26};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size36};
   top: 125px;
   left: 39px;
 `;
 
-const FoodVariety = styled.div`
+const FoodVariety = styled(Label)`
   position: absolute;
   height: 19px;
   color: ${colors.grey_757575_9};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   top: 168px;
   left: 39px;
 `;
 
-const Rating = styled.span`
+const Rating = styled(Label)`
   position: absolute;
   height: 23px;
   width: 42px;
@@ -157,7 +129,6 @@ const Rating = styled.span`
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size15};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size20};
   text-align: center;
   justify-content: center;
@@ -168,6 +139,7 @@ const DetailsContainer = styled.div`
   position: absolute;
   height: ${(props) => (props.className === "first-row" ? "23px" : "26px")};
   top: ${(props) => (props.className === "first-row" ? "203px" : "282px")};
+  width: ${(props) => (props.className === "first-row" ? "auto" : "297px")};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -179,11 +151,6 @@ const DetailsList = styled.ul`
   display: flex;
   flex-direction: row;
   height: 17px;
-  color: ${colors.grey_757575_9};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
-  line-height: ${sizes.size17};
   gap: 25px;
   padding: 0;
   margin-left: 111px;
@@ -191,27 +158,29 @@ const DetailsList = styled.ul`
 `;
 
 const Detail = styled.li`
+  color: ${colors.grey_757575_9};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.size0};
+  line-height: ${sizes.size17};
   text-indent: -3px;
 `;
 
-const Time = styled.div`
+const Time = styled(Label)`
   height: 17px;
   color: ${colors.grey_7c7c7c};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
   margin-left: 6.5px;
 `;
 
-const RatingTitle = styled.div`
+const RatingTitle = styled(Label)`
   position: absolute;
   width: 297px;
   height: 17px;
   color: ${colors.grey_6a6a6a};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
-  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
   top: 242px;
   left: 41px;
@@ -219,52 +188,13 @@ const RatingTitle = styled.div`
   border-bottom: ${sizes.size2} solid ${colors.white_ededed};
 `;
 
-const NavBar = styled.ul`
-  display: flex;
-  flex-direction: row;
+const NavbarConatiner = styled.div`
   width: 972px;
-  padding-left: 5px;
-  margin-top: 37px;
-  margin-bottom: 11px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const NavBarElement = styled.li`
-  margin-right: 60px;
-  list-style: none;
-  height: 19px;
-  color: ${colors.grey_1f1f1f};
-  font-family: ${(props) =>
-    props.className === "select"
-      ? `${fontFamilies.fontFamilyOsBold}`
-      : `${fontFamilies.fontFamilyOsSemiBold}`};
-  font-size: ${sizes.size14};
-  letter-spacing: ${sizes.size0};
-  line-height: ${sizes.size19};
-`;
-
-const Underline = styled.div`
-  height: 4px;
-  width: 38px;
-  margin-top: 11px;
-  border-radius: 2px;
-  background-image: linear-gradient(
-    ${angles.angle138_33},
-    ${colors.red_f3698e} 0%,
-    ${colors.yellow_feb456} 100%
-  );
-  box-shadow: ${sizes.size0} ${sizes.size4} ${sizes.size10} ${sizes.size0}
-    ${colors.red_f67e7e_38};
-`;
-
-const Navlink = styled(NavLink)`
-  text-decoration: none;
+  margin: 37px auto 11px auto;
 `;
 
 const RoutingContainer = styled.div`
   width: 972px;
-  position: relative;
   margin: auto;
 `;
 
