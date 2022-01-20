@@ -203,7 +203,7 @@ const NavbarConatiner = styled.div`
 `;
 
 const RoutingContainer = styled.div`
-  width: 972px;
+  width: 516px;
   position: relative;
   margin: auto;
 `;

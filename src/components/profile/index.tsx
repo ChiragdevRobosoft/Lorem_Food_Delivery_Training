@@ -7,6 +7,10 @@ import Footer from "../common/footer";
 import data from "../../components/common/constants.json";
 import { sizes, colors, fontFamilies } from "../../variables";
 import Label from "../common/label";
+import Navbar from "../common/Navbar";
+import { Outlet } from "react-router-dom";
+import Image from "../common/image";
+
 const Profile = () => {
   return (
     <Wrapper>
@@ -39,17 +43,14 @@ const Profile = () => {
               </DetailsRow>
             </ProfileInfo>
           </UserProfile>
-          <Navbar>
-            <NavOrderLabel
-              content={data.profile.order + " " + "(" + data.orderNumber + ")"}
-            />
-            <NavAddressLabel content={data.profile.address} />
-            <NavPaymentLabel content={data.profile.paymentMethods} />
-            <NavReviewLabel content={data.profile.reviews} />
-            <NavGalleryLabel content={data.profile.gallery} />
-          </Navbar>
+          <NavbarContainer>
+            <Navbar navbarElements={data.ProfileNavbarElements} />
+          </NavbarContainer>
         </CenterContainer>
       </ProfileBanner>
+      <RoutingContainer>
+        <Outlet />
+      </RoutingContainer>
       <Footer />
     </Wrapper>
   );
@@ -102,7 +103,7 @@ const DetailsRow = styled.div`
   height: 33px;
   margin-top: 16px;
 `;
-const Icon = styled.img`
+const Icon = styled(Image)`
   object-fit: none;
   margin-right: 17px;
 `;
@@ -118,7 +119,7 @@ const LineBreak = styled.hr`
   opacity: 0.37;
   margin=0;
 `;
-const Navbar = styled.div`
+const NavbarContainer = styled.div`
   height: 19px;
   display: flex;
   flex-direction: row;
@@ -158,42 +159,9 @@ const InfoCreditLabel = styled(Label)`
   margin-right: 10px;
   margin-left: 3px;
 `;
-const NavOrderLabel = styled(Label)`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
-  margin-right: 38px;
-`;
-const NavAddressLabel = styled(Label)`
-  height: $19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
-  margin-right: 59px;
-`;
-const NavPaymentLabel = styled(Label)`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
-  margin-right: 58px;
-`;
-const NavReviewLabel = styled(Label)`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
-  margin-right: 58px;
-`;
-const NavGalleryLabel = styled(Label)`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
+const RoutingContainer = styled.div`
+  width: 100%;
+  position: relative;
+  margin: auto;
+  background-color: ${colors.violet_f1f3fb};
 `;
