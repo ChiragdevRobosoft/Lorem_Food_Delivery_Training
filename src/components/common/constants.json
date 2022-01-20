@@ -606,5 +606,13 @@
     "reviews": "REVIEWS",
     "gallery": "GALLERY"
   },
-  "orderNumber": "2"
+  "orderNumber": "2",
+  "offersRadio": {
+    "title": "Offers",
+    "options": ["Add your referral code", "Best Offers"]
+  },
+  "cartTexts": {
+    "title": "The Boutique Kitchen",
+    "ETADelivery": "Estimated Delivery time - 60 - 80 min"
+  }
 }

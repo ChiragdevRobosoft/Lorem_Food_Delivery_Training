@@ -77,6 +77,7 @@ export const colors = {
   pink_f2738a: "rgba(242, 115, 138, 1)",
   pink_f27489: "rgba(242, 116, 137, 1)",
   red_ed1b2e: "rgba(237, 27, 46,1)",
+  red_ee2538: "#ee2538",
   red_ff0d0d: "rgba(255,13,13,1)",
   red_f3698e: "rgba(243, 105, 142,1)",
   red_f67e7e_38: "rgba(246, 126, 126, 0.38)",
@@ -333,6 +334,7 @@ export const letterSpacing = {
   space3_66: "3.66",
   spaceNeg0_27: "-0.27px",
   spaceNeg0_3: "-0.3px",
+  spaceNeg0_41: "-0.41px",
 };
 
 export const links = {
