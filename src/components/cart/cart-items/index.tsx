@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import {
-  colors,
-  sizes,
-  fontFamilies,
-  angles,
-  letterSpacing,
-} from "../../../variables";
-import Searchpath from "../../common/Searchpath";
+import { colors, sizes, fontFamilies, letterSpacing } from "../../../variables";
+import SearchPath from "../../common/Searchpath";
 import data from "../../common/constants.json";
 import Label from "../../common/label";
 import MyCartCard from "../../common/myCartCard";
@@ -17,13 +11,13 @@ const CartItems = () => {
 
   return (
     <PageSection>
-      <Searchpath path={data.searchPath.menu1} className="grey-dark" />
+      <SearchPath path={data.searchPath.menu1} className="grey-dark" />
       <ContentContainer>
-        <MyCart
+        <MyCartLabel
           content={`${data.cartContents.MyCartTitle} (${data.cartContents.myCart.length})`}
         />
         <CardContainer>
-          {data.cartContents.myCart.map((info, index) => {
+          {cartItems.map((info, index) => {
             return <MyCartCard info={info} index={index} />;
           })}
         </CardContainer>
@@ -60,7 +54,7 @@ const CardContainer = styled.div`
   gap: 20px;
 `;
 
-const MyCart = styled(Label)`
+const MyCartLabel = styled(Label)`
   height: "30px";
   color: ${colors.black_000000};
   fontfamily: ${fontFamilies.fontFamilyOsSemiBold};

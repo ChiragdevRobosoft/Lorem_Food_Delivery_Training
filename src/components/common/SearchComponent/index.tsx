@@ -10,7 +10,7 @@ interface foodSearchProps {
   pageType: string;
 }
 
-const Foodsearch: FC<foodSearchProps> = ({ pageType }) => {
+const FoodSearch: FC<foodSearchProps> = ({ pageType }) => {
   return (
     <>
       {pageType === "home" ? (
@@ -40,7 +40,7 @@ const Foodsearch: FC<foodSearchProps> = ({ pageType }) => {
     </>
   );
 };
-export default Foodsearch;
+export default FoodSearch;
 
 const WrapperHome = styled.div`
   margin: ${(props) =>

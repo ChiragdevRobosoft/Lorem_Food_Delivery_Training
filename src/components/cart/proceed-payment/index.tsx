@@ -5,8 +5,8 @@ import Searchpath from "../../common/Searchpath";
 import data from "../../common/constants.json";
 import Label from "../../common/label";
 import { useForm, Controller } from "react-hook-form";
-import Unselected from "../../../assets/common/Radio button/radio_button_unselected.png";
 import InputField from "../../common/textbox";
+import RadioButton from "./radioButton";
 
 const ProceedPayment = () => {
   const { register, handleSubmit, control, reset } = useForm();
@@ -41,58 +41,40 @@ const ProceedPayment = () => {
         <ProgressSection></ProgressSection>
         <CartSection>
           <StepsSection>
-            <StepTitle content={data.cartTexts.title} />
+            <StepTitleLabel content={data.cartTexts.title} />
             <CookingInstructionTitle>
               {data.cartData.cookingInstruction}
             </CookingInstructionTitle>
-            <InputField
+            <CookingInstructionInput
               name={data.cartData.textboxLabel}
               isPassword={false}
-              style={{
-                width: "263px",
-                margin: "auto",
-                color: `${colors.grey_4a4a4a}`,
-              }}
             />
           </StepsSection>
           <PaymentContainer>
             <RadioTitle>{data.offersRadio.title}</RadioTitle>
-            <Wrapper>
-              <RadioInput
-                type="radio"
-                id="userCode"
-                name="referal"
-                value="userCode"
-                onClick={handleRadioClick}
-                checked={radioButtons.userCode}
-              />
-              <OptionName htmlFor="userCode">
-                {data.offersRadio.options[0]}
-              </OptionName>
-            </Wrapper>
+            <RadioButton
+              idValue={data.offersRadio.idValue[0]}
+              radioName={data.offersRadio.name}
+              handleRadioClick={handleRadioClick}
+              option={data.offersRadio.options[0]}
+              checkedStatus={radioButtons.userCode}
+            />
             {radioButtons.userCode === true ? (
               <UserCodeSection>
-                <InputField
-                  name="Add your promo code"
+                <UserCodeInput
+                  name={data.offersRadio.userPromoCode}
                   isPassword={false}
-                  style={{ width: "238px", height: "33px" }}
                 />
                 <AlertText content={data.offersRadio.alertsText} />
               </UserCodeSection>
             ) : null}
-            <Wrapper style={{ marginTop: "24px" }}>
-              <RadioInput
-                type="radio"
-                id="bestOffer"
-                name="referal"
-                value="bestOffers"
-                onClick={handleRadioClick}
-                checked={radioButtons.bestOffers}
-              />
-              <OptionName htmlFor="best-offer">
-                {data.offersRadio.options[1]}
-              </OptionName>
-            </Wrapper>
+            <RadioButtonOffers
+              idValue={data.offersRadio.idValue[1]}
+              radioName={data.offersRadio.name}
+              handleRadioClick={handleRadioClick}
+              option={data.offersRadio.options[1]}
+              checkedStatus={radioButtons.bestOffers}
+            />
           </PaymentContainer>
         </CartSection>
       </ContentContainer>
@@ -142,6 +124,12 @@ const CookingInstructionTitle = styled.div`
   margin-bottom: 15px;
 `;
 
+const CookingInstructionInput = styled(InputField)`
+  width: 263px;
+  margin: auto;
+  color: ${colors.grey_4a4a4a};
+`;
+
 const CartSection = styled.div`
   width: 100%;
   position: relative;
@@ -156,7 +144,7 @@ const StepsSection = styled.div`
   width: 634px;
 `;
 
-const StepTitle = styled(Label)`
+const StepTitleLabel = styled(Label)`
   height: "30px";
   color: ${colors.black_000000};
   fontfamily: ${fontFamilies.fontFamilyOsSemiBold};
@@ -187,37 +175,8 @@ const RadioTitle = styled.div`
   margin-bottom: 17px;
 `;
 
-const Wrapper = styled.div`
-  display: block;
-  height: 16px;
-  top: 0;
-`;
-
-const RadioInput = styled.input`
-  width: 16px;
-  margin: 0px 7px;
-  margin-left: 0;
-  vertical-align: middle;
-
-  &:checked + label {
-    color: ${colors.grey_4a4a4a};
-  }
-  &:not(:checked) {
-    background-image: url(${Unselected});
-    height: 15.28px;
-  }
-  &:not(:checked) + label {
-    color: ${colors.grey_4a4a4a};
-  }
-`;
-
-const OptionName = styled.label`
-  height: 19px;
-  font-size: ${sizes.size14};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  letter-spacing: ${sizes.sizeNeg0_24};
-  line-height: ${sizes.size19};
-  vertical-align: middle;
+const RadioButtonOffers = styled(RadioButton)`
+  margin-top: 24px;
 `;
 
 const AlertText = styled(Label)`
@@ -239,4 +198,9 @@ const UserCodeSection = styled.div`
   margin-bottom: 18px;
   box-sizing: border-box;
   padding-top: 20px;
+`;
+
+const UserCodeInput = styled(InputField)`
+  width: 238px;
+  height: 33p;
 `;
