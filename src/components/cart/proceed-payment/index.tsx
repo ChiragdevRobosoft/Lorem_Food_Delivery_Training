@@ -42,16 +42,16 @@ const ProceedPayment = () => {
         <CartSection>
           <StepsSection>
             <StepTitleLabel content={data.cartTexts.title} />
-            <CookingInstructionTitle>
-              {data.cartData.cookingInstruction}
-            </CookingInstructionTitle>
+            <CookingInstructionTitle
+              content={data.cartData.cookingInstruction}
+            />
             <CookingInstructionInput
               name={data.cartData.textboxLabel}
               isPassword={false}
             />
           </StepsSection>
           <PaymentContainer>
-            <RadioTitle>{data.offersRadio.title}</RadioTitle>
+            <RadioTitleLabel content={data.offersRadio.title} />
             <RadioButton
               idValue={data.offersRadio.idValue[0]}
               radioName={data.offersRadio.name}
@@ -111,7 +111,7 @@ const ProgressSection = styled.div`
   width: 66%;
 `;
 
-const CookingInstructionTitle = styled.div`
+const CookingInstructionTitle = styled(Label)`
   height: 17px;
   width: 122.95px;
   color: ${colors.grey_858585};
@@ -165,7 +165,7 @@ const PaymentContainer = styled.div`
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
 `;
 
-const RadioTitle = styled.div`
+const RadioTitleLabel = styled(Label)`
   height: 23px;
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
