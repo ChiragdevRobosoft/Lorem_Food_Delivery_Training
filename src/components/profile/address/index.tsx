@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import FoodCard from "../../common/FoodCard";
-import SearchIcon from "../../../assets/restaurantDetails/icon_search.png";
 import data from "../../common/constants.json";
 import { fontFamilies, colors, sizes, opacity } from "../../../variables";
 import { AddressCardDetailsProps } from "../../common/interfaces";
@@ -15,13 +13,13 @@ const Address = () => {
         <AddressLabel content={data.myAddress} />
         <AddAddressLabel content={data.AddNew} />
       </AddAddressBar>
-      <OrdersContainer>
+      <AddressCardContainer>
         {data.addressCardDetails.map(
           (item: AddressCardDetailsProps, index: number) => {
             return <AddressCard cardDetails={item} key={index} />;
           }
         )}
-      </OrdersContainer>
+      </AddressCardContainer>
     </Wrapper>
   );
 };
@@ -34,11 +32,11 @@ const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-top: 84px;
+  min-height: 516px;
 `;
 const AddAddressBar = styled.div`
   display: flex;
   flew-direction: row;
-
   gap: 752px;
 `;
 const AddAddressLabel = styled(Label)`
@@ -47,14 +45,14 @@ const AddAddressLabel = styled(Label)`
 `;
 const AddressLabel = styled(Label)`
   height: 22px;
-  color: #6f6f6f;
+  color: ${colors.grey_6f6f6f};
   letter-spacing: -0.27px;
 `;
-const OrdersContainer = styled.div`
+const AddressCardContainer = styled.div`
   width: 958px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 20px;
-  margin-top: 10px;
+  margin-top: 14px;
 `;
