@@ -10,10 +10,12 @@ import Label from "../common/label";
 import Navbar from "../common/Navbar";
 import { Outlet } from "react-router-dom";
 import Image from "../common/image";
+import Header from "../common/header";
 
 const Profile = () => {
   return (
     <Wrapper>
+      <Header className="loggedin"></Header>
       <ProfileBanner>
         <CenterContainer>
           <UserProfile>
