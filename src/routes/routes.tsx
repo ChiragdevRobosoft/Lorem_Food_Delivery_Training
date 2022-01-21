@@ -8,6 +8,7 @@ import Menu from "../components/RestaurantDetails/Menu";
 import Overview from "../components/RestaurantDetails/Overview";
 import ReviewsRatings from "../components/RestaurantDetails/ReviewsRatings";
 import { links } from "../variables";
+import EditProfile from "../components/profile/editProfile";
 
 const Routing = () => {
   return (
@@ -21,6 +22,7 @@ const Routing = () => {
           <Route path={links.overview} element={<Overview />} />
           <Route path={links.reviewsRatings} element={<ReviewsRatings />} />
         </Route>
+        <Route path="editProfile" element={<EditProfile />} />
       </Routes>
     </CartDataProvider>
   );
