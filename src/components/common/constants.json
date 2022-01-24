@@ -659,6 +659,9 @@
     "name": "Name",
     "mobileNumber": "Mobile Number",
     "avatarTitle": "Choose a user avatar",
-    "save": "SAVE"
+    "save": "SAVE",
+  "gallery": {
+    "title": "All Photos",
+    "viewText": "View more >"
   }
 }
