@@ -1,100 +1,102 @@
 export const colors = {
   transparentColor: "transparent",
-  white_ffffff: "#ffffff", //white
-  white_ededed: "#ededed", //white1  #ededed
-  white_d2d2d2: "rgba(210, 210, 210,1)", //white2  #d2d2d2
+  white_d2d2d2: "rgba(210, 210, 210,1)",
+  white_ededed: "#ededed",
   white_e1e1e1: "rgba(225, 225, 225,1)",
   white_fcfcfc: "rgba(252, 252, 252,1)",
-  black_000000: "rgba(0,0,0,1)", //black
+  white_ffffff: "#ffffff",
   black_000000_007: "rgba(0, 0, 0, 0.07)",
   black_000000_1: "rgba(0, 0, 0, 0.1)",
   black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
   black_000000_015: "rgba(0, 0, 0, 0.15)",
   black_000000_05: "rgba(0, 0, 0, 0.5)",
   black_000000_07: "rgba(0,0,0,0.07)",
-  black_2D2D2D: "rgba(45, 45, 45, 1)",
   black_000000_3: "rgba(0,0,0,0.3)",
-  black_2a2c30: "rgba(42, 44, 48, 1)", //black2  #2a2c30
-  black_313131: "rgba(49, 49, 49, 1)",
+  black_000000: "rgba(0,0,0,1)",
+  black_2a2c30: "rgba(42, 44, 48, 1)",
   black_2d2d2d: "rgba(45, 45, 45, 1)",
+  black_2D2D2D: "rgba(45, 45, 45, 1)",
   black_223136: "rgba(34, 49, 54, 1)",
+  black_313131: "rgba(49, 49, 49, 1)",
   grey_bdbdbd: "#bdbdbd",
+  grey_b8b8b8: "rgba(184, 184, 184, 1)",
   grey_b9b9b9: "rgba(185, 185, 185, 1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
   grey_c6c6c6_5: "rgba(198, 198, 198, 0.5)",
-  grey_d8d8d8: "#d8d8d8", //grey14
+  grey_d8d8d8: "#d8d8d8",
   grey_f5eeee: "rgba(245, 238, 238,1)",
+  grey_1c1c1c: "rgba(28,28,28,1)",
   grey_1b1c1d: "rgba(27, 28, 29,1)",
+  grey_1f1f1f: "rgba(31, 31, 31,1)",
   grey_2d2d2d: "rgba(45,45,45,1)",
-  grey_3e3e3e: "#3e3e3e", //grey11  #3e3e3e
+  grey_3e3e3e: "#3e3e3e",
   grey_3f3f40: "rgba(63,63,64,1)",
-  grey_303134: "#303134", //grey8 grey10
+  grey_303134: "#303134",
   grey_393939: "#393939",
-  grey_4a4a4a: "rgba(74, 74, 74, 1)", //grey5 #4a4a4a
-  grey_4c4c4c: "#4c4c4c", //grey5 hexversion
+  grey_4a4a4a: "rgba(74, 74, 74, 1)",
+  grey_4c4c4c: "#4c4c4c",
   grey_5e5e5e: "rgba(94, 94, 94,1)",
   grey_565454: "rgba(86, 84, 84, 1)",
-  grey_6a6a6a: "#6a6a6a", //grey13
+  grey_6a6a6a: "#6a6a6a",
   grey_6f6f6f: "rgba(111, 111, 111,1)",
   grey_606060: "rgba(96, 96, 96,1)",
   grey_6246264: "#636364",
-  grey_636364_07: "rgba(99, 99, 100, 0.7)", //grey2 grey4 #636364
+  grey_636364_07: "rgba(99, 99, 100, 0.7)",
   grey_636364_7: "rgba(99, 99, 100, 0.7)",
   grey_636364: "rgba(99, 99, 100,1)",
-  grey_7c7c7c: "#7c7c7c", //grey7
-  grey_757575: "#757575", //grey12
+  grey_7b7676: "rgba(123, 118, 118, 1)",
+  grey_7c7c7c: "#7c7c7c",
+  grey_757575: "#757575",
   grey_757575_9: "rgba(117, 117, 117, 0.9)",
   grey_777777: "rgba(119, 119, 119,1)",
-  grey_848484: "#848484", //grey9
+  grey_8b8b8b: "rgba(184, 184, 184, 1)",
+  grey_848484: "#848484",
   grey_858484_9: "rgba(133, 132, 132, 0.9)",
-  grey_858585: "rgba(133, 133, 133, 1)", //grey6 #858585
+  grey_858585: "rgba(133, 133, 133, 1)",
   grey_9b9b9b: "rgba(155,155,155,1)",
   grey_9e9999: "rgba(158, 153, 153,1)",
   grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
-  grey_929598: "#929598", //grey6 hexversion
-  grey_949494_34: "rgba(148, 148, 148, 0.34)",
-  grey_979797: "rgba(151, 151, 151, 1)", //grey3 #979797
-  grey_979797_19: "rgba(151, 151, 151, 0.19)", //grey1 #979797
-  grey_1c1c1c: "rgba(28,28,28,1)",
-  grey_1f1f1f: "rgba(31, 31, 31,1)",
-  grey_8b8b8b: "rgba(184, 184, 184, 1)",
-  grey_7b7676: "rgba(123, 118, 118, 1)",
   grey_909090: "rgba(144, 144, 144, 1)",
-  grey_b8b8b8: "rgba(184, 184, 184, 1)",
-  pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
-  pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
-  pink_fda5a3: "#FDA5A3", //pink3
-  pink_d34836: "rgba(211, 72, 54, 1)", //pink4
-  pink_f2738a: "rgba(242, 115, 138, 1)",
-  pink_f27489: "rgba(242, 116, 137, 1)",
-  yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
-  yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
-  yellow_f5a623: "rgba(245,166,35,1)",
+  grey_929598: "#929598",
+  grey_949494_34: "rgba(148, 148, 148, 0.34)",
+  grey_979797: "rgba(151, 151, 151, 1)",
+  grey_979797_19: "rgba(151, 151, 151, 0.19)",
   yellow_a08234: "rgba(160, 130, 52,1)",
   yellow_feb456: "rgba(254, 180, 86,1)",
-  orange_f67e03: "rgba(246, 126, 3, 1)", //orange1 #f67e03
-  orange_fca100: "rgba(252, 161, 0,1)",
-  orange_f57c00: "rgba(245, 124, 0,1)",
-  orange_f78713: "rgba(247, 135, 19,1)",
+  yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)",
+  yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)",
+  yellow_f5a623: "rgba(245,166,35,1)",
   orange_faa369: "rgba(250, 163, 105, 1)",
-  orange_f5867b: "rgba(245, 134, 123, 1)",
-  orange_f99f6c: "rgba(249, 159, 108, 1)",
-  orange_fda200: "rgba(253, 162, 0, 1)",
   orange_fbab64: "rgba(251, 171, 100, 1)",
-  blue_2c79bd: "rgba(44, 121, 189, 1)", //blue1 #2c79bd
-  blue_f3f6ff: "#f3f6ff", //lightblue1
-  blue_f4f6ff: "#f4f6ff", //lightblue2
-  blue_223136: "#223136", //blue1 hexversion
-  blue_02a7fd: "rgba(2, 167, 253, 1)", //blue2 #02a7fd
-  blue_cecfd4: "rgba(206, 207, 212,1)",
-  green_5fb700: "rgba(95,183,0,1)",
-  green_49bb5c: "rgba(73, 187, 92,1)",
-  green_72b000: "rgba(114, 176, 0, 1)",
-  green_64ae12: "rgba(100, 174, 18,1)",
-  red_ff0d0d: "rgba(255,13,13,1)",
-  red_f67e7e_38: "rgba(246, 126, 126, 0.38)",
+  orange_fca100: "rgba(252, 161, 0,1)",
+  orange_fda200: "rgba(253, 162, 0, 1)",
+  orange_f57c00: "rgba(245, 124, 0,1)",
+  orange_f5867b: "rgba(245, 134, 123, 1)",
+  orange_f67e03: "rgba(246, 126, 3, 1)",
+  orange_f78713: "rgba(247, 135, 19,1)",
+  orange_f99f6c: "rgba(249, 159, 108, 1)",
+  pink_d34836: "rgba(211, 72, 54, 1)",
+  pink_e21143_09: "rgba(226, 17, 67, 0.9)",
+  pink_ff3366_08: "rgba(255, 51, 102, 0.8)",
+  pink_fda5a3: "#FDA5A3",
+  pink_f2738a: "rgba(242, 115, 138, 1)",
+  pink_f27489: "rgba(242, 116, 137, 1)",
   red_ed1b2e: "rgba(237, 27, 46,1)",
+  red_ee2538: "#ee2538",
+  red_ff0d0d: "rgba(255,13,13,1)",
   red_f3698e: "rgba(243, 105, 142,1)",
+  red_f67e7e_38: "rgba(246, 126, 126, 0.38)",
+  green_49bb5c: "rgba(73, 187, 92,1)",
+  green_5fb700: "rgba(95,183,0,1)",
+  green_64ae12: "rgba(100, 174, 18,1)",
+  green_72b000: "rgba(114, 176, 0, 1)",
+  blue_cecfd4: "rgba(206, 207, 212,1)",
+  blue_f3f6ff: "#f3f6ff",
+  blue_f4f6ff: "#f4f6ff",
+  blue_02a7fd: "rgba(2, 167, 253, 1)",
+  blue_2c79bd: "rgba(44, 121, 189, 1)",
+  blue_223136: "#223136",
+  teal_223136: "#223136",
   violet_f1f3fb: "rgba(241, 243, 251,1)",
 };
 
@@ -330,9 +332,10 @@ export const zIndex = {
 };
 
 export const letterSpacing = {
-  space0: "0",
+  spaceNeg0_41: "-0.41px",
   spaceNeg0_27: "-0.27px",
   spaceNeg0_3: "-0.3px",
+  space0: "0",
   space0_43: "0.43",
   space0_5: "0.5",
   space0_58: "0.58",
@@ -357,6 +360,9 @@ export const links = {
   profile: "/profile",
   restaurantDetails: "",
   checkout: "checkout",
+  cart: "cart",
+  cartItems: "cart-items",
+  proceedPayment: "proceed-payment",
   reviewsRatings: "reviews-&-ratings",
   gallery: "gallery",
 };

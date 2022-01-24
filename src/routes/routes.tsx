@@ -9,6 +9,9 @@ import Overview from "../components/RestaurantDetails/Overview";
 import ReviewsRatings from "../components/RestaurantDetails/ReviewsRatings";
 import Gallery from "../components/RestaurantDetails/Gallery";
 import { links } from "../variables";
+import Cart from "../components/cart";
+import CartItems from "../components/cart/cart-items";
+import ProceedPayment from "../components/cart/proceed-payment";
 
 const Routing = () => {
   return (
@@ -22,6 +25,10 @@ const Routing = () => {
           <Route path={links.overview} element={<Overview />} />
           <Route path={links.reviewsRatings} element={<ReviewsRatings />} />
           <Route path={links.gallery} element={<Gallery />} />
+        </Route>
+        <Route path={links.cart} element={<Cart />}>
+          <Route path={links.cartItems} element={<CartItems />} />
+          <Route path={links.proceedPayment} element={<ProceedPayment />} />
         </Route>
       </Routes>
     </CartDataProvider>
