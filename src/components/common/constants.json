@@ -646,5 +646,9 @@
     "title": "Reviews",
     "dropdownTitle": "Show :",
     "dropdownContent": "Recent"
+  },
+  "gallery": {
+    "title": "All Photos",
+    "viewText": "View more >"
   }
 }
