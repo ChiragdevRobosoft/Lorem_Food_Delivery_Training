@@ -9,6 +9,46 @@ import Unselected from "../../../assets/common/Radio button/radio_button_unselec
 import { CartData } from "../../common/CartDataProvider";
 import InputField from "../../common/textbox";
 import { foodItemProps } from "../../common/interfaces";
+import CartCard from "../../common/CartCard";
+
+const trialArray = [
+  {
+    id: "food-one",
+    foodName: "Chilli Cheese Meal",
+    image: false,
+    bestseller: false,
+    veg: true,
+    cost: 20.0,
+    customizable: true,
+    description: "hello",
+    quantity: 2,
+    addOn: " Avacado, grilled Salmon",
+  },
+  {
+    id: "food-one",
+    foodName: "Chilli Cheese Meal",
+    image: false,
+    bestseller: false,
+    veg: true,
+    cost: 20.0,
+    customizable: true,
+    description: "hello",
+    quantity: 2,
+    addOn: " Avacado, grilled Salmon",
+  },
+  {
+    id: "food-one",
+    foodName: "Chilli Cheese Meal",
+    image: false,
+    bestseller: false,
+    veg: true,
+    cost: 20.0,
+    customizable: true,
+    description: "hello",
+    quantity: 2,
+    addOn: " Avacado, grilled Salmon",
+  },
+];
 
 const ProceedPayment = () => {
   const { register, handleSubmit, control, reset } = useForm();
@@ -60,19 +100,22 @@ const ProceedPayment = () => {
         <ProgressSection></ProgressSection>
         <CartSection>
           <StepsSection>
-            <StepTitle content={data.cartTexts.title} />
-            <CookingInstructionTitle>
-              {data.cartData.cookingInstruction}
-            </CookingInstructionTitle>
-            <InputField
-              name={data.cartData.textboxLabel}
-              isPassword={false}
-              style={{
-                width: "263px",
-                margin: "auto",
-                color: `${colors.grey_4a4a4a}`,
-              }}
-            />
+            <StepTitleLabel content={data.cartTexts.title} />
+            <DeliveryEstimationLabel content="Estimated Delivery time - 60 - 80 min" />
+            <StepContent>
+              <ItemList>
+                {trialArray?.map((item: foodItemProps, index: number) => {
+                  return <CartCard item={item} key={index} />;
+                })}
+              </ItemList>
+              <CookingInstructionTitle
+                content={data.cartData.cookingInstruction}
+              />
+              <CookingInstructionInput
+                name={data.cartData.textboxLabel}
+                isPassword={false}
+              />
+            </StepContent>
           </StepsSection>
           <PaymentContainer>
             <RadioTitle>{data.offersRadio.title}</RadioTitle>
@@ -177,19 +220,6 @@ const ProgressSection = styled.div`
   width: 66%;
 `;
 
-const CookingInstructionTitle = styled.div`
-  height: 17px;
-  width: 122.95px;
-  color: ${colors.grey_858585};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: ${sizes.size12};
-  letter-spacing: ${sizes.sizeNeg0_24};
-  line-height: ${sizes.size17};
-  margin-left: 21px;
-  margin-top: 17px;
-  margin-bottom: 15px;
-`;
-
 const CartSection = styled.div`
   width: 100%;
   position: relative;
@@ -202,15 +232,61 @@ const CartSection = styled.div`
 
 const StepsSection = styled.div`
   width: 634px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid black;
 `;
 
-const StepTitle = styled(Label)`
+const StepTitleLabel = styled(Label)`
   height: "30px";
   color: ${colors.black_000000};
   fontfamily: ${fontFamilies.fontFamilyOsSemiBold};
   fontsize: ${sizes.size22};
   letterspacing: ${letterSpacing.space0};
   lineheight: ${sizes.size30};
+`;
+
+const DeliveryEstimationLabel = styled(Label)`
+  height: 17px;
+  color: #6f6e6e;
+  font-size: 12px;
+  line-height: 17px;
+`;
+
+const StepContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 21px 20px 20px;
+  box-sizing: border-box;
+  border: 1px solid red;
+`;
+
+const ItemList = styled.div`
+  padding: 0px 21px;
+  border-bottom: ${sizes.size1} solid ${colors.white_ededed};
+  max-height: 347px;
+  overflow: auto;
+  padding: 0px;
+`;
+
+const CookingInstructionTitle = styled(Label)`
+  height: 17px;
+  width: 122.95px;
+  color: ${colors.grey_858585};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.sizeNeg0_24};
+  line-height: ${sizes.size17};
+  margin-top: 17px;
+  margin-bottom: 15px;
+`;
+
+const CookingInstructionInput = styled(InputField)`
+  width: 263px;
+  margin: auto;
+  color: ${colors.grey_4a4a4a};
 `;
 
 const PaymentContainer = styled.div`
