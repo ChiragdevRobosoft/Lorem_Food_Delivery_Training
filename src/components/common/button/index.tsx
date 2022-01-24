@@ -22,10 +22,11 @@ interface buttonProps {
   fontWeight?: string;
   lineHeight?: string;
   textShadow?: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   image?: string;
   marginLeft?: string;
   marginRight?: string;
+  id?: string;
 }
 const Buttons: FC<buttonProps> = (props) => {
   return (

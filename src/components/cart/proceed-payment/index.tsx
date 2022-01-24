@@ -10,6 +10,7 @@ import { CartData } from "../../common/CartDataProvider";
 import InputField from "../../common/textbox";
 import { foodItemProps } from "../../common/interfaces";
 import CartCard from "../../common/CartCard";
+import RadioButton from "./radioButton";
 
 const trialArray = [
   {
@@ -118,39 +119,30 @@ const ProceedPayment = () => {
             </StepContent>
           </StepsSection>
           <PaymentContainer>
-            <RadioTitle>{data.offersRadio.title}</RadioTitle>
-            <Wrapper>
-              <RadioInput
-                type="radio"
-                id="userCode"
-                name="referal"
-                value="userCode"
-                onClick={handleRadioClick}
-                checked={radioButtons.userCode}
-              />
-              <OptionName content={data.offersRadio.options[0]} />
-            </Wrapper>
+            <RadioTitleLabel content={data.offersRadio.title} />
+            <RadioButton
+              idValue={data.offersRadio.idValue[0]}
+              radioName={data.offersRadio.name}
+              handleRadioClick={handleRadioClick}
+              option={data.offersRadio.options[0]}
+              checkedStatus={radioButtons.userCode}
+            />
             {radioButtons.userCode === true ? (
               <UserCodeSection>
-                <InputField
-                  name="Add your promo code"
+                <UserCodeInput
+                  name={data.offersRadio.userPromoCode}
                   isPassword={false}
-                  style={{ width: "238px", height: "33px" }}
                 />
                 <AlertText content={data.offersRadio.alertsText} />
               </UserCodeSection>
             ) : null}
-            <Wrapper style={{ marginTop: "24px" }}>
-              <RadioInput
-                type="radio"
-                id="bestOffer"
-                name="referal"
-                value="bestOffers"
-                onClick={handleRadioClick}
-                checked={radioButtons.bestOffers}
-              />
-              <OptionName content={data.offersRadio.options[1]} />
-            </Wrapper>
+            <RadioButtonOffers
+              idValue={data.offersRadio.idValue[1]}
+              radioName={data.offersRadio.name}
+              handleRadioClick={handleRadioClick}
+              option={data.offersRadio.options[1]}
+              checkedStatus={radioButtons.bestOffers}
+            />
             <CostDetailsContainer>
               <TotalCostContainer>
                 <PayText>{data.cartData.toPay}</PayText>
@@ -220,6 +212,25 @@ const ProgressSection = styled.div`
   width: 66%;
 `;
 
+const CookingInstructionTitle = styled(Label)`
+  height: 17px;
+  width: 122.95px;
+  color: ${colors.grey_858585};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.sizeNeg0_24};
+  line-height: ${sizes.size17};
+  margin-left: 21px;
+  margin-top: 17px;
+  margin-bottom: 15px;
+`;
+
+const CookingInstructionInput = styled(InputField)`
+  width: 263px;
+  margin: auto;
+  color: ${colors.grey_4a4a4a};
+`;
+
 const CartSection = styled.div`
   width: 100%;
   position: relative;
@@ -271,24 +282,6 @@ const ItemList = styled.div`
   padding: 0px;
 `;
 
-const CookingInstructionTitle = styled(Label)`
-  height: 17px;
-  width: 122.95px;
-  color: ${colors.grey_858585};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: ${sizes.size12};
-  letter-spacing: ${sizes.sizeNeg0_24};
-  line-height: ${sizes.size17};
-  margin-top: 17px;
-  margin-bottom: 15px;
-`;
-
-const CookingInstructionInput = styled(InputField)`
-  width: 263px;
-  margin: auto;
-  color: ${colors.grey_4a4a4a};
-`;
-
 const PaymentContainer = styled.div`
   width: 305px;
   height: 480px;
@@ -301,7 +294,7 @@ const PaymentContainer = styled.div`
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
 `;
 
-const RadioTitle = styled.div`
+const RadioTitleLabel = styled(Label)`
   height: 23px;
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
@@ -342,6 +335,10 @@ const OptionName = styled(Label)`
   letter-spacing: ${sizes.sizeNeg0_24};
   line-height: ${sizes.size19};
   vertical-align: middle;
+`;
+
+const RadioButtonOffers = styled(RadioButton)`
+  margin-top: 24px;
 `;
 
 const AlertText = styled(Label)`
@@ -439,4 +436,9 @@ const CostSplit = styled.div`
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
+`;
+
+const UserCodeInput = styled(InputField)`
+  width: 238px;
+  height: 33p;
 `;

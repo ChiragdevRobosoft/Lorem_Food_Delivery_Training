@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   margin-top: 10px;
 `;
 
-const RadioInput = styled.input`
+export const RadioInput = styled.input`
   width: 16px;
   -webkit-appearance: none;
   margin: 0px 7px;

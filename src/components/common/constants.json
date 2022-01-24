@@ -633,6 +633,9 @@
   "offersRadio": {
     "title": "Offers",
     "alertsText": "COD options will not available for this offer",
+    "userPromoCode": "Add your promo code",
+    "name": "referal",
+    "idValue": ["userCode", "bestOffer"],
     "options": ["Add your referral code", "Best Offers"]
   },
   "cartTexts": {

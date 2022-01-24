@@ -29,24 +29,15 @@ const MyCartCard: FC<MyCartCardProps> = ({ info, index }) => {
   return (
     <Cartcard key={index}>
       <RestaurantName content={info.restaurantName} />
-      <Remove className="remove" onClick={handleClick} id={info.id}>
-        {data.cartData.remove}
-      </Remove>
+      <RemoveButton
+        name={data.cartData.remove}
+        onClick={handleClick}
+        id={info.id}
+      />
       <RestaurantAddress content={info.address} />
       <OrderDetails content={info.orderDetails} />
       <Link to={""}>
-        <Buttons
-          name={data.cartContents.proceed}
-          className="proceed-button"
-          height="30px"
-          width="111px"
-          borderRadius="15px"
-          boxShadow="none"
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          fontSize="14px"
-          lineHeight="19px"
-          border={`1px solid ${colors.pink_e21143_09}`}
-        />
+        <ProceedButton name={data.cartContents.proceed} />
       </Link>
     </Cartcard>
   );
@@ -64,23 +55,9 @@ const Cartcard = styled.div`
   background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   box-sizing: border-box;
-  .proceed-button {
-    background-image: linear-gradient(
-      ${angles.angle60},
-      ${colors.pink_e21143_09},
-      ${colors.yellow_ffb03a_09}
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: ${colors.transparentColor};
-    position: absolute;
-    bottom: 22px;
-    right: 21px;
-    top: 120px;
-  }
 `;
 
-const Remove = styled.div`
+const RemoveButton = styled(Buttons)`
   height: 15px;
   width: 43px;
   color: ${colors.red_ed1b2e};
@@ -93,6 +70,7 @@ const Remove = styled.div`
   right: 20px;
   top: 30px;
   cursor: pointer;
+  box-shadow: none;
 `;
 
 const RestaurantName = styled(Label)`
@@ -119,4 +97,28 @@ const OrderDetails = styled(Label)`
   line-height: ${sizes.size17};
   letter-spacing: ${letterSpacing.space0};
   margin-top: "7px";
+`;
+
+const ProceedButton = styled(Buttons)`
+  background-image: linear-gradient(
+    ${angles.angle60},
+    ${colors.pink_e21143_09},
+    ${colors.yellow_ffb03a_09}
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: ${colors.transparentColor};
+  position: absolute;
+  bottom: 22px;
+  right: 21px;
+  top: 120px;
+  height:30px;
+  width:111px;
+  border-radius:15px;
+  box-shadow:none;
+  font-family:${fontFamilies.fontFamilyOsSemiBold};
+  font-size:14px;
+  line-height:19px;
+  border:1px solid ${colors.pink_e21143_09};
+}
 `;

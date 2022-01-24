@@ -7,6 +7,8 @@ export interface radioProps {
 export interface DropdownProps {
   options: { content: string; image: string | null }[];
   name: string;
+  arrow?: boolean;
+  className?: string;
 }
 
 export interface RestauarantCardprops {
@@ -30,11 +32,6 @@ export interface radioProps {
   name: string;
   options: string[];
   handleChange: React.MouseEventHandler<HTMLInputElement>;
-}
-
-export interface DropdownProps {
-  options: { content: string; image: string | null }[];
-  name: string;
 }
 
 export interface foodItemProps {
