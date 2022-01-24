@@ -6,6 +6,7 @@ import DownArrow from "../../../assets/common/dropdown/down_arrow.png";
 import OutsideAlerter from "../../OutsideClickAlert";
 import Label from "../label";
 import Image from "../image";
+import { RadioInput } from "../Radio button";
 
 const Dropdown: FC<DropdownProps> = ({ options, name, arrow, className }) => {
   const [selected, setSelected] = useState(options[0].content);
@@ -57,8 +58,7 @@ const Dropdown: FC<DropdownProps> = ({ options, name, arrow, className }) => {
               ) => {
                 return (
                   <React.Fragment key={index}>
-                    <RadioInput
-                      type="radio"
+                    <RadioButton
                       id={choice.content}
                       name={name}
                       value={choice.content}
@@ -139,7 +139,7 @@ const Underline = styled.div`
   opacity: 0.44;
 `;
 
-const RadioInput = styled.input`
+const RadioButton = styled(RadioInput)`
   display: none;
 `;
 
