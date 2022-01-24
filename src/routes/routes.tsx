@@ -27,7 +27,7 @@ const Routing = () => {
           <Route path={links.reviewsRatings} element={<ReviewsRatings />} />
           <Route path={links.gallery} element={<Gallery />} />
         </Route>
-        <Route path="editProfile" element={<EditProfile />} />
+        <Route path={links.editProfile} element={<EditProfile />} />
         <Route path={links.cart} element={<Cart />}>
           <Route path={links.cartItems} element={<CartItems />} />
           <Route path={links.proceedPayment} element={<ProceedPayment />} />

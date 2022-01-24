@@ -367,4 +367,5 @@ export const links = {
   proceedPayment: "proceed-payment",
   reviewsRatings: "reviews-&-ratings",
   gallery: "gallery",
+  editProfile: "editProfile",
 };
