@@ -66,6 +66,7 @@ export const colors = {
   pink_d34836: "rgba(211, 72, 54, 1)", //pink4
   pink_f2738a: "rgba(242, 115, 138, 1)",
   pink_f27489: "rgba(242, 116, 137, 1)",
+  pink_ff8c7d: "rgba(255, 140, 125, 1)",
   yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
   yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
   yellow_f5a623: "rgba(245,166,35,1)",

@@ -189,6 +189,12 @@
     "delivery": "Delivery ASAP"
   },
   "loginModal": {
+    "title": "LOREM",
+    "tagline": {
+      "line1": "Experience the easiest a way to get ",
+      "line2": "great food ",
+      "line3": "Delivered"
+    },
     "accountsDetails": {
       "lorem": "LOREM",
       "tagLine": {
