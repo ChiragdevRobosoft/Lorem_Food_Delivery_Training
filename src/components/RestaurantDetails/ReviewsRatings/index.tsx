@@ -29,6 +29,7 @@ const ReviewsRatings = () => {
                   image: ArrowDown,
                 },
               ]}
+              className="semibold"
             />
           </DropdownContainer>
         </ReviewsTitleContainer>

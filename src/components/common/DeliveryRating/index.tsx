@@ -9,7 +9,6 @@ import Image from "../image";
 const DeliveryRating: FC<{
   RatingNum: number;
   className?: string;
-  style?: CSSProperties;
   onClick?: React.MouseEventHandler<HTMLInputElement>;
   id?: string;
 }> = (props) => {
@@ -29,7 +28,6 @@ const DeliveryRating: FC<{
     <RatingConatiner
       ratingColor={ratingColor}
       className={props.className}
-      style={props.style}
       onClick={props.onClick}
       id={props.id}
     >
@@ -48,14 +46,14 @@ const DeliveryRating: FC<{
 const RatingConatiner = styled.div<{ ratingColor: string }>`
   box-sizing: border-box;
   height: ${(props) =>
-    props.style?.height
-      ? props.style.height
+    props.className === "clickable"
+      ? "21px"
       : props.className === "reverse-color"
       ? "18px"
       : "26px"};
   width: ${(props) =>
-    props.style?.width
-      ? props.style.width
+    props.className === "clickable"
+      ? "42px"
       : props.className === "reverse-color"
       ? "32px"
       : "46px"};
