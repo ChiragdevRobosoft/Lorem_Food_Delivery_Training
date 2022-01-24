@@ -130,7 +130,8 @@
       "Explore",
       "Great breakfasts",
       "The Boutique Kitchen"
-    ]
+    ],
+    "menu1": ["Home", "UAE", "Explore", "Great breakfasts", "My Cart"]
   },
   "homeTexts": {
     "foodRestaurantSearch": {
@@ -423,6 +424,37 @@
     "timeRange": "11:00 AM - 10:00 PM",
     "ratingTitle": "Delivery rating for last 5 orders"
   },
+  "cartContents": {
+    "MyCartTitle": "My Cart",
+    "remove": "Remove",
+    "proceed": "PROCEED",
+    "myCart": [
+      {
+        "id": "1",
+        "restaurantName": "The Boutique Kitchen",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      },
+      {
+        "id": "2",
+        "restaurantName": "Karavalli Lunch Home",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "2 Items  |  AED85.76"
+      },
+      {
+        "id": "3",
+        "restaurantName": "Operation: Falafel",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      },
+      {
+        "id": "4",
+        "restaurantName": "Operation: Falafel",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      }
+    ]
+  },
   "addressCardDetails": [
     {
       "place": "Home",
@@ -604,6 +636,18 @@
     "gallery": "GALLERY"
   },
   "orderNumber": "2",
+  "offersRadio": {
+    "title": "Offers",
+    "alertsText": "COD options will not available for this offer",
+    "userPromoCode": "Add your promo code",
+    "name": "referal",
+    "idValue": ["userCode", "bestOffer"],
+    "options": ["Add your referral code", "Best Offers"]
+  },
+  "cartTexts": {
+    "title": "The Boutique Kitchen",
+    "ETADelivery": "Estimated Delivery time - 60 - 80 min"
+  },
   "reviewsRatingsData": {
     "title": "Reviews",
     "dropdownTitle": "Show :",

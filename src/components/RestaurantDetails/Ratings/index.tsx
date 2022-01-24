@@ -3,56 +3,25 @@ import styled from "styled-components";
 import Label from "../../common/label";
 import data from "../../common/constants.json";
 import { colors, fontFamilies, sizes, angles } from "../../../variables";
-import DeliveryRating from "../../common/DeliveryRating";
 import activeIcon from "../../../assets/restaurantDetails/checkbox_active.png";
 import InputField from "../../common/textbox";
 import Buttons from "../../common/button";
 import Image from "../../common/image";
+import ClickableRating from "../../common/ClickableRating";
 
 const Ratings = () => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const fileList = (e.target as HTMLInputElement).files;
     console.log(fileList);
   };
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    const siblingElements = (
-      (e.currentTarget as HTMLElement).parentNode as HTMLElement
-    ).children;
-    Array.from(siblingElements).map(
-      (siblingElement: Element, index: number) => {
-        if (siblingElement.id !== e.currentTarget.id) {
-          const unSelected = document.getElementById(siblingElement.id);
-          if (!unSelected) return;
-          unSelected.style.filter = "none";
-        } else {
-          const selected = document.getElementById(e.currentTarget.id);
-          if (!selected) return;
-          selected.style.filter =
-            "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(50%)";
-        }
-      }
-    );
-  };
+
   return (
     <Wrapper>
       <Title content={data.ratingCardData.title} />
       {data.ratingCardData.foodServiceData.map((title, index) => {
         return (
           <React.Fragment key={index}>
-            <RatingLabel content={title} />
-            <RatingContainer>
-              {data.ratingCardData.ratingNumbers.map((ratingNum, index) => {
-                return (
-                  <DeliveryRating
-                    key={index}
-                    onClick={handleClick}
-                    RatingNum={ratingNum}
-                    style={{ width: "42px", height: "21px" }}
-                    id={`${title}${ratingNum.toString()}`}
-                  />
-                );
-              })}
-            </RatingContainer>
+            <ClickableRating title={title} />
             <Underline />
             <SavedContainer>
               <ActiveImage src={activeIcon} />
@@ -91,11 +60,6 @@ const Wrapper = styled.div`
 const RowFlex = styled.div`
   display: flex;
   flex-direction: row;
-`;
-
-const RatingContainer = styled(RowFlex)`
-  justify-content: space-between;
-  width: 245px;
 `;
 
 const Underline = styled.div`
@@ -143,13 +107,6 @@ const Title = styled(Label)`
   letter-spacing: ${sizes.sizeNeg0_24};
   line-height: ${sizes.size30};
   margin-bottom: 13px;
-`;
-
-const RatingLabel = styled(Label)`
-  color: ${colors.grey_565454};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  letter-spacing: ${sizes.sizeNeg0_24};
-  margin-bottom: 15px;
 `;
 
 const SavedLabel = styled(Label)`

@@ -23,55 +23,57 @@ const Header: FC<headerProps> = (props) => {
   return (
     <HeaderWrapper className={props.className}>
       <HeaderTitle className={props.className}>{data.header.title}</HeaderTitle>
-      <LanguageSelector
-        className={props.className}
-        name="languages"
-        id="pageLang"
-      >
-        {languages.map((lang) => {
-          return (
-            <option key={lang} value={lang}>
-              {lang}
-            </option>
-          );
-        })}
-      </LanguageSelector>
-      {props.className === "home" || props.className === "newSec" ? (
-        <Login
+      <RightSection>
+        <LanguageSelector
           className={props.className}
-          onClick={() => {
-            return props.setShowLogin !== undefined
-              ? props.setShowLogin(true)
-              : null;
-          }}
+          name="languages"
+          id="pageLang"
         >
-          {data.header.login}
-        </Login>
-      ) : null}
-      {props.className === "loggedin" ? <User /> : null}
-      {props.className === "loggedin" ? (
-        <VertLine className={props.className} />
-      ) : null}
-      {props.className === "home" || props.className === "newSec" ? (
-        <CreateAccount
-          className={props.className}
-          onClick={() => {
-            return props.setShowCreateAccount !== undefined
-              ? props.setShowCreateAccount(true)
-              : null;
-          }}
-        >
-          {data.header.createAnAccount}
-        </CreateAccount>
-      ) : null}
-      {props.className === "loggedin" ? (
-        <Logout className={props.className}>{data.header.logout}</Logout>
-      ) : null}
-      {props.className === "home" || props.className === "newSec" ? (
-        <VertLine className={props.className} />
-      ) : null}
-      <CartLogo className={props.className} src={cartIcon} alt="cart-icon" />
-      <Cart className={props.className}>{data.header.cart}</Cart>
+          {languages.map((lang) => {
+            return (
+              <option key={lang} value={lang}>
+                {lang}
+              </option>
+            );
+          })}
+        </LanguageSelector>
+        {props.className === "home" || props.className === "newSec" ? (
+          <Login
+            className={props.className}
+            onClick={() => {
+              return props.setShowLogin !== undefined
+                ? props.setShowLogin(true)
+                : null;
+            }}
+          >
+            {data.header.login}
+          </Login>
+        ) : null}
+        {props.className === "loggedin" ? <User /> : null}
+        {props.className === "loggedin" ? (
+          <VertLine className={props.className} />
+        ) : null}
+        {props.className === "home" || props.className === "newSec" ? (
+          <CreateAccount
+            className={props.className}
+            onClick={() => {
+              return props.setShowCreateAccount !== undefined
+                ? props.setShowCreateAccount(true)
+                : null;
+            }}
+          >
+            {data.header.createAnAccount}
+          </CreateAccount>
+        ) : null}
+        {props.className === "loggedin" ? (
+          <Logout className={props.className}>{data.header.logout}</Logout>
+        ) : null}
+        {props.className === "home" || props.className === "newSec" ? (
+          <VertLine className={props.className} />
+        ) : null}
+        <CartLogo className={props.className} src={cartIcon} alt="cart-icon" />
+        <Cart className={props.className}>{data.header.cart}</Cart>
+      </RightSection>
     </HeaderWrapper>
   );
 };
@@ -79,7 +81,7 @@ export default Header;
 
 const HeaderWrapper = styled.header`
   height: ${(props) => (props.className === "home" ? `89px` : `70px`)};
-  width: ${(props) => (props.className === "home" ? `1825px` : `100%`)};
+  width: 100wh;
   display: flex;
   flex-direction: row;
   margin: ${(props) =>
@@ -111,9 +113,14 @@ const HeaderTitle = styled.p`
     props.className === "home" ? `${sizes.size50}` : `${sizes.size35}`};
   letter-spacing: ${letterSpacing.space0};
   margin: ${(props) =>
-    props.className === "home"
-      ? `15px 1226px 14px 7px`
-      : `14px 1234px 13px 45px`};
+    props.className === "home" ? `15px auto 14px 7px` : `14px auto 13px 45px`};
+`;
+
+const RightSection = styled.div`
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
 `;
 
 const LanguageSelector = styled.select`

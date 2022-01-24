@@ -6,10 +6,15 @@ interface labelProps {
   content: string | number;
   className?: string;
   htmlFor?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 const Label: FC<labelProps> = (props) => {
   return (
-    <LabelText className={props.className} htmlFor={props.htmlFor}>
+    <LabelText
+      className={props.className}
+      htmlFor={props.htmlFor}
+      onClick={props.onClick}
+    >
       {props.content}
     </LabelText>
   );
