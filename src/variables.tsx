@@ -9,6 +9,7 @@ export const colors = {
   black_000000_007: "rgba(0, 0, 0, 0.07)",
   black_000000_1: "rgba(0, 0, 0, 0.1)",
   black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
+  black_000000_015: "rgba(0, 0, 0, 0.15)",
   black_000000_05: "rgba(0, 0, 0, 0.5)",
   black_000000_07: "rgba(0,0,0,0.07)",
   black_2D2D2D: "rgba(45, 45, 45, 1)",
@@ -357,4 +358,5 @@ export const links = {
   restaurantDetails: "",
   checkout: "checkout",
   reviewsRatings: "reviews-&-ratings",
+  gallery: "gallery",
 };
