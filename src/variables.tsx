@@ -317,6 +317,7 @@ export const fontWeight = {
 
 export const opacity = {
   opacity0_19: 0.19,
+  opacity0_53: 0.53,
   opacity0_58: 0.58,
   opacity0_66: 0.66,
   opacity0_44: 0.44,

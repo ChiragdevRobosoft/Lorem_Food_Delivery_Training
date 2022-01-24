@@ -602,5 +602,13 @@
     "title": "Reviews",
     "dropdownTitle": "Show :",
     "dropdownContent": "Recent"
+  },
+  "editProfile": {
+    "title": "Edit Profile",
+    "username": "Username",
+    "name": "Name",
+    "mobileNumber": "Mobile Number",
+    "avatarTitle": "Choose a user avatar",
+    "save": "SAVE"
   }
 }
