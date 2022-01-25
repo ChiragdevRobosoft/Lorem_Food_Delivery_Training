@@ -265,7 +265,7 @@
   "dropdownData": {
     "list": {
       "title": "List by",
-      "content": ["All", "Near by"]
+      "contents": ["All", "Near by"]
     },
     "sort": {
       "title": "Sort by",
@@ -640,20 +640,7 @@
   "orderNumber": "2",
   "orderDropdownData": {
     "title": "Active Orders",
-    "options": [
-      {
-        "content": "Active Orders",
-        "image": null
-      },
-      {
-        "content": "Past Orders",
-        "image": null
-      },
-      {
-        "content": "Cancelled Orders",
-        "image": null
-      }
-    ]
+    "contents": ["Active Orders", "Past Orders", "Cancelled Orders"]
   },
   "myAddress": "My Addresses",
   "AddNew": "+ Add new",

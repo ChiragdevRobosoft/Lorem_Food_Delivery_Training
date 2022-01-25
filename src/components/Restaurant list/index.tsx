@@ -31,16 +31,9 @@ const RestaurantList = () => {
             <FilterType>{data.dropdownData.list.title} :</FilterType>
             <Dropdown
               name={data.dropdownData.list.title}
-              options={[
-                {
-                  content: `${data.dropdownData.list.content[0]}`,
-                  image: null,
-                },
-                {
-                  content: `${data.dropdownData.list.content[1]}`,
-                  image: null,
-                },
-              ]}
+              options={data.dropdownData.list.contents.map((content) => {
+                return { content: content, image: null };
+              })}
             />
             <FilterType>{data.dropdownData.sort.title} :</FilterType>
             <Dropdown
