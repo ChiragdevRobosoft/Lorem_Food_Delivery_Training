@@ -5,14 +5,12 @@ import Searchpath from "../../common/Searchpath";
 import data from "../../common/constants.json";
 import Label from "../../common/label";
 import { useForm, Controller } from "react-hook-form";
-import Unselected from "../../../assets/common/Radio button/radio_button_unselected.png";
 import { CartData } from "../../common/CartDataProvider";
 import InputField from "../../common/textbox";
 import { foodItemProps } from "../../common/interfaces";
 import CartCard from "../../common/CartCard";
 import RadioButton from "./radioButton";
 import Buttons from "../../common/button";
-import chooseAddress from "../../../assets/cart/chooseAddress.png";
 
 const trialArray = [
   {

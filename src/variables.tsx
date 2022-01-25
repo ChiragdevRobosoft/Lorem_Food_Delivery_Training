@@ -6,11 +6,12 @@ export const colors = {
   white_fcfcfc: "rgba(252, 252, 252,1)",
   white_ffffff: "#ffffff",
   black_000000_007: "rgba(0, 0, 0, 0.07)",
-  black_000000_07: "rgba(0,0,0,0.07)",
   black_000000_1: "rgba(0, 0, 0, 0.1)",
-  black_000000_014: "rgba(0, 0, 0, 0.14)",
-  black_000000_3: "rgba(0,0,0,0.3)",
+  black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
+  black_000000_015: "rgba(0, 0, 0, 0.15)",
   black_000000_05: "rgba(0, 0, 0, 0.5)",
+  black_000000_07: "rgba(0,0,0,0.07)",
+  black_000000_3: "rgba(0,0,0,0.3)",
   black_000000: "rgba(0,0,0,1)",
   black_2a2c30: "rgba(42, 44, 48, 1)",
   black_2d2d2d: "rgba(45, 45, 45, 1)",
@@ -56,15 +57,22 @@ export const colors = {
   grey_9e9999: "rgba(158, 153, 153,1)",
   grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
   grey_909090: "rgba(144, 144, 144, 1)",
+  pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
+  pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
+  pink_fda5a3: "#FDA5A3", //pink3
+  pink_d34836: "rgba(211, 72, 54, 1)", //pink4
+  pink_f2738a: "rgba(242, 115, 138, 1)",
+  pink_f27489: "rgba(242, 116, 137, 1)",
+  pink_ff8c7d: "rgba(255, 140, 125, 1)",
+  yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
+  yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
+  yellow_f5a623: "rgba(245,166,35,1)",
   grey_929598: "#929598",
   grey_949494_34: "rgba(148, 148, 148, 0.34)",
   grey_979797: "rgba(151, 151, 151, 1)",
   grey_979797_19: "rgba(151, 151, 151, 0.19)",
   yellow_a08234: "rgba(160, 130, 52,1)",
   yellow_feb456: "rgba(254, 180, 86,1)",
-  yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)",
-  yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)",
-  yellow_f5a623: "rgba(245,166,35,1)",
   orange_faa369: "rgba(250, 163, 105, 1)",
   orange_fbab64: "rgba(251, 171, 100, 1)",
   orange_fca100: "rgba(252, 161, 0,1)",
@@ -74,12 +82,6 @@ export const colors = {
   orange_f67e03: "rgba(246, 126, 3, 1)",
   orange_f78713: "rgba(247, 135, 19,1)",
   orange_f99f6c: "rgba(249, 159, 108, 1)",
-  pink_d34836: "rgba(211, 72, 54, 1)",
-  pink_e21143_09: "rgba(226, 17, 67, 0.9)",
-  pink_ff3366_08: "rgba(255, 51, 102, 0.8)",
-  pink_fda5a3: "#FDA5A3",
-  pink_f2738a: "rgba(242, 115, 138, 1)",
-  pink_f27489: "rgba(242, 116, 137, 1)",
   red_ed1b2e: "rgba(237, 27, 46,1)",
   red_ee2538: "#ee2538",
   red_ff0d0d: "rgba(255,13,13,1)",
@@ -319,6 +321,7 @@ export const fontWeight = {
 
 export const opacity = {
   opacity0_19: 0.19,
+  opacity0_53: 0.53,
   opacity0_58: 0.58,
   opacity0_66: 0.66,
   opacity0_44: 0.44,
@@ -363,4 +366,6 @@ export const links = {
   cartItems: "cart-items",
   proceedPayment: "proceed-payment",
   reviewsRatings: "reviews-&-ratings",
+  gallery: "gallery",
+  editProfile: "editProfile",
 };
