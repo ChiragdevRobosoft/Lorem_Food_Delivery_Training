@@ -269,7 +269,7 @@
     },
     "sort": {
       "title": "Sort by",
-      "content": ["Rating", "Rating"]
+      "contents": ["Rating", "Rating"]
     }
   },
   "restaurantListPage": {
@@ -659,7 +659,7 @@
   "reviewsRatingsData": {
     "title": "Reviews",
     "dropdownTitle": "Show :",
-    "dropdownContent": "Recent"
+    "dropdownContent": ["Recent", "Recent"]
   },
   "editProfile": {
     "title": "Edit Profile",
