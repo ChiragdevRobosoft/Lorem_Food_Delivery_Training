@@ -130,7 +130,8 @@
       "Explore",
       "Great breakfasts",
       "The Boutique Kitchen"
-    ]
+    ],
+    "menu1": ["Home", "UAE", "Explore", "Great breakfasts", "My Cart"]
   },
   "homeTexts": {
     "foodRestaurantSearch": {
@@ -189,6 +190,12 @@
     "delivery": "Delivery ASAP"
   },
   "loginModal": {
+    "title": "LOREM",
+    "tagline": {
+      "line1": "Experience the easiest a way to get ",
+      "line2": "great food ",
+      "line3": "Delivered"
+    },
     "accountsDetails": {
       "lorem": "LOREM",
       "tagLine": {
@@ -417,6 +424,37 @@
     "timeRange": "11:00 AM - 10:00 PM",
     "ratingTitle": "Delivery rating for last 5 orders"
   },
+  "cartContents": {
+    "MyCartTitle": "My Cart",
+    "remove": "Remove",
+    "proceed": "PROCEED",
+    "myCart": [
+      {
+        "id": "1",
+        "restaurantName": "The Boutique Kitchen",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      },
+      {
+        "id": "2",
+        "restaurantName": "Karavalli Lunch Home",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "2 Items  |  AED85.76"
+      },
+      {
+        "id": "3",
+        "restaurantName": "Operation: Falafel",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      },
+      {
+        "id": "4",
+        "restaurantName": "Operation: Falafel",
+        "address": "Shiekh Zayed Road, Dubai, UAE",
+        "orderDetails": "3 Items  |  AED85.76"
+      }
+    ]
+  },
   "addressCardDetails": [
     {
       "place": "Home",
@@ -573,6 +611,16 @@
   ],
   "reviews": " reviews, ",
   "ratings": " ratings",
+  "ratingCardData": {
+    "title": "Rate your experience",
+    "foodServiceData": ["Food", "Service"],
+    "saved": "Saved",
+    "reviewTitle": "Write a review",
+    "reviewLabel": "Start writing your review",
+    "imageUploadTitle": "+ Add image",
+    "buttonText": "Submit",
+    "ratingNumbers": [1, 2, 3, 4, 5]
+  },
   "profile": {
     "name": "Abdulla",
     "edit": "Edit",
@@ -595,5 +643,34 @@
     "content": ["Past Orders", "Cancelled Orders"]
   },
   "myAddress": "My Addresses",
-  "AddNew": "+ Add new"
+  "AddNew": "+ Add new",
+  "offersRadio": {
+    "title": "Offers",
+    "alertsText": "COD options will not available for this offer",
+    "userPromoCode": "Add your promo code",
+    "name": "referal",
+    "idValue": ["userCode", "bestOffer"],
+    "options": ["Add your referral code", "Best Offers"]
+  },
+  "cartTexts": {
+    "title": "The Boutique Kitchen",
+    "ETADelivery": "Estimated Delivery time - 60 - 80 min"
+  },
+  "reviewsRatingsData": {
+    "title": "Reviews",
+    "dropdownTitle": "Show :",
+    "dropdownContent": "Recent"
+  },
+  "editProfile": {
+    "title": "Edit Profile",
+    "username": "Username",
+    "name": "Name",
+    "mobileNumber": "Mobile Number",
+    "avatarTitle": "Choose a user avatar",
+    "save": "SAVE"
+  },
+  "gallery": {
+    "title": "All Photos",
+    "viewText": "View more >"
+  }
 }

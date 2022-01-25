@@ -3,13 +3,18 @@ import styled from "styled-components";
 import { sizes, colors, fontFamilies } from "../../../variables";
 
 interface labelProps {
-  content: string;
+  content: string | number;
   className?: string;
   htmlFor?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 const Label: FC<labelProps> = (props) => {
   return (
-    <LabelText className={props.className} htmlFor={props.htmlFor}>
+    <LabelText
+      className={props.className}
+      htmlFor={props.htmlFor}
+      onClick={props.onClick}
+    >
       {props.content}
     </LabelText>
   );
@@ -19,8 +24,8 @@ const LabelText = styled.label`
   height: 22px;
   width: auto;
   color: ${colors.grey_858585};
-  font-family: ${fontFamilies.fontFamilyOsRegular}
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
-  letter-spacing:${sizes.size0};
+  letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};
 `;

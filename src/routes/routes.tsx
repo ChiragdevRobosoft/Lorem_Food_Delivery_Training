@@ -6,9 +6,15 @@ import CartDataProvider from "../components/common/CartDataProvider";
 import Profile from "../components/profile";
 import Menu from "../components/RestaurantDetails/Menu";
 import Overview from "../components/RestaurantDetails/Overview";
+import ReviewsRatings from "../components/RestaurantDetails/ReviewsRatings";
+import Gallery from "../components/RestaurantDetails/Gallery";
 import { links } from "../variables";
 import Orders from "../components/profile/orders";
 import Address from "../components/profile/address";
+import EditProfile from "../components/profile/editProfile";
+import Cart from "../components/cart";
+import CartItems from "../components/cart/cart-items";
+import ProceedPayment from "../components/cart/proceed-payment";
 
 const Routing = () => {
   return (
@@ -19,6 +25,13 @@ const Routing = () => {
         <Route path={links.restaurantDetails} element={<RestaurantDetails />}>
           <Route path={links.menu} element={<Menu />} />
           <Route path={links.overview} element={<Overview />} />
+          <Route path={links.reviewsRatings} element={<ReviewsRatings />} />
+          <Route path={links.gallery} element={<Gallery />} />
+        </Route>
+        <Route path={links.editProfile} element={<EditProfile />} />
+        <Route path={links.cart} element={<Cart />}>
+          <Route path={links.cartItems} element={<CartItems />} />
+          <Route path={links.proceedPayment} element={<ProceedPayment />} />
         </Route>
         <Route path={links.profile} element={<Profile />}>
           <Route path={links.orders} element={<Orders />} />

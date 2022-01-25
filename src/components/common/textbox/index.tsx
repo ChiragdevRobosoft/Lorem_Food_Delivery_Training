@@ -57,7 +57,7 @@ const FormContainer = styled.div`
   height: 34px;
   width: ${(props) => (props.style?.width ? props.style.width : "100%")};
   .moveUp ~ .form-label {
-    top: ${(props) => (props.style?.width === "263px" ? "-1rem" : "-1.5rem")};
+    top: ${(props) => (props.style?.width === "380px" ? "-1.5rem" : "-1rem")};
     font-size: 0.8rem;
     position: relative;
   }
@@ -69,7 +69,7 @@ const Textbox = styled.input`
   top: 0;
   left: 0;
   height: 34px;
-  width: ${(props) => (props.style?.width ? props.style.width : "380px")};
+  width: 100%;
   background-color: ${colors.transparentColor};
   border: none;
   border-bottom: 1px solid ${colors.grey_858585};
