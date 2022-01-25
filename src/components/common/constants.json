@@ -190,6 +190,12 @@
     "delivery": "Delivery ASAP"
   },
   "loginModal": {
+    "title": "LOREM",
+    "tagline": {
+      "line1": "Experience the easiest a way to get ",
+      "line2": "great food ",
+      "line3": "Delivered"
+    },
     "accountsDetails": {
       "lorem": "LOREM",
       "tagLine": {
@@ -646,6 +652,14 @@
     "title": "Reviews",
     "dropdownTitle": "Show :",
     "dropdownContent": "Recent"
+  },
+  "editProfile": {
+    "title": "Edit Profile",
+    "username": "Username",
+    "name": "Name",
+    "mobileNumber": "Mobile Number",
+    "avatarTitle": "Choose a user avatar",
+    "save": "SAVE"
   },
   "gallery": {
     "title": "All Photos",

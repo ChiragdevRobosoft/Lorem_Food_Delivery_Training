@@ -48,10 +48,11 @@ const Login = ({
     >
       <Wrapper>
         <WrapperLeft>
-          <Lorem>LOREM</Lorem>
+          <Lorem>{data.loginModal.title}</Lorem>
           <TagLine>
-            Experience the easiest a way to get <BoldText>great food </BoldText>
-            Delivered
+            {data.loginModal.tagline.line1}{" "}
+            <BoldText>{data.loginModal.tagline.line2} </BoldText>
+            {data.loginModal.tagline.line3}
           </TagLine>
         </WrapperLeft>
         <WrapperRight>
@@ -75,28 +76,8 @@ const Login = ({
           </ForgetButton>
           <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
           <SocialMedia>
-            <Buttons
-              name="Facebook"
-              color="#2C79BD"
-              fontFamily={fontFamilies.fontFamilyOsSemiBold}
-              fontSize="16px"
-              height="50px"
-              width="180px"
-              border="1px solid #02A7FD"
-              borderRadius="6px"
-              box-shadow="0 2px 10px 0 rgba(0,0,0,0.1)"
-            />
-            <Buttons
-              name="Google+"
-              color="#D34836"
-              fontFamily={fontFamilies.fontFamilyOsSemiBold}
-              fontSize="16px"
-              height="50px"
-              width="180px"
-              border="1px solid #FF8C7D"
-              borderRadius="6px"
-              box-shadow="0 2px 10px 0 rgba(0,0,0,0.1)"
-            />
+            <FacebookButton name="Facebook" />
+            <GoogleButton name="Google+" />
           </SocialMedia>
           <Footer>
             <ForgotPasswordLink>
@@ -166,6 +147,26 @@ const SocialMedia = styled.div`
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
+`;
+const FacebookButton = styled(Buttons)`
+  color: ${colors.blue_2c79bd};
+  fontfamily: ${fontFamilies.fontFamilyOsSemiBold};
+  fontsize: ${sizes.size16};
+  height: 50px;
+  width: 180px;
+  border: 1px solid ${colors.blue_02a7fd};
+  borderradius: ${sizes.size6};
+  box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
+`;
+const GoogleButton = styled(Buttons)`
+  color: ${colors.pink_d34836};
+  fontfamily: ${fontFamilies.fontFamilyOsSemiBold};
+  fontsize: ${sizes.size16};
+  height: 50px;
+  width: 180px;
+  border: 1px solid ${colors.pink_ff8c7d};
+  borderradius: ${sizes.size6};
+  box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
 `;
 const ForgotPasswordLink = styled.p`
   height: 19px;
