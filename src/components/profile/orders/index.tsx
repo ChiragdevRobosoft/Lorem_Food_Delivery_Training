@@ -15,20 +15,7 @@ const Orders = () => {
         name="OrderDropdown"
         className="semibold"
         arrow={true}
-        options={[
-          {
-            content: `${data.orderDropdownData.content[0]}`,
-            image: null,
-          },
-          {
-            content: `${data.orderDropdownData.content[1]}`,
-            image: null,
-          },
-          {
-            content: `${data.orderDropdownData.content[2]}`,
-            image: null,
-          },
-        ]}
+        options={data.orderDropdownData.options}
       />
       <OrdersContainer>
         {data.orderCardData.map((item: orderCardProps, index: number) => {

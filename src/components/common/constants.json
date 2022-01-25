@@ -640,7 +640,20 @@
   "orderNumber": "2",
   "orderDropdownData": {
     "title": "Active Orders",
-    "content": ["Active Orders", "Past Orders", "Cancelled Orders"]
+    "options": [
+      {
+        "content": "Active Orders",
+        "image": null
+      },
+      {
+        "content": "Past Orders",
+        "image": null
+      },
+      {
+        "content": "Cancelled Orders",
+        "image": null
+      }
+    ]
   },
   "myAddress": "My Addresses",
   "AddNew": "+ Add new",
