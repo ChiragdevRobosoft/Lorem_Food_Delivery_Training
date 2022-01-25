@@ -10,6 +10,7 @@ import ReviewCard from "../ReviewCard";
 import Ratings from "../Ratings";
 
 const ReviewsRatings = () => {
+  const images = [ArrowUp, ArrowDown];
   return (
     <Wrapper>
       <ReviewsContainer>
@@ -19,16 +20,11 @@ const ReviewsRatings = () => {
             <DropdownLabel content={data.reviewsRatingsData.dropdownTitle} />
             <Dropdown
               name={data.reviewsRatingsData.dropdownTitle}
-              options={[
-                {
-                  content: `${data.reviewsRatingsData.dropdownContent}`,
-                  image: ArrowUp,
-                },
-                {
-                  content: `${data.reviewsRatingsData.dropdownContent}`,
-                  image: ArrowDown,
-                },
-              ]}
+              options={data.reviewsRatingsData.dropdownContent.map(
+                (content, index) => {
+                  return { content: content, image: images[index] };
+                }
+              )}
               className="semibold"
             />
           </DropdownContainer>

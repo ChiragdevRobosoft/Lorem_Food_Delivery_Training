@@ -16,6 +16,7 @@ import Header from "../common/header";
 import FoodSearch from "../common/SearchComponent";
 
 const RestaurantList = () => {
+  const images = [ArrowUp, ArrowDown];
   return (
     <Wrapper>
       <Header className="loggedin" />
@@ -31,30 +32,16 @@ const RestaurantList = () => {
             <FilterType>{data.dropdownData.list.title} :</FilterType>
             <Dropdown
               name={data.dropdownData.list.title}
-              options={[
-                {
-                  content: `${data.dropdownData.list.content[0]}`,
-                  image: null,
-                },
-                {
-                  content: `${data.dropdownData.list.content[1]}`,
-                  image: null,
-                },
-              ]}
+              options={data.dropdownData.list.contents.map((content) => {
+                return { content: content, image: null };
+              })}
             />
             <FilterType>{data.dropdownData.sort.title} :</FilterType>
             <Dropdown
               name={data.dropdownData.sort.title}
-              options={[
-                {
-                  content: `${data.dropdownData.sort.content[0]}`,
-                  image: ArrowUp,
-                },
-                {
-                  content: `${data.dropdownData.sort.content[1]}`,
-                  image: ArrowDown,
-                },
-              ]}
+              options={data.dropdownData.sort.contents.map((content, index) => {
+                return { content: content, image: images[index] };
+              })}
             />
           </FilterRow>
         </HeadingSection>

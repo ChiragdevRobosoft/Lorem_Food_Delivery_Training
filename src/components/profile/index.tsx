@@ -5,15 +5,22 @@ import InfoIcon from "../../assets/profile/icn_info_small.png";
 import styled from "styled-components";
 import Footer from "../common/footer";
 import data from "../../components/common/constants.json";
-import { sizes, colors, fontFamilies } from "../../variables";
+import { sizes, colors, fontFamilies, opacity } from "../../variables";
 import Label from "../common/label";
+import Navbar from "../common/Navbar";
+import { Outlet } from "react-router-dom";
+import Image from "../common/image";
+import Header from "../common/header";
+import PImage from "../../assets/profile/icn_icecream.png";
+
 const Profile = () => {
   return (
     <Wrapper>
+      <Header className="loggedin"></Header>
       <ProfileBanner>
         <CenterContainer>
           <UserProfile>
-            <ProfilePhoto />
+            <ProfileImage src={PImage} />
             <ProfileInfo>
               <NameLine>
                 <NameLabel content={data.profile.name} />
@@ -39,17 +46,14 @@ const Profile = () => {
               </DetailsRow>
             </ProfileInfo>
           </UserProfile>
-          <Navbar>
-            <NavOrderLabel
-              content={data.profile.order + " " + "(" + data.orderNumber + ")"}
-            />
-            <NavAddressLabel content={data.profile.address} />
-            <NavPaymentLabel content={data.profile.paymentMethods} />
-            <NavReviewLabel content={data.profile.reviews} />
-            <NavGalleryLabel content={data.profile.gallery} />
-          </Navbar>
+          <NavbarContainer>
+            <Navbar navbarElements={data.ProfileNavbarElements} />
+          </NavbarContainer>
         </CenterContainer>
       </ProfileBanner>
+      <RoutingContainer>
+        <Outlet />
+      </RoutingContainer>
       <Footer />
     </Wrapper>
   );
@@ -77,12 +81,13 @@ const UserProfile = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const ProfilePhoto = styled.div`
+const ProfileImage = styled(Image)`
   height: 106px;
   width: 106px;
   border: 3px solid ${colors.white_ffffff};
   box-shadow: 0 2px 3px 0 ${colors.black_000000_3};
-  border-radius: 100px;
+  border-radius: ${sizes.size100};
+  box-sizing: border-box;
 `;
 const ProfileInfo = styled.div`
   text-align: left;
@@ -102,7 +107,7 @@ const DetailsRow = styled.div`
   height: 33px;
   margin-top: 16px;
 `;
-const Icon = styled.img`
+const Icon = styled(Image)`
   object-fit: none;
   margin-right: 17px;
 `;
@@ -115,10 +120,9 @@ const LineBreak = styled.hr`
   height: 21px;
   box-sizing: border-box;
   border: 1px solid ${colors.white_ffffff};
-  opacity: 0.37;
-  margin=0;
+  opacity: ${opacity.opacity0_37} margin=0;
 `;
-const Navbar = styled.div`
+const NavbarContainer = styled.div`
   height: 19px;
   display: flex;
   flex-direction: row;
@@ -158,42 +162,9 @@ const InfoCreditLabel = styled(Label)`
   margin-right: 10px;
   margin-left: 3px;
 `;
-const NavOrderLabel = styled(Label)`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
-  margin-right: 38px;
-`;
-const NavAddressLabel = styled(Label)`
-  height: $19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
-  margin-right: 59px;
-`;
-const NavPaymentLabel = styled(Label)`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
-  margin-right: 58px;
-`;
-const NavReviewLabel = styled(Label)`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
-  margin-right: 58px;
-`;
-const NavGalleryLabel = styled(Label)`
-  height: 19px;
-  color: ${colors.white_ffffff};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: ${sizes.size14};
-  line-height: ${sizes.size19};
+const RoutingContainer = styled.div`
+  width: 100%;
+  position: relative;
+  margin: auto;
+  background-color: ${colors.violet_f1f3fb};
 `;
