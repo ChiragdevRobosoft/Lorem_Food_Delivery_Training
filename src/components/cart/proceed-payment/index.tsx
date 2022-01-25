@@ -11,6 +11,8 @@ import InputField from "../../common/textbox";
 import { foodItemProps } from "../../common/interfaces";
 import CartCard from "../../common/CartCard";
 import RadioButton from "./radioButton";
+import Buttons from "../../common/button";
+import chooseAddress from "../../../assets/cart/chooseAddress.png";
 
 const trialArray = [
   {
@@ -63,10 +65,6 @@ const ProceedPayment = () => {
   };
   const { details, setDetails } = useContext(CartData);
 
-  // const handleClick = () => {
-  //   setDetails([]);
-  // };
-
   let totalCost = details.reduce(
     (total: number, foodItem: foodItemProps) =>
       Math.round(
@@ -116,6 +114,10 @@ const ProceedPayment = () => {
                 name={data.cartData.textboxLabel}
                 isPassword={false}
               />
+              <ButtonContainer>
+                <BackButton name="BACK" />
+                <ChooseAddress name="CHOOSE ADDRESS" />
+              </ButtonContainer>
             </StepContent>
           </StepsSection>
           <PaymentContainer>
@@ -203,6 +205,7 @@ const ContentContainer = styled.div`
   box-sizing: border-box;
   justify-content: space-between;
   gap: 39px;
+  padding: 0;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -210,25 +213,6 @@ const ContentContainer = styled.div`
 const ProgressSection = styled.div`
   height: 55px;
   width: 66%;
-`;
-
-const CookingInstructionTitle = styled(Label)`
-  height: 17px;
-  width: 122.95px;
-  color: ${colors.grey_858585};
-  font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: ${sizes.size12};
-  letter-spacing: ${sizes.sizeNeg0_24};
-  line-height: ${sizes.size17};
-  margin-left: 21px;
-  margin-top: 17px;
-  margin-bottom: 15px;
-`;
-
-const CookingInstructionInput = styled(InputField)`
-  width: 263px;
-  margin: auto;
-  color: ${colors.grey_4a4a4a};
 `;
 
 const CartSection = styled.div`
@@ -246,16 +230,16 @@ const StepsSection = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  border: 1px solid black;
+  //border: 1px solid black;
 `;
 
 const StepTitleLabel = styled(Label)`
   height: "30px";
   color: ${colors.black_000000};
-  fontfamily: ${fontFamilies.fontFamilyOsSemiBold};
-  fontsize: ${sizes.size22};
-  letterspacing: ${letterSpacing.space0};
-  lineheight: ${sizes.size30};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size22};
+  letter-spacing: ${letterSpacing.space0};
+  line-height: ${sizes.size30};
 `;
 
 const DeliveryEstimationLabel = styled(Label)`
@@ -263,6 +247,7 @@ const DeliveryEstimationLabel = styled(Label)`
   color: #6f6e6e;
   font-size: 12px;
   line-height: 17px;
+  margin-top: 10px;
 `;
 
 const StepContent = styled.div`
@@ -271,7 +256,11 @@ const StepContent = styled.div`
   flex-direction: column;
   padding: 20px 21px 20px 20px;
   box-sizing: border-box;
-  border: 1px solid red;
+  margin-top: 17px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  //border: 1px solid black;
 `;
 
 const ItemList = styled.div`
@@ -280,6 +269,58 @@ const ItemList = styled.div`
   max-height: 347px;
   overflow: auto;
   padding: 0px;
+`;
+
+const CookingInstructionTitle = styled(Label)`
+  height: 17px;
+  width: 122.95px;
+  color: ${colors.grey_858585};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
+  font-size: ${sizes.size12};
+  letter-spacing: ${sizes.sizeNeg0_24};
+  line-height: ${sizes.size17};
+  margin-top: 17px;
+  margin-bottom: 15px;
+`;
+
+const CookingInstructionInput = styled(InputField)`
+  width: 263px;
+  margin: auto;
+  color: ${colors.grey_4a4a4a};
+`;
+
+const ButtonContainer = styled.div`
+  box-sizing: border-box;
+  height: 45px;
+  width: 348px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+  margin: 22px 0px 0px auto;
+`;
+
+const BackButton = styled(Buttons)`
+  box-sizing: border-box;
+  height: 45px;
+  width: 130px;
+  color: #979797;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+  border: 1px solid #979797;
+  box-shadow: none;
+`;
+
+const ChooseAddress = styled(Buttons)`
+  box-sizing: border-box;
+  height: 45px;
+  width: 198px;
+  background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
+  box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
 `;
 
 const PaymentContainer = styled.div`
@@ -291,6 +332,7 @@ const PaymentContainer = styled.div`
   box-sizing: border-box;
   padding: 15px 17px 12px 18px;
   border-radius: 6px;
+  background-color: #ffffff;
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
 `;
 
@@ -302,39 +344,6 @@ const RadioTitleLabel = styled(Label)`
   letter-spacing: ${letterSpacing.spaceNeg0_41};
   line-height: ${sizes.size23};
   margin-bottom: 17px;
-`;
-
-const Wrapper = styled.div`
-  display: block;
-  height: 16px;
-  top: 0;
-`;
-
-const RadioInput = styled.input`
-  width: 16px;
-  margin: 0px 7px;
-  margin-left: 0;
-  vertical-align: middle;
-
-  &:checked + label {
-    color: ${colors.grey_4a4a4a};
-  }
-  &:not(:checked) {
-    background-image: url(${Unselected});
-    height: 15.28px;
-  }
-  &:not(:checked) + label {
-    color: ${colors.grey_4a4a4a};
-  }
-`;
-
-const OptionName = styled(Label)`
-  height: 19px;
-  font-size: ${sizes.size14};
-  font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  letter-spacing: ${sizes.sizeNeg0_24};
-  line-height: ${sizes.size19};
-  vertical-align: middle;
 `;
 
 const RadioButtonOffers = styled(RadioButton)`
