@@ -12,7 +12,9 @@ const Orders = () => {
   return (
     <Wrapper>
       <Dropdown
-        name={data.orderDropdownData.title}
+        name="OrderDropdown"
+        className="semibold"
+        arrow={true}
         options={[
           {
             content: `${data.orderDropdownData.content[0]}`,
@@ -20,6 +22,10 @@ const Orders = () => {
           },
           {
             content: `${data.orderDropdownData.content[1]}`,
+            image: null,
+          },
+          {
+            content: `${data.orderDropdownData.content[2]}`,
             image: null,
           },
         ]}

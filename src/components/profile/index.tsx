@@ -5,12 +5,13 @@ import InfoIcon from "../../assets/profile/icn_info_small.png";
 import styled from "styled-components";
 import Footer from "../common/footer";
 import data from "../../components/common/constants.json";
-import { sizes, colors, fontFamilies } from "../../variables";
+import { sizes, colors, fontFamilies, opacity } from "../../variables";
 import Label from "../common/label";
 import Navbar from "../common/Navbar";
 import { Outlet } from "react-router-dom";
 import Image from "../common/image";
 import Header from "../common/header";
+import PImage from "../../assets/profile/icn_icecream.png";
 
 const Profile = () => {
   return (
@@ -19,7 +20,7 @@ const Profile = () => {
       <ProfileBanner>
         <CenterContainer>
           <UserProfile>
-            <ProfilePhoto />
+            <ProfileImage src={PImage} />
             <ProfileInfo>
               <NameLine>
                 <NameLabel content={data.profile.name} />
@@ -80,12 +81,13 @@ const UserProfile = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const ProfilePhoto = styled.div`
+const ProfileImage = styled(Image)`
   height: 106px;
   width: 106px;
   border: 3px solid ${colors.white_ffffff};
   box-shadow: 0 2px 3px 0 ${colors.black_000000_3};
-  border-radius: 100px;
+  border-radius: ${sizes.size100};
+  box-sizing: border-box;
 `;
 const ProfileInfo = styled.div`
   text-align: left;
@@ -118,8 +120,7 @@ const LineBreak = styled.hr`
   height: 21px;
   box-sizing: border-box;
   border: 1px solid ${colors.white_ffffff};
-  opacity: 0.37;
-  margin=0;
+  opacity: ${opacity.opacity0_37} margin=0;
 `;
 const NavbarContainer = styled.div`
   height: 19px;

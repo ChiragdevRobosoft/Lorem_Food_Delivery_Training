@@ -325,6 +325,7 @@ export const opacity = {
   opacity0_58: 0.58,
   opacity0_66: 0.66,
   opacity0_44: 0.44,
+  opacity0_37: 0.37,
 };
 
 export const zIndex = {
