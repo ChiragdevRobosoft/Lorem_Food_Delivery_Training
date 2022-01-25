@@ -326,6 +326,7 @@ export const opacity = {
   opacity0_58: 0.58,
   opacity0_66: 0.66,
   opacity0_44: 0.44,
+  opacity0_37: 0.37,
 };
 
 export const zIndex = {
@@ -360,13 +361,15 @@ export const links = {
   restaurantList: "restaurant-list",
   overview: "overview",
   brands: "/brands",
-  profile: "/profile",
+  profile: "",
   restaurantDetails: "",
-  checkout: "checkout",
+  orders: "orders",
+  address: "address",
   cart: "cart",
   cartItems: "cart-items",
   proceedPayment: "proceed-payment",
   reviewsRatings: "reviews-&-ratings",
   gallery: "gallery",
   editProfile: "editProfile",
+  checkout: "checkout",
 };
