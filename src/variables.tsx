@@ -23,6 +23,7 @@ export const colors = {
   grey_b9b9b9: "rgba(185, 185, 185, 1)",
   grey_cac2c2_5: "rgba(202, 194, 194, 0.5)",
   grey_c6c6c6_5: "rgba(198, 198, 198, 0.5)",
+  grey_d6d3d3: "rgba(214, 211, 211,1)",
   grey_d8d8d8: "#d8d8d8",
   grey_f5eeee: "rgba(245, 238, 238,1)",
   grey_1c1c1c: "rgba(28,28,28,1)",
