@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "../../common/image";
-import FoodImage from "../../../assets/restaurantDetails/gallery_food_image.png";
+import FoodImage1 from "../../../assets/restaurantDetails/gallery_food_image1.png";
+import FoodImage2 from "../../../assets/restaurantDetails/gallery_food_image2.png";
 import Label from "../../common/label";
 import { fontFamilies, angles, colors, sizes } from "../../../variables";
 import data from "../../common/constants.json";
 import downArrow from "../../../assets/common/dropdown/down_arrow.png";
+import GalleryPopover from "../GalleryPopover";
 
 const Gallery = () => {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(0);
+  const handleSelect = (e: React.MouseEvent<HTMLElement>) => {
+    setSelected(Number(e.currentTarget.id));
+    handleClose();
+  };
+  const handleClose = () => {
+    setOpen(!open);
+  };
+
+  const galleryImages = [
+    {
+      name: "Chicken wings",
+      imageSrc: FoodImage1,
+    },
+    {
+      name: "The Nachos cream stone",
+      imageSrc: FoodImage2,
+    },
+  ];
   return (
     <Wrapper>
       <TitleContainer>
@@ -15,13 +37,26 @@ const Gallery = () => {
         <ArrowImage src={downArrow} />
       </TitleContainer>
       <GalleryContainer>
-        {Array(24)
-          .fill(FoodImage)
+        {Array(12)
+          .fill(galleryImages)
+          .flat()
           .map((image, index) => {
-            return <Image key={index} src={image} />;
+            return (
+              <GalleryImage
+                key={index}
+                src={image.imageSrc}
+                onClick={handleSelect}
+                id={index.toString()}
+              />
+            );
           })}
       </GalleryContainer>
       <ViewLabel content={data.gallery.viewText} />
+      <GalleryPopover
+        open={open}
+        handleClose={handleClose}
+        selected={selected}
+      />
     </Wrapper>
   );
 };
@@ -83,6 +118,11 @@ const ViewLabel = styled(Label)`
   );
   background-clip: text;
   -webkit-background-clip: text;
+`;
+
+const GalleryImage = styled(Image)`
+  height: 131px;
+  width: 140px;
 `;
 
 export default Gallery;

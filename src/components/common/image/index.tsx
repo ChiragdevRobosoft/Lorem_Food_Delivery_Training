@@ -5,6 +5,7 @@ interface ImageProps {
   className?: string;
   src: string;
   onClick?: React.MouseEventHandler<HTMLImageElement>;
+  id?: string;
 }
 const Image: FC<ImageProps> = (props) => {
   return (
@@ -12,6 +13,7 @@ const Image: FC<ImageProps> = (props) => {
       className={props.className}
       src={props.src}
       onClick={props.onClick}
+      id={props.id}
     />
   );
 };
