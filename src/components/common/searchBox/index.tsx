@@ -3,31 +3,63 @@ import React, { FC, useState } from "react";
 import { colors, fontFamilies, sizes } from "./../../../variables";
 import searchIcon from "./../../../assets/common/foodSearchBox/search-icon-home.png";
 import data from "../../../components/common/constants.json";
+import Image from "../../common/image";
+import { useNavigate } from "react-router-dom";
 
 interface SearchBoxProps {
   className: string;
+  searchVal?: string;
+  locationVal?: string;
+  setSearchVal?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchBoxComp: FC<SearchBoxProps> = ({ className }) => {
-  const [searchVal, setSearchVal] = useState("");
-
+const SearchBoxComp: FC<SearchBoxProps> = ({
+  className,
+  searchVal,
+  locationVal,
+  setSearchVal,
+}) => {
+  let navigate = useNavigate();
   const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (setSearchVal === undefined) {
+      return;
+    }
     setSearchVal(e.target.value);
   };
 
+  const handleClick = () => {
+    if (setSearchVal === undefined) {
+      return;
+    }
+    if (searchVal !== "" && locationVal !== "") {
+      navigate(`${searchVal}/${locationVal}`);
+    }
+  };
+
   return (
-    <SearchBox
-      className={className}
-      type="text"
-      name="food-search"
-      placeholder={data.foodSearchBox.placeHolder1}
-      value={searchVal}
-      onChange={(event) => changeValue(event)}
-    />
+    <SearchContainer>
+      <SearchBox
+        className={className}
+        type="text"
+        name="food-search"
+        placeholder={data.foodSearchBox.placeHolder1}
+        value={searchVal}
+        onChange={(event) => changeValue(event)}
+      />
+      <SearchImage
+        src={searchIcon}
+        onClick={handleClick}
+        className={className}
+      />
+    </SearchContainer>
   );
 };
 
 export default SearchBoxComp;
+
+const SearchContainer = styled.div`
+  position: relative;
+`;
 
 const SearchBox = styled.input`
   box-sizing: border-box;
@@ -43,12 +75,6 @@ const SearchBox = styled.input`
       ${colors.black_000000_007}`};
   outline: none;
   border: none;
-  background-image: url(${searchIcon});
-  background-repeat: no-repeat;
-  background-size: ${(props) =>
-    props.className === "home" ? `20px 27px` : `20px 15px`};
-  background-position: ${(props) =>
-    props.className === "home" ? `25px 22px` : `570.78px`};
   padding-left: ${(props) => (props.className === "home" ? `61px` : `15px`)};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size16};
@@ -69,4 +95,11 @@ const SearchBox = styled.input`
     margin: 0px;
   }
   display: flex;
+`;
+
+const SearchImage = styled(Image)`
+  position: absolute;
+  top: 30%;
+  left: ${(props) => (props.className === "home" ? "25px" : "auto")};
+  right: ${(props) => (props.className === "home" ? "auto" : "19px")};
 `;
