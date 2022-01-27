@@ -18,14 +18,25 @@ const FoodSearch: FC<foodSearchProps> = ({ pageType }) => {
   const handleClose = () => {
     setOpen(!open);
   };
+  const [searchVal, setSearchVal] = useState("");
+  const [locationVal, setLocationVal] = useState("");
   return (
     <>
       {pageType === "home" ? (
         <WrapperHome className={pageType}>
-          <SearchBoxComp className={pageType} />
+          <SearchBoxComp
+            className={pageType}
+            searchVal={searchVal}
+            locationVal={locationVal}
+            setSearchVal={setSearchVal}
+          />
           <LocAndDate className={pageType}>
             <Locationholder className={pageType}>
-              <LocationInput className={pageType} />
+              <LocationInput
+                className={pageType}
+                locationVal={locationVal}
+                setLocationVal={setLocationVal}
+              />
             </Locationholder>
             <Dateholder className={pageType}>
               <DateInput className={pageType} />
@@ -42,7 +53,7 @@ const FoodSearch: FC<foodSearchProps> = ({ pageType }) => {
               <DatePickerImage src={timeDateIcon} onClick={handleClose} />
             </SearchContainer>
           </ContentContainer>
-          <Schedule open={open} handleClose={handleClose} />
+          <Schedule open={open} handleClose={handleClose} setOpen={setOpen} />
         </Wrapper>
       )}
     </>

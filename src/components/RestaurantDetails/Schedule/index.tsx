@@ -11,10 +11,11 @@ import "react-calendar/dist/Calendar.css";
 import Timepicker from "../../common/TimePicker";
 import Buttons from "../../common/button";
 
-const Schedule: FC<{ open: boolean; handleClose: () => void }> = ({
-  open,
-  handleClose,
-}) => {
+const Schedule: FC<{
+  open: boolean;
+  handleClose: () => void;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ open, handleClose, setOpen }) => {
   const modalStyles = {
     borderRadius: `${sizes.size8}`,
     boxShadow: `0 2px 10px 0 ${colors.black_000000_1}`,
@@ -36,7 +37,10 @@ const Schedule: FC<{ open: boolean; handleClose: () => void }> = ({
         <DateInput />
         <DateTimeLabel content={data.schedule.timeTitle} />
         <Timepicker />
-        <ScheduleButton name={data.schedule.buttonText} />
+        <ScheduleButton
+          name={data.schedule.buttonText}
+          onClick={() => setOpen(false)}
+        />
       </Wrapper>
     </Modal>
   );

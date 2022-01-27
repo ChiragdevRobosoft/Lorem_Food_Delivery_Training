@@ -7,12 +7,17 @@ import data from "../../../components/common/constants.json";
 
 interface locationInputProps {
   className: string;
+  locationVal?: string;
+  setLocationVal?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const LocationInput: FC<locationInputProps> = ({ className }) => {
-  const [locationVal, setLocationVal] = useState("");
-
+const LocationInput: FC<locationInputProps> = ({
+  className,
+  locationVal,
+  setLocationVal,
+}) => {
   const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (setLocationVal === undefined) return;
     setLocationVal(e.target.value);
   };
 
