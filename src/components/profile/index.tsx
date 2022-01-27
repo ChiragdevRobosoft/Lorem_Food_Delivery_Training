@@ -12,6 +12,7 @@ import { Outlet } from "react-router-dom";
 import Image from "../common/image";
 import Header from "../common/header";
 import PImage from "../../assets/profile/icn_icecream.png";
+import EditProfile from "./editProfile";
 
 const Profile = () => {
   return (
@@ -24,7 +25,10 @@ const Profile = () => {
             <ProfileInfo>
               <NameLine>
                 <NameLabel content={data.profile.name} />
-                <EditLabel content={data.profile.edit} />
+                <EditLabel
+                  content={data.profile.edit}
+                  onClick={() => EditProfile}
+                />
               </NameLine>
               <FullNameLabel content={data.profile.fullName} />
               <DetailsRow>
@@ -143,6 +147,7 @@ const EditLabel = styled(Label)`
   line-height: ${sizes.size19};
   margin-left: 28px;
   margin-top: 20px;
+  cursor: pointer;
 `;
 const FullNameLabel = styled(Label)`
   width: 153px;
