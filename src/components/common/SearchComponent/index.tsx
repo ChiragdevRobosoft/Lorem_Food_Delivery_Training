@@ -140,6 +140,11 @@ height: 17px;
   line-height: ${sizes.size17};
   padding:0;
   margin: 0 0 9px 2px;
+  ${queries.tablet} {
+  font-size: ${sizes.size11};
+  line-height: ${sizes.size14};
+  height: ${sizes.size14};
+  }
 }
 `;
 

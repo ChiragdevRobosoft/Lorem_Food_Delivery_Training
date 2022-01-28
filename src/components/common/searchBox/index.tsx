@@ -38,7 +38,7 @@ const SearchBoxComp: FC<SearchBoxProps> = ({
   };
 
   return (
-    <SearchContainer>
+    <SearchContainer className={className}>
       <SearchBox
         className={className}
         type="text"
@@ -60,6 +60,7 @@ export default SearchBoxComp;
 
 const SearchContainer = styled.div`
   position: relative;
+  height: ${(props) => (props.className === "home" ? `70px` : `50px`)};
 `;
 
 const SearchBox = styled.input`
@@ -104,13 +105,22 @@ const SearchBox = styled.input`
         ::placeholder {
           font-size: 14px;
         }
+        ${queries.tablet} {
+          font-size: ${sizes.size11};
+          line-height: ${sizes.size14};
+        }
       }
     `}
 `;
 
 const SearchImage = styled(Image)`
   position: absolute;
-  top: 30%;
+  top: 50%;
+  transform: translateY(-50%);
   left: ${(props) => (props.className === "home" ? "25px" : "auto")};
   right: ${(props) => (props.className === "home" ? "auto" : "19px")};
+  ${queries.tablet} {
+    width: 20px;
+    height: 21px;
+  }
 `;
