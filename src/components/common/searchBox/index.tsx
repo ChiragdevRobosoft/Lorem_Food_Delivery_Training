@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import React, { FC, useState } from "react";
 import { colors, fontFamilies, sizes } from "./../../../variables";
 import searchIcon from "./../../../assets/common/foodSearchBox/search-icon-home.png";
 import data from "../../../components/common/constants.json";
 import Image from "../../common/image";
 import { useNavigate } from "react-router-dom";
+import { queries } from "../breakpoints";
 
 interface SearchBoxProps {
   className: string;
@@ -95,6 +96,16 @@ const SearchBox = styled.input`
     margin: 0px;
   }
   display: flex;
+  ${(props) =>
+    props.className !== "home" &&
+    css`
+      ${queries.tabletLandscape} {
+        width: 281px;
+        ::placeholder {
+          font-size: 14px;
+        }
+      }
+    `}
 `;
 
 const SearchImage = styled(Image)`

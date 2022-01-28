@@ -7,6 +7,7 @@ import OutsideAlerter from "../../OutsideClickAlert";
 import Label from "../label";
 import Image from "../image";
 import { RadioInput } from "../Radio button";
+import { queries } from "../breakpoints";
 
 const Dropdown: FC<DropdownProps> = ({ options, name, arrow, className }) => {
   const [selected, setSelected] = useState(options[0].content);
@@ -100,6 +101,11 @@ const Select = styled(Label)`
     props.className === "semibold"
       ? `${fontFamilies.fontFamilyOsSemiBold}`
       : `${fontFamilies.fontFamilyOsRegular}`};
+  ${queries.tablet} {
+    font-size: ${sizes.size14};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const DropdownList = styled.div<{ className: string }>`
@@ -114,6 +120,9 @@ const DropdownList = styled.div<{ className: string }>`
   z-index: 1;
   padding: 0px 18px;
   margin-top: 6px;
+  ${queries.tablet} {
+    padding: 0 8px;
+  }
 `;
 
 const Option = styled.label`
@@ -129,6 +138,12 @@ const Option = styled.label`
   padding: 15px 0px;
   text-align: left;
   white-space: nowrap;
+  ${queries.tablet} {
+    padding: 8px 0;
+    font-size: ${sizes.size14};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const Underline = styled.div`

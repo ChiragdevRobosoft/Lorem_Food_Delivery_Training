@@ -1,6 +1,7 @@
 import React from "react";
 import { colors, sizes, fontFamilies } from "../../../variables";
 import styled from "styled-components";
+import { queries } from "../breakpoints";
 
 const Searchpath = ({
   path,
@@ -28,7 +29,7 @@ const Searchpath = ({
 };
 
 const SearchPathContainer = styled.div`
-  width: 100wh;
+  width: 100%;
   border: ${sizes.size1} ${colors.white_e1e1e1};
   border-style: solid none;
 `;
@@ -48,6 +49,9 @@ const SearchPath = styled.div`
   line-height: ${sizes.size17};
   padding-top: 13.6px;
   padding-bottom: 13.6px;
+  ${queries.tabletLandscape} {
+    width: auto;
+  }
 `;
 
 const Arrow = styled.span`
