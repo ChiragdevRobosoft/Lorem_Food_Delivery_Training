@@ -6,11 +6,18 @@ import LocationInput from "../locationInput";
 import DateInput from "../dateInput";
 import searchBoxBg from "./../../..//assets/common/foodSearchBox/searchbox_bg.png";
 import data from "./../constants.json";
+import timeDateIcon from "./../../../assets/common/foodSearchBox/present-t&d-firstpage.png";
+import Image from "../image";
+import Schedule from "../../RestaurantDetails/Schedule";
 interface foodSearchProps {
   pageType: string;
 }
 
 const FoodSearch: FC<foodSearchProps> = ({ pageType }) => {
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(!open);
+  };
   const [searchVal, setSearchVal] = useState("");
   const [locationVal, setLocationVal] = useState("");
   return (
@@ -43,9 +50,10 @@ const FoodSearch: FC<foodSearchProps> = ({ pageType }) => {
             <SearchContainer>
               <LocationInput className={pageType} />
               <SearchBoxComp className={pageType} />
-              <DateInput className={pageType} />
+              <DatePickerImage src={timeDateIcon} onClick={handleClose} />
             </SearchContainer>
           </ContentContainer>
+          <Schedule open={open} handleClose={handleClose} setOpen={setOpen} />
         </Wrapper>
       )}
     </>
@@ -135,4 +143,9 @@ const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+const DatePickerImage = styled(Image)`
+  height: 60px;
+  width: 60px;
 `;

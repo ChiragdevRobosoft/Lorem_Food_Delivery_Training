@@ -7,6 +7,7 @@ export const colors = {
   white_ffffff: "#ffffff",
   black_000000_007: "rgba(0, 0, 0, 0.07)",
   black_000000_1: "rgba(0, 0, 0, 0.1)",
+  black_000000_53: "rgba(0,0,0,0.53)",
   black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
   black_000000_015: "rgba(0, 0, 0, 0.15)",
   black_000000_05: "rgba(0, 0, 0, 0.5)",
