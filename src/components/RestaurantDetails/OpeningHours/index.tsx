@@ -3,6 +3,7 @@ import styled from "styled-components";
 import data from "../../common/constants.json";
 import { colors, angles, sizes, fontFamilies } from "../../../variables";
 import Label from "../../common/label";
+import { queries } from "../../common/breakpoints";
 
 const OpeningHours = () => {
   const [visibility, setVisibility] = useState(false);
@@ -100,6 +101,10 @@ const Arrow = styled.span<{ visibility: string }>`
     props.visibility === "true" ? "rotate(-135deg)" : "rotate(45deg)"};
   margin-bottom: ${(props) => (props.visibility === "true" ? "0" : "5px")};
   margin-top: ${(props) => (props.visibility === "true" ? "5px" : "0")};
+  ${queries.tablet} {
+    height: 3px;
+    width: 3px;
+  }
 `;
 
 const WorkHoursContainer = styled.div<{ visibility: string }>`
@@ -113,12 +118,22 @@ const Time = styled(Label)`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const ConstSize = styled(Label)`
   height: ${sizes.size17};
   font-size: ${sizes.size12};
   line-height: ${sizes.size17};
+  ${queries.tablet} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const Date = styled(ConstSize)`
@@ -154,6 +169,12 @@ const WorkHoursLabel = styled(Label)`
   );
   background-clip: text;
   -webkit-background-clip: text;
+  ${queries.tablet} {
+    width: 160px;
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const DateContainer = styled.div`

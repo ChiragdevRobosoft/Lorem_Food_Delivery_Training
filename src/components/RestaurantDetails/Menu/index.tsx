@@ -6,6 +6,7 @@ import data from "../../common/constants.json";
 import Cart from "../Cart";
 import { fontFamilies, colors, sizes, opacity } from "../../../variables";
 import { foodItemProps, foodcardDetailsProps } from "../../common/interfaces";
+import { queries } from "../../common/breakpoints";
 
 const Menu = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -59,9 +60,16 @@ const Wrapper = styled.div`
   position: relative;
   padding-bottom: 76px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin-top: 30px;
+  ${queries.tabletLandscape} {
+    width: 768px;
+  }
+  ${queries.tablet} {
+    width: 375px;
+    gap: 10px;
+  }
 `;
 
 const Searchbar = styled.input`
@@ -86,6 +94,13 @@ const Searchbar = styled.input`
     font-size: ${sizes.size14};
     letter-spacing: ${sizes.size0};
     line-height: ${sizes.size19};
+  }
+  ${queries.tabletLandscape} {
+    width: 502px;
+  }
+  ${queries.tablet} {
+    width: 375px;
+    height: 40px;
   }
 `;
 

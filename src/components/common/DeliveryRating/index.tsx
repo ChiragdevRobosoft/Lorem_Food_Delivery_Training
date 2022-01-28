@@ -5,6 +5,7 @@ import YellowStar from "../../../assets/restaurantDetails/icn_star_yellow.png";
 import GreenStar from "../../../assets/restaurantDetails/icn_star_green.png";
 import { fontFamilies, sizes, colors } from "../../../variables";
 import Image from "../image";
+import { queries } from "../breakpoints";
 
 const DeliveryRating: FC<{
   RatingNum: number;
@@ -71,6 +72,12 @@ const RatingConatiner = styled.div<{ ratingColor: string }>`
   justify-content: center;
   gap: 3px;
   cursor: ${(props) => (props.onClick ? "pointer" : "auto")};
+  ${queries.tablet} {
+    width: 18px;
+    height: 12px;
+    border-radius: ${sizes.size3};
+    gap: 1px;
+  }
 `;
 
 const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
@@ -83,6 +90,11 @@ const RatingNumber = styled.span<{ RatingNum: number; ratingColor: string }>`
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
+  ${queries.tablet} {
+    font-size: ${sizes.size9};
+    line-height: ${sizes.size11};
+    height: ${sizes.size11};
+  }
 `;
 
 const RatingImage = styled(Image)`
@@ -93,5 +105,9 @@ const RatingImage = styled(Image)`
     props.className === "reverse-color"
       ? "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(100%)"
       : "none"};
+  ${queries.tablet} {
+    width: 7px;
+    height: 7px;
+  }
 `;
 export default DeliveryRating;

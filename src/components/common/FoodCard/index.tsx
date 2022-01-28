@@ -10,6 +10,7 @@ import { fontFamilies, colors, sizes } from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
 import data from "../constants.json";
 import { foodItemProps, foodcardDetailsProps } from "../interfaces";
+import { queries } from "../breakpoints";
 
 const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
   const { details, setDetails } = useContext(CartData);
@@ -75,6 +76,12 @@ const Wrapper = styled.div`
     ${colors.black_000000_1};
   margin-bottom: 20px;
   margin-top: 14px;
+  ${queries.tabletLandscape} {
+    width: 502px;
+  }
+  ${queries.tablet} {
+    width: 375px;
+  }
 `;
 
 const FoodImage = styled.img`
@@ -101,6 +108,11 @@ const Add = styled.img`
   position: absolute;
   top: 86px;
   right: 10px;
+  ${queries.tablet} {
+    height: 18px;
+    width: auto;
+    right: 4px;
+  }
 `;
 
 const GreenText = styled.div`
@@ -114,6 +126,12 @@ const GreenText = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size14};
   text-align: center;
+  ${queries.tablet} {
+    font-size: ${sizes.size9};
+    line-height: ${sizes.size12};
+    height: ${sizes.size12};
+    right: 4px;
+  }
 `;
 
 const DetailsContainer = styled.div<{ imageProp: boolean }>`
@@ -134,6 +152,11 @@ const FoodName = styled.div`
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 const Cost = styled.div`
@@ -143,6 +166,11 @@ const Cost = styled.div`
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
+  ${queries.tablet} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size12};
+    height: ${sizes.size12};
+  }
 `;
 
 const Customizable = styled.div`
@@ -153,6 +181,11 @@ const Customizable = styled.div`
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size15};
+  ${queries.tablet} {
+    font-size: ${sizes.size9};
+    line-height: ${sizes.size12};
+    height: ${sizes.size12};
+  }
 `;
 
 const Description = styled.div`
@@ -162,6 +195,15 @@ const Description = styled.div`
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
+  ${queries.tabletLandscape} {
+    width: 275px;
+  }
+  ${queries.tablet} {
+    width: 173px;
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size12};
+    height: auto;
+  }
 `;
 
 export default FoodCard;

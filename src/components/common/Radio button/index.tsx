@@ -4,6 +4,7 @@ import Unselected from "../../../assets/common/Radio button/radio_button_unselec
 import Selected from "../../../assets/common/Radio button/radio_button_selected.png";
 import { sizes, colors, fontFamilies } from "../../../variables";
 import { radioProps } from "../interfaces";
+import { queries } from "../breakpoints";
 
 const Radio: FC<radioProps> = ({ name, options, handleChange }) => {
   return (
@@ -51,7 +52,7 @@ export const RadioInput = styled.input`
   }
   &:not(:checked) {
     background-image: url(${Unselected});
-    height: 15.28px;
+    height: 16px;
   }
   &:not(:checked) + label {
     color: ${colors.grey_606060};
@@ -65,6 +66,11 @@ const OptionName = styled.label`
   letter-spacing: ${sizes.sizeNeg0_24};
   line-height: ${sizes.size19};
   vertical-align: middle;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 export default Radio;
