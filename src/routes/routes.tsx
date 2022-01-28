@@ -15,6 +15,7 @@ import EditProfile from "../components/profile/editProfile";
 import Cart from "../components/cart";
 import CartItems from "../components/cart/cart-items";
 import ProceedPayment from "../components/cart/proceed-payment";
+import Payment from "../components/profile/payment";
 
 const Routing = () => {
   return (
@@ -36,6 +37,7 @@ const Routing = () => {
         <Route path={links.profile} element={<Profile />}>
           <Route path={links.orders} element={<Orders />} />
           <Route path={links.address} element={<Address />} />
+          <Route path={links.paymentMethods} element={<Payment />} />
           <Route path={links.overview} element={<Overview />} />
         </Route>
       </Routes>
