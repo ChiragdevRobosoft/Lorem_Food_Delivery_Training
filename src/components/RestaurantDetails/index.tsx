@@ -17,6 +17,7 @@ import Image from "../common/image";
 import Label from "../common/label";
 
 const RestaurantDetails = () => {
+  const restaurant = JSON.parse(localStorage.getItem("restaurant") || "{}");
   return (
     <Wrapper>
       <Header className="loggedin" />
@@ -29,10 +30,10 @@ const RestaurantDetails = () => {
         <ImageContentSection>
           <Image src={RestaurantImg} />
           <CutleryImage src={Cutlery} />
-          <RestaurantName content={data.restaurantData.name} />
+          <RestaurantName content={restaurant.name} />
           <FoodVariety content={data.restaurantData.foodVariety} />
           <DetailsContainer className="first-row">
-            <Rating content={data.restaurantData.rating} />
+            <Rating content={restaurant.rating} />
             <DetailsList>
               <Detail>{data.restaurantData.time}</Detail>
               <Detail>{data.restaurantData.cost}</Detail>
@@ -51,6 +52,7 @@ const RestaurantDetails = () => {
           <Navbar
             navbarElements={data.NavbarElements}
             navbarType="restaurant-details"
+            path={`/${restaurant.name.split(" ").join("-")}`}
           />
         </NavbarConatiner>
         <RoutingContainer>
@@ -101,7 +103,6 @@ const CutleryImage = styled(Image)`
 const RestaurantName = styled(Label)`
   position: absolute;
   height: 36px;
-  width: 380px;
   color: ${colors.grey_1c1c1c};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size26};

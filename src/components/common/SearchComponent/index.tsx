@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { colors, fontFamilies, fontWeight, sizes } from "../../../variables";
 import SearchBoxComp from "../searchBox";
 import LocationInput from "../locationInput";
@@ -11,14 +11,25 @@ interface foodSearchProps {
 }
 
 const FoodSearch: FC<foodSearchProps> = ({ pageType }) => {
+  const [searchVal, setSearchVal] = useState("");
+  const [locationVal, setLocationVal] = useState("");
   return (
     <>
       {pageType === "home" ? (
         <WrapperHome className={pageType}>
-          <SearchBoxComp className={pageType} />
+          <SearchBoxComp
+            className={pageType}
+            searchVal={searchVal}
+            locationVal={locationVal}
+            setSearchVal={setSearchVal}
+          />
           <LocAndDate className={pageType}>
             <Locationholder className={pageType}>
-              <LocationInput className={pageType} />
+              <LocationInput
+                className={pageType}
+                locationVal={locationVal}
+                setLocationVal={setLocationVal}
+              />
             </Locationholder>
             <Dateholder className={pageType}>
               <DateInput className={pageType} />

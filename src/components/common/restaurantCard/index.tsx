@@ -1,20 +1,28 @@
 import React, { FC } from "react";
 import Menu from "../../../assets/common/restaurantCard/menu.png";
 import styled from "styled-components";
-import { sizes, colors, fontFamilies, opacity } from "../../../variables";
+import {
+  sizes,
+  colors,
+  fontFamilies,
+  opacity,
+  links,
+} from "../../../variables";
 import FoodIcon from "../../../assets/common/restaurantCard/food.png";
-import { Link } from "react-router-dom";
 import { RestauarantCardprops } from "../interfaces";
-import { links } from "../../../variables";
+import { useNavigate } from "react-router-dom";
 
 const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
+  let navigate = useNavigate();
+  const handleRedirect = () => {
+    localStorage.setItem("restaurant", JSON.stringify(card));
+    navigate(`${links.menuFromList}/${card.name.split(" ").join("-")}`);
+  };
   return (
     <Wrapper>
       <FoodImage src={FoodIcon} alt="" />
       <Rating>{card.rating}</Rating>
-      <Link to={links.menu}>
-        <MenuImage src={Menu} alt="" />
-      </Link>
+      <MenuImage src={Menu} alt="" onClick={handleRedirect} />
       <ColumnFlex>
         <RestaurantName>{card.name}</RestaurantName>
         <RestaurantAddress>{card.address}</RestaurantAddress>

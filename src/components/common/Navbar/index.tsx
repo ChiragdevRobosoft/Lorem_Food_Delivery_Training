@@ -1,15 +1,22 @@
 import React, { useState, FC } from "react";
 import styled from "styled-components";
 import { colors, sizes, fontFamilies, angles } from "../../../variables";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 
-const Navbar: FC<{ navbarElements: string[]; navbarType?: string }> = ({
-  navbarElements,
-  navbarType,
-}) => {
+const Navbar: FC<{
+  navbarElements: string[];
+  navbarType?: string;
+  path?: string;
+}> = ({ navbarElements, navbarType, path }) => {
   const location = useLocation();
+  const params = useParams();
   const [selected, setSelected] = useState(
-    location.pathname.slice(1).toUpperCase().split("-").join(" ")
+    location.pathname
+      .replace(`/${params.id}`, "")
+      .slice(1)
+      .toUpperCase()
+      .split("-")
+      .join(" ")
   );
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     setSelected((e.target as HTMLElement).innerText);
@@ -19,7 +26,9 @@ const Navbar: FC<{ navbarElements: string[]; navbarType?: string }> = ({
       {navbarElements.map((navbarElement, index) => {
         return (
           <Navlink
-            to={`${navbarElement.split(" ").join("-").toLowerCase()}`}
+            to={`${navbarElement.split(" ").join("-").toLowerCase()}${
+              path !== undefined ? path : ""
+            }`}
             key={index}
           >
             <NavBarElement
