@@ -265,11 +265,11 @@
   "dropdownData": {
     "list": {
       "title": "List by",
-      "content": ["All", "Near by"]
+      "contents": ["All", "Near by"]
     },
     "sort": {
       "title": "Sort by",
-      "content": ["Rating", "Rating"]
+      "contents": ["Rating", "Rating"]
     }
   },
   "restaurantListPage": {
@@ -628,14 +628,22 @@
     "mobileNumber": "+971 87656 43217",
     "emailAddress": "Abdulla@foodie.com",
     "creditEarned": "Credits Earned - ",
-    "creditData": "234",
-    "order": "ORDERS",
-    "address": "ADDRESS",
-    "paymentMethods": "PAYMENT METHODS",
-    "reviews": "REVIEWS",
-    "gallery": "GALLERY"
+    "creditData": "234"
   },
+  "ProfileNavbarElements": [
+    "ORDERS",
+    "ADDRESS",
+    "PAYMENT METHODS",
+    "REVIEWS",
+    "GALLERY"
+  ],
   "orderNumber": "2",
+  "orderDropdownData": {
+    "title": "Active Orders",
+    "contents": ["Active Orders", "Past Orders", "Cancelled Orders"]
+  },
+  "myAddress": "My Addresses",
+  "AddNew": "+ Add new",
   "offersRadio": {
     "title": "Offers",
     "alertsText": "COD options will not available for this offer",
@@ -651,7 +659,7 @@
   "reviewsRatingsData": {
     "title": "Reviews",
     "dropdownTitle": "Show :",
-    "dropdownContent": "Recent"
+    "dropdownContent": ["Recent", "Recent"]
   },
   "editProfile": {
     "title": "Edit Profile",
@@ -677,5 +685,13 @@
       { "type": "Office", "address": "A-214, Dubai Studio, Dubai, UAE" }
     ],
     "addressAlter": ["Edit", "Delete"]
+  },
+  "schedule": {
+    "title": "Schedule",
+    "description": "Busy at work now, schedule it for later!",
+    "dateTitle": "Date",
+    "timeTitle": "Time",
+    "change": "Change",
+    "buttonText": "SCHEDULE DATE AND TIME"
   }
 }

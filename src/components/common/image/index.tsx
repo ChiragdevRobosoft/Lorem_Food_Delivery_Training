@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface ImageProps {
   className?: string;
   src: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLImageElement>;
   id?: string;
 }
 const Image: FC<ImageProps> = (props) => {

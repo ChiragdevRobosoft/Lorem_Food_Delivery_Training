@@ -9,8 +9,8 @@ export const breakpoints = {
 export const queries = {
   smallMobile: `@media screen and (max-width: ${breakpoints.small})`,
   mobile: `@media screen and (min-width: ${breakpoints.small}) and (max-width: ${breakpoints.tablet})`,
-  tablet: `@media screen and (min-width: ${breakpoints.tablet})`,
-  tabletLandscape: `@media screen and (min-width: ${breakpoints.tabletLandscape})`,
-  desktopMd: `@media screen and (min-width: ${breakpoints.desktop})`,
-  desktopWide: `@media screen and (min-width: ${breakpoints.wide})`,
+  tablet: `@media screen and (max-width: ${breakpoints.tablet})`,
+  tabletLandscape: `@media screen and (max-width: ${breakpoints.tabletLandscape})`,
+  desktopMd: `@media screen and (max-width: ${breakpoints.desktop})`,
+  desktopWide: `@media screen and (max-width: ${breakpoints.wide})`,
 };
