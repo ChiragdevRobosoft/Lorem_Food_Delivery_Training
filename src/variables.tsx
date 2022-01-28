@@ -365,6 +365,7 @@ export const links = {
   cart: "cart",
   cartItems: "cart-items",
   proceedPayment: "proceed-payment",
+  chooseAddress: "choose-address",
   reviewsRatings: "reviews-&-ratings",
   gallery: "gallery",
   editProfile: "editProfile",

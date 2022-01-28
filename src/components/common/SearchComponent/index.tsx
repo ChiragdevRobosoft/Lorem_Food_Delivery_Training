@@ -44,9 +44,7 @@ export default FoodSearch;
 
 const WrapperHome = styled.div`
   margin: ${(props) =>
-    props.className === "home"
-      ? `${sizes.size0} ${sizes.size889} ${sizes.size176} ${sizes.size420};`
-      : null}
+    props.className === "home" ? `${sizes.size0} auto 0 0;` : null}
   height: ${(props) =>
     props.className === "home" ? `${sizes.size175}` : null};
   width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};

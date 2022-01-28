@@ -13,6 +13,7 @@ import EditProfile from "../components/profile/editProfile";
 import Cart from "../components/cart";
 import CartItems from "../components/cart/cart-items";
 import ProceedPayment from "../components/cart/proceed-payment";
+import ChooseAddress from "../components/cart/chooseAddress";
 
 const Routing = () => {
   return (
@@ -31,6 +32,7 @@ const Routing = () => {
         <Route path={links.cart} element={<Cart />}>
           <Route path={links.cartItems} element={<CartItems />} />
           <Route path={links.proceedPayment} element={<ProceedPayment />} />
+          <Route path={links.chooseAddress} element={<ChooseAddress />} />
         </Route>
       </Routes>
     </CartDataProvider>

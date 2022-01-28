@@ -29,6 +29,7 @@ export default CartItems;
 
 const PageSection = styled.div`
   width: 100%;
+  min-height: 832px;
 `;
 
 const ContentContainer = styled.div`

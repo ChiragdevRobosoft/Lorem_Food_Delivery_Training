@@ -186,7 +186,7 @@ export default ProceedPayment;
 
 const PageSection = styled.div`
   width: 100wh;
-  height: 842px;
+  min-height: 842px;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -385,7 +385,7 @@ const CostDetailsContainer = styled.div`
 
 const ArrowIcon = styled.img`
   margin-left: 8px;
-  fooditemect-fit: none;
+  object-fit: none;
 `;
 
 const TotalCostContainer = styled.div`

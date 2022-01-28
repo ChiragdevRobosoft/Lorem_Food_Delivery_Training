@@ -18,7 +18,7 @@ const Cart = () => {
 export default Cart;
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: auto;
   width: 100%;
   background: ${colors.violet_f1f3fb};
 `;

@@ -45,13 +45,17 @@ const FoodRestaurantSearch = () => {
         setShowLogin={setOpen}
         setShowCreateAccount={setShowCreateAccount}
       />
-      <Heading>
-        <Headingspan>{data.homeTexts.foodRestaurantSearch.heading}</Headingspan>
-        <Headingspan>
-          {data.homeTexts.foodRestaurantSearch.description}
-        </Headingspan>
-      </Heading>
-      <Foodsearch pageType="home" />
+      <Content>
+        <Heading>
+          <Headingspan>
+            {data.homeTexts.foodRestaurantSearch.heading}
+          </Headingspan>
+          <Headingspan>
+            {data.homeTexts.foodRestaurantSearch.description}
+          </Headingspan>
+        </Heading>
+        <Foodsearch pageType="home" />
+      </Content>
       <ScrollComp>
         <Scroll src={mouseScroll} alt="mouse-scroll" />
         <ScrollName>
@@ -153,10 +157,18 @@ const Wrapper = styled.div`
   }
 `;
 
+const Content = styled.div`
+  margin: auto 32.5% 176px 17.5%;
+  border: 1px solid black;
+`;
+
 const Heading = styled.p`
-  margin: 0 788px 63px 413px;
+  box-sizing: border-box;
   height: 166px;
-  width: 719px;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 63px;
+  flex-wrap: wrap;
   color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size60};
@@ -170,7 +182,7 @@ const Headingspan = styled.span`
 `;
 
 const ScrollComp = styled.div`
-  margin: 0 900px 38px 901px;
+  margin: 0 auto 38px auto;
   height: 77px;
   width: 119px;
   display: block;
