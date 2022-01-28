@@ -5,14 +5,13 @@ import InfoIcon from "../../assets/profile/icn_info_small.png";
 import styled from "styled-components";
 import Footer from "../common/footer";
 import data from "../../components/common/constants.json";
-import { sizes, colors, fontFamilies, opacity } from "../../variables";
+import { sizes, colors, fontFamilies, opacity, links } from "../../variables";
 import Label from "../common/label";
 import Navbar from "../common/Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import Image from "../common/image";
 import Header from "../common/header";
 import PImage from "../../assets/profile/icn_icecream.png";
-import EditProfile from "./editProfile";
 
 const Profile = () => {
   return (
@@ -25,10 +24,9 @@ const Profile = () => {
             <ProfileInfo>
               <NameLine>
                 <NameLabel content={data.profile.name} />
-                <EditLabel
-                  content={data.profile.edit}
-                  onClick={() => EditProfile}
-                />
+                <EditLink to={links.editProfile}>
+                  <EditLabel content={data.profile.edit} />
+                </EditLink>
               </NameLine>
               <FullNameLabel content={data.profile.fullName} />
               <DetailsRow>
@@ -84,6 +82,10 @@ const UserProfile = styled.div`
   width: 814.5px;
   display: flex;
   flex-direction: row;
+`;
+const EditLink = styled(Link)`
+  text-decoration: none;
+  margin-top: 17px;
 `;
 const ProfileImage = styled(Image)`
   height: 106px;
