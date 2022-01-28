@@ -366,6 +366,7 @@ export const links = {
   restaurantDetails: "",
   orders: "orders",
   address: "address",
+  paymentMethods: "payment-methods",
   cart: "cart",
   cartItems: "cart-items",
   proceedPayment: "proceed-payment",
