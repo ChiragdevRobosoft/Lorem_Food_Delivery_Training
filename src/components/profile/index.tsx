@@ -12,6 +12,7 @@ import { Outlet, Link } from "react-router-dom";
 import Image from "../common/image";
 import Header from "../common/header";
 import PImage from "../../assets/profile/icn_icecream.png";
+import { queries } from "../common/breakpoints";
 
 const Profile = () => {
   return (
@@ -76,6 +77,9 @@ const CenterContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-top: 38px;
+  ${queries.tablet} {
+    padding-top: 30px;
+  }
 `;
 const UserProfile = styled.div`
   height: 113px;
@@ -94,10 +98,31 @@ const ProfileImage = styled(Image)`
   box-shadow: 0 2px 3px 0 ${colors.black_000000_3};
   border-radius: ${sizes.size100};
   box-sizing: border-box;
+  ${queries.tablet} {
+    height: 80px;
+    width: 80px;
+  }
+  ${queries.mobile} {
+    width: 50px;
+    height: 50px;
+  }
+  ${queries.smallMobile} {
+    width: 50px;
+    height: 50px;
+  }
 `;
 const ProfileInfo = styled.div`
   text-align: left;
   margin-left: 58px;
+  ${queries.mobile} {
+    margin-left: 20px;
+  }
+  ${queries.mobile} {
+    margin-left: 20px;
+  }
+  ${queries.smallMobile} {
+    margin-left: 20px;
+  }
 `;
 const NameLine = styled.div`
   display: flex;
@@ -108,10 +133,23 @@ const DetailsRow = styled.div`
   width: 653px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 33px;
   margin-top: 16px;
+  ${queries.tablet} {
+    width: 500px;
+    height: 15px;
+    flex-flow: row wrap;
+  }
+  ${queries.mobile} {
+    width: 320px;
+    flex-flow: row wrap;
+  }
+  ${queries.smallMobile} {
+    width: 200px;
+    flex-flow: row wrap;
+  }
 `;
 const Icon = styled(Image)`
   object-fit: none;
@@ -126,7 +164,8 @@ const LineBreak = styled.hr`
   height: 21px;
   box-sizing: border-box;
   border: 1px solid ${colors.white_ffffff};
-  opacity: ${opacity.opacity0_37} margin=0;
+  opacity: ${opacity.opacity0_37};
+   margin=0;
 `;
 const NavbarContainer = styled.div`
   height: 19px;
@@ -141,6 +180,18 @@ const NameLabel = styled(Label)`
   font-size: ${sizes.size31};
   line-height: ${sizes.size42};
   margin: 0px;
+  ${queries.tablet} {
+    font-size: ${sizes.size20};
+    width: 100px;
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size17};
+    width: 70px;
+  }
+  ${queries.smallMobile} {
+    font-size: ${sizes.size17};
+    width: 70px;
+  }
 `;
 const EditLabel = styled(Label)`
   width: 30px;
@@ -150,6 +201,15 @@ const EditLabel = styled(Label)`
   margin-left: 28px;
   margin-top: 20px;
   cursor: pointer;
+  ${queries.tablet} {
+    font-size: ${sizes.size18};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size15};
+  }
+  ${queries.smallMobile} {
+    font-size: ${sizes.size13};
+  }
 `;
 const FullNameLabel = styled(Label)`
   width: 153px;
@@ -159,6 +219,15 @@ const InfoLabel = styled(Label)`
   height: 22px;
   color: ${colors.white_ffffff};
   margin: 0;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size11};
+  }
+  ${queries.smallMobile} {
+    font-size: ${sizes.size10};
+  }
 `;
 const InfoCreditLabel = styled(Label)`
   height: 33px;
@@ -168,6 +237,15 @@ const InfoCreditLabel = styled(Label)`
   line-height: ${sizes.size33};
   margin-right: 10px;
   margin-left: 3px;
+  ${queries.tablet} {
+    font-size: ${sizes.size15};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size13};
+  }
+  ${queries.smallMobile} {
+    font-size: ${sizes.size11};
+  }
 `;
 const RoutingContainer = styled.div`
   width: 100%;

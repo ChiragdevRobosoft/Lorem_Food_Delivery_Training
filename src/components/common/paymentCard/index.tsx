@@ -15,6 +15,7 @@ import {
 } from "../../../variables";
 import { PaymentCardDetailsProps } from "../interfaces";
 import Image from "../image";
+import { queries } from "../breakpoints";
 
 const PaymentCard: FC<{ cardDetails: PaymentCardDetailsProps }> = ({
   cardDetails,
@@ -62,16 +63,42 @@ const CardContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: fill;
+  ${queries.smallMobile} {
+    width: 320px;
+    height: 110px;
+    padding: 8px 12px 2px 20px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    height: 110px;
+    padding: 10px 14px 4px 33px;
+  }
 `;
 const TickImage = styled(Image)``;
 const LogoImage = styled(Image)`
   height: 24.65px;
   width: 76.64px;
+  ${queries.smallMobile} {
+    height: 15px;
+    width: 60px;
+  }
+  ${queries.mobile} {
+    height: 20px;
+    width: 70px;
+  }
 `;
 const VisaLogo = styled.div`
   height: 24.65px;
   width: 76.64px;
   margin-top: 8px;
+  ${queries.smallMobile} {
+    height: 15px;
+    width: 60px;
+  }
+  ${queries.mobile} {
+    height: 20px;
+    width: 70px;
+  }
 `;
 const CardInfo = styled.div`
   margin-left: 30.36px;
@@ -95,6 +122,14 @@ const EditDeleteButton = styled.div`
   gap: 20px;
   margin-right: 19px;
   margin-top: 30px;
+  ${queries.smallMobile} {
+    gap: 10px;
+    margin-top: 5px;
+  }
+  ${queries.mobile} {
+    gap: 10px;
+    margin-top: 5px;
+  }
 `;
 const PrimaryLabel = styled(Label)`
   height: 19px;
@@ -108,6 +143,12 @@ const PrimaryLabel = styled(Label)`
   letter-spacing: ${letterSpacing.spaceNeg0_27};
   line-height: ${sizes.size19};
   margin-left: 11px;
+  ${queries.smallMobile} {
+    font-size: ${sizes.size11};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size12};
+  }
 `;
 const CardNumberLabel = styled(Label)`
   height: 28px;
@@ -115,6 +156,12 @@ const CardNumberLabel = styled(Label)`
   font-size: ${sizes.size18};
   letter-spacing: ${letterSpacing.spaceNeg0_3};
   line-height: ${sizes.size28};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size13};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size15};
+  }
 `;
 const CardTypeLabel = styled(Label)`
   height: 19px;
@@ -123,14 +170,32 @@ const CardTypeLabel = styled(Label)`
   letter-spacing: ${letterSpacing.spaceNeg0_27};
   line-height: ${sizes.size19};
   margintop: 4px;
+  ${queries.smallMobile} {
+    font-size: ${sizes.size12};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size13};
+  }
 `;
 const EditLabel = styled(Label)`
   width: 30px;
   color: ${colors.orange_f57c00};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size13};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size14};
+  }
 `;
 const DeleteLabel = styled(Label)`
   width: 30px;
   color: ${colors.orange_f57c00};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size13};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size14};
+  }
 `;
