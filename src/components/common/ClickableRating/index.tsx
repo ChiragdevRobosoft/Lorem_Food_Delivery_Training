@@ -4,6 +4,7 @@ import data from "../constants.json";
 import DeliveryRating from "../DeliveryRating";
 import Label from "../label";
 import { colors, sizes, fontFamilies } from "../../../variables";
+import { queries } from "../breakpoints";
 
 const ClickableRating: FC<{ title: string }> = ({ title }) => {
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -54,7 +55,6 @@ const RatingContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 245px;
 `;
 
 const RatingLabel = styled(Label)`
@@ -63,6 +63,11 @@ const RatingLabel = styled(Label)`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   letter-spacing: ${sizes.sizeNeg0_24};
   margin-bottom: 15px;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 export default ClickableRating;

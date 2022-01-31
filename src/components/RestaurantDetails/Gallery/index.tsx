@@ -8,6 +8,7 @@ import { fontFamilies, angles, colors, sizes } from "../../../variables";
 import data from "../../common/constants.json";
 import downArrow from "../../../assets/common/dropdown/down_arrow.png";
 import GalleryPopover from "../GalleryPopover";
+import { queries } from "../../common/breakpoints";
 
 const Gallery = () => {
   const [open, setOpen] = useState(false);
@@ -62,11 +63,17 @@ const Gallery = () => {
 };
 
 const Wrapper = styled.div`
-  width: auto;
+  width: 972px;
   height: auto;
   display: flex;
   flex-direction: column;
   padding-bottom: 129px;
+  ${queries.tabletLandscape} {
+    width: 768px;
+  }
+  ${queries.tablet} {
+    width: 375px;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -80,6 +87,10 @@ const TitleContainer = styled.div`
   align-items: center;
   gap: 14px;
   margin-left: auto;
+  ${queries.tablet} {
+    width: 100px;
+    height: 28px;
+  }
 `;
 
 const TitleLabel = styled(Label)`
@@ -89,6 +100,11 @@ const TitleLabel = styled(Label)`
   font-size: ${sizes.size14};
   letter-spacing: 0.1px;
   line-height: ${sizes.size19};
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 const ArrowImage = styled(Image)`
@@ -97,12 +113,14 @@ const ArrowImage = styled(Image)`
 
 const GalleryContainer = styled.div`
   width: auto;
-  height: 584px;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   row-gap: 19px;
+  ${queries.tablet} {
+    row-gap: 5px;
+  }
 `;
 
 const ViewLabel = styled(Label)`
@@ -118,11 +136,23 @@ const ViewLabel = styled(Label)`
   );
   background-clip: text;
   -webkit-background-clip: text;
+  ${queries.tablet} {
+    ${queries.tablet} {
+      font-size: ${sizes.size12};
+      line-height: ${sizes.size16};
+      height: ${sizes.size16};
+    }
+  }
 `;
 
 const GalleryImage = styled(Image)`
   height: 131px;
   width: 140px;
+  border-radius: ${sizes.size4};
+  ${queries.tablet} {
+    width: 90px;
+    height: auto;
+  }
 `;
 
 export default Gallery;

@@ -5,6 +5,7 @@ import moment from "moment";
 import Label from "../label";
 import data from "../constants.json";
 import { colors, fontFamilies, sizes } from "../../../variables";
+import { queries } from "../breakpoints";
 
 const Timepicker = () => {
   const value = new Date(moment().format());
@@ -42,6 +43,11 @@ const Wrapper = styled.div`
     font-size: ${sizes.size16};
     letter-spacing: ${sizes.sizeNeg0_27};
     line-height: ${sizes.size22};
+    ${queries.tablet} {
+      font-size: ${sizes.size14};
+      line-height: ${sizes.size16};
+      height: ${sizes.size16};
+    }
   }
   .e-input-group-icon.e-time-icon.e-icons {
     &:before {
@@ -73,6 +79,11 @@ const ChangeLabel = styled(Label)`
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 export default Timepicker;

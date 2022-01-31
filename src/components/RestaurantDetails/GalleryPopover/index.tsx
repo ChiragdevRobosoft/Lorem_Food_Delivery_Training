@@ -11,6 +11,7 @@ import disabledNextButton from "../../../assets/common/carousels/nextButtonDisab
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { sizes, colors, fontFamilies } from "../../../variables";
 import Label from "../../common/label";
+import { queries } from "../../common/breakpoints";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 const GalleryPopover: FC<{
@@ -54,13 +55,19 @@ const GalleryPopover: FC<{
         if (direction === "next") {
           carouselStyles.transform = "scaleX(-1)";
         }
-        return <div style={carouselStyles}></div>;
+        return <div style={carouselStyles} className={direction}></div>;
       }
       carouselStyles.backgroundImage = `url(${nextButton})`;
       if (direction === "prev") {
         carouselStyles.transform = "scaleX(-1)";
       }
-      return <div onClick={onClickHandler} style={carouselStyles}></div>;
+      return (
+        <div
+          onClick={onClickHandler}
+          style={carouselStyles}
+          className={direction}
+        ></div>
+      );
     };
   const galleryImages = [
     {
@@ -114,6 +121,14 @@ const PopoverImage = styled(Image)`
   width: 960px;
   border-radius: ${sizes.size6};
   object-fit: cover;
+  ${queries.tabletLandscape} {
+    width: 688px;
+    height: 440px;
+  }
+  ${queries.tablet} {
+    width: 295px;
+    height: 189px;
+  }
 `;
 
 const FoodName = styled(Label)`
@@ -126,6 +141,11 @@ const FoodName = styled(Label)`
   line-height: ${sizes.size36};
   margin-top: 12px;
   left: 0;
+  ${queries.tablet} {
+    font-size: ${sizes.size18};
+    line-height: ${sizes.size22};
+    height: ${sizes.size22};
+  }
 `;
 
 const CarouselContainer = styled.div`
@@ -136,10 +156,26 @@ const CarouselContainer = styled.div`
     margin: 0;
     border-radius: ${sizes.size6};
     background-color: ${colors.transparentColor};
+    ${queries.tabletLandscape} {
+      width: 688px;
+      height: 507px;
+    }
+    ${queries.tablet} {
+      width: 295px;
+      height: 256px;
+    }
   }
   .carousel {
     height: 680px;
     width: 960px;
+    ${queries.tabletLandscape} {
+      width: 688px;
+      height: 507px;
+    }
+    ${queries.tablet} {
+      width: 295px;
+      height: 256px;
+    }
     .carousel-status {
       top: auto;
       bottom: 0;
@@ -150,6 +186,24 @@ const CarouselContainer = styled.div`
       font-size: ${sizes.size18};
       letter-spacing: ${sizes.size0};
       line-height: ${sizes.size24};
+      ${queries.tablet} {
+        right: 40px;
+        font-size: ${sizes.size12};
+        line-height: ${sizes.size18};
+        height: ${sizes.size18};
+      }
+    }
+    .next,
+    .prev {
+      ${queries.tablet} {
+        width: 20px !important;
+        height: 30px !important;
+      }
+    }
+    .prev {
+      ${queries.tablet} {
+        right: 21px !important;
+      }
     }
   }
 `;

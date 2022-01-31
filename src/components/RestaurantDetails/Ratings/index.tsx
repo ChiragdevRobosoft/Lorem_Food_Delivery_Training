@@ -8,6 +8,7 @@ import InputField from "../../common/textbox";
 import Buttons from "../../common/button";
 import Image from "../../common/image";
 import ClickableRating from "../../common/ClickableRating";
+import { queries } from "../../common/breakpoints";
 
 const Ratings = () => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -55,6 +56,9 @@ const Wrapper = styled.div`
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   padding: 20px 20px 16px 20px;
   margin-top: 32px;
+  ${queries.tablet} {
+    width: 230px;
+  }
 `;
 
 const RowFlex = styled.div`
@@ -97,6 +101,11 @@ const ImageLabel = styled(Label)`
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
   text-align: right;
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const Title = styled(Label)`
@@ -107,6 +116,11 @@ const Title = styled(Label)`
   letter-spacing: ${sizes.sizeNeg0_24};
   line-height: ${sizes.size30};
   margin-bottom: 13px;
+  ${queries.tablet} {
+    font-size: ${sizes.size16};
+    line-height: ${sizes.size22};
+    height: ${sizes.size22};
+  }
 `;
 
 const SavedLabel = styled(Label)`
@@ -116,6 +130,11 @@ const SavedLabel = styled(Label)`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
   margin-left: 7px;
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 const ReviewTitle = styled(Label)`
@@ -134,6 +153,9 @@ const SubmitButton = styled(Buttons)`
     ${colors.yellow_feb456} 100%
   );
   margin-top: 31px;
+  ${queries.tablet} {
+    width: 200px;
+  }
 `;
 
 const TextboxField = styled(InputField)`
