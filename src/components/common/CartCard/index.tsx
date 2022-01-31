@@ -12,24 +12,26 @@ import { foodItemProps, foodcardDetailsProps } from "../interfaces";
 import { queries } from "../breakpoints";
 
 const CartCard: FC<{ item: foodItemProps }> = ({ item }) => {
-  const { details, setDetails } = useContext(CartData);
+  const { cartDetails, setCartDetails } = useContext(CartData);
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     Object.keys(data.foodcardDetails).map((foodType) => {
       return (data.foodcardDetails as foodcardDetailsProps)[foodType].map(
         (foodItem: foodItemProps) => {
           if ((e.target as HTMLElement).id === foodItem.id) {
             (e.target as HTMLElement).classList.contains("minus")
-              ? (foodItem.quantity -= 1)
+              ? (item.quantity -= 1)
               : (e.target as HTMLElement).classList.contains("plus")
-              ? (foodItem.quantity += 1)
-              : (foodItem.quantity = 0);
-            if (foodItem.quantity === 0) {
-              setDetails(
-                details.filter((item: foodItemProps) => item !== foodItem)
+              ? (item.quantity += 1)
+              : (item.quantity = 0);
+            if (item.quantity === 0) {
+              setCartDetails(
+                cartDetails.filter(
+                  (cartItem: foodItemProps) => cartItem.id !== item.id
+                )
               );
             } else {
-              let cartSet = new Set([...details, foodItem]);
-              setDetails(Array.from(cartSet.values()));
+              let cartSet = new Set([...cartDetails, item]);
+              setCartDetails(Array.from(cartSet.values()));
             }
           }
         }
