@@ -14,6 +14,7 @@ import kfcLogo from "./../../../../assets/common/carousels/brand_logo.png";
 import emptyIcon from "./../../../../assets/common/carousels/noRestaurants.jpg";
 import tData from "./../../constants.json";
 import data from "./../../constants.json";
+import { queries } from "../../breakpoints";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 let datas: string[] = ["one", "two", "three", "four"];
@@ -139,7 +140,8 @@ export default CarouselPB;
 
 const NoData = styled.div`
   height: ${sizes.size240};
-  width: ${sizes.size958};
+  //width: ${sizes.size958};
+  width: 100%;
   margin: ${sizes.size35} ${sizes.size0} ${sizes.size0} ${sizes.size0};
   border-radius: ${sizes.size6};
   background-color: ${colors.white_ffffff};
@@ -177,53 +179,64 @@ const SolutionText = styled.p`
 
 const Wrapper = styled.div`
   .main-slide {
-    height: ${sizes.size240};
-    width: ${sizes.size958};
-    margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0};
+    height: 240px;
+    width: 100%;
+    margin: 0 0 0 0;
     border-radius: ${sizes.size6};
     background-color: ${colors.white_ffffff};
   }
   .carousel {
-    height: ${sizes.size327};
-    width: ${sizes.size958};
+    height: 327px;
+    width: 100%;
     .slider-wrapper {
-      width: ${sizes.size958};
-      height: ${sizes.size287};
+      width: 100%;
+      height: 287px;
+    }
+    .slide img {
+      width: 40%;
+    }
+    .img {
+      width: 40%;
     }
   }
 `;
 
 const SingleSlide = styled.div`
-  height: ${sizes.size240};
-  width: ${sizes.size958};
+  height: 240px;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  box-sizing: border-box;
 `;
 
 const BrandFoodImage = styled.img`
-  height: ${sizes.size240};
-  width: ${sizes.size450};
-  margin: ${sizes.size0};
+  margin: 0;
+  box-sizing: border-box;
 `;
 
 const RightSide = styled.div`
-  height: ${sizes.size240};
-  width: ${sizes.size508};
-  margin: ${sizes.size0};
+  width: 60%;
+  margin: 0;
+  padding: 36px 20px 23px 39px;
+  ${queries.tabletLandscape} {
+    padding: 29px 16px 18px 31px;
+  }
+  ${queries.tablet} {
+    padding: 22px 12px 14px 23px;
+  }
 `;
 
 const ContentHolder = styled.div`
-  height: ${sizes.size181};
-  width: ${sizes.size470};
-  margin: ${sizes.size36} ${sizes.size20} ${sizes.size23} ${sizes.size39};
+  width: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 `;
 
 const BrandDetails = styled.div`
-  height: ${sizes.size86};
-  width: ${sizes.size470};
-  margin: ${sizes.size0};
+  height: 86px;
+  width: 470px;
+  margin: 0;
   display: flex;
   flex-direction: row;
 `;
@@ -268,22 +281,26 @@ const LocType = styled.p`
 
 const HorizontalLine = styled.div`
   box-sizing: border-box;
-  height: ${sizes.size3};
-  width: ${sizes.size456};
-  border: ${sizes.size1} solid ${colors.white_ededed};
-  margin: ${sizes.size17} ${sizes.size12} ${sizes.size0} ${sizes.size0};
+  height: 3px;
+  width: 458px;
+  border: 1px solid ${colors.white_ededed};
+  margin: 17px 0 0 0;
 `;
 
 const Description = styled.p`
-  height: ${sizes.size62};
-  width: ${sizes.size470};
+  height: 62px;
   color: ${colors.grey_6a6a6a};
-  font-family: ${fontFamilies.fontFamilyOs};
+  font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
-  margin: ${sizes.size13} ${sizes.size0} ${sizes.size0} ${sizes.size0};
+  margin: 13px 0 0 0;
   text-align: left;
+  ${queries.tabletLandscape} {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 1px 0 0 0;
+  }
 `;
 
 interface RouteTextProps {

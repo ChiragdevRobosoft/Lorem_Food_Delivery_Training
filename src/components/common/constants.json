@@ -684,7 +684,8 @@
       { "type": "Home", "address": "Downtown Burj Khalifa, Dubai, UAE" },
       { "type": "Office", "address": "A-214, Dubai Studio, Dubai, UAE" }
     ],
-    "addressAlter": ["Edit", "Delete"]
+    "addressAlter": ["Edit", "Delete"],
+    "routing": ["BACK", "CHOOSE PAYMENT"]
   },
   "schedule": {
     "title": "Schedule",

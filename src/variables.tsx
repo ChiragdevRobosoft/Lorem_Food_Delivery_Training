@@ -59,15 +59,15 @@ export const colors = {
   grey_9e9999: "rgba(158, 153, 153,1)",
   grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
   grey_909090: "rgba(144, 144, 144, 1)",
-  pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
-  pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
-  pink_fda5a3: "#FDA5A3", //pink3
-  pink_d34836: "rgba(211, 72, 54, 1)", //pink4
+  pink_e21143_09: "rgba(226, 17, 67, 0.9)",
+  pink_ff3366_08: "rgba(255, 51, 102, 0.8)",
+  pink_fda5a3: "#FDA5A3",
+  pink_d34836: "rgba(211, 72, 54, 1)",
   pink_f2738a: "rgba(242, 115, 138, 1)",
   pink_f27489: "rgba(242, 116, 137, 1)",
   pink_ff8c7d: "rgba(255, 140, 125, 1)",
-  yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
-  yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
+  yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)",
+  yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)",
   yellow_f5a623: "rgba(245,166,35,1)",
   grey_929598: "#929598",
   grey_949494_34: "rgba(148, 148, 148, 0.34)",
@@ -338,8 +338,9 @@ export const zIndex = {
 
 export const letterSpacing = {
   spaceNeg0_41: "-0.41px",
-  spaceNeg0_27: "-0.27px",
   spaceNeg0_3: "-0.3px",
+  spaceNeg0_27: "-0.27px",
+  spaceNeg0_24: "-0.24px",
   space0: "0",
   space0_43: "0.43",
   space0_5: "0.5",

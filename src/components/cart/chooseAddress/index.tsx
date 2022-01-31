@@ -44,8 +44,8 @@ const ChooseAddress = () => {
                 isPassword={false}
               />
               <ButtonContainer>
-                <BackButton name="BACK" />
-                <ChoosePayment name="CHOOSE PAYMENT" />
+                <BackButton name={data.chooseAddress.routing[0]} />
+                <ChoosePayment name={data.chooseAddress.routing[1]} />
               </ButtonContainer>
             </StepContent>
           </StepsSection>
@@ -103,7 +103,7 @@ const StepsSection = styled.div`
 `;
 
 const StepTitleLabel = styled(Label)`
-  height: "30px";
+  height: 30px;
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size22};
@@ -119,17 +119,17 @@ const StepContent = styled.div`
   box-sizing: border-box;
   margin-top: 17px;
   border-radius: 6px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: ${colors.white_ffffff};
+  box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
 `;
 
 const DeliveryTypeLabel = styled(Label)`
   height: 19px;
-  color: #4a4a4a;
+  color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: 14px;
-  line-height: 19px;
-  letter-spacing: -0.24px;
+  font-size: ${sizes.size14};
+  line-height: ${sizes.size19};
+  letter-spacing: ${letterSpacing.spaceNeg0_24};
 `;
 
 const AddressAddHolder = styled.div`
@@ -140,11 +140,11 @@ const AddressAddHolder = styled.div`
 
 const MyAddressLabel = styled(Label)`
   height: 23px;
-  color: #000000;
+  color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsRegular};
-  font-size: 17px;
-  line-height: 23px;
-  letter-spacing: -0.41px;
+  font-size: ${sizes.size17};
+  line-height: ${sizes.size23};
+  letter-spacing: ${letterSpacing.spaceNeg0_41};
 `;
 
 const AddNewButton = styled(Buttons)`
@@ -154,9 +154,9 @@ const AddNewButton = styled(Buttons)`
   border-radius: 15px;
   box-shadow: none;
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
-  font-size: 14px;
+  font-size: ${sizes.size14};
   letter-spacing: -0.2px;
-  line-height: 19px;
+  line-height: ${sizes.size19};
   text-align: center;
   text-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
   background-image: linear-gradient(
@@ -176,7 +176,6 @@ const ContactDetailsHolder = styled.div`
   box-sizing: border-box;
   margin-top: 43px;
   border: 1px solid black;
-  //overflow: hidden;
 `;
 
 const ContactDetailsLabel = styled(Label)`
@@ -220,11 +219,11 @@ const BackButton = styled(Buttons)`
   box-sizing: border-box;
   height: 45px;
   width: 130px;
-  color: #979797;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 19px;
-  border: 1px solid #979797;
+  color: ${colors.grey_979797};
+  font-size: ${sizes.size14};
+  letter-spacing: ${letterSpacing.space0};
+  line-height: ${sizes.size19};
+  border: 1px solid ${colors.grey_979797};
   box-shadow: none;
 `;
 
@@ -234,136 +233,7 @@ const ChoosePayment = styled(Buttons)`
   width: 198px;
   background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
   box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 19px;
+  font-size: ${sizes.size14};
+  letter-spacing: ${letterSpacing.space0};
+  line-height: ${sizes.size19};
 `;
-
-// const PaymentContainer = styled.div`
-//   width: 305px;
-//   height: 480px;
-//   margin-top: 74px;
-//   display: flex;
-//   flex-direction: column;
-//   box-sizing: border-box;
-//   padding: 15px 17px 12px 18px;
-//   border-radius: 6px;
-//   background-color: #ffffff;
-//   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
-// `;
-
-// const RadioTitleLabel = styled(Label)`
-//   height: 23px;
-//   color: ${colors.black_000000};
-//   font-family: ${fontFamilies.fontFamilyOsRegular};
-//   font-size: ${sizes.size17};
-//   letter-spacing: ${letterSpacing.spaceNeg0_41};
-//   line-height: ${sizes.size23};
-//   margin-bottom: 17px;
-// `;
-
-// const RadioButtonOffers = styled(RadioButton)`
-//   margin-top: 24px;
-// `;
-
-// const AlertText = styled(Label)`
-//   height: 15px;
-//   width: 226px;
-//   color: ${colors.red_ee2538};
-//   font-family: ${fontFamilies.fontFamilyOsSemiBold};
-//   font-size: ${sizes.size11};
-//   letter-spacing: ${letterSpacing.space0};
-//   line-height: ${sizes.size15};
-//   margin-top: 8px;
-// `;
-
-// const UserCodeSection = styled.div`
-//   width: 238px;
-//   //height: 91px;
-//   margin-left: 26px;
-//   margin-top: 20px;
-//   // margin-bottom: 18px;
-//   box-sizing: border-box;
-//   padding-top: 20px;
-// `;
-
-// const CostDetailsContainer = styled.div`
-//   box-sizing: border-box;
-//   height: 169px;
-//   width: 263px;
-//   border: ${sizes.size1} solid ${colors.grey_f5eeee};
-//   border-radius: ${sizes.size3};
-//   background-color: ${colors.white_fcfcfc};
-//   box-shadow: ${sizes.size0} ${sizes.size0} ${sizes.size14} ${sizes.size0}
-//     ${colors.grey_cac2c2_5};
-//   margin-left: auto;
-//   margin-right: auto;
-//   margin-top: 28px;
-// `;
-
-// const ArrowIcon = styled.img`
-//   margin-left: 8px;
-//   object-fit: none;
-// `;
-
-// const TotalCostContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   height: 61px;
-//   border-radius: ${sizes.size3};
-//   background-color: ${colors.white_ffffff};
-//   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
-//     ${colors.grey_c6c6c6_5};
-//   align-items: center;
-// `;
-
-// const PayText = styled.div`
-//   height: 22px;
-//   width: 54px;
-//   color: ${colors.blue_223136};
-//   font-family: ${fontFamilies.fontFamilyOsRegular};
-//   font-size: ${sizes.size16};
-//   letter-spacing: ${sizes.size0};
-//   line-height: ${sizes.size22};
-//   margin-left: 10px;
-//   margin-right: 86px;
-// `;
-
-// const TotalCost = styled.div`
-//   height: 22px;
-//   color: ${colors.blue_223136};
-//   font-family: ${fontFamilies.fontFamilyOsBold};
-//   font-size: ${sizes.size16};
-//   letter-spacing: ${sizes.size0};
-//   line-height: ${sizes.size22};
-//   text-align: right;
-// `;
-
-// const CostList = styled.div`
-//   height: 110px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-around;
-// `;
-
-// const Cost = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   margin-left: 13px;
-//   margin-right: 23px;
-// `;
-
-// const CostSplit = styled.div`
-//   height: 17px;
-//   color: ${colors.grey_9b9b9b};
-//   font-family: ${fontFamilies.fontFamilyOsRegular};
-//   font-size: ${sizes.size12};
-//   letter-spacing: ${sizes.size0};
-//   line-height: ${sizes.size17};
-// `;
-
-// const UserCodeInput = styled(InputField)`
-//   width: 238px;
-//   height: 33p;
-// `;

@@ -59,6 +59,7 @@ const HomeScreens = styled.div<HomeScreensProps>`
   background-image: ${(props) =>
     props.imgUrl ? `url(${props.imgUrl})` : null};
   height: ${(props) => props.height};
+  width: 100%;
   background-repeat: no-repeat;
   justify-content: center;
   align-items: center;
