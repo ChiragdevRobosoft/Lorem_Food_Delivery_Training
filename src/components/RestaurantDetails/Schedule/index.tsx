@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-calendar/dist/Calendar.css";
 import Timepicker from "../../common/TimePicker";
 import Buttons from "../../common/button";
+import { queries } from "../../common/breakpoints";
 
 const Schedule: FC<{
   open: boolean;
@@ -19,8 +20,7 @@ const Schedule: FC<{
   const modalStyles = {
     borderRadius: `${sizes.size8}`,
     boxShadow: `0 2px 10px 0 ${colors.black_000000_1}`,
-    height: "457px",
-    width: "570px",
+    margin: "0",
   };
   return (
     <Modal
@@ -50,17 +50,28 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 21px;
+  height: auto;
+  width: 532px;
+  box-sizing: border-box;
+  ${queries.tablet} {
+    width: 337px;
+  }
 `;
 
 const TitleLabel = styled(Label)`
   display: inline;
-  margin: auto;
+  margin: 3px auto 0 auto;
   height: ${sizes.size33};
   color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size24};
   letter-spacing: ${sizes.sizeNeg0_34};
   line-height: ${sizes.size33};
+  ${queries.tablet} {
+    font-size: ${sizes.size18};
+    line-height: ${sizes.size22};
+    height: ${sizes.size22};
+  }
 `;
 
 const DateTimeLabel = styled(Label)`
@@ -72,6 +83,12 @@ const DateTimeLabel = styled(Label)`
   line-height: ${sizes.size17};
   margin-top: 24px;
   margin-bottom: 11px;
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+    margin-top: 14px;
+  }
 `;
 
 const Description = styled(Label)`
@@ -83,6 +100,12 @@ const Description = styled(Label)`
   line-height: ${sizes.size23};
   margin-top: 40px;
   margin-bottom: 6px;
+  ${queries.tablet} {
+    font-size: ${sizes.size14};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+    margin-top: 25px;
+  }
 `;
 
 const ScheduleButton = styled(Buttons)`
@@ -91,8 +114,14 @@ const ScheduleButton = styled(Buttons)`
     ${colors.red_f3698e} 0%,
     ${colors.yellow_feb456} 100%
   );
-  margin-top: 55px;
+  margin-top: 39px;
   cursor: pointer;
+  ${queries.tablet} {
+    width: 280px;
+    height: 45px;
+    margin-top: 30px;
+    font-size: ${sizes.size14};
+  }
 `;
 
 export default Schedule;

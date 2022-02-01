@@ -11,6 +11,7 @@ import {
 import FoodIcon from "../../../assets/common/restaurantCard/food.png";
 import { RestauarantCardprops } from "../interfaces";
 import { useNavigate } from "react-router-dom";
+import { queries } from "../breakpoints";
 
 const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
   let navigate = useNavigate();
@@ -50,15 +51,24 @@ const Wrapper = styled.div`
   align-items: center;
   height: 166.79px;
   width: 631.42px;
+  min-height: 166.79px;
   border-radius: ${sizes.size6};
   background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
     ${colors.black_000000_1};
   margin-bottom: 10.99px;
+  ${queries.tabletLandscape} {
+    width: auto;
+    height: auto;
+  }
 `;
 
 const FoodImage = styled.img`
   margin-left: 15.73px;
+  ${queries.tabletLandscape} {
+    height: 120.48px;
+    width: 125.82px;
+  }
 `;
 
 const Rating = styled.div`
@@ -76,6 +86,12 @@ const Rating = styled.div`
   line-height: ${sizes.size27_25};
   text-align: center;
   justify-content: center;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+    width: 33.6px;
+  }
 `;
 
 const MenuImage = styled.img`
@@ -83,6 +99,14 @@ const MenuImage = styled.img`
   z-index: 1;
   right: 8.42px;
   bottom: ${sizes.size16};
+  ${queries.tabletLandscape} {
+    height: 30.43px;
+    width: 90.14px;
+  }
+  ${queries.tablet} {
+    height: 25.43px;
+    width: 70.14px;
+  }
 `;
 
 const ColumnFlex = styled.div`
@@ -95,6 +119,9 @@ const ColumnFlex = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  ${queries.tabletLandscape} {
+    padding-top: 0;
+  }
 `;
 
 const RestaurantName = styled.div`
@@ -106,6 +133,14 @@ const RestaurantName = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size30};
   top: 15.92px;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size18};
+  }
+  ${queries.tablet} {
+    font-size: ${sizes.size14};
+    height: auto;
+    line-height: 20px;
+  }
 `;
 
 const RestaurantAddress = styled.div`
@@ -115,6 +150,12 @@ const RestaurantAddress = styled.div`
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size11};
+  }
+  ${queries.tablet} {
+    font-size: ${sizes.size9};
+  }
 `;
 
 const HorizontalLine = styled.hr`
@@ -126,6 +167,9 @@ const HorizontalLine = styled.hr`
   opacity: ${opacity.opacity0_19};
   margin-top: 5px;
   margin-bottom: 4.5px;
+  ${queries.tabletLandscape} {
+    margin: 0;
+  }
 `;
 
 const FoodVariety = styled.div`
@@ -136,12 +180,17 @@ const FoodVariety = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
   margin-bottom: 5px;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size12};
+  }
+  ${queries.tablet} {
+    font-size: ${sizes.size10};
+  }
 `;
 
 const DetailsList = styled.ul`
   display: flex;
-  flex-direction: row;
-  gap: 9px;
+  flex-wrap: wrap;
   width: 70%;
   height: 17px;
   color: ${colors.grey_757575_9};
@@ -155,10 +204,21 @@ const DetailsList = styled.ul`
   margin-left: 15px;
   margin-top: 2px;
   bottom: 0;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size13};
+    height: ${sizes.size13};
+    row-gap: 3px;
+  }
+  ${queries.tablet} {
+    font-size: ${sizes.size9};
+    line-height: ${sizes.size11};
+  }
 `;
 
 const Detail = styled.li`
   text-indent: ${sizes.sizeNeg7};
+  white-space: nowrap;
 `;
 
 const OpenClose = styled.div<{ color: string }>`
@@ -171,6 +231,11 @@ const OpenClose = styled.div<{ color: string }>`
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size12};
+    height: ${sizes.size12};
+  }
 `;
 
 export default RestaurantCard;

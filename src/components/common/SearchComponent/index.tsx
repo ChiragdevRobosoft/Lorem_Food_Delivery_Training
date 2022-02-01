@@ -6,10 +6,10 @@ import LocationInput from "../locationInput";
 import DateInput from "../dateInput";
 import searchBoxBg from "./../../..//assets/common/foodSearchBox/searchbox_bg.png";
 import data from "./../constants.json";
+import { queries } from "../breakpoints";
 import timeDateIcon from "./../../../assets/common/foodSearchBox/present-t&d-firstpage.png";
 import Image from "../image";
 import Schedule from "../../RestaurantDetails/Schedule";
-import { queries } from "../breakpoints";
 interface foodSearchProps {
   pageType: string;
 }
@@ -105,16 +105,23 @@ const Wrapper = styled.div`
   width: 100%;
   background-image: url(${searchBoxBg});
   align-items: center;
+  ${queries.tabletLandscape} {
+    height: auto;
+  }
 `;
 
 const ContentContainer = styled.div`
   margin: 0px auto 0px auto;
   padding-top: 23px;
+  padding-bottom: 35px;
   height: 76px;
   width: 961px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  ${queries.tabletLandscape} {
+    height: auto;
+    width: auto;
+  }
 `;
 
 const DeliveryAsap = styled.p`
@@ -128,6 +135,11 @@ height: 17px;
   line-height: ${sizes.size17};
   padding:0;
   margin: 0 0 9px 2px;
+  ${queries.tablet} {
+  font-size: ${sizes.size11};
+  line-height: ${sizes.size14};
+  height: ${sizes.size14};
+  }
 }
 `;
 
@@ -137,8 +149,14 @@ const SearchContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  column-gap: 5px;
+  row-gap: 5px;
+  justify-content: space-around;
+  ${queries.tabletLandscape} {
+    width: auto;
+    height: auto;
+    flex-wrap: wrap;
+  }
 `;
 
 const DatePickerImage = styled(Image)`

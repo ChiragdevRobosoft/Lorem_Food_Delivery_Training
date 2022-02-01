@@ -5,6 +5,8 @@ import { colors, fontFamilies, sizes, opacity } from "../../../variables";
 import OpeningHours from "../OpeningHours";
 import Map from "../../../assets/restaurantDetails/map.png";
 import Label from "../../common/label";
+import { queries } from "../../common/breakpoints";
+import Image from "../../common/image";
 
 const Overview = () => {
   return (
@@ -46,14 +48,23 @@ const Wrapper = styled.div`
   width: 972px;
   margin-top: 38px;
   padding-bottom: 66px;
+  ${queries.tabletLandscape} {
+    width: 768px;
+  }
+  ${queries.tablet} {
+    width: 375px;
+  }
 `;
 
 const DescriptionLine = styled.div<{ className?: string }>`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin-top: ${(props) => (props.className = "details" ? "41px" : "0")};
   margin-bottom: ${(props) => (props.className = "details" ? "43px" : "0")};
+  ${queries.tabletLandscape} {
+    row-gap: 20px;
+  }
 `;
 
 const DescriptionContainer = styled.div<{ className?: string }>`
@@ -74,6 +85,11 @@ const Title = styled(Label)`
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   margin-bottom: 9px;
+  ${queries.tablet} {
+    font-size: ${sizes.size14};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const Content = styled(Label)<{ className?: string }>`
@@ -86,8 +102,19 @@ const Content = styled(Label)<{ className?: string }>`
     props.className === "first-row"
       ? `${colors.grey_4a4a4a}`
       : `${colors.grey_7c7c7c}`};
+  max-width: 100%;
+  ${queries.tablet} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
-const MapImage = styled.img``;
+const MapImage = styled(Image)`
+  ${queries.tablet} {
+    width: 375px;
+    height: auto;
+  }
+`;
 
 export default Overview;

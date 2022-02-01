@@ -2,6 +2,7 @@ import React, { useState, FC } from "react";
 import styled from "styled-components";
 import { colors, sizes, fontFamilies, angles } from "../../../variables";
 import { NavLink, useLocation, useParams } from "react-router-dom";
+import { queries } from "../breakpoints";
 
 const Navbar: FC<{
   navbarElements: string[];
@@ -69,6 +70,18 @@ const NavBarElement = styled.li<{ navbarType?: string }>`
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
+  ${queries.tabletLandscape} {
+    margin-right: 30px;
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
+  ${queries.tablet} {
+    margin-right: 15px;
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const Underline = styled.div`
@@ -83,6 +96,13 @@ const Underline = styled.div`
   );
   box-shadow: ${sizes.size0} ${sizes.size4} ${sizes.size10} ${sizes.size0}
     ${colors.red_f67e7e_38};
+  ${queries.tabletLandscape} {
+    width: 28px;
+  }
+  ${queries.tablet} {
+    width: 18px;
+    margin-top: 5px;
+  }
 `;
 
 const Navlink = styled(NavLink)`

@@ -10,6 +10,7 @@ import reviewFoodImage from "../../../assets/restaurantDetails/review_food_image
 import { reviewCardProps } from "../../common/interfaces";
 import data from "../../common/constants.json";
 import Image from "../../common/image";
+import { queries } from "../../common/breakpoints";
 
 const ReviewCard: FC<{ cardDetails: reviewCardProps }> = ({ cardDetails }) => {
   const reviewsRatingsText = `${cardDetails.reviewsCount} ${data.reviews} ${cardDetails.ratingsCount} ${data.ratings}`;
@@ -63,6 +64,12 @@ const Wrapper = styled.div`
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   padding: 17px 22px 21px 20px;
   margin-bottom: 20px;
+  ${queries.tabletLandscape} {
+    width: 440px;
+  }
+  ${queries.tablet} {
+    width: 375px;
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -121,6 +128,11 @@ const CheckboxLabel = styled(Label)`
   font-size: ${sizes.size12};
   line-height: ${sizes.size17};
   margin-left: 9px;
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const LikeContainer = styled(Container)`
@@ -145,6 +157,11 @@ const ReviewerName = styled(Label)`
   color: ${colors.grey_4a4a4a};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   margin-bottom: 2px;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 const ReviewsRatingsLabel = styled(Label)`
@@ -153,6 +170,11 @@ const ReviewsRatingsLabel = styled(Label)`
   font-size: ${sizes.size12};
   line-height: ${sizes.size17};
   margin-bottom: 9px;
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const ReviewsText = styled(Label)`
@@ -161,6 +183,11 @@ const ReviewsText = styled(Label)`
   color: ${colors.grey_757575};
   font-size: ${sizes.size12};
   margin-top: 16px;
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const DateLabel = styled(Label)`
@@ -168,6 +195,11 @@ const DateLabel = styled(Label)`
   color: ${colors.grey_b9b9b9};
   font-size: ${sizes.size12};
   line-height: ${sizes.size17};
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 export default ReviewCard;
