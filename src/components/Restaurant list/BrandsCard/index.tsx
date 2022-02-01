@@ -5,6 +5,7 @@ import data from "../../common/constants.json";
 import styled from "styled-components";
 import { sizes, colors, fontFamilies } from "../../../variables";
 import { restaurantListProps } from "../../common/interfaces";
+import { queries } from "../../common/breakpoints";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 const renderArrow =
@@ -78,11 +79,11 @@ const BrandsCard = () => {
               {firstArray.map(
                 (secondArray: restaurantListProps, index: number) => {
                   return (
-                    <React.Fragment key={index}>
+                    <Brands key={index}>
                       <BrandIcon src={ChickenTikka} />
                       <BrandName>{secondArray.name}</BrandName>
                       <BrandOutlets>{secondArray.outlets}</BrandOutlets>
-                    </React.Fragment>
+                    </Brands>
                   );
                 }
               )}
@@ -98,6 +99,7 @@ const Wrapper = styled.div`
   .main-slide {
     height: 166.79px;
     width: 631.42px;
+    min-height: 166.79px;
     margin-left: auto;
     margin-right: auto;
     border-radius: ${sizes.size6};
@@ -106,31 +108,58 @@ const Wrapper = styled.div`
       ${colors.black_000000_1};
     margin-bottom: 17.14px;
     margin-top: 14px;
+    max-width: 631.42px;
+    ${queries.tabletLandscape} {
+      width: auto;
+      height: auto;
+    }
   }
   .carousel {
     height: 166.79px;
     width: 631.42px;
+    min-height: 166.79px;
+    ${queries.tabletLandscape} {
+      width: auto;
+      height: auto;
+    }
   }
   .slider-wrapper {
     width: 631.42px;
     height: 166.79px;
+    min-height: 166.79px;
+    ${queries.tabletLandscape} {
+      width: auto;
+      height: auto;
+    }
   }
 `;
 
 const GridDisplay = styled.div`
   width: 631.42px;
   height: 166.79px;
-  padding: 20px 18px;
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: 4fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  min-height: 166.79px;
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   position: relative;
+  ${queries.tabletLandscape} {
+    width: auto;
+    height: auto;
+  }
+`;
+
+const Brands = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ${queries.tabletLandscape} {
+    width: auto;
+    height: auto;
+  }
 `;
 
 const BrandIcon = styled.img`
-  height: 72px;
-  width: 77px;
   margin: auto;
   object-fit: none;
 `;
@@ -143,6 +172,16 @@ const BrandName = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   text-align: center;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size17};
+    height: auto;
+  }
+  ${queries.tablet} {
+    line-height: ${sizes.size15};
+    font-size: ${sizes.size11}
+    height: auto;
+  }
 `;
 
 const BrandOutlets = styled.div`
@@ -153,6 +192,16 @@ const BrandOutlets = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   text-align: center;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size17};
+    height: auto;
+  }
+  ${queries.tablet} {
+    line-height: ${sizes.size15};
+    font-size: ${sizes.size11}
+    height: auto;
+  }
 `;
 
 export default BrandsCard;

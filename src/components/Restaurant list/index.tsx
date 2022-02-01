@@ -14,6 +14,7 @@ import { colors, sizes, fontFamilies, links } from "../../variables";
 import Searchpath from "../common/Searchpath";
 import Header from "../common/header";
 import FoodSearch from "../common/SearchComponent";
+import { queries } from "../common/breakpoints";
 
 const RestaurantList = () => {
   const images = [ArrowUp, ArrowDown];
@@ -67,43 +68,56 @@ const RestaurantList = () => {
             })}
           </RightSection>
         </ContentSection>
-        <Footer />
       </MainContainer>
+      <Footer />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   height: 100vh;
-  width: 100wh;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 const MainContainer = styled.div`
-  width: 100wh;
+  width: 100%;
   background: ${colors.violet_f1f3fb};
   margin-left: auto;
   margin-right: auto;
+  overflow-y: scroll;
 `;
 
 const HeadingSection = styled.div`
   width: 959.42px;
   margin-left: auto;
   margin-right: auto;
+  ${queries.tabletLandscape} {
+    width: auto;
+    margin: 0;
+  }
 `;
 
 const Title = styled.div`
   height: 34px;
-  width: 224px;
   color: ${colors.grey_636364};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size25};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size34};
   margin-top: 16px;
+  ${queries.tablet} {
+    font-size: ${sizes.size22};
+    line-height: ${sizes.size28};
+    height: ${sizes.size28};
+  }
 `;
 
 const FilterRow = styled.div`
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: auto;
   margin-top: 18px;
   height: 22px;
 `;
@@ -116,17 +130,31 @@ const FilterType = styled.span`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};
   margin-left: 40px;
+  ${queries.tablet} {
+    font-size: ${sizes.size14};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const ContentSection = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 1140px;
   width: 959.42px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 24.07px;
+  ${queries.tabletLandscape} {
+    width: auto;
+    column-gap: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  ${queries.tablet} {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
 `;
 
 const RightSection = styled.div`
@@ -144,6 +172,11 @@ const Brands = styled.span`
   font-size: ${sizes.size16};
   letter-spacing: ${sizes.sizeNeg0_27};
   line-height: ${sizes.size22};
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const MoreOption = styled(Link)`
@@ -156,6 +189,11 @@ const MoreOption = styled(Link)`
   right: 0;
   text-decoration: none;
   float: right;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const RightArrowImg = styled.img`

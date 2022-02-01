@@ -7,6 +7,7 @@ import Radio from "../../common/Radio button";
 import FilterPlus from "../../../assets/restaurantList/filter_plus.png";
 import data from "../../common/constants.json";
 import { fontFamilies, colors, sizes, angles } from "../../../variables";
+import { queries } from "../../common/breakpoints";
 
 const Filters = () => {
   const { register, handleSubmit, control, reset } = useForm();
@@ -76,13 +77,24 @@ const Wrapper = styled.form`
   background-color: ${colors.white_ffffff};
   box-shadow: ${sizes.size0} ${sizes.size2} ${sizes.size10} ${sizes.size0}
     ${colors.black_000000_1};
+  ${queries.tabletLandscape} {
+    width: auto;
+  }
+  ${queries.tablet} {
+    height: 650px;
+  }
 `;
 
 const TopFlex = styled.div`
   height: 52px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 0 21px;
   border-bottom: ${sizes.size2} solid ${colors.white_e1e1e1};
+  ${queries.tablet} {
+    height: 40px;
+  }
 `;
 
 const Title = styled.div`
@@ -94,7 +106,11 @@ const Title = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size27};
   padding-top: 14px;
-  padding-left: 21px;
+  ${queries.tablet} {
+    font-size: ${sizes.size16};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const Reset = styled.div`
@@ -107,12 +123,18 @@ const Reset = styled.div`
   line-height: ${sizes.size22};
   text-align: right;
   padding-top: 16px;
-  margin-left: 141px;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const MiddleFlex = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 0 21px;
 `;
 
 const AppliedFilter = styled.span`
@@ -123,13 +145,17 @@ const AppliedFilter = styled.span`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   margin-top: ${(props) => (props.className === "cuisines" ? "0" : "11px")};
-  margin-left: ${(props) => (props.className === "time" ? "20px" : "11px")};
+  margin-left: ${(props) => (props.className === "time" ? "0px" : "11px")};
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const AppliedFilterImage = styled.img`
   height: auto;
   width: auto;
-  margin-left: ${(props) => (props.className === "plus" ? "187px" : "45px")};
   align-self: center;
   margin-top: ${(props) => (props.className === "plus" ? "0" : "11.44px")};
 `;
@@ -143,6 +169,11 @@ const RadioTitle = styled.div`
   line-height: ${sizes.size19};
   margin-left: 21px;
   margin-top: ${(props) => (props.className === "radio" ? "22px" : "26px")};
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const CheckboxWrapper = styled.div`
@@ -158,12 +189,9 @@ const CheckboxInput = styled.input`
 
   :checked {
     background-image: url(${FilterCheckbox});
-    height: 16px;
   }
 
   :not(:checked) {
-    height: 16px;
-    width: 16px;
     border: ${sizes.size2} solid ${colors.orange_f78713};
     border-radius: ${sizes.halfWidth};
   }
@@ -171,17 +199,21 @@ const CheckboxInput = styled.input`
 
 const CheckboxName = styled.label`
   height: 19px;
-  width: 70px;
   color: ${colors.orange_f78713};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.sizeNeg0_24};
   line-height: ${sizes.size19};
   margin-left: 7.22px;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const EndFlex = styled(MiddleFlex)`
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 45px;
   border: ${sizes.size2} ${colors.white_e1e1e1};
@@ -219,11 +251,13 @@ const ApplyButton = styled.button`
   background-origin: border-box;
   background-clip: content-box, border-box;
   cursor: pointer;
+  ${queries.tabletLandscape} {
+    width: auto;
+  }
 `;
 
 const ApplyText = styled.span`
   height: 19px;
-  width: 79px;
   color: ${colors.white_ffffff};
   font-family: ${fontFamilies.fontFamilyOsBold};
   font-size: ${sizes.size14};
@@ -240,6 +274,14 @@ const ApplyText = styled.span`
   background-clip: text;
   -webkit-background-clip: text;
   color: ${colors.transparentColor};
+  ${queries.tabletLandscape} {
+    padding: 0 70px;
+  }
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 export default Filters;

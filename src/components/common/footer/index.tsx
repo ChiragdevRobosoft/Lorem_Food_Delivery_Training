@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CircleFlag } from "react-circle-flags";
 import { SocialIcon } from "react-social-icons";
@@ -12,6 +12,7 @@ import {
   fontWeight,
   opacity,
 } from "../../../variables";
+import { queries } from "../breakpoints";
 
 const Footer = () => {
   return (
@@ -24,13 +25,13 @@ const Footer = () => {
           <CityCountryText>{data.footerData.cities.title}</CityCountryText>
         </CityCountryContainer>
         <LineBreak />
+        <CityCountryContainer>
+          <CityCountryNumber>
+            {data.footerData.countries.count}
+          </CityCountryNumber>
+          <CityCountryText>{data.footerData.countries.title}</CityCountryText>
+        </CityCountryContainer>
         <OuterContainer>
-          <CityCountryContainer>
-            <CityCountryNumber>
-              {data.footerData.countries.count}
-            </CityCountryNumber>
-            <CityCountryText>{data.footerData.countries.title}</CityCountryText>
-          </CityCountryContainer>
           {data.countryCodes.map((countryCode, index) => {
             return (
               <CircleFlag
@@ -79,24 +80,33 @@ const Wrapper = styled.div`
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
-  height: 227px;
+  min-height: 227px;
+  height: auto;
   width: ${sizes.fullWidth};
   background-color: ${colors.white_ffffff};
+  padding: 0 20px;
 `;
 
 const FooterContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-right: auto;
   margin-left: auto;
   top: 0;
-  width: ${sizes.halfWidth};
+  width: 960px;
   padding-bottom: 17px;
   border-bottom: ${sizes.size1} solid ${colors.grey_979797_19};
   border-width: ${sizes.size2};
   box-sizing: border-box;
+  ${queries.tabletLandscape} {
+    width: 700px;
+  }
+  ${queries.tablet} {
+    width: auto;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+  }
 `;
 
 const LoremText = styled.div`
@@ -116,6 +126,9 @@ const LoremText = styled.div`
   line-height: ${sizes.size60};
   text-align: center;
   vertical-align: middle;
+  ${queries.tablet} {
+    font-size: ${sizes.size34};
+  }
 `;
 
 const InvisibleLineBreak = styled.div`
@@ -146,6 +159,9 @@ const CityCountryNumber = styled.span`
   background-clip: text;
   -webkit-background-clip: text;
   color: ${colors.transparentColor};
+  ${queries.tablet} {
+    font-size: ${sizes.size20};
+  }
 `;
 
 const CityCountryText = styled.span`
@@ -155,11 +171,14 @@ const CityCountryText = styled.span`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   vertical-align: bottom;
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+  }
 `;
 
 const LineBreak = styled.hr`
   width: 2px;
-  margin: 0;
+  margin: 0 5px;
   box-sizing: border-box;
   height: 19.4px;
   border: ${sizes.size1} solid ${colors.grey_979797};
@@ -171,19 +190,23 @@ const OuterContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 35%;
-  height: 19.4px;
+  width: 206px;
+  height: 30px;
   .flag {
     vertical-align: middle;
     padding-right: 10px;
+    ${queries.tablet} {
+      height: 23px;
+      width: 23px;
+    }
   }
 `;
 
 const SocialIconContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: normal;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-end;
   .img {
     vertical-align: middle;
     height: 22.41px;
@@ -193,23 +216,34 @@ const SocialIconContainer = styled.div`
 
 const LinksContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: normal;
   margin-right: auto;
   margin-left: auto;
-  width: ${sizes.halfWidth};
-  height: 19px;
+  height: auto;
+  width: 960px;
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   margin-top: 28px;
+  ${queries.tabletLandscape} {
+    width: 700px;
+  }
+  ${queries.tablet} {
+    width: auto;
+    flex-wrap: wrap;
+    font-size: ${sizes.size11};
+    margin-top: 18px;
+  }
 `;
 
 const RedirectLink = styled(Link)`
+  height: 19px;
   text-decoration: none;
   color: ${colors.grey_636364_07};
+  margin: 0 10px;
+  white-space: nowrap;
 `;
 
 export default Footer;

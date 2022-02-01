@@ -11,6 +11,7 @@ import {
 } from "../../../variables";
 import data from "./../constants.json";
 import User from "./userInfo";
+import { queries } from "../breakpoints";
 
 const languages = ["English", "Arabic", "Spanish"];
 interface headerProps {
@@ -83,7 +84,7 @@ const HeaderWrapper = styled.header`
   height: ${(props) => (props.className === "home" ? `89px` : `70px`)};
   width: 100wh;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   margin: ${(props) =>
     props.className === "home" ? `19px 62px 119px 33px` : `0px 0px 0px 0px`};
   background-color: ${(props) =>
@@ -92,6 +93,9 @@ const HeaderWrapper = styled.header`
     props.className === "home"
       ? ``
       : `${sizes.size0} ${sizes.size2} ${sizes.size4} ${sizes.size0} rgba(0,0,0,0.08)`};
+  ${queries.tabletLandscape} {
+    height: auto;
+  }
 `;
 
 const HeaderTitle = styled.p`
@@ -119,8 +123,11 @@ const HeaderTitle = styled.p`
 const RightSection = styled.div`
   width: auto;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   margin-left: auto;
+  ${queries.tabletLandscape} {
+    justify-content: space-between;
+  }
 `;
 
 const LanguageSelector = styled.select`
@@ -151,6 +158,10 @@ const Login = styled.p`
   letter-spacing: ${letterSpacing.space0_5};
   line-height: ${sizes.size19};
   text-align: right;
+  ${queries.tabletLandscape} {
+    margin-left: 0;
+    margin-right: 0;
+  }
 `;
 
 const CreateAccount = styled.p`
@@ -181,6 +192,10 @@ const Logout = styled.p`
   letter-spacing: ${letterSpacing.space0_5};
   line-height: ${sizes.size19};
   text-align: right;
+  ${queries.tabletLandscape} {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 `;
 
 const VertLine = styled.div`
@@ -204,6 +219,10 @@ const CartLogo = styled.img`
     props.className === "home"
       ? ``
       : `linear-gradient(138.33deg, #F3698E 0%, #FEB456 100%)`};
+  ${queries.tabletLandscape} {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 `;
 
 const Cart = styled.p`
@@ -226,4 +245,8 @@ const Cart = styled.p`
   line-height: ${(props) =>
     props.className === "home" ? `${sizes.size19}` : `${sizes.size17}`};
   text-align: right;
+  ${queries.tabletLandscape} {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 `;
