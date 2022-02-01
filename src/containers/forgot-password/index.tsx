@@ -17,6 +17,9 @@ import {
   fontWeight,
   links,
 } from "../../variables";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 const ForgotPassword = ({
   onCloseModal,
   onOpenModal,
@@ -34,8 +37,44 @@ const ForgotPassword = ({
   setShowForgotPassword: React.Dispatch<React.SetStateAction<boolean>>;
   setShowVerification: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const navigate = useNavigate();
   const [InputType, setInputType] = useState("email");
+
+  const emailSchema = yup.object().shape({
+    Email: yup
+      .string()
+      .required("Email id is required ")
+      .email("Invalid email address"),
+  });
+  const mobileSchema = yup.object().shape({
+    mobile: yup
+      .string()
+      .required()
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(10, "Invalid mobile number")
+      .max(10, "Invalid mobile number"),
+  });
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(emailSchema),
+  });
+  const {
+    register: register2,
+    handleSubmit: handleSubmit2,
+    setError: setError2,
+    formState: { errors: errors2 },
+  } = useForm({
+    resolver: yupResolver(mobileSchema),
+  });
+  const submitForm = (data: any) => {
+    console.log(data);
+    setShowVerification(true);
+    setRedirectFromForgotPassword(true);
+  };
+
   return (
     <Modal
       open={open}
@@ -98,21 +137,37 @@ const ForgotPassword = ({
               ) : null}
             </TypeContainer>
           </Navbar>
+
           {InputType === "email" ? (
-            <EmailBox>
-              <InputField name="Email" isPassword={false} />
-            </EmailBox>
+            <Form onSubmit={handleSubmit(submitForm)}>
+              <EmailBox>
+                <InputField
+                  name="Email"
+                  register={register}
+                  message={errors.Email?.message}
+                  isPassword={false}
+                />
+              </EmailBox>
+              <Buttons
+                className="colouredBgButton"
+                name="SEND OTP"
+                type="submit"
+              ></Buttons>
+            </Form>
           ) : (
-            <CountryCode isOptional={true} />
+            <Form onSubmit={handleSubmit2(submitForm)}>
+              <CountryCode
+                register={register2}
+                message={errors2.mobile?.message}
+                isOptional={true}
+              />
+              <Buttons
+                className="colouredBgButton"
+                name="SEND OTP"
+                type="submit"
+              ></Buttons>
+            </Form>
           )}
-          <Buttons
-            className="colouredBgButton"
-            name="SEND OTP"
-            onClick={() => {
-              setShowVerification(true);
-              setRedirectFromForgotPassword(true);
-            }}
-          ></Buttons>
         </WrapperRight>
       </Wrapper>
     </Modal>
@@ -129,6 +184,7 @@ const TypeContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+const Form = styled.form``;
 const Border = styled.img`
   height: ${sizes.size4};
   width: ${sizes.size38};

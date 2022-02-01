@@ -14,6 +14,9 @@ import {
   fontWeight,
   links,
 } from "../../variables";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 const CreateAccount = ({
   onCloseModal,
   onOpenModal,
@@ -37,7 +40,23 @@ const CreateAccount = ({
   setShowAccountDetails: React.Dispatch<React.SetStateAction<boolean>>;
   setShowVerification: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const history = useNavigate();
+  const submitForm = (data: any) => {
+    console.log(data);
+    setShowVerification(true);
+  };
+  const schema = yup.object().shape({
+    Email: yup
+      .string()
+      .email("Invalid email address")
+      .required("Email id is required"),
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   return (
     <Modal
       open={open}
@@ -73,16 +92,23 @@ const CreateAccount = ({
           ></CloseImage>
           <Title>{data.loginModal.createAccount.title}</Title>
           <Discription>{data.loginModal.createAccount.description}</Discription>
-          <EmailBox>
-            <InputField name="Email" isPassword={false} />
-          </EmailBox>
-          <CreateAccountButton>
-            <Buttons
-              className="colouredBgButton"
-              name="CREATE ACCOUNT"
-              onClick={() => setShowVerification(true)}
-            ></Buttons>
-          </CreateAccountButton>
+          <Form onSubmit={handleSubmit(submitForm)}>
+            <EmailBox>
+              <InputField
+                name="Email"
+                register={register}
+                message={errors.Email?.message}
+                isPassword={false}
+              />
+            </EmailBox>
+            <CreateAccountButton>
+              <Buttons
+                className="colouredBgButton"
+                name="CREATE ACCOUNT"
+                type="submit"
+              ></Buttons>
+            </CreateAccountButton>
+          </Form>
           <TermsAndCondition>
             <Terms>{data.loginModal.createAccount.terms}</Terms>
             <RedirectLink className="termsConditions" to={links.login}>
@@ -120,6 +146,7 @@ const EmailBox = styled.div`
   margin-right: auto;
   width: 380px;
 `;
+const Form = styled.form``;
 const Discription = styled.div`
   display: flex;
   flex-direction: column;
