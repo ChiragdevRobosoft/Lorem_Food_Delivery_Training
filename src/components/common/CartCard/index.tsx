@@ -9,6 +9,7 @@ import nonvegIcon from "../../../assets/restaurantDetails/icn_nonveg.png";
 import { CartData } from "../CartDataProvider";
 import data from "../constants.json";
 import { foodItemProps, foodcardDetailsProps } from "../interfaces";
+import { queries } from "../breakpoints";
 
 const CartCard: FC<{ item: foodItemProps }> = ({ item }) => {
   const { details, setDetails } = useContext(CartData);
@@ -104,6 +105,12 @@ const FoodName = styled.div`
   font-size: ${sizes.size14};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size15};
+    height: auto;
+    width: 140px;
+  }
 `;
 
 const QuantitySelector = styled.div`
@@ -120,6 +127,10 @@ const QuantitySelector = styled.div`
   position: absolute;
   right: 0;
   top: 13px;
+  ${queries.tabletLandscape} {
+    width: 70px;
+    height: auto;
+  }
 `;
 
 const VegIcon = styled.img`
@@ -140,6 +151,11 @@ const Quantity = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size27};
   text-align: center;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size22};
+    height: ${sizes.size22};
+  }
 `;
 
 const UnitCost = styled.div`
@@ -149,6 +165,11 @@ const UnitCost = styled.div`
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size27};
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size22};
+    height: ${sizes.size22};
+  }
 `;
 
 const ItemsCost = styled.div`
@@ -164,6 +185,11 @@ const ItemsCost = styled.div`
   top: 48px;
   right: 0;
   text-align: right;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size12};
+    height: ${sizes.size12};
+  }
 `;
 
 const AddOn = styled.div`
@@ -174,6 +200,11 @@ const AddOn = styled.div`
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size15};
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 const CustomizeContainer = styled.div`
@@ -191,6 +222,11 @@ const Customize = styled.div`
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size15};
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const Remove = styled.div`
@@ -204,6 +240,11 @@ const Remove = styled.div`
   text-align: right;
   position: absolute;
   right: ${sizes.size0};
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size22};
+    height: ${sizes.size22};
+  }
 `;
 
 const SelectedQuantity = styled.div`
@@ -213,6 +254,11 @@ const SelectedQuantity = styled.div`
   font-size: ${sizes.size11};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size15};
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const ArrowIcon = styled.img`

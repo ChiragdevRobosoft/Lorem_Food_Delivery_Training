@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import CartCard from "../../common/CartCard";
 import DownArrow from "../../../assets/restaurantDetails/collapse button.png";
-import { fontFamilies, sizes, colors, links } from "../../../variables";
+import { fontFamilies, sizes, colors, links, angles } from "../../../variables";
 import { CartData } from "../../common/CartDataProvider";
 import { foodItemProps } from "../../common/interfaces";
 import InputField from "../../common/textbox";
 import Buttons from "../../common/button";
 import RightArrow from "../../../assets/restaurantDetails/arrow_choose_address.png";
 import data from "../../common/constants.json";
+import { queries } from "../../common/breakpoints";
 
 const Cart = () => {
   const { details, setDetails } = useContext(CartData);
@@ -77,20 +78,13 @@ const Cart = () => {
       <CookingInstructionTitle>
         {data.cartData.cookingInstruction}
       </CookingInstructionTitle>
-      <InputField
-        name={data.cartData.textboxLabel}
-        isPassword={false}
-        style={{
-          width: "263px",
-          margin: "auto",
-          color: `${colors.grey_4a4a4a}`,
-        }}
-      />
+      <TextboxContainer>
+        <TextBox name={data.cartData.textboxLabel} isPassword={false} />
+      </TextboxContainer>
       <RoutingLink to={links.checkout}>
-        <Buttons
+        <CheckoutButton
           name={data.cartData.buttonText}
           className="colouredBgButton"
-          width="264px"
           image={RightArrow}
         />
       </RoutingLink>
@@ -110,6 +104,12 @@ const Wrapper = styled.div`
   .colouredBgButton {
     margin-top: 26px;
   }
+  ${queries.tabletLandscape} {
+    width: 250px;
+  }
+  ${queries.tablet} {
+    height: 790px;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -121,6 +121,9 @@ const TitleContainer = styled.div`
   padding-left: 21px;
   padding-right: 21px;
   border-bottom: ${sizes.size1} solid ${colors.white_ededed};
+  ${queries.tablet} {
+    height: 50px;
+  }
 `;
 
 const ItemList = styled.div`
@@ -138,6 +141,11 @@ const Title = styled.div`
   font-size: ${sizes.size22};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size30};
+  ${queries.tablet} {
+    font-size: ${sizes.size16};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const ClearCart = styled.div`
@@ -149,6 +157,11 @@ const ClearCart = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size19};
   text-align: right;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size15};
+    height: ${sizes.size16};
+  }
 `;
 
 const ArrowIcon = styled.img`
@@ -169,7 +182,6 @@ const TotalCostContainer = styled.div`
 
 const PayText = styled.div`
   height: 22px;
-  width: 54px;
   color: ${colors.blue_223136};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size16};
@@ -177,6 +189,15 @@ const PayText = styled.div`
   line-height: ${sizes.size22};
   margin-left: 10px;
   margin-right: 86px;
+  ${queries.tabletLandscape} {
+    margin-right: 55px;
+  }
+  ${queries.tablet} {
+    margin-right: 75px;
+    font-size: ${sizes.size14};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 const TotalCost = styled.div`
@@ -187,6 +208,11 @@ const TotalCost = styled.div`
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size22};
   text-align: right;
+  ${queries.tablet} {
+    font-size: ${sizes.size14};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
 
 const CostDetailsContainer = styled.div`
@@ -201,6 +227,9 @@ const CostDetailsContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 28px;
+  ${queries.tabletLandscape} {
+    width: 220px;
+  }
 `;
 
 const CostList = styled.div`
@@ -225,6 +254,11 @@ const CostSplit = styled.div`
   font-size: ${sizes.size12};
   letter-spacing: ${sizes.size0};
   line-height: ${sizes.size17};
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size18};
+    height: ${sizes.size18};
+  }
 `;
 
 const CookingInstructionTitle = styled.div`
@@ -238,10 +272,40 @@ const CookingInstructionTitle = styled.div`
   margin-left: 21px;
   margin-top: 17px;
   margin-bottom: 15px;
+  ${queries.tablet} {
+    font-size: ${sizes.size11};
+    line-height: ${sizes.size14};
+    height: ${sizes.size14};
+  }
 `;
 
 const RoutingLink = styled(Link)`
   text-decoration: none;
+`;
+const TextboxContainer = styled.div`
+  width: 263px;
+  margin: 0 auto;
+  ${queries.tabletLandscape} {
+    width: 220px;
+  }
+`;
+const TextBox = styled(InputField)`
+  color: ${colors.grey_4a4a4a};
+`;
+
+const CheckoutButton = styled(Buttons)`
+  width: 264px;
+  background: linear-gradient(
+    ${angles.angle138_33},
+    ${colors.red_f3698e} 0%,
+    ${colors.yellow_feb456} 100%
+  );
+  ${queries.tabletLandscape} {
+    width: 220px;
+  }
+  ${queries.tablet} {
+    font-size: ${sizes.size14};
+  }
 `;
 
 export default Cart;

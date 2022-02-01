@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "react-calendar/dist/Calendar.css";
 import moment from "moment";
 import Label from "../label";
+import { queries } from "../breakpoints";
 
 interface dateInputProps {
   className?: string;
@@ -63,12 +64,12 @@ const Dateholder = styled.div`
     box-sizing: border-box;
     position: relative;
     height: ${(props) => (props.className === "home" ? `70px` : "36px")};
-    width: ${(props) => (props.className === "home" ? `247px` : "440px")};
+    width: ${(props) => (props.className === "home" ? `247px` : "100%")};
     border-radius: ${(props) => (props.className === "home" ? `10px` : "none")};
     input {
       box-sizing: border-box;
       height: ${(props) => (props.className === "home" ? `70px` : "22px")};
-      width: ${(props) => (props.className === "home" ? `245px` : "440px")};
+      width: ${(props) => (props.className === "home" ? `245px` : "100%")};
       border-radius: ${(props) =>
         props.className === "home" ? `10px` : "none"};
       box-shadow: ${(props) =>
@@ -98,6 +99,11 @@ const Dateholder = styled.div`
       border: none;
       outline: none;
       margin: 0;
+      ${queries.tablet} {
+        font-size: ${sizes.size14};
+        line-height: ${sizes.size16};
+        height: ${sizes.size16};
+      }
     }
   }
 `;
@@ -118,14 +124,18 @@ const DateBtn = styled.button`
 `;
 
 const ChangeLabel = styled(Label)`
-  height: 19px;
+  height: ${sizes.size19};
   width: 50px;
-  color: #f67e03;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.24px;
-  line-height: 19px;
+  color: ${colors.orange_f67e03};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  font-size: ${sizes.size14};
+  letter-spacing: ${sizes.sizeNeg0_24};
+  line-height: ${sizes.size19};
   text-align: right;
   cursor: pointer;
+  ${queries.tablet} {
+    font-size: ${sizes.size12};
+    line-height: ${sizes.size16};
+    height: ${sizes.size16};
+  }
 `;
