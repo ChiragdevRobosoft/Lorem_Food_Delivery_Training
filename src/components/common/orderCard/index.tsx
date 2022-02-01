@@ -5,6 +5,7 @@ import Buttons from "../../common/button";
 import Label from "../label";
 import { fontFamilies, angles, colors, sizes } from "../../../variables";
 import { orderCardProps } from "../interfaces";
+import { queries } from "../breakpoints";
 const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
   return (
     <CardContainer>
@@ -22,30 +23,8 @@ const OrderCard: FC<{ cardDetails: orderCardProps }> = ({ cardDetails }) => {
         </ItemsSelected>
       </DetailsContainer>
       <ButtonContainer>
-        <Buttons
-          name={data.details}
-          borderRadius={sizes.size18}
-          width="111px"
-          height="36px"
-          border={`1px solid ${colors.grey_7b7676}`}
-          color={colors.grey_7b7676}
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          boxShadow={`0 4px 10px 0 ${colors.black_000000_007}`}
-          marginLeft="0"
-          marginRight="0"
-        />
-        <Buttons
-          name={data.status}
-          borderRadius={sizes.size18}
-          width="111px"
-          height="36px"
-          border={`1px solid ${colors.pink_e21143_09}`}
-          fontFamily={fontFamilies.fontFamilyOsSemiBold}
-          boxShadow={`0 4px 10px 0 ${colors.black_000000_007}`}
-          marginLeft="0"
-          marginRight="0"
-          color={colors.pink_e21143_09}
-        />
+        <DetailsButton name={data.details} />
+        <StatusButton name={data.status} />
       </ButtonContainer>
     </CardContainer>
   );
@@ -61,6 +40,16 @@ const CardContainer = styled.div`
   padding: 27px 31px 21px 30px;
   box-sizing: border-box;
   position: relative;
+  ${queries.smallMobile} {
+    width: 300px;
+    height: 170px;
+    padding: 10px 14px 4px 33px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    height: 220px;
+    padding: 10px 14px 4px 33px;
+  }
 `;
 const ItemsSelected = styled.div`
   display: flex;
@@ -68,6 +57,54 @@ const ItemsSelected = styled.div`
   align-items: center;
   width: 136px;
   justify-content: space-between;
+  ${queries.smallMobile} {
+    width: 120px;
+  }
+  ${queries.mobile} {
+    width: 130px;
+  }
+`;
+const DetailsButton = styled(Buttons)`
+  border-radius: ${sizes.size18};
+  width: 111px;
+  height: 36px;
+  border: ${`1px solid ${colors.grey_7b7676}`};
+  color: ${colors.grey_7b7676};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  box-shadow: ${`0 4px 10px 0 ${colors.black_000000_007}`};
+  margin-left: 0;
+  margin-right: 0;
+  ${queries.smallMobile} {
+    width: 50px;
+    height: 20px;
+    font-size: ${sizes.size10};
+  }
+  ${queries.mobile} {
+    width: 70px;
+    height: 30px;
+    font-size: ${sizes.size15};
+  }
+`;
+const StatusButton = styled(Buttons)`
+  border-radius: ${sizes.size18};
+  width: 111px;
+  height: 36px;
+  border: ${`1px solid ${colors.pink_e21143_09}`};
+  font-family: ${fontFamilies.fontFamilyOsSemiBold};
+  box-shadow: ${`0 4px 10px 0 ${colors.black_000000_007}`};
+  margin-left: 0;
+  margin-right: 0;
+  color: ${colors.pink_e21143_09};
+  ${queries.smallMobile} {
+    width: 50px;
+    height: 20px;
+    font-size: ${sizes.size10};
+  }
+  ${queries.mobile} {
+    width: 70px;
+    height: 30px;
+    font-size: ${sizes.size15};
+  }
 `;
 const LineBreak = styled.hr`
   height: 15px;
@@ -83,6 +120,12 @@ const ButtonContainer = styled.div`
   justify-content: flex-end;
   gap: 19px;
   margin-top: 44px;
+  ${queries.smallMobile} {
+    margin-top: 10px;
+  }
+  ${queries.mobile} {
+    margin-top: 20px;
+  }
 `;
 const OrderIdLabel = styled(Label)`
   height: 30px;
@@ -91,6 +134,12 @@ const OrderIdLabel = styled(Label)`
   font-size: ${sizes.size22};
   letter-spacing: ${sizes.sizeNeg0_34};
   line-height: ${sizes.size30};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size17};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size18};
+  }
 `;
 const RestaurantLabel = styled(Label)`
   height: 23px;
@@ -98,6 +147,12 @@ const RestaurantLabel = styled(Label)`
   font-size: ${sizes.size17};
   letter-spacing: ${sizes.sizeNeg0_29};
   line-height: ${sizes.size23};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size14};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size16};
+  }
 `;
 const AddressLabel = styled(Label)`
   height: 18px;
@@ -105,6 +160,12 @@ const AddressLabel = styled(Label)`
   font-size: ${sizes.size13};
   letter-spacing: ${sizes.sizeNeg0_26};
   line-height: ${sizes.size18};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size10};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size13};
+  }
 `;
 const ItemsLabel = styled(Label)`
   height: 19px;
@@ -112,6 +173,12 @@ const ItemsLabel = styled(Label)`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size11};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size13};
+  }
 `;
 const CostLabel = styled(Label)`
   height: 19px;
@@ -119,6 +186,12 @@ const CostLabel = styled(Label)`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size11};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size13};
+  }
 `;
 const DeliveryStatusLabel = styled(Label)`
   height: 19px;
@@ -126,6 +199,12 @@ const DeliveryStatusLabel = styled(Label)`
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
+  ${queries.smallMobile} {
+    font-size: ${sizes.size10};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size15};
+  }
 `;
 const DetailsContainer = styled.div`
   display: flex;

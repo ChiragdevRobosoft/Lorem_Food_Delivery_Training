@@ -7,6 +7,7 @@ import { fontFamilies, colors, sizes, opacity } from "../../../variables";
 import { orderCardProps } from "../../common/interfaces";
 import OrderCard from "../../common/orderCard";
 import Dropdown from "../../common/Dropdown";
+import { queries } from "../../common/breakpoints";
 
 const Orders = () => {
   return (
@@ -36,12 +37,18 @@ const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-top: 84px;
+  ${queries.tabletLandscape} {
+    width: 469px;
+  }
 `;
 const OrdersContainer = styled.div`
   width: 958px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 20px;
   margin-top: 10px;
+  ${queries.tabletLandscape} {
+    flex-flow: column wrap;
+  }
 `;
