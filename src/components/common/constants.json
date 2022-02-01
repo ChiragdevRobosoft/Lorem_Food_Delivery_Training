@@ -175,7 +175,7 @@
       "locAndType": "Latin America, Bakery",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus consequat purus sit amet lectus bibendum finbus vel.",
       "routeText": "All Brands",
-      "noRestaurantTitle": "Oops",
+      "noRestaurantTitle": "Oops!",
       "norestaurantDescp": "No brands nearby change to other locations and try"
     },
     "bestDealsOffers": {
