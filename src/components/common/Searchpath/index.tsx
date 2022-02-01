@@ -52,6 +52,11 @@ const SearchPath = styled.div`
   ${queries.tabletLandscape} {
     width: auto;
   }
+  ${queries.tablet} {
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size17};
+    height: 17px;
+  }
 `;
 
 const Arrow = styled.span`
