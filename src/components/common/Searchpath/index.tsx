@@ -51,13 +51,11 @@ const SearchPath = styled.div`
   padding-bottom: 13.6px;
   ${queries.tabletLandscape} {
     width: auto;
-    height: auto;
   }
   ${queries.tablet} {
-    font-size: ${sizes.size11};
-    line-height: ${sizes.size16};
-    height: ${sizes.size16};
-    height: auto;
+    font-size: ${sizes.size10};
+    line-height: ${sizes.size17};
+    height: 17px;
   }
 `;
 

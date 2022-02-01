@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { colors, sizes, fontFamilies, angles } from "../../variables";
+import { colors, sizes, fontFamilies } from "../../variables";
 import Searchpath from "../common/Searchpath";
 import data from "../common/constants.json";
 import BgImg from "../../assets/restaurantDetails/BgImage.png";

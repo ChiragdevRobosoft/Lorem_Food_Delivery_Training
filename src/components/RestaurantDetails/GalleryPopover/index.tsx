@@ -1,4 +1,4 @@
-import React, { useState, FC, CSSProperties } from "react";
+import React, { FC, CSSProperties } from "react";
 import styled from "styled-components";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";

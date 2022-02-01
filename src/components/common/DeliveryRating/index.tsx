@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import styled, { CSSProperties } from "styled-components";
+import styled from "styled-components";
 import RedStar from "../../../assets/restaurantDetails/icn_star_red.png";
 import YellowStar from "../../../assets/restaurantDetails/icn_star_yellow.png";
 import GreenStar from "../../../assets/restaurantDetails/icn_star_green.png";
