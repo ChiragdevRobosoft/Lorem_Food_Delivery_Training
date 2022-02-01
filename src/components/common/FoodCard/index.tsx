@@ -32,7 +32,6 @@ const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
           (foodItem: foodItemProps) => {
             if ((e.target as HTMLElement).id === foodItem.id) {
               foodItem.quantity += 1;
-
               let cartSet = new Set([...cartDetails, foodItem]);
               setCartDetails(Array.from(cartSet.values()));
             }
