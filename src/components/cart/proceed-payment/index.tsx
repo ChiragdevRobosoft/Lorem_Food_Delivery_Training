@@ -12,45 +12,6 @@ import CartCard from "../../common/CartCard";
 import RadioButton from "./radioButton";
 import Buttons from "../../common/button";
 
-const trialArray = [
-  {
-    id: "food-one",
-    foodName: "Chilli Cheese Meal",
-    image: false,
-    bestseller: false,
-    veg: true,
-    cost: 20.0,
-    customizable: true,
-    description: "hello",
-    quantity: 2,
-    addOn: " Avacado, grilled Salmon",
-  },
-  {
-    id: "food-one",
-    foodName: "Chilli Cheese Meal",
-    image: false,
-    bestseller: false,
-    veg: true,
-    cost: 20.0,
-    customizable: true,
-    description: "hello",
-    quantity: 2,
-    addOn: " Avacado, grilled Salmon",
-  },
-  {
-    id: "food-one",
-    foodName: "Chilli Cheese Meal",
-    image: false,
-    bestseller: false,
-    veg: true,
-    cost: 20.0,
-    customizable: true,
-    description: "hello",
-    quantity: 2,
-    addOn: " Avacado, grilled Salmon",
-  },
-];
-
 const ProceedPayment = () => {
   const { register, handleSubmit, control, reset } = useForm();
   const [cartItems, setCartItems] = useState(data.cartContents.myCart);
@@ -101,9 +62,11 @@ const ProceedPayment = () => {
             <DeliveryEstimationLabel content="Estimated Delivery time - 60 - 80 min" />
             <StepContent>
               <ItemList>
-                {trialArray?.map((item: foodItemProps, index: number) => {
-                  return <CartCard item={item} key={index} />;
-                })}
+                {data.cartCardsDetails?.map(
+                  (item: foodItemProps, index: number) => {
+                    return <CartCard item={item} key={index} />;
+                  }
+                )}
               </ItemList>
               <CookingInstructionTitle
                 content={data.cartData.cookingInstruction}
@@ -228,11 +191,10 @@ const StepsSection = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  //border: 1px solid black;
 `;
 
 const StepTitleLabel = styled(Label)`
-  height: "30px";
+  height: 30px;
   color: ${colors.black_000000};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   font-size: ${sizes.size22};
@@ -242,7 +204,7 @@ const StepTitleLabel = styled(Label)`
 
 const DeliveryEstimationLabel = styled(Label)`
   height: 17px;
-  color: #6f6e6e;
+  color: ${colors.grey_6f6e6e};
   font-size: 12px;
   line-height: 17px;
   margin-top: 10px;
@@ -256,9 +218,8 @@ const StepContent = styled.div`
   box-sizing: border-box;
   margin-top: 17px;
   border-radius: 6px;
-  background-color: #ffffff;
+  background-color: ${colors.white_ffffff}
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  //border: 1px solid black;
 `;
 
 const ItemList = styled.div`
@@ -302,11 +263,11 @@ const BackButton = styled(Buttons)`
   box-sizing: border-box;
   height: 45px;
   width: 130px;
-  color: #979797;
+  color: ${colors.grey_979797};
   font-size: 14px;
   letter-spacing: 0;
   line-height: 19px;
-  border: 1px solid #979797;
+  border: 1px solid ${colors.grey_979797};
   box-shadow: none;
 `;
 
@@ -361,10 +322,8 @@ const AlertText = styled(Label)`
 
 const UserCodeSection = styled.div`
   width: 238px;
-  //height: 91px;
   margin-left: 26px;
   margin-top: 20px;
-  // margin-bottom: 18px;
   box-sizing: border-box;
   padding-top: 20px;
 `;

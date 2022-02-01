@@ -16,7 +16,6 @@ import tData from "./../../constants.json";
 import data from "./../../constants.json";
 import { queries } from "../../breakpoints";
 import Label from "../../label";
-import { bottomNavigationActionClasses } from "@mui/material";
 const Carousel = require("react-responsive-carousel").Carousel;
 
 let datas: string[] = ["one", "two", "three", "four"];
@@ -215,7 +214,7 @@ const Oops = styled(Label)`
 
 const SolutionText = styled(Label)`
   height: 22px;
-  color: #868995;
+  color: ${colors.grey_868995};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size14};
   letter-spacing: 0;

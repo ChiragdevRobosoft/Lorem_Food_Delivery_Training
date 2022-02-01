@@ -180,7 +180,7 @@ const ContactDetailsHolder = styled.div`
 
 const ContactDetailsLabel = styled(Label)`
   height: 23px;
-  color: #000000;
+  color: ${colors.black_000000};
   fonst-size: 17px;
   letter-spacing: -0.41px;
   line-height: 23px;

@@ -694,5 +694,43 @@
     "timeTitle": "Time",
     "change": "Change",
     "buttonText": "SCHEDULE DATE AND TIME"
-  }
+  },
+  "cartCardsDetails": [
+    {
+      "id": "food-one",
+      "foodName": "Chilli Cheese Meal",
+      "image": false,
+      "bestseller": false,
+      "veg": true,
+      "cost": 20.0,
+      "customizable": true,
+      "description": "hello",
+      "quantity": 2,
+      "addOn": " Avacado, grilled Salmon"
+    },
+    {
+      "id": "food-one",
+      "foodName": "Chilli Cheese Meal",
+      "image": false,
+      "bestseller": false,
+      "veg": true,
+      "cost": 20.0,
+      "customizable": true,
+      "description": "hello",
+      "quantity": 2,
+      "addOn": " Avacado, grilled Salmon"
+    },
+    {
+      "id": "food-one",
+      "foodName": "Chilli Cheese Meal",
+      "image": false,
+      "bestseller": false,
+      "veg": true,
+      "cost": 20.0,
+      "customizable": true,
+      "description": "hello",
+      "quantity": 2,
+      "addOn": " Avacado, grilled Salmon"
+    }
+  ]
 }
