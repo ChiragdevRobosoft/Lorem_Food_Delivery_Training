@@ -16,12 +16,12 @@ const ClickableRating: FC<{ title: string }> = ({ title }) => {
         if (siblingElement.id !== e.currentTarget.id) {
           const unSelected = document.getElementById(siblingElement.id);
           if (!unSelected) return;
-          unSelected.style.filter = "none";
+          return (unSelected.style.filter = "none");
         } else {
           const selected = document.getElementById(e.currentTarget.id);
           if (!selected) return;
-          selected.style.filter =
-            "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(50%)";
+          return (selected.style.filter =
+            "invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(50%)");
         }
       }
     );
