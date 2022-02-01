@@ -10,13 +10,15 @@ import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import CountryCode from "../../components/country-code";
 import data from "./../../components/common/constants.json";
+import Image from "../../components/common/image";
 import {
   sizes,
   colors,
   fontFamilies,
   fontWeight,
-  links,
+  angles,
 } from "../../variables";
+import { queries } from "../../components/common/breakpoints";
 const ForgotPassword = ({
   onCloseModal,
   onOpenModal,
@@ -65,9 +67,9 @@ const ForgotPassword = ({
           >
             <BackImage src={backButton} alt="cut"></BackImage>
           </BackButton>
-          <ForgotImage>
-            <img src={icon_forgot} className="icon_forgot"></img>
-          </ForgotImage>
+          <ImageContainer>
+            <ForgotImage src={icon_forgot} />
+          </ImageContainer>
           <Title>{data.loginModal.forgetPassword.title}</Title>
           <Discription>
             {data.loginModal.forgetPassword.description}
@@ -103,27 +105,48 @@ const ForgotPassword = ({
               <InputField name="Email" isPassword={false} />
             </EmailBox>
           ) : (
-            <CountryCode isOptional={true} />
+            <MobileNumberContainer>
+              <CountryCode isOptional={true} />
+            </MobileNumberContainer>
           )}
-          <Buttons
-            className="colouredBgButton"
-            name="SEND OTP"
-            onClick={() => {
-              setShowVerification(true);
-              setRedirectFromForgotPassword(true);
-            }}
-          ></Buttons>
+          <ButtonContainer>
+            <SendOtpButton
+              className="colouredBgButton"
+              name="SEND OTP"
+              onClick={() => {
+                setShowVerification(true);
+                setRedirectFromForgotPassword(true);
+              }}
+            ></SendOtpButton>
+          </ButtonContainer>
         </WrapperRight>
       </Wrapper>
     </Modal>
   );
 };
 export default ForgotPassword;
+const MobileNumberContainer = styled.div`
+  ${queries.tabletLandscape} {
+    width: 100px;
+  }
+  ${queries.mobile} {
+    width: 320px;
+    margin-top: -35px;
+  }
+`;
 const EmailBox = styled.div`
-  margin-bottom: 66px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   width: 380px;
+  margin-top: -15px;
+  ${queries.tabletLandscape} {
+    width: 320px;
+  }
+  ${queries.mobile} {
+    width: 320px;
+    margin-top: -35px;
+  }
 `;
 const TypeContainer = styled.div`
   display: flex;
@@ -148,6 +171,14 @@ const BackImage = styled.img`
   height: ${sizes.size17};
   width: ${sizes.size17};
 `;
+const ImageContainer = styled.div`
+  margin-top: 5px;
+  margin-left: 50px;
+  ${queries.mobile} {
+    margin-top: -40px;
+    margin-left: 50px;
+  }
+`;
 const Wrapper = styled.div`
   height: ${sizes.size588};
   width: ${sizes.size960};
@@ -166,11 +197,28 @@ const Wrapper = styled.div`
     color: ${colors.black_000000};
     font-weight: ${fontWeight.weight600};
   }
+  ${queries.tabletLandscape} {
+    width: 768px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    flex-direction: column;
+  }
 `;
-const ForgotImage = styled.div`
-  height: ${sizes.size5};
-  width: ${sizes.size25};
-  margin-left: ${sizes.size200};
+const ForgotImage = styled(Image)`
+  margin-left: 135px;
+  height: 88px;
+  width: 107px;
+  ${queries.tabletLandscape} {
+    margin-left: 105px;
+    height: 80px;
+    width: 105px;
+  }
+  ${queries.mobile} {
+    margin-left: 105px;
+    height: 50px;
+    width: 65px;
+  }
 `;
 const Navbar = styled.div`
   display: flex;
@@ -181,6 +229,34 @@ const Navbar = styled.div`
   margin-bottom: ${sizes.size65};
   margin-top: ${sizes.size30};
   justify-content: space-between;
+  ${queries.tabletLandscape} {
+    margin-left: 30px;
+  }
+  ${queries.mobile} {
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+`;
+const ButtonContainer = styled.div`
+  ${queries.mobile} {
+    margin-top: -20px;
+  }
+`;
+const SendOtpButton = styled(Buttons)`
+height: 50px;
+  width: 380px;
+  border-radius: ${sizes.size6};
+  background: linear-gradient(${angles.angle138_33}, ${colors.red_f3698e} 0%, ${colors.yellow_feb456} 100%);
+  box-shadow: 0 4px 10px 0 ${colors.red_f67e7e_38};
+}
+${queries.tabletLandscape} {
+  height: 48px;
+  width: 338px;
+}
+${queries.mobile} {
+  height: 45px;
+  width: 300px;
+}
 `;
 const InputTypeButton = styled.button`
   height: ${sizes.size24};
@@ -198,6 +274,14 @@ const WrapperRight = styled.div`
   background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
+  ${queries.tabletLandscape} {
+    width: 385px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    height: 388px;
+    border-radius: ${sizes.size8};
+  }
 `;
 const Title = styled.p`
   font-family: ${fontFamilies.fontFamilyOsRegular};
@@ -210,8 +294,19 @@ const Title = styled.p`
   line-height: ${sizes.size30};
   text-align: center;
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
-  margin-top: ${sizes.size116};
-  margin-left: ${sizes.size150};
+  margin-top: 30px;
+  margin-left: 140px;
+  ${queries.tabletLandscape} {
+    margin-left: 110px;
+    font-size: ${sizes.size20};
+    margin-top: 30px;
+  }
+  ${queries.mobile} {
+    margin-top: 10px;
+    margin-left: 85px;
+    font-size: ${sizes.size20};
+    margin-bottom: 10px;
+  }
 `;
 const Discription = styled.p`
   margin-left: ${sizes.size90};
@@ -224,6 +319,15 @@ const Discription = styled.p`
   letter-spacing: -0.24px;
   line-height: ${sizes.size20};
   text-align: center;
+  ${queries.tabletLandscape} {
+    margin-left: 50px;
+    font-size: ${sizes.size13};
+  }
+  ${queries.mobile} {
+    margin-left: 30px;
+    font-size: ${sizes.size13};
+    margin-top: -5x;
+  }
 `;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
@@ -232,6 +336,14 @@ const WrapperLeft = styled.div`
   text-align: left;
   padding-left: ${sizes.sizep4};
   margin-right: ${sizes.sizen40};
+  ${queries.tabletLandscape} {
+    width: 384px;
+  }
+  ${queries.mobile} {
+    width: 346px;
+    height: 388px;
+    border-radius: ${sizes.size8};
+  }
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
@@ -244,6 +356,13 @@ const Lorem = styled.p`
   letter-spacing: 0;
   line-height: ${sizes.size60};
   text-align: center;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size45};
+  }
+  ${queries.mobile} {
+    margin-top: 100px;
+    font-size: ${sizes.size45};
+  }
 `;
 const BoldText = styled.span`
   font-weight: ${fontWeight.weight800};
@@ -260,4 +379,10 @@ const TagLine = styled.div`
   margin-top: 60px;
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size30};
+  }
+  ${queries.mobile} {
+    margin-bottom: 50px;
+  }
 `;

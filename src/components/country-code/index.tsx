@@ -5,6 +5,7 @@ import OutsideAlerter from "../OutsideClickAlert";
 import InputField from "../common/textbox";
 import CountryCode from "./info";
 import { sizes, colors, fontFamilies } from "../../variables";
+import { queries } from "../common/breakpoints";
 const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
   const [dropDownStatus, setDropDownStatus] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("india");
@@ -52,7 +53,9 @@ const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
             </DropDownContainer>
           </OutsideAlerter>
         ) : null}
-        <InputField style={{ width: "258px" }} name="" isPassword={false} />
+        <NumberContainer>
+          <InputField name="" isPassword={false} />
+        </NumberContainer>
       </MobileNumberContainer>
     </FormContainer>
   );
@@ -66,6 +69,23 @@ const FormContainer = styled.div`
   margin-top: -10px;
   margin-bottom: 42px;
   margin-right: auto;
+  ${queries.tabletLandscape} {
+    width: 300px;
+    margin-left: 30px;
+  }
+  ${queries.mobile} {
+    width: 300px;
+    margin-left: 30px;
+  }
+`;
+const NumberContainer = styled.div`
+  width: 258px;
+  ${queries.tabletLandscape} {
+    width: 220px;
+  }
+  ${queries.mobile} {
+    width: 220px;
+  }
 `;
 const MobileNumberContainer = styled.div`
   display: flex;
@@ -74,12 +94,24 @@ const MobileNumberContainer = styled.div`
   justify-content: space-between;
   gap: 26.73px;
   width: 375px;
+  ${queries.tabletLandscape} {
+    width: 315px;
+  }
+  ${queries.mobile} {
+    width: 315px;
+  }
 `;
 const DropDown = styled.img`
   height: 7px;
   width: 11px;
   margin-top: 8px;
   margin-left: 10px;
+  ${queries.tabletLandscape} {
+    width: 7px;
+  }
+  ${queries.mobile} {
+    width: 7px;
+  }
 `;
 const Label = styled.label`
   width: 88px;
@@ -92,6 +124,12 @@ const Label = styled.label`
   pointer-events: none;
   top: -0.5rem;
   position: relative;
+  ${queries.tabletLandscape} {
+    width: 60px;
+  }
+  ${queries.mobile} {
+    width: 60px;
+  }
 `;
 const DropDownWindow = styled.div`
   overflow-y: scroll;
@@ -119,10 +157,24 @@ const OptionWrapper = styled.div`
   :hover {
     background-color: ${colors.black_000000_05};
   }
+  ${queries.tabletLandscape} {
+    width: 55px;
+  }
+  ${queries.mobile} {
+    width: 55px;
+  }
 `;
 const Flag = styled.img`
   height: 20px;
   width: 29px;
+  ${queries.tabletLandscape} {
+    height: 10px;
+    width: 19px;
+  }
+  ${queries.mobile} {
+    height: 10px;
+    width: 19px;
+  }
 `;
 const Code = styled.p`
   color: ${colors.black_000000};
@@ -132,6 +184,12 @@ const Code = styled.p`
   line-height: 22px;
   font-weight: 100;
   margin-top: 0;
+  ${queries.tabletLandscape} {
+    font-size: 13px;
+  }
+  ${queries.mobile} {
+    font-size: 13px;
+  }
 `;
 const OptionSelected = styled.div`
   border-bottom: 1px solid ${colors.grey_4a4a4a};
@@ -139,6 +197,12 @@ const OptionSelected = styled.div`
   display: flex;
   height: 35px;
   flex-direction: row;
+  ${queries.tabletLandscape} {
+    width: 70px;
+  }
+  ${queries.mobile} {
+    width: 70px;
+  }
 `;
 const DropDownContainer = styled.div`
   z-index: 99;
@@ -152,4 +216,10 @@ const DropDownContainer = styled.div`
   flex-direction: column;
   top: 0;
   margin-top: -5px;
+  ${queries.tabletLandscape} {
+    width: 60px;
+  }
+  ${queries.mobile} {
+    width: 60px;
+  }
 `;
