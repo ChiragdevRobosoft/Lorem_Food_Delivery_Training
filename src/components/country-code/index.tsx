@@ -5,7 +5,15 @@ import OutsideAlerter from "../OutsideClickAlert";
 import InputField from "../common/textbox";
 import CountryCode from "./info";
 import { sizes, colors, fontFamilies } from "../../variables";
-const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
+const TelephonePicker = ({
+  isOptional,
+  message,
+  register,
+}: {
+  isOptional: boolean;
+  message?: string;
+  register?: Function;
+}) => {
   const [dropDownStatus, setDropDownStatus] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("india");
   const [selectedCode, setSelectedCode] = useState("91");
@@ -52,7 +60,13 @@ const TelephonePicker = ({ isOptional }: { isOptional: boolean }) => {
             </DropDownContainer>
           </OutsideAlerter>
         ) : null}
-        <InputField style={{ width: "258px" }} name="" isPassword={false} />
+        <InputField
+          register={register}
+          message={message}
+          style={{ width: "258px" }}
+          name="mobile"
+          isPassword={false}
+        />
       </MobileNumberContainer>
     </FormContainer>
   );

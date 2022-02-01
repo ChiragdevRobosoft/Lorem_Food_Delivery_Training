@@ -8,6 +8,10 @@ import "react-responsive-modal/styles.css";
 import InputField from "../../components/common/textbox";
 import data from "./../../components/common/constants.json";
 import { sizes, colors, fontFamilies, fontWeight } from "../../variables";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
 const Login = ({
   onCloseModal,
   onOpenModal,
@@ -27,7 +31,24 @@ const Login = ({
   setRedirectFromRegister: React.Dispatch<React.SetStateAction<boolean>>;
   redirectFromRegister: boolean;
 }) => {
-  const navigate = useNavigate();
+  const submitForm = (data: any) => {
+    console.log(data);
+  };
+  const schema = yup.object().shape({
+    Email: yup
+      .string()
+      .email("Invalid email address")
+      .required("Email id is required"),
+    Password: yup.string().required("Password is required"),
+  });
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   return (
     <Modal
       open={open}
@@ -65,16 +86,35 @@ const Login = ({
             }}
           ></CloseImage>
           <Title>{data.loginModal.login.title}</Title>
-          <EmailBox>
-            <InputField name="Email" isPassword={false} />
-          </EmailBox>
-          <PasswordBox>
-            <InputField name="Password" isPassword={true} />
-          </PasswordBox>
-          <ForgetButton onClick={() => setShowForgotPassword(true)}>
-            {data.loginModal.login.forgot}
-          </ForgetButton>
-          <Buttons className="colouredBgButton" name="LOGIN"></Buttons>
+          <Form onSubmit={handleSubmit(submitForm)}>
+            <EmailBox>
+              <InputField
+                name="Email"
+                register={register}
+                message={errors.Email?.message}
+                isPassword={false}
+              />
+            </EmailBox>
+            <PasswordBox>
+              <InputField
+                name="Password"
+                register={register}
+                message={errors.Password?.message}
+                isPassword={true}
+              />
+            </PasswordBox>
+            <ForgetButton
+              type="button"
+              onClick={() => setShowForgotPassword(true)}
+            >
+              {data.loginModal.login.forgot}
+            </ForgetButton>
+            <Buttons
+              className="colouredBgButton"
+              type="submit"
+              name="LOGIN"
+            ></Buttons>
+          </Form>
           <SocialMedia>
             <FacebookButton name="Facebook" />
             <GoogleButton name="Google+" />
@@ -122,6 +162,7 @@ const EmailBox = styled.div`
   margin-right: auto;
   width: 380px;
 `;
+const Form = styled.form``;
 const PasswordBox = styled.div`
   margin-bottom: 60px;
   margin-left: auto;
