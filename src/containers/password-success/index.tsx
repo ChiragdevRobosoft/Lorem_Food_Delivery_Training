@@ -59,7 +59,11 @@ const PasswordSuccess = ({
             {data.loginModal.passwordSuccess.description}
           </Discription>
           <LoginButton>
-            <Buttons className="colouredBgButton" name="LOGIN NOW"></Buttons>
+            <Buttons
+              className="colouredBgButton"
+              type="button"
+              name="LOGIN NOW"
+            ></Buttons>
           </LoginButton>
         </WrapperRight>
       </Wrapper>

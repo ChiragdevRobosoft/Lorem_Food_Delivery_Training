@@ -36,7 +36,6 @@ const Verification = ({
   setShowVerified: React.Dispatch<React.SetStateAction<boolean>>;
   redirectFromForgotPassword: boolean;
 }) => {
-  const navigate = useNavigate();
   const submitForm = (data: any) => {
     console.log(data);
     redirectFromForgotPassword

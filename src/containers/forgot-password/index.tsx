@@ -164,23 +164,13 @@ const ForgotPassword = ({
                 message={errors2.mobile?.message}
                 isOptional={true}
               />
-              <Buttons
+              <SendOtpButton
                 className="colouredBgButton"
                 name="SEND OTP"
                 type="submit"
-              ></Buttons>
+              ></SendOtpButton>
             </Form>
           )}
-          <ButtonContainer>
-            <SendOtpButton
-              className="colouredBgButton"
-              name="SEND OTP"
-              onClick={() => {
-                setShowVerification(true);
-                setRedirectFromForgotPassword(true);
-              }}
-            ></SendOtpButton>
-          </ButtonContainer>
         </WrapperRight>
       </Wrapper>
     </Modal>

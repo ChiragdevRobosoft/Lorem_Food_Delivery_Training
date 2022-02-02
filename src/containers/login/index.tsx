@@ -93,16 +93,6 @@ const Login = ({
             }}
           ></CloseImage>
           <Title>{data.loginModal.login.title}</Title>
-          <EmailBox>
-            <InputField name="Email" isPassword={false} />
-          </EmailBox>
-          <PasswordBox>
-            <InputField name="Password" isPassword={true} />
-          </PasswordBox>
-          <ForgetButton onClick={() => setShowForgotPassword(true)}>
-            {data.loginModal.login.forgot}
-          </ForgetButton>
-          <LoginButton className="colouredBgButton" name="LOGIN"></LoginButton>
           <Form onSubmit={handleSubmit(submitForm)}>
             <EmailBox>
               <InputField
@@ -126,11 +116,11 @@ const Login = ({
             >
               {data.loginModal.login.forgot}
             </ForgetButton>
-            <Buttons
+            <LoginButton
               className="colouredBgButton"
               type="submit"
               name="LOGIN"
-            ></Buttons>
+            ></LoginButton>
           </Form>
           <SocialMedia>
             <FacebookButton name="Facebook" />
