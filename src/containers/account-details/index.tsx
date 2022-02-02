@@ -161,7 +161,7 @@ const LastName = styled.div`
   }
   ${queries.mobile} {
     width: 300px;
-    margin-bottom: 20px;
+    margin-bottom: 55px;
   }
 `;
 const PasswordField = styled.div`

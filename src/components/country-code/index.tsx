@@ -61,13 +61,14 @@ const TelephonePicker = ({
             </DropDownContainer>
           </OutsideAlerter>
         ) : null}
-        <InputField
-          register={register}
-          message={message}
-          style={{ width: "258px" }}
-          name="mobile"
-          isPassword={false}
-        />
+        <NumberContainer>
+          <InputField
+            register={register}
+            message={message}
+            name="mobile"
+            isPassword={false}
+          />
+        </NumberContainer>
       </MobileNumberContainer>
     </FormContainer>
   );
@@ -88,6 +89,7 @@ const FormContainer = styled.div`
   ${queries.mobile} {
     width: 300px;
     margin-left: 30px;
+    margin-top: -40px;
   }
 `;
 const NumberContainer = styled.div`

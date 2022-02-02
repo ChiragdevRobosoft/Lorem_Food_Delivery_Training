@@ -151,11 +151,11 @@ const ForgotPassword = ({
                   isPassword={false}
                 />
               </EmailBox>
-              <Buttons
+              <SendOtpButton
                 className="colouredBgButton"
                 name="SEND OTP"
                 type="submit"
-              ></Buttons>
+              ></SendOtpButton>
             </Form>
           ) : (
             <Form onSubmit={handleSubmit2(submitForm)}>
@@ -164,11 +164,13 @@ const ForgotPassword = ({
                 message={errors2.mobile?.message}
                 isOptional={true}
               />
-              <SendOtpButton
-                className="colouredBgButton"
-                name="SEND OTP"
-                type="submit"
-              ></SendOtpButton>
+              <ButtonContainer>
+                <SendOtpButton
+                  className="colouredBgButton"
+                  name="SEND OTP"
+                  type="submit"
+                ></SendOtpButton>
+              </ButtonContainer>
             </Form>
           )}
         </WrapperRight>
@@ -189,6 +191,7 @@ const EmailBox = styled.div`
   ${queries.mobile} {
     width: 320px;
     margin-top: -35px;
+    margin-bottom: 30px;
   }
 `;
 const TypeContainer = styled.div`
