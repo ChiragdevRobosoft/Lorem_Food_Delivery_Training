@@ -13,14 +13,15 @@ import {
   sizes,
 } from "../../../variables";
 import { queries } from "../../common/breakpoints";
+import Label from "../../common/label";
 
 const HowToOrder = () => {
   return (
     <Wrapper>
       <Container>
         <Content>
-          <Title>{data.homeTexts.howToOrder.heading}</Title>
-          <Discription>{data.homeTexts.howToOrder.description}</Discription>
+          <Title content={data.homeTexts.howToOrder.heading} />
+          <Discription content={data.homeTexts.howToOrder.description} />
         </Content>
         <StepsContainer>
           <Steps
@@ -125,7 +126,7 @@ const Content = styled.div`
   }
 `;
 
-const Title = styled.p`
+const Title = styled(Label)`
   margin: 0 auto 14px 0;
   height: 83px;
   color: ${colors.grey_4c4c4c};
@@ -154,7 +155,7 @@ const Title = styled.p`
   }
 `;
 
-const Discription = styled.p`
+const Discription = styled(Label)`
   margin: 0 auto 0 4px;
   height: 24px;
   color: ${colors.grey_929598};
