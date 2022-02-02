@@ -12,8 +12,12 @@ import {
   colors,
   fontFamilies,
   fontWeight,
-  links,
+  angles,
 } from "../../variables";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { queries } from "../../components/common/breakpoints";
 const AccountDetails = ({
   onCloseModal,
   onOpenModal,
@@ -25,7 +29,28 @@ const AccountDetails = ({
   open: boolean;
   setShowRegisterSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  let navigate = useNavigate();
+  const submitForm = (data: any) => {
+    console.log(data);
+    setShowRegisterSuccess(true);
+  };
+  const schema = yup.object().shape({
+    FirstName: yup.string().required("First Name is required"),
+    LastName: yup.string().required("Last Name is required"),
+    mobile: yup
+      .string()
+      .required()
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(10, "Invalid mobile number")
+      .max(10, "Invalid mobile number"),
+    CreatePassword: yup.string().required("Password is required"),
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   return (
     <Modal
       open={open}
@@ -63,51 +88,97 @@ const AccountDetails = ({
             <br />
             {data.loginModal.accountsDetails.description.line2}
           </Discription>
-          <FirstName>
-            <InputField name="First Name" isPassword={false} />
-          </FirstName>
-          <LastName>
-            <InputField name="Last Name" isPassword={false} />
-          </LastName>
-          <CountryCode isOptional={true} />
-          <PasswordField>
-            <InputField name="Create Password" isPassword={true} />
-          </PasswordField>
-          <VerifyButton>
-            <Buttons
-              className="colouredBgButton"
-              name="DONE"
-              onClick={() => setShowRegisterSuccess(true)}
-            ></Buttons>
-          </VerifyButton>
+          <Form onSubmit={handleSubmit(submitForm)}>
+            <FirstName>
+              <InputField
+                name="FirstName"
+                register={register}
+                message={errors.FirstName?.message}
+                isPassword={false}
+              />
+            </FirstName>
+            <LastName>
+              <InputField
+                name="LastName"
+                register={register}
+                message={errors.LastName?.message}
+                isPassword={false}
+              />
+            </LastName>
+            <NumberContainer>
+              <CountryCode
+                register={register}
+                message={errors.Email?.message}
+                isOptional={true}
+              />
+            </NumberContainer>
+            <PasswordField>
+              <InputField
+                name="CreatePassword"
+                register={register}
+                message={errors.CreatePassword?.message}
+                isPassword={true}
+              />
+            </PasswordField>
+            <VerifyButton>
+              <DoneButton className="colouredBgButton" name="DONE"></DoneButton>
+            </VerifyButton>
+          </Form>
         </WrapperRight>
       </Wrapper>
     </Modal>
   );
 };
+export default AccountDetails;
+
 const BackButton = styled.button`
   text-decoration: none;
   border: none;
   background-color: transparent;
   padding: 0%;
 `;
-export default AccountDetails;
 const FirstName = styled.div`
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   width: 380px;
+  ${queries.tabletLandscape} {
+    width: 320px;
+  }
+  ${queries.mobile} {
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: -15px;
+  }
 `;
 const LastName = styled.div`
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   width: 380px;
+  ${queries.tabletLandscape} {
+    width: 320px;
+  }
+  ${queries.mobile} {
+    width: 300px;
+    margin-bottom: 20px;
+  }
 `;
 const PasswordField = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 380px;
+  ${queries.tabletLandscape} {
+    width: 320px;
+  }
+  ${queries.mobile} {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+`;
+const Form = styled.form``;
+const NumberContainer = styled.div`
+  margin-bottom: -20px;
 `;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
@@ -116,11 +187,27 @@ const WrapperLeft = styled.div`
   text-align: left;
   padding-left: ${sizes.sizep4};
   margin-right: ${sizes.sizen40};
+  ${queries.tabletLandscape} {
+    width: 384px;
+  }
+  ${queries.mobile} {
+    width: 346px;
+    height: 388px;
+    border-radius: ${sizes.size8};
+  }
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
+  ${queries.tabletLandscape} {
+    width: 385px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    height: 388px;
+    border-radius: ${sizes.size8};
+  }
 `;
 const Title = styled.p`
   width: ${sizes.size220};
@@ -132,6 +219,18 @@ const Title = styled.p`
   letter-spacing: ${sizes.sizen47};
   line-height: 1px;
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
+  ${queries.tabletLandscape} {
+    margin-left: 145px;
+    font-size: ${sizes.size25};
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+  ${queries.mobile} {
+    margin-left: 140px;
+    font-size: ${sizes.size22};
+    margin-top: -30px;
+    margin-bottom: 20px;
+  }
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
@@ -144,6 +243,13 @@ const Lorem = styled.p`
   letter-spacing: 0;
   line-height: 60px;
   text-align: center;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size45};
+  }
+  ${queries.mobile} {
+    margin-top: 100px;
+    font-size: ${sizes.size45};
+  }
 `;
 const BoldText = styled.span`
   font-weight: ${fontWeight.weight800};
@@ -163,6 +269,13 @@ const Wrapper = styled.div`
   bottom: 0;
   right: 0;
   margin: auto;
+  ${queries.tabletLandscape} {
+    width: 768px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    flex-direction: column;
+  }
 `;
 const TagLine = styled.div`
   height: ${sizes.size132};
@@ -175,6 +288,28 @@ const TagLine = styled.div`
   margin-top: 60px;
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size30};
+  }
+  ${queries.mobile} {
+    margin-bottom: 50px;
+  }
+`;
+const DoneButton = styled(Buttons)`
+height: 50px;
+  width: 380px;
+  border-radius: ${sizes.size6};
+  background: linear-gradient(${angles.angle138_33}, ${colors.red_f3698e} 0%, ${colors.yellow_feb456} 100%);
+  box-shadow: 0 4px 10px 0 ${colors.red_f67e7e_38};
+}
+${queries.tabletLandscape} {
+  height: 48px;
+  width: 338px;
+}
+${queries.mobile} {
+  height: 48px;
+  width: 300px;
+}
 `;
 const BackImage = styled.img`
   float: left;
@@ -195,7 +330,19 @@ const Discription = styled.p`
   letter-spacing: -0.24px;
   line-height: ${sizes.size20};
   text-align: center;
+  ${queries.tabletLandscape} {
+    margin-left: 50px;
+    font-size: ${sizes.size13};
+  }
+  ${queries.mobile} {
+    margin-left: 30px;
+    font-size: ${sizes.size13};
+    margin-top: -5x;
+  }
 `;
 const VerifyButton = styled.div`
   margin-top: 41px;
+  ${queries.mobile} {
+    margin-top: 18px;
+  }
 `;

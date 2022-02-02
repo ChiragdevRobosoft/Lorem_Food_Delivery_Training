@@ -105,9 +105,7 @@ const ForgotPassword = ({
               <InputField name="Email" isPassword={false} />
             </EmailBox>
           ) : (
-            <MobileNumberContainer>
-              <CountryCode isOptional={true} />
-            </MobileNumberContainer>
+            <CountryCode isOptional={true} />
           )}
           <ButtonContainer>
             <SendOtpButton
@@ -125,15 +123,6 @@ const ForgotPassword = ({
   );
 };
 export default ForgotPassword;
-const MobileNumberContainer = styled.div`
-  ${queries.tabletLandscape} {
-    width: 100px;
-  }
-  ${queries.mobile} {
-    width: 320px;
-    margin-top: -35px;
-  }
-`;
 const EmailBox = styled.div`
   margin-bottom: 50px;
   margin-left: auto;
