@@ -14,6 +14,9 @@ import {
   fontWeight,
   links,
 } from "../../variables";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 const Verification = ({
   onCloseModal,
   onOpenModal,
@@ -34,6 +37,22 @@ const Verification = ({
   redirectFromForgotPassword: boolean;
 }) => {
   const navigate = useNavigate();
+  const submitForm = (data: any) => {
+    console.log(data);
+    redirectFromForgotPassword
+      ? setShowVerified(true)
+      : setShowAccountDetails(true);
+  };
+  const schema = yup.object().shape({
+    EnterOTP: yup.string().required("OTP is required"),
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   return (
     <Modal
       open={open}
@@ -72,20 +91,23 @@ const Verification = ({
           <Discription>
             {data.loginModal.passwordVerification.description}
           </Discription>
-          <TextField>
-            <InputField name="Enter OTP" isPassword={false} />
-          </TextField>
-          <VerifyButton>
-            <Buttons
-              className="colouredBgButton"
-              name="VERIFY"
-              onClick={() => {
-                redirectFromForgotPassword
-                  ? setShowVerified(true)
-                  : setShowAccountDetails(true);
-              }}
-            ></Buttons>
-          </VerifyButton>
+          <Form onSubmit={handleSubmit(submitForm)}>
+            <TextField>
+              <InputField
+                name="EnterOTP"
+                register={register}
+                message={errors.EnterOTP?.message}
+                isPassword={false}
+              />
+            </TextField>
+            <VerifyButton>
+              <Buttons
+                className="colouredBgButton"
+                name="VERIFY"
+                type="submit"
+              ></Buttons>
+            </VerifyButton>
+          </Form>
         </WrapperRight>
       </Wrapper>
     </Modal>
@@ -116,6 +138,7 @@ const Discription = styled.p`
   width: ${sizes.size220};
   color: ${colors.grey_4a4a4a};
 `;
+const Form = styled.form``;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
   height: ${sizes.size588};

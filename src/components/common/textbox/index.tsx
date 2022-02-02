@@ -8,10 +8,14 @@ const InputField = ({
   name,
   isPassword,
   style,
+  register,
+  message,
 }: {
   name: string;
   isPassword: boolean;
   style?: CSSProperties;
+  register?: any;
+  message?: string;
 }) => {
   const [viewState, changeViewState] = useState(false);
   const [focusState, changeFocusState] = useState(false);
@@ -25,6 +29,9 @@ const InputField = ({
     <FormContainer style={style}>
       <Textbox
         type={!viewState && isPassword ? "password" : "text"}
+        name={name}
+        {...register(name)}
+        message={message}
         onFocus={() => {
           changeFocusState(true);
         }}
@@ -48,6 +55,7 @@ const InputField = ({
       ) : (
         <Label content={name} className="form-label" />
       )}
+      {message !== undefined ? <p className="error">{message}</p> : null}
     </FormContainer>
   );
 };
@@ -60,6 +68,16 @@ const FormContainer = styled.div`
     top: ${(props) => (props.style?.width === "380px" ? "-1.5rem" : "-1rem")};
     font-size: 0.8rem;
     position: relative;
+  }
+  .error {
+    height: 17px;
+    color: ${colors.red_ed1b2e};
+    font-family: ${fontFamilies.fontFamilyOsRegular};
+    font-size: 0.75rem;
+    font-weight: ${fontWeight.weight400}
+    letter-spacing: -0.2px;
+    line-height: ${sizes.size17};
+    margin-top: 25px;
   }
 `;
 

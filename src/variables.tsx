@@ -317,6 +317,7 @@ export const fontFamilies = {
 
 export const fontWeight = {
   weight100: "100",
+  weight400: "400",
   weight600: "600",
   weight800: "800",
 };
