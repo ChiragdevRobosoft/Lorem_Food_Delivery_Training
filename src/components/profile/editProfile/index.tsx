@@ -24,6 +24,9 @@ import Image from "../../common/image";
 import InputField from "../../common/textbox";
 import Buttons from "../../common/button";
 import Add from "../../../assets/EditProfile/icn_add_photo.png";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const EditProfile = () => {
   const AvatarURL = [
@@ -37,6 +40,27 @@ const EditProfile = () => {
     Avatar8,
     Avatar9,
   ];
+  const submitForm = (data: any) => {
+    console.log(data);
+  };
+  const schema = yup.object().shape({
+    Username: yup.string().required("Username is required"),
+    Name: yup.string().required("Name is required"),
+    MobileNumber: yup
+      .string()
+      .required()
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(10, "Invalid mobile number")
+      .max(10, "Invalid mobile number"),
+  });
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   return (
     <Wrapper>
       <Header className="loggedin" />
@@ -45,45 +69,60 @@ const EditProfile = () => {
       <Footer />
       <EditProfileContainer>
         <EditProfileLabel content={data.editProfile.title} />
-        <MainContainer>
-          <LeftContainer>
-            <ProfileImageContainer>
-              <ProfileImage src={PImage} />
-              <AddImageContainer>
-                <AddImage src={Add} />
-              </AddImageContainer>
-            </ProfileImageContainer>
-            <UsernameField>
-              <InputField name={data.editProfile.username} isPassword={false} />
-            </UsernameField>
-            <NameField>
-              <InputField name={data.editProfile.name} isPassword={false} />
-            </NameField>
-            <MobileNumberField>
-              <InputField
-                name={data.editProfile.mobileNumber}
-                isPassword={false}
-              />
-            </MobileNumberField>
-          </LeftContainer>
-          <LineBreak />
-          <RightContainer>
-            <TitleContainer>
-              <TitleLabel content={data.editProfile.avatarTitle} />
-            </TitleContainer>
-            <AvatarContainer>
-              {AvatarURL.map((url, index) => {
-                return <Avatars src={url} key={index} />;
-              })}
-            </AvatarContainer>
-            <ButtonContainer>
-              <SaveButton
-                className="colouredBgButton"
-                name={data.editProfile.save}
-              />
-            </ButtonContainer>
-          </RightContainer>
-        </MainContainer>
+        <Form onSubmit={handleSubmit(submitForm)}>
+          <MainContainer>
+            <LeftContainer>
+              <ProfileImageContainer>
+                <ProfileImage src={PImage} />
+                <AddImageContainer>
+                  <AddImage src={Add} />
+                </AddImageContainer>
+              </ProfileImageContainer>
+              <UsernameField>
+                <InputField
+                  name={data.editProfile.username}
+                  register={register}
+                  message={errors.Username?.message}
+                  isPassword={false}
+                />
+              </UsernameField>
+              <NameField>
+                <InputField
+                  name={data.editProfile.name}
+                  register={register}
+                  message={errors.Name?.message}
+                  isPassword={false}
+                />
+              </NameField>
+              <MobileNumberField>
+                <InputField
+                  name={data.editProfile.mobileNumber}
+                  register={register}
+                  message={errors.MobileNumber?.message}
+                  isPassword={false}
+                />
+              </MobileNumberField>
+            </LeftContainer>
+            <LineBreak />
+            <RightContainer>
+              <TitleContainer>
+                <TitleLabel content={data.editProfile.avatarTitle} />
+              </TitleContainer>
+              <AvatarContainer>
+                {AvatarURL.map((url, index) => {
+                  return <Avatars src={url} key={index} />;
+                })}
+              </AvatarContainer>
+              <ButtonContainer>
+                <SaveButton
+                  className="colouredBgButton"
+                  name={data.editProfile.save}
+                  type="submit"
+                />
+              </ButtonContainer>
+            </RightContainer>
+          </MainContainer>
+        </Form>
       </EditProfileContainer>
     </Wrapper>
   );
@@ -94,6 +133,7 @@ const Wrapper = styled.div`
   height: 100%;
   position: relative;
 `;
+const Form = styled.form``;
 const ProfileBanner = styled.div`
   background-image: url(${profileBackground});
   margin: 0;
