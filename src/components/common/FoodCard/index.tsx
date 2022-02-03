@@ -121,6 +121,7 @@ const Add = styled.img`
   position: absolute;
   top: 86px;
   right: 10px;
+  cursor: pointer;
   ${queries.tablet} {
     height: 18px;
     width: auto;

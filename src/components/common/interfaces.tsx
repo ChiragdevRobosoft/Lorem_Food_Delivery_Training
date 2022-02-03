@@ -8,7 +8,7 @@ export interface DropdownProps {
   options: { content: string; image: string | null }[];
   name: string;
   arrow?: boolean;
-  className?: string;
+  className?: "semibold";
 }
 
 export interface RestauarantCardprops {
@@ -77,4 +77,17 @@ export interface orderCardProps {
   Items: string;
   Costs: string;
   DeliveryStatus: string;
+}
+
+export interface NavbarProps {
+  navbarElements: string[];
+  navbarType?: "restaurant-details";
+  path?: string;
+}
+
+export interface DeliveryRatingProps {
+  RatingNum: number;
+  className?: "reverse-color" | "clickable";
+  onClick?: React.MouseEventHandler<HTMLInputElement>;
+  id?: string;
 }
