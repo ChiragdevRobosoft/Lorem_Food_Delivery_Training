@@ -12,11 +12,13 @@ import {
   colors,
   fontFamilies,
   fontWeight,
-  links,
+  angles,
 } from "../../variables";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { queries } from "../../components/common/breakpoints";
+import Image from "../../components/common/image";
 const Verification = ({
   onCloseModal,
   onOpenModal,
@@ -36,7 +38,6 @@ const Verification = ({
   setShowVerified: React.Dispatch<React.SetStateAction<boolean>>;
   redirectFromForgotPassword: boolean;
 }) => {
-  const navigate = useNavigate();
   const submitForm = (data: any) => {
     console.log(data);
     redirectFromForgotPassword
@@ -84,9 +85,9 @@ const Verification = ({
           >
             <BackImage src={backButton} alt="cut"></BackImage>
           </BackButton>
-          <VerifyImage>
-            <img src={icon_verify} className="icon_forgot"></img>
-          </VerifyImage>
+          <VerifyImageContainer>
+            <VerifyImage src={icon_verify} />
+          </VerifyImageContainer>
           <Title>{data.loginModal.passwordVerification.title}</Title>
           <Discription>
             {data.loginModal.passwordVerification.description}
@@ -101,11 +102,11 @@ const Verification = ({
               />
             </TextField>
             <VerifyButton>
-              <Buttons
+              <VerifyButtons
                 className="colouredBgButton"
                 name="VERIFY"
                 type="submit"
-              ></Buttons>
+              />
             </VerifyButton>
           </Form>
         </WrapperRight>
@@ -120,10 +121,48 @@ const BackButton = styled.button`
   background-color: transparent;
   padding: 0%;
 `;
+const VerifyImage = styled(Image)`
+  margin-left: 135px;
+  height: 88px;
+  width: 107px;
+  ${queries.tabletLandscape} {
+    margin-left: 105px;
+    height: 80px;
+    width: 105px;
+  }
+  ${queries.mobile} {
+    margin-left: 105px;
+    height: 50px;
+    width: 65px;
+  }
+`;
+const VerifyButtons = styled(Buttons)`
+height: 50px;
+  width: 380px;
+  border-radius: ${sizes.size6};
+  background: linear-gradient(${angles.angle138_33}, ${colors.red_f3698e} 0%, ${colors.yellow_feb456} 100%);
+  box-shadow: 0 4px 10px 0 ${colors.red_f67e7e_38};
+}
+${queries.tabletLandscape} {
+  height: 48px;
+  width: 338px;
+}
+${queries.mobile} {
+  height: 45px;
+  width: 300px;
+}
+`;
 const TextField = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 380px;
+  ${queries.tabletLandscape} {
+    width: 320px;
+  }
+  ${queries.mobile} {
+    width: 300px;
+    margin-bottom: 20px;
+  }
 `;
 const Discription = styled.p`
   margin-left: ${sizes.size130};
@@ -137,6 +176,16 @@ const Discription = styled.p`
   height: ${sizes.size60};
   width: ${sizes.size220};
   color: ${colors.grey_4a4a4a};
+  ${queries.tabletLandscape} {
+    margin-left: 80px;
+    font-size: ${sizes.size14};
+  }
+  ${queries.mobile} {
+    margin-left: 70px;
+    font-size: ${sizes.size13};
+    margin-top: -5x;
+    margin-bottom: 50px;
+  }
 `;
 const Form = styled.form``;
 const WrapperLeft = styled.div`
@@ -146,6 +195,14 @@ const WrapperLeft = styled.div`
   text-align: left;
   padding-left: ${sizes.sizep4};
   margin-right: ${sizes.sizen40};
+  ${queries.tabletLandscape} {
+    width: 384px;
+  }
+  ${queries.mobile} {
+    width: 346px;
+    height: 388px;
+    border-radius: ${sizes.size8};
+  }
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
@@ -158,6 +215,13 @@ const Lorem = styled.p`
   letter-spacing: 0;
   line-height: ${sizes.size60};
   text-align: center;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size45};
+  }
+  ${queries.mobile} {
+    margin-top: 100px;
+    font-size: ${sizes.size45};
+  }
 `;
 const BoldText = styled.span`
   font-weight: ${fontWeight.weight800};
@@ -173,6 +237,12 @@ const TagLine = styled.div`
   margin-top: 60px;
   line-height: ${sizes.size44};
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size30};
+  }
+  ${queries.mobile} {
+    margin-bottom: 50px;
+  }
   word-wrap: break-word;
 `;
 const BackImage = styled.img`
@@ -184,6 +254,9 @@ const BackImage = styled.img`
 `;
 const VerifyButton = styled.div`
   margin-top: 100px;
+  ${queries.mobile} {
+    margin-top: 67px;
+  }
 `;
 const Wrapper = styled.div`
   height: ${sizes.size588};
@@ -199,16 +272,34 @@ const Wrapper = styled.div`
   bottom: 0;
   right: 0;
   margin: auto;
+  ${queries.tabletLandscape} {
+    width: 768px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    flex-direction: column;
+  }
 `;
-const VerifyImage = styled.div`
-  height: ${sizes.size5};
-  width: ${sizes.size25};
-  margin-left: ${sizes.size200};
+const VerifyImageContainer = styled.div`
+  margin-top: 5px;
+  margin-left: 50px;
+  ${queries.mobile} {
+    margin-top: -40px;
+    margin-left: 50px;
+  }
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
+  ${queries.tabletLandscape} {
+    width: 385px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    height: 388px;
+    border-radius: ${sizes.size8};
+  }
 `;
 const Title = styled.p`
   color: ${colors.black_2a2c30};
@@ -218,9 +309,20 @@ const Title = styled.p`
   line-height: ${sizes.size30};
   text-align: center;
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
-  margin-top: ${sizes.size116};
-  margin-left: ${sizes.size180};
+  margin-top: 40px;
+  margin-left: 170px;
   height: ${sizes.size30};
   width: ${sizes.size124};
   font-family: ${fontFamilies.fontFamilyOsBold};
+  ${queries.tabletLandscape} {
+    margin-left: 130px;
+    font-size: ${sizes.size20};
+    margin-top: 30px;
+  }
+  ${queries.mobile} {
+    margin-top: 10px;
+    margin-left: 120px;
+    font-size: ${sizes.size20};
+    margin-bottom: 10px;
+  }
 `;

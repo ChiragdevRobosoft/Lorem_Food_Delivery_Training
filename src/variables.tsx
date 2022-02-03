@@ -368,7 +368,7 @@ export const links = {
   brands: "/brands",
   profile: "",
   restaurantDetails: "",
-  orders: "orders",
+  orders: "/orders",
   address: "address",
   paymentMethods: "payment-methods",
   cart: "cart",
