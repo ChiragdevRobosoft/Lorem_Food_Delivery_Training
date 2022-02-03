@@ -124,13 +124,7 @@
   ],
   "searchPath": {
     "greatBreakfasts": ["Home", "UAE", "Explore", "Great breakfasts"],
-    "menu": [
-      "Home",
-      "UAE",
-      "Explore",
-      "Great breakfasts",
-      "The Boutique Kitchen"
-    ],
+    "menu": ["Home", "UAE", "Explore", "Great breakfasts"],
     "menu1": ["Home", "UAE", "Explore", "Great breakfasts", "My Cart"]
   },
   "homeTexts": {

@@ -2,7 +2,7 @@ export interface radioProps {
   value: string;
   name: string;
   options: string[];
-  handleChange: React.MouseEventHandler<HTMLInputElement>;
+  handleChange?: React.MouseEventHandler<HTMLInputElement>;
 }
 export interface DropdownProps {
   options: { content: string; image: string | null }[];
@@ -25,13 +25,6 @@ export interface RestauarantCardprops {
 export interface restaurantListProps {
   name: string;
   outlets: string;
-}
-
-export interface radioProps {
-  value: string;
-  name: string;
-  options: string[];
-  handleChange: React.MouseEventHandler<HTMLInputElement>;
 }
 
 export interface foodItemProps {
@@ -90,4 +83,9 @@ export interface DeliveryRatingProps {
   className?: "reverse-color" | "clickable";
   onClick?: React.MouseEventHandler<HTMLInputElement>;
   id?: string;
+}
+
+export interface SearchpathProps {
+  path: string[];
+  className?: "grey-light" | "grey-dark";
 }

@@ -30,7 +30,7 @@ const InputField = ({
       <Textbox
         type={!viewState && isPassword ? "password" : "text"}
         name={name}
-        {...register(name)}
+        {...(register ? { ...register(name) } : null)}
         message={message}
         onFocus={() => {
           changeFocusState(true);

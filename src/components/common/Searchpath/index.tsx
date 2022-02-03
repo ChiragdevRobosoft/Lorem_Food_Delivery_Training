@@ -1,15 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import { colors, sizes, fontFamilies } from "../../../variables";
 import styled from "styled-components";
 import { queries } from "../breakpoints";
+import { SearchpathProps } from "../interfaces";
 
-const Searchpath = ({
-  path,
-  className,
-}: {
-  path: string[];
-  className: string;
-}) => {
+const Searchpath: FC<SearchpathProps> = ({ path, className }) => {
   return (
     <SearchPathContainer>
       <SearchPath className={className}>
