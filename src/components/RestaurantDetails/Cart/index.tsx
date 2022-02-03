@@ -13,13 +13,13 @@ import data from "../../common/constants.json";
 import { queries } from "../../common/breakpoints";
 
 const Cart = () => {
-  const { details, setDetails } = useContext(CartData);
+  const { cartDetails, setCartDetails } = useContext(CartData);
 
   const handleClick = () => {
-    setDetails([]);
+    setCartDetails([]);
   };
 
-  let totalCost = details.reduce(
+  let totalCost = cartDetails.reduce(
     (total: number, foodItem: foodItemProps) =>
       Math.round(
         foodItem.cost * foodItem.quantity + (total * 100) / 100
@@ -27,8 +27,8 @@ const Cart = () => {
     0
   );
 
-  let fee = details.length === 0 ? 0 : (10 * 100) / 100;
-  let discount = details.length === 0 ? 0 : 12.24;
+  let fee = cartDetails.length === 0 ? 0 : (10 * 100) / 100;
+  let discount = cartDetails.length === 0 ? 0 : 12.24;
   let costToPay = (totalCost + fee - discount).toFixed(2);
 
   return (
@@ -38,7 +38,7 @@ const Cart = () => {
         <ClearCart onClick={handleClick}>{data.cartData.clear}</ClearCart>
       </TitleContainer>
       <ItemList>
-        {details?.map((item: foodItemProps, index: number) => {
+        {cartDetails?.map((item: foodItemProps, index: number) => {
           return <CartCard item={item} key={index} />;
         })}
       </ItemList>

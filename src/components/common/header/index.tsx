@@ -8,10 +8,12 @@ import {
   fontFamilies,
   fontWeight,
   letterSpacing,
+  links,
 } from "../../../variables";
 import data from "./../constants.json";
 import User from "./userInfo";
 import { queries } from "../breakpoints";
+import { Link } from "react-router-dom";
 
 const languages = ["English", "Arabic", "Spanish"];
 interface headerProps {
@@ -50,7 +52,11 @@ const Header: FC<headerProps> = (props) => {
             {data.header.login}
           </Login>
         ) : null}
-        {props.className === "loggedin" ? <User /> : null}
+        {props.className === "loggedin" ? (
+          <StyledLink to={links.orders}>
+            <User />
+          </StyledLink>
+        ) : null}
         {props.className === "loggedin" ? (
           <VertLine className={props.className} />
         ) : null}
@@ -97,7 +103,9 @@ const HeaderWrapper = styled.header`
     height: auto;
   }
 `;
-
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 const HeaderTitle = styled.p`
   background-image: linear-gradient(
     ${angles.angle60},

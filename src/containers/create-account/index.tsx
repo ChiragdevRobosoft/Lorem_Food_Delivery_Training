@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import closeButton from "../../assets/close_button.png";
-import Buttons from "../../components/common/button/index";
 import { useNavigate, Link } from "react-router-dom";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -12,8 +11,14 @@ import {
   colors,
   fontFamilies,
   fontWeight,
+  angles,
   links,
 } from "../../variables";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import Buttons from "../../components/common/button/index";
+import { queries } from "../../components/common/breakpoints";
 const CreateAccount = ({
   onCloseModal,
   onOpenModal,
@@ -37,7 +42,23 @@ const CreateAccount = ({
   setShowAccountDetails: React.Dispatch<React.SetStateAction<boolean>>;
   setShowVerification: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const history = useNavigate();
+  const submitForm = (data: any) => {
+    console.log(data);
+    setShowVerification(true);
+  };
+  const schema = yup.object().shape({
+    Email: yup
+      .string()
+      .email("Invalid email address")
+      .required("Email id is required"),
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   return (
     <Modal
       open={open}
@@ -73,16 +94,23 @@ const CreateAccount = ({
           ></CloseImage>
           <Title>{data.loginModal.createAccount.title}</Title>
           <Discription>{data.loginModal.createAccount.description}</Discription>
-          <EmailBox>
-            <InputField name="Email" isPassword={false} />
-          </EmailBox>
-          <CreateAccountButton>
-            <Buttons
-              className="colouredBgButton"
-              name="CREATE ACCOUNT"
-              onClick={() => setShowVerification(true)}
-            ></Buttons>
-          </CreateAccountButton>
+          <Form onSubmit={handleSubmit(submitForm)}>
+            <EmailBox>
+              <InputField
+                name="Email"
+                register={register}
+                message={errors.Email?.message}
+                isPassword={false}
+              />
+            </EmailBox>
+            <CreateAccountButtonContainer>
+              <CreateAccountButton
+                className="colouredBgButton"
+                name="CREATE ACCOUNT"
+                type="submit"
+              ></CreateAccountButton>
+            </CreateAccountButtonContainer>
+          </Form>
           <TermsAndCondition>
             <Terms>{data.loginModal.createAccount.terms}</Terms>
             <RedirectLink className="termsConditions" to={links.login}>
@@ -112,14 +140,41 @@ const CreateAccount = ({
   );
 };
 export default CreateAccount;
-const CreateAccountButton = styled.div`
+const CreateAccountButton = styled(Buttons)`
+height: 50px;
+  width: 380px;
+  border-radius: ${sizes.size6};
+  background: linear-gradient(${angles.angle138_33}, ${colors.red_f3698e} 0%, ${colors.yellow_feb456} 100%);
+  box-shadow: 0 4px 10px 0 ${colors.red_f67e7e_38};
+}
+${queries.tabletLandscape} {
+  height: 48px;
+  width: 338px;
+}
+${queries.mobile} {
+  height: 48px;
+  width: 300px;
+}
+`;
+const CreateAccountButtonContainer = styled.div`
   margin-top: 60px;
+  ${queries.mobile} {
+    margin-top: 30px;
+  }
 `;
 const EmailBox = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 380px;
+  ${queries.tabletLandscape} {
+    width: 320px;
+  }
+  ${queries.mobile} {
+    width: 300px;
+    margin-bottom: 20px;
+  }
 `;
+const Form = styled.form``;
 const Discription = styled.div`
   display: flex;
   flex-direction: column;
@@ -134,6 +189,16 @@ const Discription = styled.div`
   text-align: center;
   margin-top: -20px;
   margin-left: 100px;
+  ${queries.tabletLandscape} {
+    margin-left: 50px;
+    font-size: ${sizes.size13};
+  }
+  ${queries.mobile} {
+    margin-left: 40px;
+    font-size: ${sizes.size13};
+    margin-top: -35px;
+    margin-bottom: 30px;
+  }
 `;
 const TagLine = styled.div`
   height: ${sizes.size132};
@@ -146,6 +211,12 @@ const TagLine = styled.div`
   margin-top: 60px;
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   word-wrap: break-word;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size30};
+  }
+  ${queries.mobile} {
+    margin-bottom: 50px;
+  }
 `;
 const SocialMedia = styled.div`
   display: flex;
@@ -154,6 +225,13 @@ const SocialMedia = styled.div`
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
+  ${queries.tabletLandscape} {
+    width: 355px;
+  }
+  ${queries.mobile} {
+    width: 310px;
+    margin-top: -10px;
+  }
 `;
 const LoginLink = styled.p`
   height: ${sizes.size19};
@@ -163,6 +241,12 @@ const LoginLink = styled.p`
   line-height: 19px;
   margin-bottom: 20px;
   letter-spacing: -0.25px;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size12};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size12};
+  }
 `;
 const CloseImage = styled.img`
   float: right;
@@ -183,6 +267,15 @@ const LoginButton = styled.button`
   margin-top: 15px;
   margin-bottom: ${sizes.size30};
   padding-top: 0;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size12};
+    margin-top: 12px;
+  }
+  ${queries.mobile} {
+    margin-top: 12px;
+    font-size: ${sizes.size12};
+    margin-left: 7px;
+  }
 `;
 const RedirectLink = styled(Link)`
   color: ${colors.orange_f67e03};
@@ -201,6 +294,16 @@ const RedirectLink = styled(Link)`
     props.className === "termsConditions" ? "-40px" : "15px"};
   margin-bottom: ${sizes.size30};
   padding-top: 0;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size12};
+    margin-right: 55px;
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size12};
+    margin-top: ${(props) =>
+      props.className === "termsConditions" ? "-20px" : "15px"};
+    margin-right: 40px;
+  }
 `;
 const Footer = styled.div`
   flex-direction: row;
@@ -211,6 +314,13 @@ const Footer = styled.div`
   margin-left: 130px;
   margin-right: auto;
   width: ${sizes.size500};
+  ${queries.tabletLandscape} {
+    margin-left: 80px;
+  }
+  ${queries.mobile} {
+    margin-left: 70px;
+    margin-top: 0px;
+  }
 `;
 const Wrapper = styled.div`
   height: ${sizes.size588};
@@ -226,6 +336,13 @@ const Wrapper = styled.div`
   bottom: 0;
   right: 0;
   margin: auto;
+  ${queries.tabletLandscape} {
+    width: 768px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    flex-direction: column;
+  }
 `;
 const WrapperLeft = styled.div`
   background-image: url("../assets/image.png");
@@ -234,11 +351,27 @@ const WrapperLeft = styled.div`
   text-align: left;
   padding-left: ${sizes.sizep4};
   margin-right: ${sizes.sizen40};
+  ${queries.tabletLandscape} {
+    width: 384px;
+  }
+  ${queries.mobile} {
+    width: 346px;
+    height: 388px;
+    border-radius: ${sizes.size8};
+  }
 `;
 const WrapperRight = styled.div`
   background-color: ${colors.white_ffffff};
   height: 588px;
   width: 470px;
+  ${queries.tabletLandscape} {
+    width: 385px;
+  }
+  ${queries.mobile} {
+    width: 360px;
+    height: 388px;
+    border-radius: ${sizes.size8};
+  }
 `;
 const Title = styled.p`
   height: ${sizes.size59};
@@ -253,6 +386,16 @@ const Title = styled.p`
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   margin-top: 70px;
   margin-left: 80px;
+  ${queries.tabletLandscape} {
+    margin-left: 40px;
+    font-size: ${sizes.size25};
+  }
+  ${queries.mobile} {
+    margin-left: 50px;
+    font-size: ${sizes.size22};
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 `;
 const Lorem = styled.p`
   height: ${sizes.size60};
@@ -265,6 +408,13 @@ const Lorem = styled.p`
   letter-spacing: 0;
   line-height: 60px;
   text-align: center;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size45};
+  }
+  ${queries.mobile} {
+    margin-top: 100px;
+    font-size: ${sizes.size45};
+  }
 `;
 const BoldText = styled.span`
   font-weight: ${fontWeight.weight800};
@@ -280,6 +430,15 @@ const Terms = styled.p`
   margin-bottom: 20px;
   margin-left: 60px;
   margin-top: 40px;
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size12};
+    margin-left: 40px;
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size12};
+    margin-bottom: 0px;
+    margin-left: 35px;
+  }
 `;
 const TermsAndCondition = styled.div`
   height: ${sizes.size19};
@@ -289,6 +448,14 @@ const TermsAndCondition = styled.div`
   line-height: ${sizes.size19};
   margin-bottom: ${sizes.size20};
   margin-top: ${sizes.size40};
+  ${queries.tabletLandscape} {
+    font-size: ${sizes.size12};
+  }
+  ${queries.mobile} {
+    font-size: ${sizes.size12};
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
 `;
 const FacebookButton = styled(Buttons)`
   color: ${colors.blue_2c79bd};
@@ -299,6 +466,14 @@ const FacebookButton = styled(Buttons)`
   border: 1px solid ${colors.blue_02a7fd};
   borderradius: ${sizes.size6};
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
+  ${queries.tabletLandscape} {
+    height: 40px;
+    width: 150px;
+  }
+  ${queries.mobile} {
+    height: 40px;
+    width: 140px;
+  }
 `;
 const GoogleButton = styled(Buttons)`
   color: ${colors.pink_d34836};
@@ -309,4 +484,12 @@ const GoogleButton = styled(Buttons)`
   border: 1px solid ${colors.pink_ff8c7d};
   borderradius: ${sizes.size6};
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
+  ${queries.tabletLandscape} {
+    height: 40px;
+    width: 150px;
+  }
+  ${queries.mobile} {
+    height: 40px;
+    width: 140px;
+  }
 `;

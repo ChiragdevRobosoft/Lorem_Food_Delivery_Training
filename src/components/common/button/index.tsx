@@ -27,10 +27,16 @@ interface buttonProps {
   marginLeft?: string;
   marginRight?: string;
   id?: string;
+  type?: "submit" | "reset" | "button";
 }
 const Buttons: FC<buttonProps> = (props) => {
   return (
-    <Button className={props.className} onClick={props.onClick} style={props}>
+    <Button
+      className={props.className}
+      type={props.type}
+      onClick={props.onClick}
+      style={props}
+    >
       {props.name}
       {props.image ? <ButtonImage src={props.image} /> : null}
     </Button>

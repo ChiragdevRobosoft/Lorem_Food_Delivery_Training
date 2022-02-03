@@ -19,6 +19,7 @@ import Verification from "../../../containers/verification";
 import RegisterSuccess from "../../../containers/welcome";
 import Verified from "../../../containers/verified";
 import PasswordSuccess from "../../../containers/password-success";
+import { queries } from "../../common/breakpoints";
 
 const FoodRestaurantSearch = () => {
   const [open, setOpen] = useState(false);
@@ -45,13 +46,17 @@ const FoodRestaurantSearch = () => {
         setShowLogin={setOpen}
         setShowCreateAccount={setShowCreateAccount}
       />
-      <Heading>
-        <Headingspan>{data.homeTexts.foodRestaurantSearch.heading}</Headingspan>
-        <Headingspan>
-          {data.homeTexts.foodRestaurantSearch.description}
-        </Headingspan>
-      </Heading>
-      <Foodsearch pageType="home" />
+      <Content>
+        <Heading>
+          <Headingspan>
+            {data.homeTexts.foodRestaurantSearch.heading}
+          </Headingspan>
+          <Headingspan>
+            {data.homeTexts.foodRestaurantSearch.description}
+          </Headingspan>
+        </Heading>
+        <Foodsearch pageType="home" />
+      </Content>
       <ScrollComp>
         <Scroll src={mouseScroll} alt="mouse-scroll" />
         <ScrollName>
@@ -147,16 +152,23 @@ export default FoodRestaurantSearch;
 
 const Wrapper = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   .backDrop {
     background-color: rgba(0, 0, 0, 0.7);
   }
 `;
 
+const Content = styled.div`
+  margin: auto 32.5% 176px 17.5%;
+`;
+
 const Heading = styled.p`
-  margin: 0 788px 63px 413px;
-  height: 166px;
-  width: 719px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 63px;
+  flex-wrap: wrap;
   color: ${colors.grey_4c4c4c};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size60};
@@ -164,13 +176,33 @@ const Heading = styled.p`
   line-height: ${sizes.size83};
   text-shadow: 0 0 9px 0 ${colors.white_ffffff};
   align-items: left;
+  ${queries.desktopWide} {
+    font-size: 50px;
+    line-height: 73px;
+    margin-bottom: 53px;
+  }
+  ${queries.desktopMd} {
+    font-size: 40px;
+    line-height: 63px;
+    margin-bottom: 43px;
+  }
+  ${queries.tabletLandscape} {
+    font-size: 30px;
+    line-height: 53px;
+    margin-bottom: 33px;
+  }
+  ${queries.tablet} {
+    font-size: 20px;
+    line-height: 43px;
+    margin-bottom: 23px;
+  }
 `;
 const Headingspan = styled.span`
   display: block;
 `;
 
 const ScrollComp = styled.div`
-  margin: 0 900px 38px 901px;
+  margin: 0 auto 38px auto;
   height: 77px;
   width: 119px;
   display: block;
