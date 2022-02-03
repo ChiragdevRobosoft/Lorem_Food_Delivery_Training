@@ -15,6 +15,7 @@ import EditProfile from "../components/profile/editProfile";
 import Cart from "../components/cart";
 import CartItems from "../components/cart/cart-items";
 import ProceedPayment from "../components/cart/proceed-payment";
+import ChooseAddress from "../components/cart/chooseAddress";
 import Payment from "../components/profile/payment";
 
 const Routing = () => {
@@ -33,6 +34,7 @@ const Routing = () => {
         <Route path={links.cart} element={<Cart />}>
           <Route path={links.cartItems} element={<CartItems />} />
           <Route path={links.proceedPayment} element={<ProceedPayment />} />
+          <Route path={links.chooseAddress} element={<ChooseAddress />} />
         </Route>
         <Route path={links.profile} element={<Profile />}>
           <Route path={links.orders} element={<Orders />} />
