@@ -19,7 +19,7 @@ import { queries } from "../common/breakpoints";
 
 const RestaurantDetails = () => {
   const restaurant = JSON.parse(localStorage.getItem("restaurant") || "{}");
-  const path = [...data.searchPath.menu, restaurant.name];
+  const path = [...data.searchPath.greatBreakfasts, restaurant.name];
   return (
     <Wrapper>
       <Header className="loggedin" />
