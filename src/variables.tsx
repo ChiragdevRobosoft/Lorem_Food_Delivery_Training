@@ -374,6 +374,6 @@ export const links = {
   reviewsRatings: "reviews-&-ratings/:id",
   gallery: "gallery/:id",
   editProfile: "editProfile",
-  menuFromList: "../menu",
+  menuFromList: "menu",
   checkout: "checkout",
 };

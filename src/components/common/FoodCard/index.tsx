@@ -13,19 +13,32 @@ import { foodItemProps, foodcardDetailsProps } from "../interfaces";
 import { queries } from "../breakpoints";
 
 const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
-  const { details, setDetails } = useContext(CartData);
+  const { cartDetails, setCartDetails } = useContext(CartData);
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    Object.keys(data.foodcardDetails).map((foodType) => {
-      return (data.foodcardDetails as foodcardDetailsProps)[foodType].map(
-        (foodItem: foodItemProps) => {
-          if ((e.target as HTMLElement).id === foodItem.id) {
-            foodItem.quantity += 1;
-            let cartSet = new Set([...details, foodItem]);
-            setDetails(Array.from(cartSet.values()));
-          }
-        }
+    if (
+      cartDetails.some(
+        (item: foodItemProps) => item.id === (e.target as HTMLElement).id
+      )
+    ) {
+      const cartItem = cartDetails.find(
+        (item: foodItemProps) => item.id === (e.target as HTMLElement).id
       );
-    });
+      cartItem.quantity += 1;
+      let cartSet = new Set([...cartDetails, cartItem]);
+      setCartDetails(Array.from(cartSet.values()));
+    } else {
+      Object.keys(data.foodcardDetails).map((foodType) => {
+        return (data.foodcardDetails as foodcardDetailsProps)[foodType].map(
+          (foodItem: foodItemProps) => {
+            if ((e.target as HTMLElement).id === foodItem.id) {
+              foodItem.quantity += 1;
+              let cartSet = new Set([...cartDetails, foodItem]);
+              setCartDetails(Array.from(cartSet.values()));
+            }
+          }
+        );
+      });
+    }
   };
 
   return (
@@ -38,7 +51,7 @@ const FoodCard: FC<{ cardDetails: foodItemProps }> = ({ cardDetails }) => {
         />
       ) : null}
       {cardDetails.bestseller ? <Bestseller src={BestsellerIcon} /> : null}
-      {details?.includes(cardDetails) ? (
+      {cartDetails.some((item: foodItemProps) => item.id === cardDetails.id) ? (
         <>
           <GreenText>{data.inCart}</GreenText>
           <Add src={AddedIcon} id={`${cardDetails.id}`} onClick={handleClick} />
