@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { colors, sizes, fontFamilies, letterSpacing } from "../../../variables";
 import SearchPath from "../../common/Searchpath";
@@ -29,6 +29,7 @@ export default CartItems;
 
 const PageSection = styled.div`
   width: 100%;
+  min-height: 832px;
 `;
 
 const ContentContainer = styled.div`

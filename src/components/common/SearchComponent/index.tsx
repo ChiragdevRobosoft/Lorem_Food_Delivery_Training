@@ -63,12 +63,7 @@ const FoodSearch: FC<foodSearchProps> = ({ pageType }) => {
 export default FoodSearch;
 
 const WrapperHome = styled.div`
-  margin: ${(props) =>
-    props.className === "home"
-      ? `${sizes.size0} ${sizes.size889} ${sizes.size176} ${sizes.size420};`
-      : null}
-  height: ${(props) =>
-    props.className === "home" ? `${sizes.size175}` : null};
+  margin: ${(props) => (props.className === "home" ? `0 auto 0 0;` : null)}
   width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
   display: flex;
   flex-direction: column;
@@ -76,7 +71,7 @@ const WrapperHome = styled.div`
 
 const LocAndDate = styled.div`
   box-sizing: border-box;
-  width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
+  width: 100%;
   height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
   margin: ${(props) =>
     props.className === "home"

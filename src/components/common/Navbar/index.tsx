@@ -1,14 +1,11 @@
 import React, { useState, FC } from "react";
 import styled from "styled-components";
 import { colors, sizes, fontFamilies, angles } from "../../../variables";
-import { NavLink, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { queries } from "../breakpoints";
+import { NavbarProps } from "../interfaces";
 
-const Navbar: FC<{
-  navbarElements: string[];
-  navbarType?: string;
-  path?: string;
-}> = ({ navbarElements, navbarType, path }) => {
+const Navbar: FC<NavbarProps> = ({ navbarElements, navbarType, path }) => {
   const location = useLocation();
   const params = useParams();
   const [selected, setSelected] = useState(
@@ -105,7 +102,7 @@ const Underline = styled.div`
   }
 `;
 
-const Navlink = styled(NavLink)`
+const Navlink = styled(Link)`
   text-decoration: none;
 `;
 export default Navbar;

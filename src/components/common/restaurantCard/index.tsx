@@ -10,20 +10,22 @@ import {
 } from "../../../variables";
 import FoodIcon from "../../../assets/common/restaurantCard/food.png";
 import { RestauarantCardprops } from "../interfaces";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { queries } from "../breakpoints";
 
 const RestaurantCard: FC<RestauarantCardprops> = ({ card }) => {
-  let navigate = useNavigate();
   const handleRedirect = () => {
     localStorage.setItem("restaurant", JSON.stringify(card));
-    navigate(`${links.menuFromList}/${card.name.split(" ").join("-")}`);
   };
   return (
     <Wrapper>
       <FoodImage src={FoodIcon} alt="" />
       <Rating>{card.rating}</Rating>
-      <MenuImage src={Menu} alt="" onClick={handleRedirect} />
+      <RedirectLink
+        to={`/${links.menuFromList}/${card.name.split(" ").join("-")}`}
+      >
+        <MenuImage src={Menu} alt="" onClick={handleRedirect} />
+      </RedirectLink>
       <ColumnFlex>
         <RestaurantName>{card.name}</RestaurantName>
         <RestaurantAddress>{card.address}</RestaurantAddress>
@@ -238,4 +240,7 @@ const OpenClose = styled.div<{ color: string }>`
   }
 `;
 
+const RedirectLink = styled(Link)`
+  text-decoration: none;
+`;
 export default RestaurantCard;

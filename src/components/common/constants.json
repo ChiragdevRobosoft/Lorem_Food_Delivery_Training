@@ -175,7 +175,7 @@
       "locAndType": "Latin America, Bakery",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus consequat purus sit amet lectus bibendum finbus vel.",
       "routeText": "All Brands",
-      "noRestaurantTitle": "Oops",
+      "noRestaurantTitle": "Oops!",
       "norestaurantDescp": "No brands nearby change to other locations and try"
     },
     "bestDealsOffers": {
@@ -673,6 +673,20 @@
     "title": "All Photos",
     "viewText": "View more >"
   },
+  "chooseAddress": {
+    "title": "Choose Address",
+    "deliveryType": "How would you like us to get your meal to you?",
+    "myAddresses": "My Addresses",
+    "contactDetails": "Contact Details",
+    "deliveryTypeOptions": ["Deliver to me", "Pick up"],
+    "addNew": "ADD NEW",
+    "addresses": [
+      { "type": "Home", "address": "Downtown Burj Khalifa, Dubai, UAE" },
+      { "type": "Office", "address": "A-214, Dubai Studio, Dubai, UAE" }
+    ],
+    "addressAlter": ["Edit", "Delete"],
+    "routing": ["BACK", "CHOOSE PAYMENT"]
+  },
   "schedule": {
     "title": "Schedule",
     "description": "Busy at work now, schedule it for later!",
@@ -680,5 +694,43 @@
     "timeTitle": "Time",
     "change": "Change",
     "buttonText": "SCHEDULE DATE AND TIME"
-  }
+  },
+  "cartCardsDetails": [
+    {
+      "id": "food-one",
+      "foodName": "Chilli Cheese Meal",
+      "image": false,
+      "bestseller": false,
+      "veg": true,
+      "cost": 20.0,
+      "customizable": true,
+      "description": "hello",
+      "quantity": 2,
+      "addOn": " Avacado, grilled Salmon"
+    },
+    {
+      "id": "food-one",
+      "foodName": "Chilli Cheese Meal",
+      "image": false,
+      "bestseller": false,
+      "veg": true,
+      "cost": 20.0,
+      "customizable": true,
+      "description": "hello",
+      "quantity": 2,
+      "addOn": " Avacado, grilled Salmon"
+    },
+    {
+      "id": "food-one",
+      "foodName": "Chilli Cheese Meal",
+      "image": false,
+      "bestseller": false,
+      "veg": true,
+      "cost": 20.0,
+      "customizable": true,
+      "description": "hello",
+      "quantity": 2,
+      "addOn": " Avacado, grilled Salmon"
+    }
+  ]
 }

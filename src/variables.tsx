@@ -8,7 +8,7 @@ export const colors = {
   black_000000_007: "rgba(0, 0, 0, 0.07)",
   black_000000_1: "rgba(0, 0, 0, 0.1)",
   black_000000_53: "rgba(0,0,0,0.53)",
-  black_000000_014: "rgba(0, 0, 0, 0.14)", //black3
+  black_000000_014: "rgba(0, 0, 0, 0.14)",
   black_000000_015: "rgba(0, 0, 0, 0.15)",
   black_000000_05: "rgba(0, 0, 0, 0.5)",
   black_000000_07: "rgba(0,0,0,0.07)",
@@ -40,6 +40,7 @@ export const colors = {
   grey_5e5e5e: "rgba(94, 94, 94,1)",
   grey_565454: "rgba(86, 84, 84, 1)",
   grey_6a6a6a: "#6a6a6a",
+  grey_6f6e6e: "#6f6e6e",
   grey_6f6f6f: "rgba(111, 111, 111,1)",
   grey_606060: "rgba(96, 96, 96,1)",
   grey_6246264: "#636364",
@@ -55,19 +56,20 @@ export const colors = {
   grey_848484: "#848484",
   grey_858484_9: "rgba(133, 132, 132, 0.9)",
   grey_858585: "rgba(133, 133, 133, 1)",
+  grey_868995: "#868995",
   grey_9b9b9b: "rgba(155,155,155,1)",
   grey_9e9999: "rgba(158, 153, 153,1)",
   grey_9f9f9f_9: "rgba(159, 159, 159, 0.9)",
   grey_909090: "rgba(144, 144, 144, 1)",
-  pink_e21143_09: "rgba(226, 17, 67, 0.9)", //pink1
-  pink_ff3366_08: "rgba(255, 51, 102, 0.8)", //pink2
-  pink_fda5a3: "#FDA5A3", //pink3
-  pink_d34836: "rgba(211, 72, 54, 1)", //pink4
+  pink_e21143_09: "rgba(226, 17, 67, 0.9)",
+  pink_ff3366_08: "rgba(255, 51, 102, 0.8)",
+  pink_fda5a3: "#FDA5A3",
+  pink_d34836: "rgba(211, 72, 54, 1)",
   pink_f2738a: "rgba(242, 115, 138, 1)",
   pink_f27489: "rgba(242, 116, 137, 1)",
   pink_ff8c7d: "rgba(255, 140, 125, 1)",
-  yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)", //yellow1 #ffb03a
-  yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)", //yellow2 #ffb03a
+  yellow_ffb03a_09: "rgba(255, 176, 58, 0.9)",
+  yellow_ffb03a_08: "rgba(255, 176, 58, 0.8)",
   yellow_f5a623: "rgba(245,166,35,1)",
   grey_929598: "#929598",
   grey_949494_34: "rgba(148, 148, 148, 0.34)",
@@ -339,8 +341,9 @@ export const zIndex = {
 
 export const letterSpacing = {
   spaceNeg0_41: "-0.41px",
-  spaceNeg0_27: "-0.27px",
   spaceNeg0_3: "-0.3px",
+  spaceNeg0_27: "-0.27px",
+  spaceNeg0_24: "-0.24px",
   space0: "0",
   space0_43: "0.43",
   space0_5: "0.5",
@@ -365,15 +368,16 @@ export const links = {
   brands: "/brands",
   profile: "",
   restaurantDetails: "",
-  orders: "orders",
+  orders: "/orders",
   address: "address",
   paymentMethods: "payment-methods",
   cart: "cart",
   cartItems: "cart-items",
   proceedPayment: "proceed-payment",
+  chooseAddress: "choose-address",
   reviewsRatings: "reviews-&-ratings/:id",
   gallery: "gallery/:id",
   editProfile: "editProfile",
-  menuFromList: "../menu",
+  menuFromList: "menu",
   checkout: "checkout",
 };
