@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { colors, sizes, fontFamilies, letterSpacing } from "../../../variables";
 import SearchPath from "../../common/Searchpath";
@@ -52,6 +52,8 @@ const CardContainer = styled.div`
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 20px;
+  max-height: 510px;
+  overflow-y: scroll;
 `;
 
 const MyCartLabel = styled(Label)`
