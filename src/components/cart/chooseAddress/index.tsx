@@ -12,6 +12,7 @@ import Label from "../../common/label";
 import InputField from "../../common/textbox";
 import Buttons from "../../common/button";
 import CountryCode from "../../country-code";
+import { queries } from "../../common/breakpoints";
 
 const ChooseAddress = () => {
   return (
@@ -57,7 +58,7 @@ const ChooseAddress = () => {
 export default ChooseAddress;
 
 const PageSection = styled.div`
-  width: 100wh;
+  width: 100%;
   min-height: 1083px;
   margin: 0;
   display: flex;
@@ -65,6 +66,21 @@ const PageSection = styled.div`
   box-sizing: border-box;
   gap: 40px;
   padding-bottom: 72px;
+  ${queries.tabletLandscape} {
+    gap: 32px;
+    padding-bottom: 58px;
+    min-height: 866px;
+  }
+  ${queries.tablet} {
+    gap: 24px;
+    padding-bottom: 43px;
+    min-height: 651px;
+  }
+  ${queries.smallMobile} {
+    gap: 12px;
+    padding-bottom: 22px;
+    min-height: 325px;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -78,11 +94,31 @@ const ContentContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
+  ${queries.tabletLandscape} {
+    gap: 32px;
+    width: 83%;
+  }
+  ${queries.tablet} {
+    gap: 24px;
+    width: 100%;
+  }
+  ${queries.smallMobile} {
+    gap: 12px;
+    width: 100%;
+  }
 `;
 
 const ProgressSection = styled.div`
   height: 55px;
   width: 66%;
+  ${queries.tablet} {
+    height: 33px;
+    width: 83%:
+  }
+  ${queries.smallMobile} {
+    height: 17px;
+    width: 95%;
+  }
 `;
 
 const CartSection = styled.div`
@@ -91,15 +127,17 @@ const CartSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 23px;
+  //gap: 23px;
   box-sizing: border-box;
 `;
 
 const StepsSection = styled.div`
-  width: 634px;
+  width: 60%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  border: 1px solid red;
+  margin-right: 24px;
 `;
 
 const StepTitleLabel = styled(Label)`
@@ -109,6 +147,16 @@ const StepTitleLabel = styled(Label)`
   font-size: ${sizes.size22};
   letter-spacing: ${letterSpacing.space0};
   line-height: ${sizes.size30};
+  // ${queries.tablet} {
+  //   height: 30px;
+  //   line-height: 30px;
+  //   font-size: 22px;
+  // }
+  ${queries.smallMobile} {
+    height: 9px;
+    line-height: 9px;
+    font-size: 7px;
+  }
 `;
 
 const StepContent = styled.div`
@@ -130,6 +178,16 @@ const DeliveryTypeLabel = styled(Label)`
   font-size: ${sizes.size14};
   line-height: ${sizes.size19};
   letter-spacing: ${letterSpacing.spaceNeg0_24};
+  ${queries.tablet} {
+    height: 11px;
+    line-height: 11px;
+    font-size: 8px;
+  }
+  ${queries.smallMobile} {
+    height: 6px;
+    line-height: 6px;
+    font-size: 4px;
+  }
 `;
 
 const AddressAddHolder = styled.div`
@@ -145,6 +203,16 @@ const MyAddressLabel = styled(Label)`
   font-size: ${sizes.size17};
   line-height: ${sizes.size23};
   letter-spacing: ${letterSpacing.spaceNeg0_41};
+  ${queries.tablet} {
+    height: 13px;
+    line-height: 13px;
+    font-size: 10px;
+  }
+  ${queries.smallMobile} {
+    height: 7px;
+    line-height: 7px;
+    font-size: 5px;
+  }
 `;
 
 const AddNewButton = styled(Buttons)`
@@ -171,8 +239,8 @@ const AddNewButton = styled(Buttons)`
 `;
 
 const ContactDetailsHolder = styled.div`
-  height: 12.313rem;
-  width: 21.125rem;
+  //height: 12.313rem;
+  width: 100%;
   box-sizing: border-box;
   margin-top: 43px;
   border: 1px solid black;
@@ -188,7 +256,6 @@ const ContactDetailsLabel = styled(Label)`
 
 const CookingInstructionTitle = styled(Label)`
   height: 17px;
-  width: 122.95px;
   color: ${colors.grey_858585};
   font-family: ${fontFamilies.fontFamilyOsRegular};
   font-size: ${sizes.size12};
@@ -202,6 +269,12 @@ const CookingInstructionInput = styled(InputField)`
   width: 263px;
   margin: auto;
   color: ${colors.grey_4a4a4a};
+  ${queries.tablet} {
+    width: 100%;
+  }
+  ${queries.smallMobile} {
+    width: 100%;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -210,30 +283,58 @@ const ButtonContainer = styled.div`
   width: 348px;
   display: flex;
   flex-direction: row;
-  gap: 20px;
   justify-content: space-between;
   margin: 22px 0px 0px auto;
+  padding: none;
+  ${queries.tablet} {
+    height: 36px;
+    width: 100%;
+  }
+  ${queries.smallMobile} {
+    height: 27px;
+    width: 100%;
+  }
 `;
 
 const BackButton = styled(Buttons)`
   box-sizing: border-box;
   height: 45px;
-  width: 130px;
+  width: 38%;
   color: ${colors.grey_979797};
   font-size: ${sizes.size14};
   letter-spacing: ${letterSpacing.space0};
   line-height: ${sizes.size19};
   border: 1px solid ${colors.grey_979797};
   box-shadow: none;
+  ${queries.tablet} {
+    height: 36px;
+    line-height: 15px;
+    font-size: 11px;
+  }
+  ${queries.smallMobile} {
+    height: 27px;
+    line-height: 11px;
+    font-size: 8px;
+  }
 `;
 
 const ChoosePayment = styled(Buttons)`
   box-sizing: border-box;
   height: 45px;
-  width: 198px;
+  width: 58%;
   background: linear-gradient(138.33deg, #f3698e 0%, #feb456 100%);
   box-shadow: 0 4px 10px 0 rgba(246, 126, 126, 0.38);
   font-size: ${sizes.size14};
   letter-spacing: ${letterSpacing.space0};
   line-height: ${sizes.size19};
+  ${queries.tablet} {
+    height: 36px;
+    line-height: 15px;
+    font-size: 10px;
+  }
+  ${queries.smallMobile} {
+    height: 27px;
+    line-height: 11px;
+    font-size: 8px;
+  }
 `;

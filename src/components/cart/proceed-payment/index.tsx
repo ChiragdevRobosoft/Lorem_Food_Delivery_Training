@@ -11,6 +11,7 @@ import { foodItemProps } from "../../common/interfaces";
 import CartCard from "../../common/CartCard";
 import RadioButton from "./radioButton";
 import Buttons from "../../common/button";
+import { queries } from "../../common/breakpoints";
 
 const ProceedPayment = () => {
   const { register, handleSubmit, control, reset } = useForm();
@@ -157,6 +158,21 @@ const PageSection = styled.div`
   justify-content: space-between;
   gap: 40px;
   padding-bottom: 72px;
+  ${queries.tabletLandscape} {
+    min-height: 674px;
+    padding-top: 58px;
+    gap: 32px;
+  }
+  ${queries.tablet} {
+    min-height: 506px;
+    padding-top: 43px;
+    gap: 24px;
+  }
+  ${queries.smallMobile} {
+    min-height: 253px;
+    padding-top: 22px;
+    gap: 12px;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -169,11 +185,29 @@ const ContentContainer = styled.div`
   padding: 0;
   margin-left: auto;
   margin-right: auto;
+  ${queries.tabletLandscape} {
+    gap: 31px;
+  }
+  ${queries.tablet} {
+    gap: 23px;
+  }
+  ${queries.smallMobile} {
+    gap: 11px;
+  }
 `;
 
 const ProgressSection = styled.div`
   height: 55px;
   width: 66%;
+  ${queries.tabletLandscape} {
+    height: 44px;
+  }
+  ${queries.tablet} {
+    height: 33px;
+  }
+  ${queries.smallMobile} {
+    height: 17px;
+  }
 `;
 
 const CartSection = styled.div`
@@ -184,6 +218,15 @@ const CartSection = styled.div`
   justify-content: space-between;
   gap: 23px;
   box-sizing: border-box;
+  ${queries.tabletLandscape} {
+    gap: 18px;
+  }
+  ${queries.tablet} {
+    gap: 14px;
+  }
+  ${queries.smallMobile} {
+    gap: 7px;
+  }
 `;
 
 const StepsSection = styled.div`
@@ -191,6 +234,15 @@ const StepsSection = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  ${queries.tabletLandscape} {
+    width: 507px;
+  }
+  ${queries.tablet} {
+    width: 381px;
+  }
+  ${queries.smallMobile} {
+    width: 191px;
+  }
 `;
 
 const StepTitleLabel = styled(Label)`
@@ -200,6 +252,21 @@ const StepTitleLabel = styled(Label)`
   font-size: ${sizes.size22};
   letter-spacing: ${letterSpacing.space0};
   line-height: ${sizes.size30};
+  ${queries.tabletLandscape} {
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+  }
+  ${queries.tablet} {
+    height: 18px;
+    line-height: 18px;
+    font-size: 13px;
+  }
+  ${queries.smallMobile} {
+    height: 9px;
+    line-height: 9px;
+    font-size: 7px;
+  }
 `;
 
 const DeliveryEstimationLabel = styled(Label)`
@@ -208,6 +275,24 @@ const DeliveryEstimationLabel = styled(Label)`
   font-size: 12px;
   line-height: 17px;
   margin-top: 10px;
+  ${queries.tabletLandscape} {
+    height: 14px;
+    line-height: 14px;
+    font-size: 10px;
+    margin-top: 8px;
+  }
+  ${queries.tablet} {
+    height: 10px;
+    line-height: 10px;
+    font-size: 7px;
+    margin-top: 6px;
+  }
+  ${queries.smallMobile} {
+    height: 5px;
+    line-height: 5px;
+    font-size: 4px;
+    margin-top: 3px;
+  }
 `;
 
 const StepContent = styled.div`

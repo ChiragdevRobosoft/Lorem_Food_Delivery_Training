@@ -54,6 +54,13 @@ const Cartcard = styled.div`
   box-sizing: border-box;
   ${queries.tablet} {
     height: 103px;
+    width: 182px;
+    padding: 17px 12px 13px 12px;
+  }
+  ${queries.smallMobile} {
+    height: 52px;
+    width: 91px;
+    padding: 8px 6px 7px 6px;
   }
 `;
 
@@ -79,6 +86,14 @@ const RemoveButton = styled(Buttons)`
     line-height: 9px;
     font-size: 7px;
   }
+  ${queries.smallMobile} {
+    top: 9px;
+    right: 6px;
+    height: 5px;
+    width: 13px;
+    line-height: 5px;
+    font-size: 4px;
+  }
 `;
 
 const RestaurantName = styled(Label)`
@@ -89,6 +104,11 @@ const RestaurantName = styled(Label)`
     line-height: 13px;
     height: 13px;
     font-size: 10px;
+  }
+  ${queries.smallMobile} {
+    line-height: 7px;
+    height: 7px;
+    font-size: 5px;
   }
 `;
 
@@ -105,6 +125,11 @@ const RestaurantAddress = styled(Label)`
     height: 10px;
     font-size: 7px;
   }
+  ${queries.smallMobile} {
+    line-height: 5px;
+    height: 5px;
+    font-size: 3px;
+  }
 `;
 
 const OrderDetails = styled(Label)`
@@ -119,6 +144,11 @@ const OrderDetails = styled(Label)`
     line-height: 10px;
     height: 10px;
     font-size: 7px;
+  }
+  ${queries.smallMobile} {
+    line-height: 5px;
+    height: 5px;
+    font-size: 4px;
   }
 `;
 
@@ -149,6 +179,14 @@ const ProceedButton = styled(Buttons)`
     width: 67px;
     line-height: 11px;
     font-size: 8px;
+  }
+  ${queries.smallMobile} {
+    bottom: 7px;
+    right: 7px;
+    height: 9px;
+    width: 34px;
+    line-height: 6px;
+    font-size: 4px;
   }
 }
 `;
