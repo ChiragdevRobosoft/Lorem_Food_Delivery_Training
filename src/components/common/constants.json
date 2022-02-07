@@ -131,7 +131,8 @@
       "Great breakfasts",
       "The Boutique Kitchen"
     ],
-    "menu1": ["Home", "UAE", "Explore", "Great breakfasts", "My Cart"]
+    "menu1": ["Home", "UAE", "Explore", "Great breakfasts", "My Cart"],
+    "allBrands": ["Home", "UAE", "Explore", "All Brands"]
   },
   "homeTexts": {
     "foodRestaurantSearch": {
@@ -731,6 +732,33 @@
       "description": "hello",
       "quantity": 2,
       "addOn": " Avacado, grilled Salmon"
+    }
+  ],
+  "brandsNearby": [
+    {
+      "name": "KFC",
+      "type": "Latin American, Bakery",
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat purus sit amet lectus bibendum finbus."
+    },
+    {
+      "name": "Pizza Hut",
+      "type": "Latin American, Bakery",
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat purus sit amet lectus bibendum finbus."
+    },
+    {
+      "name": "Cream Stone",
+      "type": "Icecream, Bakery",
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat purus sit amet lectus bibendum finbus."
+    },
+    {
+      "name": "Burger King",
+      "type": "Latin American, Bakery",
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat purus sit amet lectus bibendum finbus."
+    },
+    {
+      "name": "Dunkin Donuts",
+      "type": "Latin American, Bakery",
+      "discription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat purus sit amet lectus bibendum finbus."
     }
   ]
 }

@@ -91,3 +91,9 @@ export interface DeliveryRatingProps {
   onClick?: React.MouseEventHandler<HTMLInputElement>;
   id?: string;
 }
+
+export interface brandsNearByProps {
+  name: string;
+  type: string;
+  discription: string;
+}

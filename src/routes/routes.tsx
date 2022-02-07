@@ -17,6 +17,7 @@ import CartItems from "../components/cart/cart-items";
 import ProceedPayment from "../components/cart/proceed-payment";
 import ChooseAddress from "../components/cart/chooseAddress";
 import Payment from "../components/profile/payment";
+import BrandsNearby from "../components/BrandsNearby";
 
 const Routing = () => {
   return (
@@ -42,6 +43,7 @@ const Routing = () => {
           <Route path={links.paymentMethods} element={<Payment />} />
           <Route path={links.overview} element={<Overview />} />
         </Route>
+        <Route path={links.brands} element={<BrandsNearby />} />
       </Routes>
     </CartDataProvider>
   );
