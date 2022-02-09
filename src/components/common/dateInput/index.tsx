@@ -102,7 +102,14 @@ const Dateholder = styled.div`
       ${queries.tablet} {
         font-size: ${sizes.size14};
         line-height: ${sizes.size16};
-        height: ${sizes.size16};
+        height: ${(props) => (props.className === "home" ? `70px` : "22px")};
+        width: ${(props) => (props.className === "home" ? `245px` : "100%")};
+      }
+      ${queries.smallMobile} {
+        font-size: 7px;
+        line-height: 8px;
+        height: ${(props) => (props.className === "home" ? `21px` : "22px")};
+        width: ${(props) => (props.className === "home" ? `74px` : "100%")};
       }
     }
   }

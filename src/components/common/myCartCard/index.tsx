@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
@@ -7,21 +7,13 @@ import {
   fontFamilies,
   angles,
   letterSpacing,
+  links,
 } from "../../../variables";
 import data from "../constants.json";
 import Label from "../label";
 import Buttons from "../button";
 import { queries } from "../breakpoints";
-
-interface MyCartCardProps {
-  info: {
-    id: string;
-    restaurantName: string;
-    address: string;
-    orderDetails: string;
-  };
-  index: number;
-}
+import { MyCartCardProps } from "../interfaces";
 
 const MyCartCard: FC<MyCartCardProps> = ({ info, index }) => {
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -33,7 +25,7 @@ const MyCartCard: FC<MyCartCardProps> = ({ info, index }) => {
       <RemoveButton name={data.cartData.remove} />
       <RestaurantAddress content={info.address} />
       <OrderDetails content={info.orderDetails} />
-      <Link to={""}>
+      <Link to={`/${links.proceedPayment}`}>
         <ProceedButton name={data.cartContents.proceed} />
       </Link>
     </Cartcard>

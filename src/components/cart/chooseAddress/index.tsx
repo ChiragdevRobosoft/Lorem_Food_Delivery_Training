@@ -35,7 +35,7 @@ const ChooseAddress = () => {
                 <ContactDetailsLabel
                   content={data.chooseAddress.contactDetails}
                 />
-                <CountryCode isOptional={true} />
+                <CountryCodeBox isOptional={true} />
               </ContactDetailsHolder>
               <CookingInstructionTitle
                 content={data.cartData.cookingInstruction}
@@ -93,7 +93,6 @@ const ContentContainer = styled.div`
   padding: 0;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
   ${queries.tabletLandscape} {
     gap: 32px;
     width: 83%;
@@ -127,7 +126,7 @@ const CartSection = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  //gap: 23px;
+  flex-wrap: wrap;
   box-sizing: border-box;
 `;
 
@@ -136,7 +135,6 @@ const StepsSection = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  border: 1px solid red;
   margin-right: 24px;
 `;
 
@@ -147,11 +145,6 @@ const StepTitleLabel = styled(Label)`
   font-size: ${sizes.size22};
   letter-spacing: ${letterSpacing.space0};
   line-height: ${sizes.size30};
-  // ${queries.tablet} {
-  //   height: 30px;
-  //   line-height: 30px;
-  //   font-size: 22px;
-  // }
   ${queries.smallMobile} {
     height: 9px;
     line-height: 9px;
@@ -169,6 +162,14 @@ const StepContent = styled.div`
   border-radius: 6px;
   background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
+  ${queries.tablet} {
+    padding: 12px 13px 12px 12px;
+    margin-top: 10px;
+  }
+  ${queries.smallMobile} {
+    padding: 6px 7px 6px 6px;
+    margin-top: 5px;
+  }
 `;
 
 const DeliveryTypeLabel = styled(Label)`
@@ -179,9 +180,9 @@ const DeliveryTypeLabel = styled(Label)`
   line-height: ${sizes.size19};
   letter-spacing: ${letterSpacing.spaceNeg0_24};
   ${queries.tablet} {
-    height: 11px;
-    line-height: 11px;
-    font-size: 8px;
+    height: 15px;
+    line-height: 15px;
+    font-size: 10px;
   }
   ${queries.smallMobile} {
     height: 6px;
@@ -191,9 +192,14 @@ const DeliveryTypeLabel = styled(Label)`
 `;
 
 const AddressAddHolder = styled.div`
-  height: 30px;
   width: 100%;
   margin-top: 29px;
+  ${queries.tablet} {
+    margin-top: 23px;
+  }
+  ${queries.smallMobile} {
+    margin-top: 9px;
+  }
 `;
 
 const MyAddressLabel = styled(Label)`
@@ -204,9 +210,9 @@ const MyAddressLabel = styled(Label)`
   line-height: ${sizes.size23};
   letter-spacing: ${letterSpacing.spaceNeg0_41};
   ${queries.tablet} {
-    height: 13px;
-    line-height: 13px;
-    font-size: 10px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 14px;
   }
   ${queries.smallMobile} {
     height: 7px;
@@ -236,14 +242,33 @@ const AddNewButton = styled(Buttons)`
   -webkit-background-clip: text;
   color: ${colors.transparentColor};
   border: 1px solid ${colors.pink_e21143_09};
+  ${queries.tablet} {
+    height: 24px;
+    width: 77px;
+    font-size: 11px;
+    line-height: 15px;
+  }
+  ${queries.smallMobile} {
+    height: 9px;
+    width: 29px;
+    font-size: 4px;
+    line-height: 6px;
+  }
 `;
 
 const ContactDetailsHolder = styled.div`
-  //height: 12.313rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   box-sizing: border-box;
   margin-top: 43px;
-  border: 1px solid black;
+  ${queries.tablet} {
+    margin-top: 30px;
+  }
+  ${queries.smallMobile} {
+    margin-top: 13px;
+  }
 `;
 
 const ContactDetailsLabel = styled(Label)`
@@ -252,6 +277,22 @@ const ContactDetailsLabel = styled(Label)`
   fonst-size: 17px;
   letter-spacing: -0.41px;
   line-height: 23px;
+  margin-bottom: 27px;
+  margin-right: auto;
+  ${queries.tablet} {
+    height: 18px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  ${queries.smallMobile} {
+    height: 7px;
+    font-size: 5px;
+    line-height: 7px;
+  }
+`;
+
+const CountryCodeBox = styled(CountryCode)`
+  margin: 0;
 `;
 
 const CookingInstructionTitle = styled(Label)`
@@ -263,10 +304,24 @@ const CookingInstructionTitle = styled(Label)`
   line-height: ${sizes.size17};
   margin-top: 17px;
   margin-bottom: 15px;
+  ${queries.tablet} {
+    height: 14px;
+    font-size: 10px;
+    line-height: 14px;
+    margin-top: 14px;
+    margin-bottom: 12px;
+  }
+  ${queries.smallMobile} {
+    height: 5px;
+    font-size: 4px;
+    line-height: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 `;
 
 const CookingInstructionInput = styled(InputField)`
-  width: 263px;
+  width: 100%;
   margin: auto;
   color: ${colors.grey_4a4a4a};
   ${queries.tablet} {

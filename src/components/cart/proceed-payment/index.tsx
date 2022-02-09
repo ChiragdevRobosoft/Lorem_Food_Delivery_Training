@@ -14,18 +14,18 @@ import Buttons from "../../common/button";
 import { queries } from "../../common/breakpoints";
 
 const ProceedPayment = () => {
-  const { register, handleSubmit, control, reset } = useForm();
-  const [cartItems, setCartItems] = useState(data.cartContents.myCart);
+  // const { register, handleSubmit, control, reset } = useForm();
+  // const [cartItems, setCartItems] = useState(data.cartContents.myCart);
   const [radioButtons, setRadioButtons] = useState({
     userCode: false,
     bestOffers: true,
   });
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    setCartItems([]);
-  };
-  const { details, setDetails } = useContext(CartData);
+  // const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+  //   setCartItems([]);
+  // };
+  const { cartDetails, setCartDetails } = useContext(CartData);
 
-  let totalCost = details.reduce(
+  let totalCost = cartDetails.reduce(
     (total: number, foodItem: foodItemProps) =>
       Math.round(
         foodItem.cost * foodItem.quantity + (total * 100) / 100
@@ -33,8 +33,8 @@ const ProceedPayment = () => {
     0
   );
 
-  let fee = details.length === 0 ? 0 : (10 * 100) / 100;
-  let discount = details.length === 0 ? 0 : 12.24;
+  let fee = cartDetails.length === 0 ? 0 : (10 * 100) / 100;
+  let discount = cartDetails.length === 0 ? 0 : 12.24;
   let costToPay = (totalCost + fee - discount).toFixed(2);
   const handleRadioClick = (e: React.MouseEvent<HTMLInputElement>) => {
     if (e.currentTarget.id === "userCode" && radioButtons.userCode === true) {
@@ -63,11 +63,9 @@ const ProceedPayment = () => {
             <DeliveryEstimationLabel content="Estimated Delivery time - 60 - 80 min" />
             <StepContent>
               <ItemList>
-                {data.cartCardsDetails?.map(
-                  (item: foodItemProps, index: number) => {
-                    return <CartCard item={item} key={index} />;
-                  }
-                )}
+                {cartDetails?.map((item: foodItemProps, index: number) => {
+                  return <CartCard item={item} key={index} />;
+                })}
               </ItemList>
               <CookingInstructionTitle
                 content={data.cartData.cookingInstruction}
@@ -303,7 +301,7 @@ const StepContent = styled.div`
   box-sizing: border-box;
   margin-top: 17px;
   border-radius: 6px;
-  background-color: ${colors.white_ffffff}
+  background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 `;
 

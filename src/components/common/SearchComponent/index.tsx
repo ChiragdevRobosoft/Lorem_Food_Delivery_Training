@@ -64,21 +64,29 @@ export default FoodSearch;
 
 const WrapperHome = styled.div`
   margin: ${(props) => (props.className === "home" ? `0 auto 0 0;` : null)}
-  width: ${(props) => (props.className === "home" ? `${sizes.size611}` : null)};
+  width: ${(props) => (props.className === "home" ? `611px` : null)};
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  ${queries.tablet} {
+    width: ${(props) => (props.className === "home" ? `100%` : null)};
+  }
 `;
 
 const LocAndDate = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: ${(props) => (props.className === "home" ? `${sizes.size70}` : null)};
-  margin: ${(props) =>
-    props.className === "home"
-      ? `${sizes.size35} ${sizes.size0} ${sizes.size0} ${sizes.size0}`
-      : ``};
+  margin: ${(props) => (props.className === "home" ? `35px 0 0 0` : ``)};
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  ${queries.tablet} {
+    margin: 21px 0 0 0;
+  }
+  ${queries.smallMobile} {
+    margin: 11px 0 0 0;
+  }
 `;
 
 const Locationholder = styled.div`
@@ -90,6 +98,14 @@ const Locationholder = styled.div`
     props.className === "home"
       ? `${sizes.size0} ${sizes.size22} ${sizes.size0} ${sizes.size4}`
       : null};
+  ${queries.tablet} {
+    width: ${(props) =>
+      props.className === "home" ? `${sizes.size338}` : `${sizes.size283}`};
+  }
+  ${queries.smallMobile} {
+    width: ${(props) =>
+      props.className === "home" ? `${sizes.size338}` : `${sizes.size283}`};
+  }
 `;
 
 const Dateholder = styled.div`
@@ -97,6 +113,12 @@ const Dateholder = styled.div`
   width: ${(props) => (props.className === "home" ? `${sizes.size247}` : null)};
   margin: ${(props) => (props.className === "home" ? `${sizes.size0}` : null)};
   display: flex;
+  ${queries.tablet} {
+    margin-top: ${(props) => (props.className === "home" ? `5px` : null)};
+  }
+  ${queries.smallMobile} {
+    margin-top: ${(props) => (props.className === "home" ? `2px` : null)};
+  }
 `;
 
 const Wrapper = styled.div`
