@@ -7,35 +7,14 @@ import {
   fontWeight,
   angles,
 } from "../../../variables";
-interface buttonProps {
-  name: string;
-  className?: string;
-  height?: string;
-  width?: string;
-  borderRadius?: string;
-  background?: string;
-  boxShadow?: string;
-  border?: string;
-  color?: string;
-  fontFamily?: string;
-  fontSize?: string;
-  fontWeight?: string;
-  lineHeight?: string;
-  textShadow?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  image?: string;
-  marginLeft?: string;
-  marginRight?: string;
-  id?: string;
-  type?: "submit" | "reset" | "button";
-}
+import { buttonProps } from "../interfaces";
+
 const Buttons: FC<buttonProps> = (props) => {
   return (
     <Button
       className={props.className}
       type={props.type}
       onClick={props.onClick}
-      style={props}
     >
       {props.name}
       {props.image ? <ButtonImage src={props.image} /> : null}

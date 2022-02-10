@@ -1,22 +1,12 @@
 import styled, { CSSProperties } from "styled-components";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import view_active from "../../../assets/view_active.png";
 import view_inactive from "../../../assets/view_inactive.png";
 import Label from "../label";
 import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
-const InputField = ({
-  name,
-  isPassword,
-  style,
-  register,
-  message,
-}: {
-  name: string;
-  isPassword: boolean;
-  style?: CSSProperties;
-  register?: any;
-  message?: string;
-}) => {
+import { InputFieldProps } from "../interfaces";
+
+const InputField: FC<InputFieldProps> = (props) => {
   const [viewState, changeViewState] = useState(false);
   const [focusState, changeFocusState] = useState(false);
   const handleViewIconClick = () => {
@@ -26,12 +16,12 @@ const InputField = ({
     if (e.target.value === "") changeFocusState(false);
   };
   return (
-    <FormContainer style={style}>
+    <FormContainer style={props.style}>
       <Textbox
-        type={!viewState && isPassword ? "password" : "text"}
-        name={name}
-        {...register(name)}
-        message={message}
+        type={!viewState && props.isPassword ? "password" : "text"}
+        name={props.name}
+        {...(props.register ? { ...props.register(props.name) } : null)}
+        message={props.message}
         onFocus={() => {
           changeFocusState(true);
         }}
@@ -39,11 +29,11 @@ const InputField = ({
           handleFocusChange(e);
         }}
         className={focusState ? "moveUp" : ""}
-        style={style}
+        style={props.style}
       />
-      {isPassword ? (
+      {props.isPassword ? (
         <>
-          <Label content={name} className="form-label" />
+          <Label content={props.name} className="form-label" />
           <ViewIcon
             onClick={(e) => {
               handleViewIconClick();
@@ -53,9 +43,11 @@ const InputField = ({
           ></ViewIcon>
         </>
       ) : (
-        <Label content={name} className="form-label" />
+        <Label content={props.name} className="form-label" />
       )}
-      {message !== undefined ? <p className="error">{message}</p> : null}
+      {props.message !== undefined ? (
+        <p className="error">{props.message}</p>
+      ) : null}
     </FormContainer>
   );
 };
