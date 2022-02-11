@@ -4,7 +4,6 @@ import { colors, sizes, fontFamilies, letterSpacing } from "../../../variables";
 import Searchpath from "../../common/Searchpath";
 import data from "../../common/constants.json";
 import Label from "../../common/label";
-import { useForm, Controller } from "react-hook-form";
 import { CartData } from "../../common/CartDataProvider";
 import InputField from "../../common/textbox";
 import { foodItemProps } from "../../common/interfaces";
@@ -14,15 +13,10 @@ import Buttons from "../../common/button";
 import { queries } from "../../common/breakpoints";
 
 const ProceedPayment = () => {
-  // const { register, handleSubmit, control, reset } = useForm();
-  // const [cartItems, setCartItems] = useState(data.cartContents.myCart);
   const [radioButtons, setRadioButtons] = useState({
     userCode: false,
     bestOffers: true,
   });
-  // const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-  //   setCartItems([]);
-  // };
   const { cartDetails, setCartDetails } = useContext(CartData);
 
   let totalCost = cartDetails.reduce(
@@ -213,6 +207,7 @@ const CartSection = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 23px;
   box-sizing: border-box;
