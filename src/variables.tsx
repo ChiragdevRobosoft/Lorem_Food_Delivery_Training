@@ -371,7 +371,7 @@ export const links = {
   orders: "/orders",
   address: "address",
   paymentMethods: "payment-methods",
-  cart: "",
+  cart: "cart",
   cartItems: "cart-items",
   proceedPayment: "proceed-payment",
   chooseAddress: "choose-address",

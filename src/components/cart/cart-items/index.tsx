@@ -53,8 +53,6 @@ const CardContainer = styled.div`
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 20px;
-  max-height: 510px;
-  overflow-y: scroll;
 `;
 
 const MyCartLabel = styled(Label)`
