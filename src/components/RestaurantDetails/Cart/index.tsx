@@ -81,7 +81,7 @@ const Cart = () => {
       <TextboxContainer>
         <TextBox name={data.cartData.textboxLabel} isPassword={false} />
       </TextboxContainer>
-      <RoutingLink to={links.checkout}>
+      <RoutingLink to={`/${links.proceedPayment}`}>
         <CheckoutButton
           name={data.cartData.buttonText}
           className="colouredBgButton"
