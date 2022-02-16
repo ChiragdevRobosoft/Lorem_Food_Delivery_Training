@@ -4,9 +4,25 @@ import view_active from "../../../assets/view_active.png";
 import view_inactive from "../../../assets/view_inactive.png";
 import Label from "../label";
 import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
+<<<<<<< HEAD
 import { InputFieldProps } from "../interfaces";
 
 const InputField: FC<InputFieldProps> = (props) => {
+=======
+const InputField = ({
+  name,
+  isPassword,
+  style,
+  register,
+  message,
+}: {
+  name: string;
+  isPassword: boolean;
+  style?: CSSProperties;
+  register?: any;
+  message?: string;
+}) => {
+>>>>>>> 8174f1dcdc696f535b5328d64d29ba32483b2ada
   const [viewState, changeViewState] = useState(false);
   const [focusState, changeFocusState] = useState(false);
   const handleViewIconClick = () => {
@@ -18,10 +34,17 @@ const InputField: FC<InputFieldProps> = (props) => {
   return (
     <FormContainer style={props.style}>
       <Textbox
+<<<<<<< HEAD
         type={!viewState && props.isPassword ? "password" : "text"}
         name={props.name}
         {...(props.register ? { ...props.register(props.name) } : null)}
         message={props.message}
+=======
+        type={!viewState && isPassword ? "password" : "text"}
+        name={name}
+        {...(register ? { ...register(name) } : null)}
+        message={message}
+>>>>>>> 8174f1dcdc696f535b5328d64d29ba32483b2ada
         onFocus={() => {
           changeFocusState(true);
         }}
