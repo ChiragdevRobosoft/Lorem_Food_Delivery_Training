@@ -48,23 +48,23 @@ const renderArrow =
       styles.backgroundImage = `url(${disabledNextButton})`;
 
       if (direction === "prev") {
-        styles.left = 849;
-        styles.borderRight = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
+        styles.right = 58;
+        styles.borderRight = `${sizes.size0_5} solid rgba(151px, 151px, 151px, ${sizes.size0_29})`;
       } else {
         styles.right = 0;
         styles.transform = "scaleX(-1)";
-        styles.borderRight = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
+        styles.borderRight = `${sizes.size0_5} solid rgba(151px, 151px, 151px, ${sizes.size0_29})`;
       }
       return <div style={styles}></div>;
     }
 
     if (direction === "prev") {
-      styles.left = 849;
+      styles.right = 58;
       styles.transform = "scaleX(-1)";
-      styles.borderLeft = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
+      styles.borderLeft = `${sizes.size0_5} solid rgba(151px, 151px, 151px, ${sizes.size0_29})`;
     } else {
       styles.right = 0;
-      styles.borderLeft = `${sizes.size0_5} solid rgba(${sizes.size151}, ${sizes.size151}, ${sizes.size151}, ${sizes.size0_29})`;
+      styles.borderLeft = `${sizes.size0_5} solid rgba(151px, 151px, 151px, ${sizes.size0_29})`;
     }
     return <div onClick={onClickHandler} style={styles}></div>;
   };
@@ -85,8 +85,8 @@ const CarouselBDO = () => {
         {datas.map((subData, i) => {
           return (
             <SingleSlide key={i}>
-              <LeftImg src={card1} alt="" />
-              <RightImg src={card1} alt="" />
+              <LeftImg className="left-image" src={card1} alt="" />
+              <RightImg className="right-image" src={card1} alt="" />
             </SingleSlide>
           );
         })}
@@ -111,10 +111,10 @@ export default CarouselBDO;
 
 const Wrapper = styled.div`
   .main-slide {
-    height: ${sizes.size287};
-    width: ${sizes.size960};
-    margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size0};
-    border-radius: ${sizes.size6};
+    height: 287px;
+    width: 100%;
+    margin: 0 0;
+    border-radius: 6px;
     background-color: linear-gradient(
       ${angles.angle178_89},
       ${colors.white_ffffff} 0%,
@@ -123,34 +123,40 @@ const Wrapper = styled.div`
     padding: ${sizes.size0};
   }
   .carousel {
-    height: ${sizes.size363};
-    width: ${sizes.size960};
-    padding: ${sizes.size0};
+    height: 363px;
+    width: 100%;
+    padding: 0;
     .slider-wrapper {
-      width: ${sizes.size960};
-      height: ${sizes.size287};
-      padding: ${sizes.size0};
+      width: 100%;
+      height: 287px;
+      padding: 0;
+    }
+    .slide .left-image {
+      width: 469px;
+    }
+    .slide .right-image {
+      width: 469px;
     }
   }
 `;
 
 const SingleSlide = styled.div`
-  height: ${sizes.size287};
-  width: ${sizes.size960};
+  height: 287px;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  padding: ${sizes.size0};
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 0;
 `;
 const LeftImg = styled.img`
-  height: ${sizes.size287};
   width: ${sizes.size469};
   margin: ${sizes.size0};
   padding: ${sizes.size0};
 `;
 
 const RightImg = styled.img`
-  height: ${sizes.size287};
   width: ${sizes.size469};
-  margin: ${sizes.size0} ${sizes.size0} ${sizes.size0} ${sizes.size22};
-  padding: ${sizes.size0};
+  margin: 0 0 0 22px;
+  padding: 0px;
 `;
