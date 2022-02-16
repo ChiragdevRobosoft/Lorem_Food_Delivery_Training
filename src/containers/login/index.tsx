@@ -40,6 +40,7 @@ const Login = ({
 }) => {
   const submitForm = (data: any) => {
     console.log(data);
+    onCloseModal();
   };
   const schema = yup.object().shape({
     Email: yup
