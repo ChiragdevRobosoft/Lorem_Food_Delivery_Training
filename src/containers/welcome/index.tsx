@@ -12,9 +12,12 @@ import {
   fontFamilies,
   fontWeight,
   angles,
+  links,
 } from "../../variables";
 import Image from "../../components/common/image";
 import { queries } from "../../components/common/breakpoints";
+import { useNavigate } from "react-router-dom";
+import Home from "../../components/home";
 const RegisterSuccess = ({
   onCloseModal,
   onOpenModal,
@@ -26,6 +29,7 @@ const RegisterSuccess = ({
   open: boolean;
   setShowRegisterSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const navigate = useNavigate();
   return (
     <Modal
       open={open}
