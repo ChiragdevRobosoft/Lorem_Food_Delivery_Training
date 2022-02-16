@@ -7,7 +7,7 @@ import Image from "../../common/image";
 import { useNavigate } from "react-router-dom";
 import { queries } from "../breakpoints";
 
-interface SearchBoxProps {
+export interface SearchBoxProps {
   className: string;
   searchVal?: string;
   locationVal?: string;

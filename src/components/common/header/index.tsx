@@ -14,13 +14,9 @@ import data from "./../constants.json";
 import User from "./userInfo";
 import { queries } from "../breakpoints";
 import { Link } from "react-router-dom";
+import { headerProps } from "../interfaces";
 
 const languages = ["English", "Arabic", "Spanish"];
-interface headerProps {
-  setShowLogin?: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowCreateAccount?: React.Dispatch<React.SetStateAction<boolean>>;
-  className: string;
-}
 
 const Header: FC<headerProps> = (props) => {
   return (
@@ -78,8 +74,16 @@ const Header: FC<headerProps> = (props) => {
         {props.className === "home" || props.className === "newSec" ? (
           <VertLine className={props.className} />
         ) : null}
-        <CartLogo className={props.className} src={cartIcon} alt="cart-icon" />
-        <Cart className={props.className}>{data.header.cart}</Cart>
+        <CartLink to={links.cartItems}>
+          <CartContainer>
+            <CartLogo
+              className={props.className}
+              src={cartIcon}
+              alt="cart-icon"
+            />
+            <Cart className={props.className}>{data.header.cart}</Cart>
+          </CartContainer>
+        </CartLink>
       </RightSection>
     </HeaderWrapper>
   );
@@ -102,10 +106,22 @@ const HeaderWrapper = styled.header`
   ${queries.tabletLandscape} {
     height: auto;
   }
+  ${queries.tablet} {
+    height: auto;
+    margin: ${(props) =>
+      props.className === "home" ? `11px 37px 0px 20px` : `0px 0px 0px 0px`};
+  }
+  ${queries.smallMobile} {
+    height: auto;
+    margin: ${(props) =>
+      props.className === "home" ? `6px 19px 0px 10px` : `0px 0px 0px 0px`};
+  }
 `;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
+
 const HeaderTitle = styled.p`
   background-image: linear-gradient(
     ${angles.angle60},
@@ -126,6 +142,9 @@ const HeaderTitle = styled.p`
   letter-spacing: ${letterSpacing.space0};
   margin: ${(props) =>
     props.className === "home" ? `15px auto 14px 7px` : `14px auto 13px 45px`};
+  ${queries.tablet} {
+    margin-right: 0px;
+  }
 `;
 
 const RightSection = styled.div`
@@ -184,6 +203,10 @@ const CreateAccount = styled.p`
   letter-spacing: ${letterSpacing.space0_5};
   line-height: ${sizes.size19};
   text-align: right;
+  ${queries.tablet} {
+    margin: ${(props) =>
+      props.className === "home" ? `30px 20px 40px 0` : `28px 43px 23px 0`};
+  }
 `;
 
 const Logout = styled.p`
@@ -216,6 +239,17 @@ const VertLine = styled.div`
     props.className === "home" ? `12px 0px 33px 0` : `18px 0 18.23px 0`};
 `;
 
+const CartLink = styled(Link)`
+  text-decoration: none;
+`;
+
+const CartContainer = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
 const CartLogo = styled.img`
   margin: ${(props) =>
     props.className === "home"
@@ -231,13 +265,18 @@ const CartLogo = styled.img`
     margin-left: 10px;
     margin-right: 10px;
   }
+  ${queries.tablet} {
+    margin: ${(props) =>
+      props.className === "home"
+        ? `20px 5px 15px 10px`
+        : `23px 24px 20px 39.5px`};
+  }
 `;
 
 const Cart = styled.p`
   margin: ${(props) =>
     props.className === "home" ? `29px 0 41px 0` : `27px 67px 26px 0`};
   height: ${(props) => (props.className === "home" ? `19px` : `17px`)};
-  width: ${(props) => (props.className === "home" ? `37px` : `32px`)};
   color: ${(props) =>
     props.className === "home"
       ? `${colors.white_ffffff}`
@@ -256,5 +295,18 @@ const Cart = styled.p`
   ${queries.tabletLandscape} {
     margin-left: 10px;
     margin-right: 10px;
+  }
+  ${queries.tablet} {
+    margin: ${(props) =>
+      props.className === "home" ? `26px 0 16px 0` : `27px 67px 26px 0`};
+    color: ${(props) =>
+      props.className === "home"
+        ? `${colors.black_000000}`
+        : `${colors.pink_fda5a3}`};
+    height: ${(props) => (props.className === "home" ? `15px` : `17px`)};
+    line-height: ${(props) =>
+      props.className === "home" ? `15px` : `${sizes.size17}`};
+    font-size: ${(props) =>
+      props.className === "home" ? `11px` : `${sizes.size12}`};
   }
 `;

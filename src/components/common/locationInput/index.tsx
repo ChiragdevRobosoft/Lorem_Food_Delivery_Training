@@ -4,12 +4,8 @@ import { colors, fontFamilies, sizes } from "../../../variables";
 import pinIcon from "./../../../assets/common/foodSearchBox/icn_pin.png";
 import gpsIcon from "./../../../assets/common/foodSearchBox/icn_gps_indicator.png";
 import data from "../../../components/common/constants.json";
-
-interface locationInputProps {
-  className: string;
-  locationVal?: string;
-  setLocationVal?: React.Dispatch<React.SetStateAction<string>>;
-}
+import { queries } from "../breakpoints";
+import { locationInputProps } from "../interfaces";
 
 const LocationInput: FC<locationInputProps> = ({
   className,
@@ -43,6 +39,12 @@ const Locationholder = styled.div`
   width: ${(props) => (props.className === "home" ? `338px` : `283px`)};
   border-radius: ${(props) => (props.className === "home" ? `10px` : `4px`)};
   margin: 0;
+  ${queries.tablet} {
+    width: ${(props) => (props.className === "home" ? `270px` : `283px`)};
+  }
+  ${queries.smallMobile} {
+    width: ${(props) => (props.className === "home" ? `203px` : `283px`)};
+  }
 `;
 
 const Location = styled.input`
@@ -90,6 +92,12 @@ const Location = styled.input`
     line-height: ${(props) =>
       props.className === "home" ? `${sizes.size19}` : `${sizes.size17}`};
   }
+  ${queries.tablet} {
+    width: ${(props) => (props.className === "home" ? `270px` : `283px`)};
+  }
+  ${queries.smallMobile} {
+    width: ${(props) => (props.className === "home" ? `203px` : `283px`)};
+  }
 `;
 
 const LocBtn = styled.button`
@@ -103,4 +111,16 @@ const LocBtn = styled.button`
   height: 20px;
   width: 20px;
   border: none;
+  ${queries.tablet} {
+    top: ${(props) => (props.className === "home" ? `24px` : `16px`)};
+    right: ${(props) => (props.className === "home" ? `10px` : `15px`)};
+    height: 20px;
+    width: 20px;
+  }
+  ${queries.smallMobile} {
+    top: ${(props) => (props.className === "home" ? `12px` : `16px`)};
+    right: ${(props) => (props.className === "home" ? `5px` : `15px`)};
+    height: 20px;
+    width: 20px;
+  }
 `;

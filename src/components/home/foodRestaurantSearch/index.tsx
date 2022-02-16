@@ -20,6 +20,7 @@ import RegisterSuccess from "../../../containers/welcome";
 import Verified from "../../../containers/verified";
 import PasswordSuccess from "../../../containers/password-success";
 import { queries } from "../../common/breakpoints";
+import Label from "../../common/label";
 
 const FoodRestaurantSearch = () => {
   const [open, setOpen] = useState(false);
@@ -59,9 +60,9 @@ const FoodRestaurantSearch = () => {
       </Content>
       <ScrollComp>
         <Scroll src={mouseScroll} alt="mouse-scroll" />
-        <ScrollName>
-          {data.homeTexts.foodRestaurantSearch.scrollText}
-        </ScrollName>
+        <ScrollNameLabel
+          content={data.homeTexts.foodRestaurantSearch.scrollText}
+        />
       </ScrollComp>
       {open && (
         <Login
@@ -160,7 +161,16 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
+  width: 50%;
   margin: auto 32.5% 176px 17.5%;
+  ${queries.tablet} {
+    width: 98%;
+    margin: auto auto 105px auto;
+  }
+  ${queries.smallMobile} {
+    width: 98%;
+    margin: auto auto 50px auto;
+  }
 `;
 
 const Heading = styled.p`
@@ -192,9 +202,9 @@ const Heading = styled.p`
     margin-bottom: 33px;
   }
   ${queries.tablet} {
-    font-size: 20px;
-    line-height: 43px;
-    margin-bottom: 23px;
+    font-size: 18px;
+    line-height: 40px;
+    margin-bottom: 20px;
   }
 `;
 const Headingspan = styled.span`
@@ -205,19 +215,38 @@ const ScrollComp = styled.div`
   margin: 0 auto 38px auto;
   height: 77px;
   width: 119px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  ${queries.tablet} {
+    height: 62px;
+    width: 95px;
+  }
+  ${queries.smallMobile} {
+    height: 23px;
+    width: 36px;
+  }
 `;
 
 const Scroll = styled.img`
-  margin: 0 43.82px 10px 43.18px;
+  margin: 0 auto 10px auto;
   height: 49px;
   width: 32px;
+  ${queries.tablet} {
+    height: 39px;
+    width: 26px;
+    margin: 0 auto 8px auto;
+  }
+  ${queries.smallMobile} {
+    height: 15px;
+    width: 10px;
+    margin: 0 auto 3px auto;
+  }
 `;
 
-const ScrollName = styled.p`
+const ScrollNameLabel = styled(Label)`
   margin: 0 0.45px 0 0;
   height: 18px;
-  width: 118;
+  //width: 118;
   font-size: ${sizes.size13};
   opacity: ${opacity.opacity0_66};
   font-family: ${fontFamilies.fontFamilyOsRegular};

@@ -4,27 +4,22 @@ import { colors, sizes, fontFamilies, letterSpacing } from "../../../variables";
 import Searchpath from "../../common/Searchpath";
 import data from "../../common/constants.json";
 import Label from "../../common/label";
-import { useForm, Controller } from "react-hook-form";
 import { CartData } from "../../common/CartDataProvider";
 import InputField from "../../common/textbox";
 import { foodItemProps } from "../../common/interfaces";
 import CartCard from "../../common/CartCard";
 import RadioButton from "./radioButton";
 import Buttons from "../../common/button";
+import { queries } from "../../common/breakpoints";
 
 const ProceedPayment = () => {
-  const { register, handleSubmit, control, reset } = useForm();
-  const [cartItems, setCartItems] = useState(data.cartContents.myCart);
   const [radioButtons, setRadioButtons] = useState({
     userCode: false,
     bestOffers: true,
   });
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    setCartItems([]);
-  };
-  const { details, setDetails } = useContext(CartData);
+  const { cartDetails, setCartDetails } = useContext(CartData);
 
-  let totalCost = details.reduce(
+  let totalCost = cartDetails.reduce(
     (total: number, foodItem: foodItemProps) =>
       Math.round(
         foodItem.cost * foodItem.quantity + (total * 100) / 100
@@ -32,8 +27,8 @@ const ProceedPayment = () => {
     0
   );
 
-  let fee = details.length === 0 ? 0 : (10 * 100) / 100;
-  let discount = details.length === 0 ? 0 : 12.24;
+  let fee = cartDetails.length === 0 ? 0 : (10 * 100) / 100;
+  let discount = cartDetails.length === 0 ? 0 : 12.24;
   let costToPay = (totalCost + fee - discount).toFixed(2);
   const handleRadioClick = (e: React.MouseEvent<HTMLInputElement>) => {
     if (e.currentTarget.id === "userCode" && radioButtons.userCode === true) {
@@ -62,11 +57,9 @@ const ProceedPayment = () => {
             <DeliveryEstimationLabel content="Estimated Delivery time - 60 - 80 min" />
             <StepContent>
               <ItemList>
-                {data.cartCardsDetails?.map(
-                  (item: foodItemProps, index: number) => {
-                    return <CartCard item={item} key={index} />;
-                  }
-                )}
+                {cartDetails?.map((item: foodItemProps, index: number) => {
+                  return <CartCard item={item} key={index} />;
+                })}
               </ItemList>
               <CookingInstructionTitle
                 content={data.cartData.cookingInstruction}
@@ -157,6 +150,21 @@ const PageSection = styled.div`
   justify-content: space-between;
   gap: 40px;
   padding-bottom: 72px;
+  ${queries.tabletLandscape} {
+    min-height: 674px;
+    padding-top: 58px;
+    gap: 32px;
+  }
+  ${queries.tablet} {
+    min-height: 506px;
+    padding-top: 43px;
+    gap: 24px;
+  }
+  ${queries.smallMobile} {
+    min-height: 253px;
+    padding-top: 22px;
+    gap: 12px;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -169,11 +177,29 @@ const ContentContainer = styled.div`
   padding: 0;
   margin-left: auto;
   margin-right: auto;
+  ${queries.tabletLandscape} {
+    gap: 31px;
+  }
+  ${queries.tablet} {
+    gap: 23px;
+  }
+  ${queries.smallMobile} {
+    gap: 11px;
+  }
 `;
 
 const ProgressSection = styled.div`
   height: 55px;
   width: 66%;
+  ${queries.tabletLandscape} {
+    height: 44px;
+  }
+  ${queries.tablet} {
+    height: 33px;
+  }
+  ${queries.smallMobile} {
+    height: 17px;
+  }
 `;
 
 const CartSection = styled.div`
@@ -181,9 +207,19 @@ const CartSection = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 23px;
   box-sizing: border-box;
+  ${queries.tabletLandscape} {
+    gap: 18px;
+  }
+  ${queries.tablet} {
+    gap: 14px;
+  }
+  ${queries.smallMobile} {
+    gap: 7px;
+  }
 `;
 
 const StepsSection = styled.div`
@@ -191,6 +227,15 @@ const StepsSection = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  ${queries.tabletLandscape} {
+    width: 507px;
+  }
+  ${queries.tablet} {
+    width: 381px;
+  }
+  ${queries.smallMobile} {
+    width: 191px;
+  }
 `;
 
 const StepTitleLabel = styled(Label)`
@@ -200,6 +245,21 @@ const StepTitleLabel = styled(Label)`
   font-size: ${sizes.size22};
   letter-spacing: ${letterSpacing.space0};
   line-height: ${sizes.size30};
+  ${queries.tabletLandscape} {
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+  }
+  ${queries.tablet} {
+    height: 18px;
+    line-height: 18px;
+    font-size: 13px;
+  }
+  ${queries.smallMobile} {
+    height: 9px;
+    line-height: 9px;
+    font-size: 7px;
+  }
 `;
 
 const DeliveryEstimationLabel = styled(Label)`
@@ -208,6 +268,24 @@ const DeliveryEstimationLabel = styled(Label)`
   font-size: 12px;
   line-height: 17px;
   margin-top: 10px;
+  ${queries.tabletLandscape} {
+    height: 14px;
+    line-height: 14px;
+    font-size: 10px;
+    margin-top: 8px;
+  }
+  ${queries.tablet} {
+    height: 10px;
+    line-height: 10px;
+    font-size: 7px;
+    margin-top: 6px;
+  }
+  ${queries.smallMobile} {
+    height: 5px;
+    line-height: 5px;
+    font-size: 4px;
+    margin-top: 3px;
+  }
 `;
 
 const StepContent = styled.div`
@@ -218,7 +296,7 @@ const StepContent = styled.div`
   box-sizing: border-box;
   margin-top: 17px;
   border-radius: 6px;
-  background-color: ${colors.white_ffffff}
+  background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 `;
 

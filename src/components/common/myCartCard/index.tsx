@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
@@ -7,20 +7,13 @@ import {
   fontFamilies,
   angles,
   letterSpacing,
+  links,
 } from "../../../variables";
-import data from "../../common/constants.json";
-import Label from "../../common/label";
-import Buttons from "../../common/button";
-
-interface MyCartCardProps {
-  info: {
-    id: string;
-    restaurantName: string;
-    address: string;
-    orderDetails: string;
-  };
-  index: number;
-}
+import data from "../constants.json";
+import Label from "../label";
+import Buttons from "../button";
+import { queries } from "../breakpoints";
+import { MyCartCardProps } from "../interfaces";
 
 const MyCartCard: FC<MyCartCardProps> = ({ info, index }) => {
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -29,14 +22,10 @@ const MyCartCard: FC<MyCartCardProps> = ({ info, index }) => {
   return (
     <Cartcard key={index}>
       <RestaurantName content={info.restaurantName} />
-      <RemoveButton
-        name={data.cartData.remove}
-        onClick={handleClick}
-        id={info.id}
-      />
+      <RemoveButton name={data.cartData.remove} />
       <RestaurantAddress content={info.address} />
       <OrderDetails content={info.orderDetails} />
-      <Link to={""}>
+      <Link to={`/${links.proceedPayment}`}>
         <ProceedButton name={data.cartContents.proceed} />
       </Link>
     </Cartcard>
@@ -55,6 +44,16 @@ const Cartcard = styled.div`
   background-color: ${colors.white_ffffff};
   box-shadow: 0 2px 10px 0 ${colors.black_000000_1};
   box-sizing: border-box;
+  ${queries.tablet} {
+    height: 103px;
+    width: 182px;
+    padding: 17px 12px 13px 12px;
+  }
+  ${queries.smallMobile} {
+    height: 52px;
+    width: 91px;
+    padding: 8px 6px 7px 6px;
+  }
 `;
 
 const RemoveButton = styled(Buttons)`
@@ -71,12 +70,38 @@ const RemoveButton = styled(Buttons)`
   top: 30px;
   cursor: pointer;
   box-shadow: none;
+  ${queries.tablet} {
+    top: 18px;
+    right: 12px;
+    height: 9px;
+    width: 26px;
+    line-height: 9px;
+    font-size: 7px;
+  }
+  ${queries.smallMobile} {
+    top: 9px;
+    right: 6px;
+    height: 5px;
+    width: 13px;
+    line-height: 5px;
+    font-size: 4px;
+  }
 `;
 
 const RestaurantName = styled(Label)`
   color: ${colors.teal_223136};
   font-family: ${fontFamilies.fontFamilyOsSemiBold};
   letter-spacing: ${letterSpacing.space0};
+  ${queries.tablet} {
+    line-height: 13px;
+    height: 13px;
+    font-size: 10px;
+  }
+  ${queries.smallMobile} {
+    line-height: 7px;
+    height: 7px;
+    font-size: 5px;
+  }
 `;
 
 const RestaurantAddress = styled(Label)`
@@ -87,6 +112,16 @@ const RestaurantAddress = styled(Label)`
   line-height: ${sizes.size17};
   letter-spacing: ${letterSpacing.space0};
   margin-top: "4px";
+  ${queries.tablet} {
+    line-height: 10px;
+    height: 10px;
+    font-size: 7px;
+  }
+  ${queries.smallMobile} {
+    line-height: 5px;
+    height: 5px;
+    font-size: 3px;
+  }
 `;
 
 const OrderDetails = styled(Label)`
@@ -97,6 +132,16 @@ const OrderDetails = styled(Label)`
   line-height: ${sizes.size17};
   letter-spacing: ${letterSpacing.space0};
   margin-top: "7px";
+  ${queries.tablet} {
+    line-height: 10px;
+    height: 10px;
+    font-size: 7px;
+  }
+  ${queries.smallMobile} {
+    line-height: 5px;
+    height: 5px;
+    font-size: 4px;
+  }
 `;
 
 const ProceedButton = styled(Buttons)`
@@ -111,7 +156,6 @@ const ProceedButton = styled(Buttons)`
   position: absolute;
   bottom: 22px;
   right: 21px;
-  top: 120px;
   height:30px;
   width:111px;
   border-radius:15px;
@@ -120,5 +164,21 @@ const ProceedButton = styled(Buttons)`
   font-size:14px;
   line-height:19px;
   border:1px solid ${colors.pink_e21143_09};
+  ${queries.tablet} {
+    bottom: 13px;
+    right: 13px;
+    height: 18px;
+    width: 67px;
+    line-height: 11px;
+    font-size: 8px;
+  }
+  ${queries.smallMobile} {
+    bottom: 7px;
+    right: 7px;
+    height: 9px;
+    width: 34px;
+    line-height: 6px;
+    font-size: 4px;
+  }
 }
 `;

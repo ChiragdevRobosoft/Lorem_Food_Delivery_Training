@@ -91,3 +91,32 @@ export interface DeliveryRatingProps {
   onClick?: React.MouseEventHandler<HTMLInputElement>;
   id?: string;
 }
+
+export interface MyCartCardProps {
+  info: {
+    id: string;
+    restaurantName: string;
+    address: string;
+    orderDetails: string;
+  };
+  index: number;
+}
+
+export interface headerProps {
+  setShowLogin?: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowCreateAccount?: React.Dispatch<React.SetStateAction<boolean>>;
+  className: string;
+}
+
+export interface locationInputProps {
+  className: string;
+  locationVal?: string;
+  setLocationVal?: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface SearchBoxProps {
+  className: string;
+  searchVal?: string;
+  locationVal?: string;
+  setSearchVal?: React.Dispatch<React.SetStateAction<string>>;
+}
