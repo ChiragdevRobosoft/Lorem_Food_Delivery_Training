@@ -19,12 +19,13 @@ import { queries } from "../common/breakpoints";
 
 const RestaurantDetails = () => {
   const restaurant = JSON.parse(localStorage.getItem("restaurant") || "{}");
+  const path = [...data.searchPath.greatBreakfasts, restaurant.name];
   return (
     <Wrapper>
       <Header className="loggedin" />
       <Foodsearch pageType="screen" />
       <MainContainer>
-        <Searchpath path={data.searchPath.menu} className="grey-dark" />
+        <Searchpath path={path} className="grey-dark" />
         <BgImageContainer>
           <BgImage src={BgImg} />
         </BgImageContainer>

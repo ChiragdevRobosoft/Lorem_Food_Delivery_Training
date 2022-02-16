@@ -4,7 +4,6 @@ import view_active from "../../../assets/view_active.png";
 import view_inactive from "../../../assets/view_inactive.png";
 import Label from "../label";
 import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
-import { DeliveryRatingWithReverseColor } from "../../../stories/deliveryRating.stories";
 const InputField = ({
   name,
   isPassword,
@@ -31,7 +30,7 @@ const InputField = ({
       <Textbox
         type={!viewState && isPassword ? "password" : "text"}
         name={name}
-        {...(register(name) ? { ...register(name) } : null)}
+        {...(register ? { ...register(name) } : null)}
         message={message}
         onFocus={() => {
           changeFocusState(true);
