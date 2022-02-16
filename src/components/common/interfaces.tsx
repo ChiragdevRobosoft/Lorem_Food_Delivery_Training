@@ -85,6 +85,39 @@ export interface DeliveryRatingProps {
   id?: string;
 }
 
+export interface ImageProps {
+  className?: string;
+  src: string;
+  onClick?: React.MouseEventHandler<HTMLImageElement>;
+  id?: string;
+}
+import { CSSProperties } from "styled-components";
+export interface InputFieldProps {
+  name: string;
+  isPassword: boolean;
+  style?: CSSProperties;
+  register?: any;
+  message?: string;
+}
+
+export interface labelProps {
+  content: string | number;
+  className?: string;
+  htmlFor?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+}
+
+export interface buttonProps {
+  name: string;
+  className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  image?: string;
+  id?: string;
+  type?: "submit" | "reset" | "button";
+  color?: string;
+  boxShadow?: string;
+  border?: string;
+}
 export interface SearchpathProps {
   path: string[];
   className?: "grey-light" | "grey-dark";

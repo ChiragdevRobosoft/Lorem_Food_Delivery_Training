@@ -1,13 +1,8 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { sizes, colors, fontFamilies } from "../../../variables";
+import { labelProps } from "../interfaces";
 
-interface labelProps {
-  content: string | number;
-  className?: string;
-  htmlFor?: string;
-  onClick?: React.MouseEventHandler<HTMLElement>;
-}
 const Label: FC<labelProps> = (props) => {
   return (
     <LabelText

@@ -1,9 +1,14 @@
 import styled, { CSSProperties } from "styled-components";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import view_active from "../../../assets/view_active.png";
 import view_inactive from "../../../assets/view_inactive.png";
 import Label from "../label";
 import { sizes, colors, fontFamilies, fontWeight } from "../../../variables";
+<<<<<<< HEAD
+import { InputFieldProps } from "../interfaces";
+
+const InputField: FC<InputFieldProps> = (props) => {
+=======
 const InputField = ({
   name,
   isPassword,
@@ -17,6 +22,7 @@ const InputField = ({
   register?: any;
   message?: string;
 }) => {
+>>>>>>> 8174f1dcdc696f535b5328d64d29ba32483b2ada
   const [viewState, changeViewState] = useState(false);
   const [focusState, changeFocusState] = useState(false);
   const handleViewIconClick = () => {
@@ -26,12 +32,19 @@ const InputField = ({
     if (e.target.value === "") changeFocusState(false);
   };
   return (
-    <FormContainer style={style}>
+    <FormContainer style={props.style}>
       <Textbox
+<<<<<<< HEAD
+        type={!viewState && props.isPassword ? "password" : "text"}
+        name={props.name}
+        {...(props.register ? { ...props.register(props.name) } : null)}
+        message={props.message}
+=======
         type={!viewState && isPassword ? "password" : "text"}
         name={name}
         {...(register ? { ...register(name) } : null)}
         message={message}
+>>>>>>> 8174f1dcdc696f535b5328d64d29ba32483b2ada
         onFocus={() => {
           changeFocusState(true);
         }}
@@ -39,11 +52,11 @@ const InputField = ({
           handleFocusChange(e);
         }}
         className={focusState ? "moveUp" : ""}
-        style={style}
+        style={props.style}
       />
-      {isPassword ? (
+      {props.isPassword ? (
         <>
-          <Label content={name} className="form-label" />
+          <Label content={props.name} className="form-label" />
           <ViewIcon
             onClick={(e) => {
               handleViewIconClick();
@@ -53,9 +66,11 @@ const InputField = ({
           ></ViewIcon>
         </>
       ) : (
-        <Label content={name} className="form-label" />
+        <Label content={props.name} className="form-label" />
       )}
-      {message !== undefined ? <p className="error">{message}</p> : null}
+      {props.message !== undefined ? (
+        <p className="error">{props.message}</p>
+      ) : null}
     </FormContainer>
   );
 };

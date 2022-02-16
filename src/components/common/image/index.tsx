@@ -1,12 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { ImageProps } from "../../common/interfaces";
 
-interface ImageProps {
-  className?: string;
-  src: string;
-  onClick?: React.MouseEventHandler<HTMLImageElement>;
-  id?: string;
-}
 const Image: FC<ImageProps> = (props) => {
   return (
     <ImageSource
